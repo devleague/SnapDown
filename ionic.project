@@ -1,4 +1,8 @@
 {
   "name": "grannygram",
-  "app_id": ""
+  "app_id": "5307940a",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ]
 }
