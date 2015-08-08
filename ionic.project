@@ -1,6 +1,5 @@
 {
   "name": "grannygram",
-<<<<<<< HEAD
   "app_id": "",
   "gulpStartupTasks": [
     "sass",
@@ -9,11 +8,5 @@
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
-=======
-  "app_id": "5307940a",
-  "gulpStartupTasks": [
-    "sass",
-    "watch"
->>>>>>> 38296533e11be2546dfd191b2c242954de0f36e9
   ]
 }
