@@ -17,6 +17,19 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+.feed {
+  height: 100px;
+  width: 300px;
+  background-color: blue;
+  margin: 0 auto;
+}
+
+.startChallenge {
+  height: 300px;
+  width: 300px;
+  background-color: red;
+  margin: 0 auto;
+}
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
