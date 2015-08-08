@@ -1,4 +1,3 @@
-
 npm install install -g ionic cordova
 
 npm install
