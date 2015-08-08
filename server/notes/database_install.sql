@@ -1,1 +1,4 @@
-database_install.sql
+CREATE DATABASE grannygram1;
+
+-- \c grannygram1
+

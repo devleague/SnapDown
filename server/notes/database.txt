@@ -24,11 +24,3 @@ kill server
 
 -----
 
-CREATE DATABASE grannygram1;
-
-\c grannygram1
-
-CREATE TABLE pictures
-{
-  id serial,
-}
