@@ -11,16 +11,6 @@ var sequelize = require('sequelize');
 console.log(publicDir);
 app.use(express.static(publicDir));
 
-app.get('/login', function (req, res) {
-  res.redirect('/templates/login.html');
-});
-
-
-
-app.post('/api/db/add-to-user',function(req,res){
-  console.log(req.body.data.email);
-
-});
 
 console.log('Success!  Server showing %s listening at http://%s:%s', publicDir, hostname, port);
 app.listen(port, hostname);
