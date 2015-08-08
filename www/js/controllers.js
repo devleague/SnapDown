@@ -53,4 +53,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('camera-controller', function($scope, Camera) {
+
+    $scope.getPhoto = function() {
+      Camera.getPicture().then(function(imageURI) {
+        console.log(imageURI);
+      }, function(err) {
+        console.err(err);
+      });
+    };
 });
