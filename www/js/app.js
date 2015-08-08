@@ -25,18 +25,30 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+
+  .state('app.landing',{
+    url: '/landing',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
+      'menuContent' :{
+        templateUrl: 'templates/landing.html',
+        // controller: 'landing-controller'
+      }
+    }
+  })
+
+  .state('app.select-challenger',{
+    url: '/select-challenger',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/select-challenger.html',
+        // controller: 'landing-controller'
       }
     }
   })
@@ -51,14 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
+
     .state('app.playlists', {
       url: '/playlists',
       views: {
