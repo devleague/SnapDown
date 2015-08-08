@@ -8,3 +8,8 @@ installs:
 
 apt-get install nodejs
 apt-get install postgresql
+
+npm install --save sequelize
+npm install --save pg-hstore
+npm install --save pg
+npm install --save express

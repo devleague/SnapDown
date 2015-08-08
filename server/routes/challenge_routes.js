@@ -50,6 +50,7 @@ router.post('/', function(req,res) {
   }).then(function(result) { //may be unnecessary
 
     res.status(200).json(result);
+  });
 });
 
 router.put('/:id', function(req,res) {
@@ -128,3 +129,5 @@ router.delete('/:id', function(req,res) {
     }
   });
 });
+
+module.exports = router;

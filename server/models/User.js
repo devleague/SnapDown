@@ -21,11 +21,14 @@ module.exports = function(sequelize, DataTypes) {
     tableName: "users",
     classMethods: {
 
-      User.hasMany(models.Image);
-      User.hasMany(models.Challenge);
-      User.hasMany(models.ChallengeImage);
-      User.hasMany(models.ChallengeUser);
-      User.hasMany(models.UserFriend);
+      associate : function(models){
+
+        User.hasMany(models.Image);
+        User.hasMany(models.Challenge);
+        User.hasMany(models.ChallengeImage);
+        User.hasMany(models.ChallengeUser);
+        User.hasMany(models.UserFriend);
+      }
     }
   });
 

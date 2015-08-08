@@ -2,8 +2,14 @@
 
 var express = require('express');
 var app = express();
-var db = require('./models');
-var routes = require('./routes/routes');
+var db = require('../models');
+// var routes = require('../routes/routes');
+var challenge_routes = require('../routes/challenge_routes');
+var challenge_image_routes = require('../routes/challenge_image_routes');
+var challenge_user_routes = require('../routes/challenge_user_routes');
+var image_routes = require('../routes/image_routes');
+var user_routes = require('../routes/user_routes');
+var user_friend_routes = require('../routes/user_friend_routes');
 // var bodyParser = require('body-parser');
 // var session = require('express-session');
 // var passport = require('passport');
@@ -56,5 +62,21 @@ var routes = require('./routes/routes');
 //       });
 //   }
 // ));
+//
+// app.use('/api', routes);
+app.use('/api/challenges', challenge_routes);
+app.use('/api/challenge_images', challenge_image_routes);
+app.use('/api/challenge_users', challenge_user_routes);
+app.use('/api/images', image_routes);
+app.use('/api/users', user_routes);
+app.use('/api/user_friends', user_friend_routes);
 
-app.use('/api', routes);
+var server = app.listen(3000, function() {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('App listening at http://%s:%s', host, port);
+
+  db.sequelize.sync();
+});

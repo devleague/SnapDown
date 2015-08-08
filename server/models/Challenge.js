@@ -18,8 +18,10 @@ module.exports = function(sequelize, DataTypes) {
     underscored: true,
     tableName: "challenges",
     classMethods: {
+      associate : function(models){
 
-      Challenge.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
+        Challenge.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
+      }
     }
   });
 
