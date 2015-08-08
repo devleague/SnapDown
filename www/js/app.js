@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 // ezfb = easy facebook authentication
 // hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers','ezfb','hljs'])
+angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
