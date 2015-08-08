@@ -48,7 +48,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent' :{
         templateUrl: 'templates/select-challenger.html',
-        // controller: 'landing-controller'
+        // controller: 'select-challenger-controller'
       }
     }
   })
