@@ -25,18 +25,80 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+
+  .state('app.landing',{
+    url: '/landing',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
+      'menuContent' :{
+        templateUrl: 'templates/landing.html',
+        // controller: 'landing-controller'
+      }
+    }
+  })
+
+  .state('app.select-challenger',{
+    url: '/select-challenger',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/select-challenger.html',
+        // controller: 'select-challenger-controller'
+      }
+    }
+  })
+
+  .state('app.challenge-in-progress',{
+    url: '/challenge-in-progress',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/challenge-in-progress.html',
+        // controller: 'challenge-in-progress-controller'
+      }
+    }
+  })
+
+   .state('app.challenge-complete',{
+    url: '/challenge-complete',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/challenge-complete.html',
+        // controller: 'challenge-complete-controller'
+      }
+    }
+  })
+
+  .state('app.detail-view',{
+    url: '/detail-view',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/detail-view.html',
+        // controller: 'detail-view-controller'
+      }
+    }
+  })
+
+  .state('app.user-challenged',{
+    url: '/user-challenged',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/user-challenged.html',
+        // controller: 'user-challenged-controller'
+      }
+    }
+  })
+
+  .state('app.user-feed',{
+    url: '/user-feed',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/user-feed.html',
+        // controller: 'user-feed-controller'
       }
     }
   })
@@ -51,33 +113,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });
