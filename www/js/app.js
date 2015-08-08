@@ -83,6 +83,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.user-challenged',{
+    url: '/user-challenged',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/user-challenged.html',
+        // controller: 'user-challenged-controller'
+      }
+    }
+  })
+
+  .state('app.user-feed',{
+    url: '/user-feed',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/user-feed.html',
+        // controller: 'user-feed-controller'
+      }
+    }
+  })
+
   .state('app.camera',{
     url: '/camera',
     views: {
