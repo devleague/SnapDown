@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('camera-controller', function($scope, Camera) {
+.controller('camera-controller', function($scope, Camera,$location) {
 
 
 
@@ -8,6 +8,7 @@ angular.module('starter')
   $scope.takePicture = function(){
 
   };
+
 
   $scope.getPhoto = function() {
     Camera.getPicture({
@@ -18,8 +19,9 @@ angular.module('starter')
     }).then(function(imageURI) {
       console.log(imageURI);
       if(imageURI){
-
+        console.log('we have imageURI')
         $scope.lastPhoto = imageURI;
+        $location.path('app/select-challenger');
       }
     }, function(err) {
       console.err(err);
