@@ -1,5 +1,15 @@
 <ion-view view-title="camera">
   <ion-content>
     <h1>camera</h1>
+    <div class="list card">
+      <div class="item item-image">
+        <!-- <img src="{{pictureURL}}" alt=""> -->
+        <img src="{{lastPhoto}}" alt="{{pictureURL}}">
+      </div>
+    </div>
+    <div class="padding">
+     <button ng-click="getPhoto()" class="button button-block button-calm">Take Photo</button>
+      <!-- <img ng-src="{{lastPhoto}}" style="max-width: 100%"> -->
+    </div>
   </ion-content>
 </ion-view>
