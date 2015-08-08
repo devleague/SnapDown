@@ -1,0 +1,34 @@
+CLI
+
+sudo su -c 'su postgres -c psql'
+
+-----
+
+
+Database server startup: http://www.postgresql.org/docs/9.3/static/server-start.html
+
+start server
+
+  [sudo] service start postgresql
+
+-----
+
+kill server
+
+  [sudo] service stop postgresql
+
+  OR
+
+  ps fax | grep postgres [get pid]
+  kill -9 [pid]
+
+-----
+
+CREATE DATABASE grannygram1;
+
+\c grannygram1
+
+CREATE TABLE pictures
+{
+  id serial,
+}
