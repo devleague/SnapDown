@@ -21,23 +21,20 @@
         <ion-item menu-close ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
         <ion-item menu-close href="#/app/camera">
           camera
         </ion-item>
-         <ion-item menu-close href="#/app/landing">
+         <ion-item menu-close ui-sref="app.landing">
           landing
         </ion-item>
-         <ion-item menu-close href="#/app/select-challenger">
+         <ion-item menu-close ui-sref="app.select-challenger">
           select-challenger
+        </ion-item>
+        <ion-item menu-close ui-sref="app.challenge-in-progress">
+          challenge-in-progress
+        </ion-item>
+        <ion-item menu-close ui-sref="app.challenge-complete">
+          challenge-complete
         </ion-item>
       </ion-list>
     </ion-content>

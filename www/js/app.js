@@ -53,6 +53,36 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.challenge-in-progress',{
+    url: '/challenge-in-progress',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/challenge-in-progress.html',
+        // controller: 'challenge-in-progress-controller'
+      }
+    }
+  })
+
+   .state('app.challenge-complete',{
+    url: '/challenge-complete',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/challenge-complete.html',
+        // controller: 'challenge-complete-controller'
+      }
+    }
+  })
+
+  .state('app.detail-view',{
+    url: '/detail-view',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/detail-view.html',
+        // controller: 'detail-view-controller'
+      }
+    }
+  })
+
   .state('app.camera',{
     url: '/camera',
     views: {
@@ -63,26 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });
