@@ -15,6 +15,18 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+.feed {
+  height: 100px;
+  width: 300px;
+  background-color: blue;
+  margin: 0 auto; }
+
+.startChallenge {
+  height: 300px;
+  width: 300px;
+  background-color: red;
+  margin: 0 auto; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
