@@ -1,10 +1,16 @@
 <ion-view view-title="sms-send">
   <ion-content>
     <h1>Send an sms</h1>
+    <div>
+    <h3>phone</h3>
+      <div>
+      {{phoneNumber}}
+      </div>
+    </div>
 
     <form action="" name="send-sms">
-      <input name="phone_number" type="number">
-      <button name="submit_sms_button"></button>
+      Phone Number: <input name="phone_number" type="text">
+      <button ng-click="sms.sendMessage(messageInfo, successCallback, failureCallback)" name="submit_sms_button">Send</button>
     </form>
 
 
