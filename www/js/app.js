@@ -33,8 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-
+  
   .state('app.landing',{
     url: '/landing',
     views: {

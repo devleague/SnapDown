@@ -1,22 +1,30 @@
 var APP_ID = '611117305657317';
-var app = angular.module('plunker', ['ezfb', 'hljs'])
+var app = angular.module('starter.fb-auth', ['ezfb', 'hljs'])
   /**
    * APP_ID refers to Facebook App ID.  Used only for develop, must change before deploy
    * @type {Number}
    */
-
 .config(function(ezfbProvider) {
   ezfbProvider.setInitParams({
     appId: APP_ID
   });
 })
 
-.controller('MainCtrl', function($scope, ezfb, $window, $location, $q, $http) {
-
+.controller('FbAuthCtrl', function($scope, ezfb, $window, $location, $q, $http, $ionicModal) {
+  
+  // $ionicModal.fromTemplateUrl('templates/facebook-login.html', {
+  //   scope: $scope
+  // }).then(function(modal) {
+  //   $scope.fb_modal = modal;
+  // });
 
   updateLoginStatus()
     .then(updateApiCall);
   updateMe();
+
+  $scope.login = function() {
+    $scope.fb_modal.show();
+  };
 
   /**
    * Subscribe to 'auth.statusChange' event to respond to login/logout
@@ -120,6 +128,6 @@ var app = angular.module('plunker', ['ezfb', 'hljs'])
         // resList[1]: FB.api('/me/taggable_friends') response
         $scope.apiRes = resList;
       });
-
   }
+  
 });

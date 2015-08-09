@@ -1,1 +1,6 @@
 /* Empty. Add your own CSS if you like */
+.fb-icon{
+	height:64px;
+	width:64px;
+	background-image: url('../img/facebook29.png');
+}
