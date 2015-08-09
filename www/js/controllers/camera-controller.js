@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('camera-controller', function($scope, Camera, $state) {
+.controller('camera-controller', function($scope, Camera,$state) {
 
 
 
@@ -14,6 +14,7 @@ angular.module('starter')
   }
 
   ionic.Platform.ready(function(){
+    console.log($cordovaCamera)
 
     $scope.getPhoto = function() {
       console.log('taking pic',Camera)
@@ -24,7 +25,7 @@ angular.module('starter')
       .then(function(imageData) {
         if(imageData){
           var imageSrc = "data:image/jpeg;base64," + imageData;
-          $state.go('app.select-challenger',{imageURI: Camera});
+          $state.go('app.select-challenger',{imageURI: imageData});
         }
       }, function(err) {
         var imageSrc  = err;
