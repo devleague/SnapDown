@@ -1,14 +1,10 @@
 {
   "name": "grannygram",
 
-<<<<<<< HEAD
+
 
   "app_id": "",
-=======
-  "app_id": "f3ab00c6",
 
-
->>>>>>> feature/camera_options
 
   "gulpStartupTasks": [
     "sass",
