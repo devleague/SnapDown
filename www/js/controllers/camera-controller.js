@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('camera-controller', function($scope, Camera,$location) {
+.controller('camera-controller', function($scope, Camera,$state) {
 
 
 
@@ -9,23 +9,45 @@ angular.module('starter')
 
   };
 
+  $scope.changeView = function(){
+    $state.go('app.select-challenger',{imageURI: 'hello'});
+  }
 
-  $scope.getPhoto = function() {
-    Camera.getPicture({
-      quality: 75,
-      targetWidth: 320,
-      targetHeight: 320,
-      saveToPhotoAlbum: false
-    }).then(function(imageURI) {
-      console.log(imageURI);
-      if(imageURI){
-        console.log('we have imageURI')
-        $scope.lastPhoto = imageURI;
-        $location.path('app/select-challenger');
-      }
-    }, function(err) {
-      console.err(err);
-    });
-  };
+  ionic.Platform.ready(function(){
+    // console.log($cordovaCamera)
+
+    $scope.getPhoto = function() {
+      // console.log('taking pic',Camera)
+      Camera.getPicture({
+        quality: 50,
+        targetWidth: 512,
+        targetHeight: 512,
+        destinationType: 0,
+        encodingType: 0,
+        saveToPhotoAlbum: false
+      })
+      .then(function(imageData) {
+        if(imageData){
+          var imageSrc = "data:image/jpeg;base64," + imageData;
+          $state.go('app.select-challenger',{imageURI: imageData});
+        }
+        else{
+          $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
+        }
+      }, function(err) {
+        var imageSrc  = err;
+          $state.go('app.select-challenger',{imageURI: Camera.DestinationType});
+        })
+    };
+
+  })
+
+
+
+
+
+
+
+
 
 });
