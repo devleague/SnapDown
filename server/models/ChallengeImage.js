@@ -9,21 +9,18 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
-    user_id: DataTypes.INTEGER,
-    image_id: DataTypes.INTEGER,
-    challenge_id: DataTypes.INTEGER
+    s3_reference: DataTypes.STRING,
+    privacy_status: STRING
 
   },{
 
     underscored: true,
-    tableName: "challengeImages",
+    tableName: "challenge_images",
     classMethods: {
 
       associate : function(models){
 
-        ChallengeImage.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
-        ChallengeImage.belongsTo(models.Challenge, {foreignKey:"challenge_id", foreignKeyConstraint: true});
-        ChallengeImage.hasOne(models.Image, {foreignKey: "image_id"});
+        ChallengeImage.belongsTo(models.Challenger, {foreignKey:"challenger_id", foreignKeyConstraint: true});
       }
     }
   });

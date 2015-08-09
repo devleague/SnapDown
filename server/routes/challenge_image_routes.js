@@ -2,13 +2,13 @@
 
 var express = require('express');
 var router = express.Router();
-// var ChallengeImage = require('../models/ChallengeImage').ChallengeImage;
+var db = require('../models').ChallengeImage;
 
 router.get('/', function(req,res) {
 
   db.findAll()
 
-    .then(function(error, results) {
+    .then(function(results) {
 
       res.json(results);
     });
@@ -41,10 +41,9 @@ router.post('/', function(req,res) {
 
   db.create({
 
-    // user_id: req.body.user_id,
-    // start_at: req.body.start_at,
-    // expire_at: req.body.expire_at,
-    // name: req.body.name
+    user_id: req.body.user_id,
+    image_id: req.body.image_id,
+    challenge_id: req.body.challenge_id
 
   }).then(function(result) { //may be unnecessary
 
@@ -69,34 +68,27 @@ router.put('/:id', function(req,res) {
       res.send("Could not locate the requested resource.");
     }
 
-    // if(req.body.user_id !== undefined) {
+    var updateData = {};
 
-    //   result.dataValues.user_id = req.body.user_id;
-    // }
+    if(req.body.user_id !== undefined) {
 
-    // if(req.body.start_at !== undefined) {
+      updateData.user_id = req.body.user_id;
+    }
 
-    //   result.dataValues.start_at = req.body.start_at;
-    // }
+    if(req.body.image_id !== undefined) {
 
-    // if(req.body.expire_at !== undefined) {
+      updateData.image_id = req.body.image_id;
+    }
 
-    //   result.dataValues.expire_at = req.body.expire_at;
-    // }
+    if(req.body.challenge_id !== undefined) {
 
-    // if(req.body.name !== undefined) {
+      updateData.challenge_id = req.body.challenge_id;
+    }
 
-    //   result.dataValues.name = req.body.name;
-    // }
-
-    result.save({
-
-      // fields: ['user_id','start_at','expire_at','name']
-
-    }).then(function(result) {
+    result.updateAttributes(updateData).then(function(result) {
 
       res.status(200);
-      res.send(result);
+      res.json(result);
     });
   });
 });

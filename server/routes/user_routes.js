@@ -2,13 +2,13 @@
 
 var express = require('express');
 var router = express.Router();
-// var User = require('../models/User').User;
+var db = require('../models').User;
 
 router.get('/', function(req,res) {
 
   db.findAll()
 
-    .then(function(error, results) {
+    .then(function(results) {
 
       res.json(results);
     });
@@ -41,10 +41,12 @@ router.post('/', function(req,res) {
 
   db.create({
 
-    // user_id: req.body.user_id,
-    // start_at: req.body.start_at,
-    // expire_at: req.body.expire_at,
-    // name: req.body.name
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    facebook_id: req.body.facebook_id,
+    facebook_image_url: req.body.facebook_image_url,
+    email: req.body.email,
+    phone: req.body.phone
 
   }).then(function(result) { //may be unnecessary
 
@@ -69,34 +71,42 @@ router.put('/:id', function(req,res) {
       res.send("Could not locate the requested resource.");
     }
 
-    // if(req.body.user_id !== undefined) {
+    var updateData = {};
 
-    //   result.dataValues.user_id = req.body.user_id;
-    // }
+    if(req.body.first_name !== undefined) {
 
-    // if(req.body.start_at !== undefined) {
+      updateData.first_name = req.body.first_name;
+    }
 
-    //   result.dataValues.start_at = req.body.start_at;
-    // }
+    if(req.body.last_name !== undefined) {
 
-    // if(req.body.expire_at !== undefined) {
+      updateData.last_name = req.body.last_name;
+    }
 
-    //   result.dataValues.expire_at = req.body.expire_at;
-    // }
+    if(req.body.facebook_id !== undefined) {
 
-    // if(req.body.name !== undefined) {
+      updateData.facebook_id = req.body.facebook_id;
+    }
 
-    //   result.dataValues.name = req.body.name;
-    // }
+    if(req.body.facebook_image_url !== undefined) {
 
-    result.save({
+      updateData.facebook_image_url = req.body.facebook_image_url;
+    }
 
-      // fields: ['user_id','start_at','expire_at','name']
+    if(req.body.email !== undefined) {
 
-    }).then(function(result) {
+      updateData.email = req.body.email;
+    }
+
+    if(req.body.phone !== undefined) {
+
+      updateData.phone = req.body.phone;
+    }
+
+    result.updateAttributes(updateData).then(function(result) {
 
       res.status(200);
-      res.send(result);
+      res.json(result);
     });
   });
 });

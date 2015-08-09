@@ -3,13 +3,12 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenge;
-// var Challenge = require('../models/Challenge').Challenge;
 
 router.get('/', function(req,res) {
 
   db.findAll()
 
-    .then(function(error, results) {
+    .then(function(results) {
 
       res.json(results);
     });
@@ -70,34 +69,32 @@ router.put('/:id', function(req,res) {
       res.send("Could not locate the requested resource.");
     }
 
+    var updateData = {};
+
     if(req.body.user_id !== undefined) {
 
-      result.dataValues.user_id = req.body.user_id;
+      updateData.user_id = req.body.user_id;
     }
 
     if(req.body.start_at !== undefined) {
 
-      result.dataValues.start_at = req.body.start_at;
+      updateData.start_at = req.body.start_at;
     }
 
     if(req.body.expire_at !== undefined) {
 
-      result.dataValues.expire_at = req.body.expire_at;
+      updateData.expire_at = req.body.expire_at;
     }
 
     if(req.body.name !== undefined) {
 
-      result.dataValues.name = req.body.name;
+      updateData.name = req.body.name;
     }
 
-    result.save({
-
-      fields: ['user_id','start_at','expire_at','name']
-
-    }).then(function(result) {
+    result.updateAttributes(updateData).then(function(result) {
 
       res.status(200);
-      res.send(result);
+      res.json(result);
     });
   });
 });

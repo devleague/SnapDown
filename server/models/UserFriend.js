@@ -9,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
-    user_id: DataTypes.INTEGER,
-    friend_id: DataTypes.INTEGER
+    // user_id: DataTypes.INTEGER,
+    // friend_id: DataTypes.INTEGER
   },{
 
     underscored: true,
-    tableName: "userFriends",
+    tableName: "user_friends",
     classMethods: {
 
       associate : function(models){

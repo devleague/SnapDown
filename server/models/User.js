@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     facebook_image_url: DataTypes.STRING,
     email: DataTypes.STRING,
     phone: DataTypes.STRING
+
   },{
 
     underscored: true,
@@ -23,10 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        User.hasMany(models.Image);
-        User.hasMany(models.Challenge);
-        User.hasMany(models.ChallengeImage);
-        User.hasMany(models.ChallengeUser);
+        User.hasMany(models.Challenger);
         User.hasMany(models.UserFriend);
       }
     }

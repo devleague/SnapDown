@@ -1,8 +1,8 @@
 'use strict';
 
 var express = require('express');
-// var router = express.Router();
-var app = express();
+var router = express.Router();
+// var app = express();
 var challenge_routes = require('./challenge_routes');
 var challenge_image_routes = require('./challenge_image_routes');
 var challenge_user_routes = require('./challenge_user_routes');
@@ -26,11 +26,11 @@ var user_friend_routes = require('./user_friend_routes');
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/api/challenges', challenge_routes);
-app.use('/api/challenge_images', challenge_image_routes);
-app.use('/api/challenge_users', challenge_user_routes);
-app.use('/api/images', image_routes);
-app.use('/api/users', user_routes);
-app.use('/api/user_friends', user_friend_routes);
+router.use('/challenges', challenge_routes);
+router.use('/challenge_images', challenge_image_routes);
+router.use('/challenge_users', challenge_user_routes);
+router.use('/images', image_routes);
+router.use('/users', user_routes);
+router.use('/user_friends', user_friend_routes);
 
 module.exports = router;
