@@ -4,6 +4,12 @@
     <h1>Select Challenger</h1>
 
       <div>{{imageURI}}</div>
+      <button class="button button-block button-dark" ng-click="identifyUser()">
+  Identify a user
+</button>
+<button class="button button-block button-positive" ng-if="identified" ng-click="pushRegister()">
+  Register for Push
+</button>
 
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
