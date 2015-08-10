@@ -1,31 +1,29 @@
-// module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
 
-//   var Image = sequelize.define("Image", {
+  var Image = sequelize.define("Image", {
 
-//     image_id: {
+    id: {
 
-//       type: DataTypes.INTEGER,
-//       primaryKey: true,
-//       autoIncrement: true
-//     },
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
 
-//     // challenge_id: DataTypes.INTEGER,
-//     // user_id: DataTypes.INTEGER
-//     s3_reference: DataTypes.STRING
+    s3_reference: DataTypes.STRING,
+    privacy_status: DataTypes.STRING
 
-//   },{
+  },{
 
-//     underscored: true,
-//     tableName: "images",
-//     classMethods: {
+    underscored: true,
+    tableName: "images",
+    classMethods: {
 
-//       associate : function(models){
+      associate : function(models){
 
-//         Image.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
-//         Image.belongsTo(models.Challenge, {foreignKey:"challenge_id", foreignKeyConstraint: true});
-//       }
-//     }
-//   });
+        Image.belongsTo(models.Challenger/*, {foreignKey:"challenger_id", foreignKeyConstraint: true}*/);
+      }
+    }
+  });
 
-//   return Image;
-// };
+  return Image;
+};

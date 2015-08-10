@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
 
   var Challenge = sequelize.define("Challenge", {
 
-    challenge_id: {
+    id: {
 
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     start_at: DataTypes.DATE,
     expire_at: DataTypes.DATE,
     name: DataTypes.STRING,
-    privacy_status: STRING
+    privacy_status: DataTypes.STRING
 
   },{
 
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        Challenge.belongsTo(models.Challenger, {foreignKey:"challenger_id", foreignKeyConstraint: true});
+        Challenge.belongsTo(models.Challenger/*, {foreignKey:"challenger_id", foreignKeyConstraint: true}*/);
       }
     }
   });

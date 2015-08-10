@@ -34,17 +34,18 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
-  })
+  });
 });
 
 router.post('/', function(req,res) {
 
   db.create({
 
-    user_id: req.body.user_id,
     start_at: req.body.start_at,
     expire_at: req.body.expire_at,
-    name: req.body.name
+    name: req.body.name,
+    privacy_status: req.body.privacy_status,
+    challenger_id: req.body.challenger_id
 
   }).then(function(result) { //may be unnecessary
 
@@ -71,11 +72,6 @@ router.put('/:id', function(req,res) {
 
     var updateData = {};
 
-    if(req.body.user_id !== undefined) {
-
-      updateData.user_id = req.body.user_id;
-    }
-
     if(req.body.start_at !== undefined) {
 
       updateData.start_at = req.body.start_at;
@@ -89,6 +85,16 @@ router.put('/:id', function(req,res) {
     if(req.body.name !== undefined) {
 
       updateData.name = req.body.name;
+    }
+
+    if(req.body.privacy_status !== undefined) {
+
+      updateData.privacy_status = req.body.privacy_status;
+    }
+
+    if(req.body.challenger_id !== undefined) {
+
+      updateData.challenger_id = req.body.challenger_id;
     }
 
     result.updateAttributes(updateData).then(function(result) {

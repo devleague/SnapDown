@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var db = require('../models').ChallengeUser;
+var db = require('../models').Challenger;
 
 router.get('/', function(req,res) {
 
@@ -20,7 +20,7 @@ router.get('/:id', function(req,res) {
 
     where: {
 
-      challenge_user_id: req.params.id
+      challenger_id: req.params.id
     }
 
   }).then(function(result) {
@@ -42,7 +42,8 @@ router.post('/', function(req,res) {
   db.create({
 
     challenge_id: req.body.challenge_id,
-    user_id: req.body.user_id
+    user_id: req.body.user_id,
+    image_id: req.body.image_id
 
   }).then(function(result) { //may be unnecessary
 
@@ -56,7 +57,7 @@ router.put('/:id', function(req,res) {
 
     where: {
 
-      challenge_user_id: req.params.id
+      challenger_id: req.params.id
     }
 
   }).then(function(result){
@@ -79,6 +80,11 @@ router.put('/:id', function(req,res) {
       updateData.user_id = req.body.user_id;
     }
 
+    if(req.body.image_id !== undefined) {
+
+      updateData.image_id = req.body.image_id;
+    }
+
     result.updateAttributes(updateData).then(function(result) {
 
       res.status(200);
@@ -95,7 +101,7 @@ router.delete('/:id', function(req,res) {
 
     where: {
 
-      challenge_user_id: id
+      challenger_id: id
     }
 
   }).then(function(result) {

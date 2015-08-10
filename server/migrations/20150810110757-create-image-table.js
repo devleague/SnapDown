@@ -10,7 +10,7 @@ module.exports = {
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
    migration.createTable(
-    'users',
+    'images',
     {
 
       id: {
@@ -20,12 +20,8 @@ module.exports = {
         autoIncrement: true
       },
 
-      first_name: DataTypes.STRING,
-      last_name: DataTypes.STRING,
-      facebook_id: DataTypes.STRING,
-      facebook_image_url: DataTypes.STRING,
-      email: DataTypes.STRING,
-      phone: DataTypes.STRING
+      s3_reference: DataTypes.STRING,
+      privacy_status: DataTypes.STRING
     });
   },
 
@@ -37,6 +33,6 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-    migration.dropTable('users');
+    migration.dropTable('images');
   }
 };

@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
 
   var Challenger = sequelize.define("Challenger", {
 
-    challenger_id: {
+    id: {
 
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -20,9 +20,9 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        Challenger.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
-        Challenger.hasOne(models.Challenge, {foreignKey:"challenge_id", foreignKeyConstraint: true});
-        Challenger.hasOne(models.ChallengeImage, {foreignKey: "challenge_image_id"});
+        Challenger.belongsTo(models.User/*, {foreignKey:"user_id", foreignKeyConstraint: true}*/);
+        Challenger.hasOne(models.Challenge/*, {foreignKey:"challenge_id", foreignKeyConstraint: true}*/);
+        Challenger.hasOne(models.Image/*, {foreignKey: "image_id"}*/);
       }
     }
   });

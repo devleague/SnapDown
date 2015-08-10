@@ -34,16 +34,19 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
-  })
+  });
 });
 
 router.post('/', function(req,res) {
 
   db.create({
 
+    // user_id: req.body.user_id,
+    // image_id: req.body.image_id,
+    // challenger_id: req.body.challenge_id,
     s3_reference: req.body.s3_reference,
-    challenge_id: req.body.challenge_id,
-    user_id: req.body.user_id
+    privacy_status: req.body.privacy_status,
+    challenger_id: req.body.challenger_id
 
   }).then(function(result) { //may be unnecessary
 
@@ -70,19 +73,34 @@ router.put('/:id', function(req,res) {
 
     var updateData = {};
 
+    // if(req.body.user_id !== undefined) {
+
+    //   updateData.user_id = req.body.user_id;
+    // }
+
+    // if(req.body.image_id !== undefined) {
+
+    //   updateData.image_id = req.body.image_id;
+    // }
+
+    // if(req.body.challenger_id !== undefined) {
+
+    //   updateData.challenger_id = req.body.challenger_id;
+    // }
+
     if(req.body.s3_reference !== undefined) {
 
       updateData.s3_reference = req.body.s3_reference;
     }
 
-    if(req.body.challenge_id !== undefined) {
+    if(req.body.privacy_status !== undefined) {
 
-      updateData.challenge_id = req.body.challenge_id;
+      updateData.privacy_status = req.body.privacy_status;
     }
 
-    if(req.body.user_id !== undefined) {
+    if(req.body.challenger_id !== undefined) {
 
-      updateData.user_id = req.body.user_id;
+      updateData.challenger_id = req.body.challenger_id;
     }
 
     result.updateAttributes(updateData).then(function(result) {

@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
 
   var UserFriend = sequelize.define("UserFriend", {
 
-    user_friend_id: {
+    id: {
 
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -19,8 +19,8 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        UserFriend.belongsTo(models.User, {foreignKey:"user_id", foreignKeyConstraint: true});
-        UserFriend.belongsTo(models.User, {foreignKey:"friend_id", foreignKeyConstraint: true});
+        UserFriend.belongsTo(models.User/*, {foreignKey:"user_id", foreignKeyConstraint: true}*/);
+        UserFriend.belongsTo(models.User/*, {foreignKey:"friend_id", foreignKeyConstraint: true}*/);
       }
     }
   });

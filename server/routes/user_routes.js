@@ -34,7 +34,7 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
-  })
+  });
 });
 
 router.post('/', function(req,res) {
