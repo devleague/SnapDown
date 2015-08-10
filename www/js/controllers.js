@@ -1,17 +1,7 @@
 var GrannyGamId = '944610452249407';
- angular.module('starter.controllers', ['ezfb', 'hljs'])
+ angular.module('starter.controllers', [])
 
- .config(function(ezfbProvider) {
-   ezfbProvider.setInitParams({
-     appId: GrannyGamId,
-     status: true,
-     cookie: true,
-     xfbml: true,
-     version: 'v2.3'
-   });
- })
-
- .controller('AppCtrl', function($scope, $ionicModal, $timeout, ezfb) {
+ .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
    // With the new view caching in Ionic, Controllers are only called
    // when they are recreated or on app start, instead of every page change.
@@ -52,14 +42,6 @@ var GrannyGamId = '944610452249407';
    $scope.nativeLogin = function() {
      $scope.modal.show();
    };
-
-   $scope.facebookLogin = function() {
-     $scope.modal.hide();
-
-     ezfb.login(null, {
-       scope: 'email,user_friends'
-     });
-   }
 
    $scope.closeFacebookLogin = function() {
      $scope.fb_modal.hide();

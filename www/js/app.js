@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 // ezfb = easy facebook authentication
 // hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs'])
+angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,6 +40,16 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs'])
       'menuContent' :{
         templateUrl: 'templates/landing.html',
         // controller: 'landing-controller'
+      }
+    }
+  })
+
+  .state('app.oauth',{
+    url: '/oauth',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/oauth.html',
+        controller: 'OauthCtrl'
       }
     }
   })
