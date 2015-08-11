@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('camera-controller', function($scope, Camera,$state) {
+.controller('camera-controller', function($scope, Camera, $state) {
 
 
 

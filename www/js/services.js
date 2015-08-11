@@ -20,13 +20,13 @@ function RegisterService($http){
     //   username : new_user.username,
     //   password : new_user.password
     // };
-    return $http.post('/api/users/register', new_register);
+    // return $http.post('/api/users/register', new_register);
   }
 
   //Below is for FB user register
   //not added to the controller
   this.createFbUser = function (new_user){
-    return $http.post('/api/users/register', new_register);
+    // return $http.post('/api/users/register', new_register);
   }
 }
 
@@ -40,23 +40,24 @@ function LoginService($http){
     //   username : login_user.username,
     //   password : login_user.password
     // };
-    return $http.post('/api/users/login', user_login);
+    // return $http.post('/api/users/login', user_login);
   }
 
   //below is for fb
   //Not added to the controller
   this.loginFbUser = function (login_user){
-    return $http.post('/api/users/login', user_login);
+    // return $http.post('/api/users/login', user_login);
   }
 }
 
 function LogOutService($http){
   this.logUserOut = function (){
-    return $http.get('/api/users/logout');
+    // return $http.get('/api/users/logout');
   }
 }
 
 function PictureService ($http){
+  //not added to any controller yet
   this.savePictureToAws = function (){
 
   }
@@ -76,13 +77,18 @@ function ChallengeService ($http){
 
   }
 
-  //will get all the open challenges in the system
-  this.getAllCurrentChallenges = function (){
+  //Can use the below for a global view at some point in the future
+  // //will get all the open challenges in the system
+  // this.getAllCurrentChallenges = function (){
 
-  }
+  // }
 
-  //will get all the expired challenges in the systme
-  this.getAllExpiredChallenges = function (){
+  // //will get all the expired challenges in the systme
+  // this.getAllExpiredChallenges = function (){
+
+  // }
+
+  this.getChallengeUsers = function (){
 
   }
 
