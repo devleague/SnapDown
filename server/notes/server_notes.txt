@@ -4,14 +4,65 @@ scp -P 2230 fakeserver.js root@granny-gram.softcoreos.devleague.com:/srv/grannyg
 
 http://granny-gram.softcoreos.devleague.com:8030/
 
+*******************************************
+
+NEW USER
+
+adduser [username]
+
+//home directory : /home/snapdownadmin
+
+usermod -g users snapdownadmin //primary group users
+usermod -a -G sudo snapdownadmin //secondary group sudo
+
+//create the .ssh directory in his home directory (/home/username/.ssh)
+//create the authorized_keys in that directory
+//copy over root's keys
+
+//make new user owner of the new .ssh
+
+chown snapdownadmin ~/.ssh/authorized_keys
+
+//make sure the file permissions are set to 600
+
+chmod 600 /.ssh/authorized_keys
+
+//.ssh directory has to be 700
+
+chmod 700 .ssh
+
+//attempt to log in as new user
+//test that you can su
+//make that user own everything in srv
+
+chown snapdownadmin -R srv
+
+//new user runs the forever node process
+
+//may need to do this in /home/snapdownadmin :
+
+mkdir .forever
+
+****************************************
+
 installs:
 
 apt-get install nodejs
 apt-get install postgresql
 apt-get install npm
+apt-get install curl //optional
 
 npm install --save sequelize
 npm install --save pg-hstore
 npm install --save pg
 npm install --save express
 npm install --save body-parser
+npm install -g forever
+
+
+if necessary, configure locale
+
+$ sudo locale-gen en_US.UTF-8
+
+$ dpkg-reconfigure locales
+
