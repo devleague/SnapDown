@@ -4,15 +4,18 @@
     <div>
     <h3>phone</h3>
       <div>
-      {{phoneNumber}}
+      {{phone}}
       </div>
     </div>
 
     <form action="" name="send-sms">
       Phone Number: <input name="phone_number" type="text">
-      <button ng-click="sms.sendMessage(messageInfo, successCallback, failureCallback)" name="submit_sms_button">Send</button>
+      <button ng-tap="sendSms()" name="submit_sms_button">Tap</button>
+      <button ng-click="sendSms()" name="submit_sms_button">Click</button>
     </form>
 
+  <p>{{success}}</p>
+  <p>{{fail}}</p>
 
   </ion-content>
 </ion-view>

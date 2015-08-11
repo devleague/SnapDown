@@ -1,14 +1,21 @@
 'use strict'
 
 angular.module('starter')
-  .controller('SmsController', function($ionicPlatform, $scope, $cordovaSms) {
+  .controller('SmsController', ['$ionicPlatform', '$scope', '$cordovaSms',
+    function($ionicPlatform, $scope, $cordovaSms) {
+      console.log('inside');
 
-    $ionicPlatform.ready(function (){
 
-        $scope.phoneNumber = '911';
+
+      $ionicPlatform.ready(function (){
+
+      $scope.sendSms = function (){
+        // $scope.phone = "tapped teapp";
+        console.log('success on tap');
+
 
         var number = '5169650711';
-        var body = 'Merry Christmas';
+        var message = 'Merry Christmas';
 
         var options = {
           replaceLineBreaks: false, // true to replace \n by a new line, false by default
@@ -18,15 +25,31 @@ angular.module('starter')
           }
         };
 
+        $cordovaSms
+          .send(number, message, options)
+          .then(function() {
+            // Success! SMS was sent
+            alert('success');
+            $scope.success = 'Success'
+          })
+          .catch(function(error) {
+            // An error occurred
+            alert(error);
+            $scope.fail = 'fail ' + error
+          });
 
+        // try{
 
-      $cordovaSms.send(number, body, options)
-      .then(function() {
-        // Success! SMS was sent
-      }, function(error) {
-        // An error occurred
-      });
+        // var success = function () { alert('Message sent successfully'); };
+        // var error = function (e) { alert('Message Failed:' + e); };
 
-    })
+        // $cordovaSms.send(number, message, options, success, error);
 
-  })
+    // }catch(error){
+    //   $scope.fail = 'fail ' + error
+    // }
+
+    }
+      })
+
+  }])

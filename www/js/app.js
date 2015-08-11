@@ -107,8 +107,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     url: '/sms',
     views: {
       'menuContent' :{
-        templateUrl: 'templates/sms-send.html'
-        // controller: 'SmsController'
+        templateUrl: 'templates/sms-send.html',
+        controller: 'SmsController'
       }
     }
   })
