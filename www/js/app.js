@@ -6,9 +6,9 @@
 // 'starter.controllers' is found in controllers.js
 // ezfb = easy facebook authentication
 // hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCordova','ngCordovaOauth'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$cordovaOauth) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
