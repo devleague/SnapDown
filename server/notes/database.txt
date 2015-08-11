@@ -4,18 +4,32 @@ sudo su -c 'su postgres -c psql'
 
 -----
 
+login to postgres account
+
+sudo -i -u postgres
+
+-----
+
+if necessary, configure locale
+
+sudo locale-gen en_US.UTF-8
+
+dpkg-reconfigure locales
+
+-----
+
 
 Database server startup: http://www.postgresql.org/docs/9.3/static/server-start.html
 
 start server
 
-  [sudo] service start postgresql
+  [sudo] service postgresql start
 
 -----
 
 kill server
 
-  [sudo] service stop postgresql
+  [sudo] service postgresql stop
 
   OR
 
