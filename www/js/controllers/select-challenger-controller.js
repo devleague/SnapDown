@@ -2,6 +2,8 @@ angular.module('starter')
 
 .controller('select-challenger-controller', function ($scope, UserService, ChallengeService) {
 
+  $scope.imageURI = $stateParams.imageURI;
+
   $scope.UserService = UserService;
   $scope.users = [];
 
@@ -45,6 +47,3 @@ angular.module('starter')
   }
 
 });
-
-//CONST take care of this
-  $scope.imageURI = $stateParams.imageURI;
