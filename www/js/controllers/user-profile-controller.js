@@ -1,4 +1,5 @@
-'user strict'
+'use strict'
+angular.module('starter')
 
 .controller('user-profile-controller', function ($scope, LogOutService){
 

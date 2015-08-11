@@ -1,19 +1,21 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService) {
+.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams) {
 
   $scope.imageURI = $stateParams.imageURI;
 
   $scope.UserService = UserService;
   $scope.users = [];
 
-  $scope.getAllUsers = function()
+  $scope.getAllUsers = function(){
+    UserService.getAllUsers()
     .success(function (res){
       $scope.users = res;
     })
     .error(function (err){
       console.log('Error with receiving users', err);
     })
+  };
 
   $scope.addUserToChallenge = function (){
     ChallengeService.addUserToChallenge()
@@ -23,7 +25,7 @@ angular.module('starter')
     .error(function (err){
       console.log('Error with adding user', err);
     })
-  }
+  };
 
   $scope.removeUserFromChallenge = function (){
     ChallengeService.removeUserFromChallenge()
@@ -33,7 +35,7 @@ angular.module('starter')
     .error(function (err){
       console.log('Error with removing user', err);
     })
-  }
+  };
 
   $scope.createNewChallenge = function (){
     ChallengeService.createNewChallenge()
@@ -44,6 +46,6 @@ angular.module('starter')
     .error(function (err){
       console.log('Error with creating a challenge', err);
     })
-  }
+  };
 
 });
