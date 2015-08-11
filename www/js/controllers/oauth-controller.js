@@ -48,7 +48,9 @@ angular.module('starter')
   // };
 
 $scope.facebookLogin = function() {
-    $cordovaOauth.facebook("394498294076827", ["email"],{redirect_uri: 'localhost/callback'}).then(function(result) {
+    $cordovaOauth.facebook("394498294076827", ["email"]).then(function(result) {
+        alert(result);
+        alert('success');
         console.log(result);
     }, function(error) {
         console.log(error);
