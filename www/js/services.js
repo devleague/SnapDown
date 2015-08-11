@@ -16,18 +16,21 @@ function RegisterService($http){
     //Grab the necessary info from the register form and assign
     //to a user object
 
-    // var new_register = {
-    //   username : new_user.username,
-    //   password : new_user.password
-    // };
-    // return $http.post('/api/users/register', new_register);
+    //get info from Facebook
+    var facebook_id = facebookid;
+    var facebook_image_url = facebookimage;
+
+    var new_register = {
+      first_name : new_user.first_name,
+      last_name : new_user.last_name,
+      facebook_id: facebook_id,
+      facebook_image_url: facebook_image_url,
+      email: new_user.email,
+      phone: new_user.phone
+    };
+    return $http.post('/api/users/register', new_register);
   }
 
-  //Below is for FB user register
-  //not added to the controller
-  this.createFbUser = function (new_user){
-    // return $http.post('/api/users/register', new_register);
-  }
 }
 
 function LoginService($http){
@@ -43,11 +46,6 @@ function LoginService($http){
     // return $http.post('/api/users/login', user_login);
   }
 
-  //below is for fb
-  //Not added to the controller
-  this.loginFbUser = function (login_user){
-    // return $http.post('/api/users/login', user_login);
-  }
 }
 
 function LogOutService($http){
@@ -121,7 +119,31 @@ function ChallengeService ($http){
 function UserService ($http){
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function (){
-
     return $http.get('/api/users/');
+  }
+
+  //not in any controller or funcitonality as now
+  this.getIndividualUser = function (userId){
+    var user_id = userId
+    return $http.get('/api/users/' + user_id);
+  }
+
+  //not in any controller - need to grab userid somehow
+  this.updateUserInfo = function (userId){
+
+    var user_id = userId;
+    var user_profile = {
+      //populate this with the profile fields on the user profile page
+
+    }
+
+    return $http.put('/api/users/' + user_id, user_profile)
+
+  }
+
+  //not in any controller - need to grab userid somehow
+  this.deleteUser = function (userId){
+    var user_id = userId;
+    return $http.delete('/api/users/' + user_id)
   }
 }
