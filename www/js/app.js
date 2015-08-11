@@ -112,16 +112,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.notification',{
-    url: '/notification',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/notification.html',
-        controller: 'notification-controller'
-      }
-    }
-  })
-
   .state('app.camera',{
     url: '/camera',
     views: {
