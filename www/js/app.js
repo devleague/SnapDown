@@ -127,6 +127,16 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push', 's
     }
   })
 
+  .state('app.push-notifications',{
+    url: '/push-notifications',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/push-notifications.html',
+        controller: 'push-notifications-controller'
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
 
   $urlRouterProvider.otherwise('/app/landing');
