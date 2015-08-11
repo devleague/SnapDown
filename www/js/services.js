@@ -24,6 +24,7 @@ function RegisterService($http){
   }
 
   //Below is for FB user register
+  //not added to the controller
   this.createFbUser = function (new_user){
     return $http.post('/api/users/register', new_register);
   }
@@ -43,7 +44,8 @@ function LoginService($http){
   }
 
   //below is for fb
-  this.loginFbUser = funtion (login_user){
+  //Not added to the controller
+  this.loginFbUser = function (login_user){
     return $http.post('/api/users/login', user_login);
   }
 }
@@ -100,7 +102,7 @@ function ChallengeService ($http){
 
   this.createNewChallenge = function (){
 
-    return
+
   }
 
   this.getTimeRemaining = function (){
