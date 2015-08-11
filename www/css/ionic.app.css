@@ -34,9 +34,7 @@ $dark:                            #444 !default;
   border-radius: 5px; }
 
 .imageHolder {
-  height: 100px;
-  background-color: red;
-  border: 1px solid black; }
+  height: 100px; }
 
 .imageDiv {
   width: 90%;
@@ -47,7 +45,7 @@ $dark:                            #444 !default;
 .timeRemaining {
   height: 40px;
   border-radius: 5px;
-  background-color: green;
+  background-color: purple;
   text-align: center; }
 
 .newChallenge {
