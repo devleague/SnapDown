@@ -16,7 +16,7 @@ angular.module('starter')
   $scope.addUserToChallenge = function (){
     ChallengeService.addUserToChallenge()
     .success(function (res){
-      console.log(res)
+      console.log('user added to challenge', res)
     })
     .error(function (err){
       console.log('Error with adding user', err);
