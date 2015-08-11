@@ -20,7 +20,7 @@ router.get('/:id', function(req,res) {
 
     where: {
 
-      challenge_id: req.params.id
+      id: req.params.id
     }
 
   }).then(function(result) {
@@ -59,7 +59,7 @@ router.put('/:id', function(req,res) {
 
     where: {
 
-      challenge_id: req.params.id
+      id: req.params.id
     }
 
   }).then(function(result){
@@ -113,7 +113,7 @@ router.delete('/:id', function(req,res) {
 
     where: {
 
-      challenge_id: id
+      id: id
     }
 
   }).then(function(result) {
