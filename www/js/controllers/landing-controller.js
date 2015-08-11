@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, RegisterService, LoginService) {
+.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state) {
 
   $scope.createUser = function (){
 
@@ -25,6 +25,10 @@ angular.module('starter')
       .error(function (err){
         console.log('Login err', err);
       })
+  }
+
+  $scope.onSwipeLeft = function() {
+    $state.go('app.challenge-in-progress');
   }
 
 

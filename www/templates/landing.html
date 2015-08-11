@@ -1,8 +1,9 @@
 <ion-view view-title="landing">
-  <ion-content>
+  <ion-content on-swipe-left="onSwipeLeft()">
     <div class="startChallenge">Start Challenge</div>
     <div class="feed" ui-sref="app.user-feed">Feed</div>
-    <ion-footer-bar>
+  </ion-content>
+  <ion-footer-bar>
       <div class="tabs tabs-icon-only tabs-positive">
         <a class="col tab-item">
           <i class="icon ion-home"></i>
@@ -16,6 +17,4 @@
         </a>
       </div>
     </ion-footer-bar>
-
-  </ion-content>
 </ion-view>

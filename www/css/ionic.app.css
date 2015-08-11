@@ -15,6 +15,9 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+body, html {
+  min-height: 100%; }
+
 .feed {
   height: 100px;
   width: 300px;
@@ -22,7 +25,7 @@ $dark:                            #444 !default;
   margin: 0 auto; }
 
 .startChallenge {
-  height: 513px;
+  height: 53px;
   width: 300px;
   background-color: red;
   margin: 0 auto; }
@@ -54,9 +57,8 @@ $dark:                            #444 !default;
   background-color: pink;
   text-align: center; }
 
-.footer-bar {
-  position: fixed;
-  left: 0px; }
+.tabs {
+  left: 0; }
 
 /*!
   Ionicons, v2.0.1

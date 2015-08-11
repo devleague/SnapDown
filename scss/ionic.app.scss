@@ -17,6 +17,9 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+body, html {
+  min-height: 100%;
+}
 .feed {
   height: 100px;
   width: 300px;
@@ -25,7 +28,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .startChallenge {
-  height: 513px;
+  height: 53px;
   width: 300px;
   background-color: red;
   margin: 0 auto;
@@ -64,9 +67,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   text-align: center;
 }
 
-.footer-bar {
-  position: fixed;
-  left: 0px;
+.tabs {
+  left: 0;
 }
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
