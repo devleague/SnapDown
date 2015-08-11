@@ -60,6 +60,23 @@ body, html {
 .tabs {
   left: 0; }
 
+.myModal {
+  height: 90%;
+  width: 90%;
+  background-color: red; }
+
+ion-content.myModal.scroll-content.ionic-scroll {
+  width: 95%;
+  height: 95%;
+  margin: auto auto; }
+
+.closeModal {
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid black; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

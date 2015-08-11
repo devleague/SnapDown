@@ -31,6 +31,10 @@ angular.module('starter')
     $state.go('app.challenge-in-progress');
   }
 
+  $scope.onSwipeRight = function() {
+    $state.go('app.user-feed');
+  }
+
 
 
 

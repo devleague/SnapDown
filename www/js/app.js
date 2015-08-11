@@ -77,7 +77,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent' :{
         templateUrl: 'templates/challenge-complete.html',
-        // controller: 'challenge-complete-controller'
+        controller: 'challenge-complete-controller'
       }
     }
   })
