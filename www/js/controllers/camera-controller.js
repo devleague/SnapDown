@@ -18,14 +18,16 @@ angular.module('starter')
 
     $scope.getPhoto = function() {
       // console.log('taking pic',Camera)
-      Camera.getPicture({
-        quality: 50,
-        targetWidth: 512,
-        targetHeight: 512,
-        destinationType: 0,
-        encodingType: 0,
-        saveToPhotoAlbum: false
-      })
+      Camera.getPicture(
+        {
+          quality: 50,
+          targetWidth: 512,
+          targetHeight: 512,
+          destinationType: 0,
+          encodingType: 0,
+          saveToPhotoAlbum: false
+        }
+      )
       .then(function(imageData) {
         if(imageData){
           var imageSrc = "data:image/jpeg;base64," + imageData;
