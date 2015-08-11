@@ -52,10 +52,6 @@ $scope.facebookLogin = function() {
         alert(result);
         alert('success');
         console.log(result);
-    }, function(error) {
-        console.log(error);
-    });
-}
 
 
   // $scope.linkedinLogin = function() {
@@ -129,6 +125,5 @@ $scope.facebookLogin = function() {
   //     console.log(error);
   //   });
   // };
-
 
 });

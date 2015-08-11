@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCord
 
 .run(function($ionicPlatform,$cordovaOauth) {
   $ionicPlatform.ready(function() {
+    $cordovaOauth.facebook("394498294076827", ["email"]);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
