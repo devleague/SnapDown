@@ -48,16 +48,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.slide-box',{
-    url: '/slide-box',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/slide-box.html',
-        // controller: 'slide-box-controller'
-      }
-    }
-  })
-
   .state('app.select-challenger',{
     url: '/select-challenger',
     params: {
