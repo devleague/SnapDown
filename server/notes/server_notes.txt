@@ -1,0 +1,17 @@
+ssh -p 2230 root@granny-gram.softcoreos.devleague.com
+
+scp -P 2230 fakeserver.js root@granny-gram.softcoreos.devleague.com:/srv/grannygram
+
+http://granny-gram.softcoreos.devleague.com:8030/
+
+installs:
+
+apt-get install nodejs
+apt-get install postgresql
+apt-get install npm
+
+npm install --save sequelize
+npm install --save pg-hstore
+npm install --save pg
+npm install --save express
+npm install --save body-parser
