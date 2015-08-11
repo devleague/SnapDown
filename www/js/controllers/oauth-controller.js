@@ -48,7 +48,7 @@ angular.module('starter')
     };
 
     $scope.facebookLogin = function () {
-      $cordovaOauth.facebook("611117305657317", ["email"]).then(function (result) {
+      $cordovaOauth.facebook("394498294076827", ["email"], {redirect_uri: "http://localhost/landing"}).then(function (result) {
         $scope.oauthResult = result;
       }, function (error) {
         $scope.oauthResult = "OAUTH ERROR (see console)";
