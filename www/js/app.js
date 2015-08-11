@@ -102,7 +102,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     views: {
       'menuContent' :{
         templateUrl: 'templates/user-feed.html',
-        // controller: 'user-feed-controller'
+        controller: 'user-feed-controller'
       }
     }
   })

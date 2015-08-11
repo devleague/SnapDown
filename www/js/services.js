@@ -6,6 +6,7 @@ angular.module('starter')
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
   .service('ChallengeService', ['$http', ChallengeService])
+  .service('UserService', ['$http', UserService])
 
 
 
@@ -69,38 +70,50 @@ function PictureService ($http){
 
 function ChallengeService ($http){
   //will get the current users challenges (for their feed)
-  this.getMyChallenges = function ($http){
+  this.getMyChallenges = function (){
 
   }
 
   //will get all the open challenges in the system
-  this.getAllCurrentChallenges = function ($http){
+  this.getAllCurrentChallenges = function (){
 
   }
 
   //will get all the expired challenges in the systme
-  this.getAllExpiredChallenges = function ($http){
+  this.getAllExpiredChallenges = function (){
 
   }
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-  this.addUserToChallenge = function ($http){
+  this.addUserToChallenge = function (){
 
   }
 
   //will remove a user from challenge
   //can be from the user who iniated the challenge
   //or when they don't respond to a challenge
-  this.removeUserFromChallenge = function ($http){
+  this.removeUserFromChallenge = function (){
 
   }
 
 
-  this.getTimeRemaining = function ($http){
+  this.createNewChallenge = function (){
+
+    return
+  }
+
+  this.getTimeRemaining = function (){
 
   }
 
 
 }
 
+function UserService ($http){
+  // gets a list of all users in the system to populate the select user to challenge page
+  this.getAllUsers = function (){
+
+    return $http.get('/api/users/');
+  }
+}
