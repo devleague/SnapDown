@@ -1,0 +1,35 @@
+{
+<<<<<<< HEAD
+    "com.cordova.plugins.sms": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cordova-sms/cordova-sms-plugin.git",
+=======
+    "de.appplant.cordova.plugin.local-notification": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/katzer/cordova-plugin-local-notifications",
+>>>>>>> feature/mock_page_layout
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+<<<<<<< HEAD
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        },
+        "is_top_level": true,
+=======
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device"
+        },
+        "is_top_level": false,
+>>>>>>> feature/mock_page_layout
+        "variables": {}
+    }
+}
