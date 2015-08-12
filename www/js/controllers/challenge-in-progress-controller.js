@@ -39,4 +39,9 @@ angular.module('starter')
     $state.go('app.landing');
   }
 
+  $scope.onSwipeLeft = function() {
+    console.log('going left');
+    $state.go('app.landing');
+  }
+
 });
