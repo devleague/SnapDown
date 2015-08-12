@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenger;
+var challenge = require('../models').Challenge;
 
 router.get('/', function(req,res) {
 
@@ -35,6 +36,22 @@ router.get('/:id', function(req,res) {
       res.send("Could not locate the requested resource.");
     }
   })
+});
+
+router.get('/:id/challenges', function(req,res) {
+
+  console.log("HERE!!!!!! " + req.params.id);
+
+  db.findAll({
+
+    where: { user_id: req.params.id }/*,
+    include :[
+      { model:challenge}]*/
+
+  }).then(function(challengers) {
+
+    res.json(challengers);
+  });
 });
 
 router.post('/', function(req,res) {

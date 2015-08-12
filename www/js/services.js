@@ -68,20 +68,16 @@ function PictureService ($http){
     return $http.post('/api/images/', new_image);
   }
 
-  this.getChallengePics = function (challenge_id){
+  // this.getIndividualPic = function (){
 
-    return $http.get('/api/challenges/' + challenge_id + '/images');
-  }
-
-  this.getIndividualPic = function (){
-
-  }
+  // }
 }
 
-function ChallengeService ($http){
+function ChallengeService ($http) {
   //will get the current users challenges (for their feed)
-  this.getMyChallenges = function (){
+  this.getMyChallenges = function (user_id){
 
+    return $http.get('/api/challengers/' + user_id + '/challenges');
   }
 
   //Can use the below for a global view at some point in the future
@@ -95,9 +91,9 @@ function ChallengeService ($http){
 
   // }
 
-  this.getChallengeUsers = function (){
+  // this.getChallengeUsers = function (){
 
-  }
+  // }
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
@@ -118,8 +114,13 @@ function ChallengeService ($http){
 
   }
 
-  this.getTimeRemaining = function (){
+  // this.getTimeRemaining = function (){
 
+  // }
+
+  this.getChallengeContext = function (challenge_id){
+
+    return $http.get('/api/challenges/' + challenge_id + '/context');
   }
 
 
