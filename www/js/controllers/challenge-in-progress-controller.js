@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state) {
+.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture) {
 
   $scope.getChallengeUsers = function (){
     ChallengeService.getChallengeUsers()
@@ -35,13 +35,9 @@ angular.module('starter')
   }
 
   $scope.onSwipeRight = function() {
-    console.log('going right');
-    $state.go('app.landing');
+      $state.go('app.landing');
   }
 
-  $scope.onSwipeLeft = function() {
-    console.log('going left');
-    $state.go('app.landing');
-  }
+
 
 });

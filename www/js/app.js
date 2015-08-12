@@ -66,7 +66,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent' :{
         templateUrl: 'templates/challenge-in-progress.html',
-        // controller: 'challenge-in-progress-controller'
+        controller: 'challenge-in-progress-controller'
       }
     }
   })

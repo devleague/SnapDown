@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state, $ionicModal, Camera) {
+.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera) {
    ionic.Platform.ready(function(){
 
     $scope.getPhoto = function() {
