@@ -45,10 +45,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
   .state('app.select-challenger',{
     url: '/select-challenger',
+    params: {
+      imageURI: null
+
+    },
     views: {
       'menuContent' :{
         templateUrl: 'templates/select-challenger.html',
-        // controller: 'select-challenger-controller'
+        controller: 'select-challenger-controller'
       }
     }
   })
