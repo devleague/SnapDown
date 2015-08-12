@@ -6,8 +6,6 @@
 // 'starter.controllers' is found in controllers.js
 
 angular.module('starter', ['ionic',
-                          'ionic.service.core',
-                          'ionic.service.push',
                           'starter.controllers',
                           'ngCordova'
                           ])
