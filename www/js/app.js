@@ -4,9 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-// ezfb = easy facebook authentication
-// hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCordova','ngCordovaOauth'])
+
+angular.module('starter', ['ionic','ionic.service.core','ionic.service.push', 'starter.controllers', 'ngCordova', 'ngCordovaOauth'])
 
 .run(function($ionicPlatform,$cordovaOauth) {
   $ionicPlatform.ready(function() {
@@ -34,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCord
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  
+
   .state('app.landing',{
     url: '/landing',
     views: {
@@ -114,7 +113,17 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCord
     views: {
       'menuContent' :{
         templateUrl: 'templates/user-feed.html',
-        // controller: 'user-feed-controller'
+        controller: 'user-feed-controller'
+      }
+    }
+  })
+
+  .state('app.notification',{
+    url: '/notification',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/notification.html',
+        controller: 'notification-controller'
       }
     }
   })
@@ -125,6 +134,16 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCord
       'menuContent' :{
         templateUrl: 'templates/camera.html',
         controller: 'camera-controller'
+      }
+    }
+  })
+
+  .state('app.push-notifications',{
+    url: '/push-notifications',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/push-notifications.html',
+        controller: 'push-notifications-controller'
       }
     }
   })
