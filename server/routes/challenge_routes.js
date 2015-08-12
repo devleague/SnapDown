@@ -5,6 +5,7 @@ var router = express.Router();
 var db = require('../models').Challenge;
 var images = require('../models').Image;
 var challengers = require('../models').Challenger;
+var users = require('../models').User;
 
 router.get('/', function(req,res) {
 
@@ -41,27 +42,16 @@ router.get('/:id', function(req,res) {
 
 router.get('/:id/context', function(req,res) {
 
-  console.log("HERE!!!!");
-
   db.findOne({
 
-    where: {
-
-      id: req.params.id
-    }, include :[{model:challengers}]
+    where: { id: req.params.id },
+    include :[
+      { model:challengers,
+        include: [
+          {model:images},
+          {model:users}]}]
 
   }).then(function(challenge) {
-
-    console.log("challenge : " + challenge);
-
-    challenge.Challengers.forEach(function(challenger) {
-
-      console.log("image : " + challenger);
-
-      challenger.Image;
-    });
-
-    console.log("challenge : " + challenge);
 
     res.json(challenge);
   });
