@@ -6,11 +6,10 @@
 // 'starter.controllers' is found in controllers.js
 // ezfb = easy facebook authentication
 // hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCordova','ngCordovaOauth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordova'])
 
-.run(function($ionicPlatform,$cordovaOauth) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    $cordovaOauth.facebook("394498294076827", ["email"]);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -28,101 +27,110 @@ angular.module('starter', ['ionic', 'starter.controllers','ezfb', 'hljs','ngCord
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  .state('app', {
+    .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-  
-  .state('app.landing',{
+
+  .state('app.landing', {
     url: '/landing',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/landing.html',
         // controller: 'landing-controller'
       }
     }
   })
 
-  .state('app.oauth',{
+  .state('app.oauth', {
     url: '/oauth',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/oauth.html',
         controller: 'OauthCtrl'
       }
     }
   })
-
-  .state('app.select-challenger',{
+  
+  .state('app.profile', {
+    url: '/profile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/profile.html',
+        controller: 'ProfileController'
+      }
+    }
+  })
+  .state('app.select-challenger', {
     url: '/select-challenger',
     params: {
       imageURI: null
 
     },
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/select-challenger.html',
         controller: 'select-challenger-controller as SelectChallengeController'
       }
     }
   })
 
-  .state('app.challenge-in-progress',{
+  .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/challenge-in-progress.html',
         // controller: 'challenge-in-progress-controller'
       }
     }
   })
 
-   .state('app.challenge-complete',{
+  .state('app.challenge-complete', {
     url: '/challenge-complete',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
         // controller: 'challenge-complete-controller'
       }
     }
   })
 
-  .state('app.detail-view',{
+  .state('app.detail-view', {
     url: '/detail-view',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/detail-view.html',
         // controller: 'detail-view-controller'
       }
     }
   })
 
-  .state('app.user-challenged',{
+  .state('app.user-challenged', {
     url: '/user-challenged',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/user-challenged.html',
         // controller: 'user-challenged-controller'
       }
     }
   })
 
-  .state('app.user-feed',{
+  .state('app.user-feed', {
     url: '/user-feed',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/user-feed.html',
         // controller: 'user-feed-controller'
       }
     }
   })
 
-  .state('app.camera',{
+  .state('app.camera', {
     url: '/camera',
     views: {
-      'menuContent' :{
+      'menuContent': {
         templateUrl: 'templates/camera.html',
         controller: 'camera-controller'
       }

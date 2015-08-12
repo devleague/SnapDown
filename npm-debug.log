@@ -1,0 +1,50 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   '-S',
+1 verbose cli   'git@github.com:Wizcorp/phonegap-facebook-plugin.git' ]
+2 info using npm@2.13.4
+3 info using node@v0.12.7
+4 verbose install initial load of /home/kawika/DevLeague/granny-gram/package.json
+5 warn package.json grannygram@1.0.0 No repository field.
+6 warn package.json grannygram@1.0.0 No license field.
+7 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/angular-mocks/package.json
+8 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/body-parser/package.json
+9 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/bower/package.json
+10 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/cordova-plugin-sms/package.json
+11 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/express/package.json
+12 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp/package.json
+13 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp-concat/package.json
+14 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp-minify-css/package.json
+15 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp-rename/package.json
+16 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp-sass/package.json
+17 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/gulp-util/package.json
+18 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/sequelize/package.json
+19 verbose installManyTop reading scoped package data from /home/kawika/DevLeague/granny-gram/node_modules/shelljs/package.json
+20 info package.json gulp-util@2.2.20 No license field.
+21 info package.json shelljs@0.3.0 license should be a valid SPDX license expression
+22 info package.json bower@1.4.1 No license field.
+23 info package.json gulp-minify-css@0.3.13 No license field.
+24 info package.json gulp-rename@1.2.2 No license field.
+25 verbose readDependencies loading dependencies from /home/kawika/DevLeague/granny-gram/package.json
+26 verbose stack Error: Unsupported URL Type: github.com:Wizcorp/phonegap-facebook-plugin.git
+26 verbose stack     at parseUrl (/usr/lib/node_modules/npm/node_modules/npm-package-arg/npa.js:168:13)
+26 verbose stack     at npa (/usr/lib/node_modules/npm/node_modules/npm-package-arg/npa.js:75:12)
+26 verbose stack     at resolver (/usr/lib/node_modules/npm/lib/install.js:845:42)
+26 verbose stack     at /usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+26 verbose stack     at Array.forEach (native)
+26 verbose stack     at /usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+26 verbose stack     at Array.forEach (native)
+26 verbose stack     at asyncMap (/usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
+26 verbose stack     at /usr/lib/node_modules/npm/lib/install.js:703:5
+26 verbose stack     at /usr/lib/node_modules/npm/lib/install.js:368:22
+27 verbose cwd /home/kawika/DevLeague/granny-gram
+28 error Linux 4.1.4-1-ARCH
+29 error argv "node" "/usr/bin/npm" "i" "-S" "git@github.com:Wizcorp/phonegap-facebook-plugin.git"
+30 error node v0.12.7
+31 error npm  v2.13.4
+32 error Unsupported URL Type: github.com:Wizcorp/phonegap-facebook-plugin.git
+33 error If you need help, you may report this error at:
+33 error     <https://github.com/npm/npm/issues>
+34 verbose exit [ 1, true ]
