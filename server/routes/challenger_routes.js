@@ -37,7 +37,14 @@ router.get('/:id', function(req,res) {
     }
   })
 });
-
+//
+//
+//
+//
+//
+//
+//
+//START HERE - get all challenges per user
 router.get('/:id/challenges', function(req,res) {
 
   console.log("HERE!!!!!! " + req.params.id);
