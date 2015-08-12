@@ -58,6 +58,7 @@ npm install --save pg
 npm install --save express
 npm install --save body-parser
 npm install -g forever
+npm install --save aws-sdk
 
 
 if necessary, configure locale
@@ -66,3 +67,32 @@ $ sudo locale-gen en_US.UTF-8
 
 $ dpkg-reconfigure locales
 
+*************************************
+
+NGINX configuration
+
+cd /etc/nginx/sites-enabled/
+
+rm default // removes nginx default config
+
+vim daniel.softcoreos.devleague.com //creates file with user's config
+
+//contents:
+
+server {
+
+        listen 80;
+        server_name daniel.softcoreos.devleague.com;
+
+        location / {
+
+                proxy_pass              http://localhost:6969;
+                proxy_set_header        Host            $host;
+                proxy_set_header        X-Real-IP       $remote_addr;
+        }
+
+}
+
+service nginx reload
+
+//nginx should now redirect to new local server
