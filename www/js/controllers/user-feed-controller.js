@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-feed-controller', function($scope, ChallengeService) {
+.controller('user-feed-controller', function($scope, ChallengeService, $state) {
 
   $scope.getMyChallenges = function (){
     ChallengeService.getMyChallenges()
@@ -12,4 +12,7 @@ angular.module('starter')
       })
   }
 
+  $scope.onSwipeLeft = function() {
+    $state.go('app.landing');
+  }
 });

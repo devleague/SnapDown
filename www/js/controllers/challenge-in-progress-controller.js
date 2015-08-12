@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope, ChallengeService) {
+.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state) {
 
   $scope.getChallengeUsers = function (){
     ChallengeService.getChallengeUsers()
@@ -32,6 +32,11 @@ angular.module('starter')
       .error(function (err){
         console.log('err w/ time remaining', err);
       })
+  }
+
+  $scope.onSwipeRight = function() {
+    console.log('going right');
+    $state.go('app.landing');
   }
 
 });
