@@ -101,16 +101,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.camera',{
-    url: '/camera',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/camera.html',
-        controller: 'camera-controller'
-      }
-    }
-  })
-
 
   // if none of the above states are matched, use this as the fallback
 

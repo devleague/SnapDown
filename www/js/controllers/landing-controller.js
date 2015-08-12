@@ -1,53 +1,84 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state, $ionicModal) {
+.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state, $ionicModal, Camera) {
+   ionic.Platform.ready(function(){
 
-  $scope.createUser = function (){
+    $scope.getPhoto = function() {
+      Camera.getPicture(
+        {
+          quality: 50,
+          targetWidth: 512,
+          targetHeight: 512,
+          destinationType: 0,
+          encodingType: 0,
+          saveToPhotoAlbum: false
+        }
+      )
+      .then(function(imageData) {
+        if(imageData){
+          var imageSrc = "data:image/jpeg;base64," + imageData;
+          $state.go('app.select-challenger',{imageURI: imageData});
+        }
+        else{
+          $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
+        }
+      }, function(err) {
+        var imageSrc  = err;
+          $state.go('app.select-challenger',{imageURI: Camera.DestinationType});
+        })
+    };
 
-    //make sure the model on the form on the login page
-    //matches the user_info
-    RegisterService.createUser($scope.user_info)
-      .success(function (res){
-        console.log('Register sucess', res);
-      })
-      .error(function (err){
-        console.log('Register err', err);
-      })
-  }
+    $scope.onSwipeLeft = function() {
+      $state.go('app.challenge-in-progress');
+    }
 
-  $scope.loginUser = function (){
+    $scope.onSwipeRight = function() {
+      $state.go('app.user-feed');
+    }
+
+    $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
 
 
-    LoginService.loginUser($scope.user_info)
-      .success(function (res){
-        console.log('Login sucess', res);
-      })
-      .error(function (err){
-        console.log('Login err', err);
-      })
-  }
+  })
 
-  $scope.onSwipeLeft = function() {
-    $state.go('app.challenge-in-progress');
-  }
 
-  $scope.onSwipeRight = function() {
-    $state.go('app.user-feed');
-  }
+  // $scope.createUser = function (){
 
-  $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  //   //make sure the model on the form on the login page
+  //   //matches the user_info
+  //   RegisterService.createUser($scope.user_info)
+  //     .success(function (res){
+  //       console.log('Register sucess', res);
+  //     })
+  //     .error(function (err){
+  //       console.log('Register err', err);
+  //     })
+  // }
 
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
+  // $scope.loginUser = function (){
+
+
+  //   LoginService.loginUser($scope.user_info)
+  //     .success(function (res){
+  //       console.log('Login sucess', res);
+  //     })
+  //     .error(function (err){
+  //       console.log('Login err', err);
+  //     })
+  // }
+
 
 
 
