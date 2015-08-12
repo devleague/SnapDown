@@ -15,49 +15,6 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-.feed {
-  height: 100px;
-  width: 300px;
-  background-color: yellow;
-  margin: 0 auto; }
-
-.startChallenge {
-  height: 513px;
-  width: 300px;
-  background-color: red;
-  margin: 0 auto; }
-
-#start_challenge {
-  height: 50px;
-  background-color: red;
-  text-align: center;
-  border-radius: 5px; }
-
-.imageHolder {
-  height: 100px; }
-
-.imageDiv {
-  width: 90%;
-  height: 90px;
-  margin: auto auto;
-  background-color: blue; }
-
-.timeRemaining {
-  height: 40px;
-  border-radius: 5px;
-  background-color: purple;
-  text-align: center; }
-
-.newChallenge {
-  height: 40px;
-  border-radius: 5px;
-  background-color: pink;
-  text-align: center; }
-
-.footer-bar {
-  position: fixed;
-  left: 0px; }
-
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7735,3 +7692,97 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+body, html {
+  min-height: 100%; }
+
+.feed {
+  height: 100px;
+  width: 300px;
+  background-color: yellow;
+  margin: 0 auto; }
+
+.startChallenge {
+  height: 53px;
+  width: 300px;
+  background-color: red;
+  margin: 0 auto; }
+
+#start_challenge {
+  height: 50px;
+  background-color: red;
+  text-align: center;
+  border-radius: 5px; }
+
+.imageHolder {
+  height: 100px; }
+
+.imageDiv {
+  width: 90%;
+  height: 90px;
+  margin: auto auto;
+  background-color: green; }
+
+.newChallenge {
+  height: 40px;
+  border-radius: 5px;
+  background-color: green;
+  text-align: center; }
+
+.tabs {
+  left: 0; }
+
+.myModal {
+  height: 90%;
+  width: 90%;
+  background-color: red; }
+
+.closeModal {
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid black; }
+
+.timeRemainingContainer {
+  position: relative; }
+  .timeRemainingContainer .timeRemaining {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translate(50%, 0);
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: purple;
+    text-align: center; }
+
+.editProfileModal.scroll-content.ionic-scroll {
+  height: 95%;
+  width: 95%;
+  margin: auto auto; }
+  .editProfileModal.scroll-content.ionic-scroll .scroll {
+    height: 100%;
+    background-color: purple; }
+    .editProfileModal.scroll-content.ionic-scroll .scroll .headerContainer {
+      height: 20%;
+      background-color: yellow; }
+      .editProfileModal.scroll-content.ionic-scroll .scroll .headerContainer .avatar {
+        display: inline-block;
+        float: left; }
+        .editProfileModal.scroll-content.ionic-scroll .scroll .headerContainer .avatar img {
+          max-height: 90px;
+          max-width: 90px;
+          border-radius: 90px; }
+    .editProfileModal.scroll-content.ionic-scroll .scroll .editProfileContainer {
+      height: 50%;
+      background-color: red; }
+    .editProfileModal.scroll-content.ionic-scroll .scroll .statisticsContainer {
+      height: 20%;
+      background-color: pink; }
+    .editProfileModal.scroll-content.ionic-scroll .scroll .logoutDelete {
+      height: 10%;
+      background-color: orange;
+      text-align: center; }

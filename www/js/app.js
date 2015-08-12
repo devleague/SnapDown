@@ -4,7 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
+
+angular.module('starter', ['ionic',
+                          'ionic.service.core',
+                          'ionic.service.push',
+                          'starter.controllers',
+                          'ngCordova'
+                          ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,7 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     views: {
       'menuContent' :{
         templateUrl: 'templates/landing.html',
-        // controller: 'landing-controller'
+        controller: 'landing-controller'
       }
     }
   })
@@ -72,17 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     views: {
       'menuContent' :{
         templateUrl: 'templates/challenge-complete.html',
-        // controller: 'challenge-complete-controller'
-      }
-    }
-  })
-
-  .state('app.detail-view',{
-    url: '/detail-view',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/detail-view.html',
-        // controller: 'detail-view-controller'
+        controller: 'challenge-complete-controller'
       }
     }
   })
@@ -103,16 +99,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       'menuContent' :{
         templateUrl: 'templates/user-feed.html',
         controller: 'user-feed-controller'
-      }
-    }
-  })
-
-  .state('app.notification',{
-    url: '/notification',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/notification.html',
-        controller: 'notification-controller'
       }
     }
   })
