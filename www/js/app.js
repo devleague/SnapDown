@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova','ionic.service.push','ionic.service.core',])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -123,6 +123,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       'menuContent' :{
         templateUrl: 'templates/camera.html',
         controller: 'camera-controller'
+      }
+    }
+  })
+
+  .state('app.push-notifications',{
+    url: '/push-notifications',
+    params: {
+      imageURI: null
+
+    },
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/push-notifications.html',
+        controller: 'push-notifications-controller'
       }
     }
   })
