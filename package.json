@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "grannygram: An Ionic project",
   "dependencies": {
+    "aws-sdk": "^2.1.44",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "gulp": "^3.5.6",
