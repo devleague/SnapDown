@@ -97,7 +97,8 @@ function ChallengeService ($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-  this.addUserToChallenge = function (){
+  this.addUserToChallenge = function (user_id, challenge_id) {
+
 
   }
 

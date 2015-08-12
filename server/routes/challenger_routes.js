@@ -37,27 +37,34 @@ router.get('/:id', function(req,res) {
     }
   })
 });
-//
-//
-//
-//
-//
-//
-//
-//START HERE - get all challenges per user
-router.get('/:id/challenges', function(req,res) {
 
-  console.log("HERE!!!!!! " + req.params.id);
+router.get('/:id/challenges', function(req,res) {
 
   db.findAll({
 
-    where: { user_id: req.params.id }/*,
+    where: { user_id: req.params.id },
     include :[
-      { model:challenge}]*/
+      { model:challenge}]
 
   }).then(function(challengers) {
 
-    res.json(challengers);
+    console.log("CHALLENGERS : " + challengers);
+
+    var challengeArray = [];
+
+    challengers.forEach(function(challenger) {
+
+      console.log("CHALLENGER : " + challenger);
+
+      challengeArray.push(challenger.Challenge);
+    });
+
+    // var challenges = {
+
+    //   challenges: challengeArray
+    // };
+
+    res.json(challengeArray);
   });
 });
 
