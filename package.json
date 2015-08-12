@@ -6,7 +6,6 @@
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "body-parser": "^1.13.3",
-    "express": "^4.13.3",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
@@ -33,7 +32,6 @@
     }
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "ios"
   ]
 }
