@@ -34,7 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
     controller: 'AppCtrl'
   })
 
-  .state('app.landing', {
+  .state('app.landing',{
     url: '/landing',
     views: {
       'menuContent': {
@@ -123,7 +123,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
     views: {
       'menuContent': {
         templateUrl: 'templates/user-feed.html',
-        // controller: 'user-feed-controller'
+        controller: 'user-feed-controller'
+      }
+    }
+  })
+
+  .state('app.notification',{
+    url: '/notification',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/notification.html',
+        controller: 'notification-controller'
       }
     }
   })
@@ -134,6 +144,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
       'menuContent': {
         templateUrl: 'templates/camera.html',
         controller: 'camera-controller'
+      }
+    }
+  })
+
+  .state('app.push-notifications',{
+    url: '/push-notifications',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/push-notifications.html',
+        controller: 'push-notifications-controller'
       }
     }
   })
