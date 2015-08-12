@@ -4,9 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-// ezfb = easy facebook authentication
-// hljs = highlightjs
-angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordova'])
+
+angular.module('starter', ['ionic',
+                          'starter.controllers',
+                          'ngCordova',
+                          'ngStorage'
+                          ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,7 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
     views: {
       'menuContent': {
         templateUrl: 'templates/landing.html',
-        // controller: 'landing-controller'
+        controller: 'landing-controller'
       }
     }
   })
@@ -93,17 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
-        // controller: 'challenge-complete-controller'
-      }
-    }
-  })
-
-  .state('app.detail-view', {
-    url: '/detail-view',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/detail-view.html',
-        // controller: 'detail-view-controller'
+        controller: 'challenge-complete-controller'
       }
     }
   })
@@ -148,15 +141,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
     }
   })
 
-  .state('app.push-notifications',{
-    url: '/push-notifications',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/push-notifications.html',
-        controller: 'push-notifications-controller'
-      }
-    }
-  })
 
   // if none of the above states are matched, use this as the fallback
 

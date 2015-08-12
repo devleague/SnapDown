@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService) {
+.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal) {
 
   $scope.getChallengeUsers = function (){
     ChallengeService.getChallengeUsers()
@@ -32,5 +32,19 @@ angular.module('starter')
         console.log('err w/ individual pics', err);
       })
   }
+
+  $ionicModal.fromTemplateUrl('my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
 
 });
