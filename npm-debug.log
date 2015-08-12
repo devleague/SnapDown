@@ -1,0 +1,184 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'postgres' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose install initial load of /Users/Coproductions/DevLeague/grannygram/package.json
+6 warn package.json grannygram@1.0.0 No repository field.
+7 warn package.json grannygram@1.0.0 No license field.
+8 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/body-parser/package.json
+9 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/bower/package.json
+10 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/express/package.json
+11 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp/package.json
+12 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp-concat/package.json
+13 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp-minify-css/package.json
+14 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp-rename/package.json
+15 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp-sass/package.json
+16 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/gulp-util/package.json
+17 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/pg/package.json
+18 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/pg-hstore/package.json
+19 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/sequelize/package.json
+20 verbose installManyTop reading scoped package data from /Users/Coproductions/DevLeague/grannygram/node_modules/shelljs/package.json
+21 info package.json gulp-minify-css@0.3.13 No license field.
+22 info package.json bower@1.4.1 No license field.
+23 info package.json pg-hstore@2.3.2 No license field.
+24 info package.json gulp-rename@1.2.2 No license field.
+25 info package.json gulp-util@2.2.20 No license field.
+26 info package.json shelljs@0.3.0 license should be a valid SPDX license expression
+27 verbose readDependencies loading dependencies from /Users/Coproductions/DevLeague/grannygram/package.json
+28 silly cache add args [ 'postgres', null ]
+29 verbose cache add spec postgres
+30 silly cache add parsed spec { raw: 'postgres',
+30 silly cache add   scope: null,
+30 silly cache add   name: 'postgres',
+30 silly cache add   rawSpec: '',
+30 silly cache add   spec: '*',
+30 silly cache add   type: 'range' }
+31 silly addNamed postgres@*
+32 verbose addNamed "*" is a valid semver range for postgres
+33 silly addNameRange { name: 'postgres', range: '*', hasData: false }
+34 silly mapToRegistry name postgres
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/postgres
+38 verbose addNameRange registry:https://registry.npmjs.org/postgres not in flight; fetching
+39 verbose request uri https://registry.npmjs.org/postgres
+40 verbose request no auth needed
+41 info attempt registry request try #1 at 19:08:31
+42 verbose request id a7921dccc2d2b968
+43 http request GET https://registry.npmjs.org/postgres
+44 http 200 https://registry.npmjs.org/postgres
+45 silly get cb [ 200,
+45 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+45 silly get     etag: '"647809U4Q7N40F8W8042QD9KL"',
+45 silly get     'content-type': 'application/json',
+45 silly get     'cache-control': 'max-age=60',
+45 silly get     'content-length': '771',
+45 silly get     'accept-ranges': 'bytes',
+45 silly get     date: 'Wed, 12 Aug 2015 05:08:31 GMT',
+45 silly get     via: '1.1 varnish',
+45 silly get     age: '0',
+45 silly get     connection: 'keep-alive',
+45 silly get     'x-served-by': 'cache-ord1726-ORD',
+45 silly get     'x-cache': 'MISS',
+45 silly get     'x-cache-hits': '0',
+45 silly get     'x-timer': 'S1439356111.565998,VS0,VE77',
+45 silly get     vary: 'Accept' } ]
+46 verbose get saving postgres to /Users/Coproductions/.npm/registry.npmjs.org/postgres/.cache.json
+47 silly addNameRange number 2 { name: 'postgres', range: '*', hasData: true }
+48 silly addNameRange versions [ 'postgres', [ '0.0.1' ] ]
+49 silly addNamed postgres@0.0.1
+50 verbose addNamed "0.0.1" is a plain semver version for postgres
+51 silly mapToRegistry name postgres
+52 silly mapToRegistry using default registry
+53 silly mapToRegistry registry https://registry.npmjs.org/
+54 silly mapToRegistry uri https://registry.npmjs.org/postgres
+55 verbose addRemoteTarball https://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz not in flight; adding
+56 verbose addRemoteTarball [ 'https://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz',
+56 verbose addRemoteTarball   '93aecd0a7fcf620792bcc2c87a2ead432adaa833' ]
+57 info retry fetch attempt 1 at 19:08:31
+58 info attempt registry request try #1 at 19:08:31
+59 http fetch GET https://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz
+60 http fetch 200 https://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz
+61 silly fetchAndShaCheck shasum 93aecd0a7fcf620792bcc2c87a2ead432adaa833
+62 verbose addTmpTarball /var/folders/9c/x9vnl6qx3k5fh8g4gzmhlq2r0000gn/T/npm-30771-4f110cab/registry.npmjs.org/postgres/-/postgres-0.0.1.tgz not in flight; adding
+63 verbose addTmpTarball already have metadata; skipping unpack for postgres@0.0.1
+64 silly cache afterAdd postgres@0.0.1
+65 verbose afterAdd /Users/Coproductions/.npm/postgres/0.0.1/package/package.json not in flight; writing
+66 verbose afterAdd /Users/Coproductions/.npm/postgres/0.0.1/package/package.json written
+67 silly install resolved [ { name: 'postgres',
+67 silly install resolved     version: '0.0.1',
+67 silly install resolved     description: 'very basic libpg binding to node',
+67 silly install resolved     author: { name: 'Ryan Dahl' },
+67 silly install resolved     main: './postgres',
+67 silly install resolved     scripts: { install: 'node-waf configure build' },
+67 silly install resolved     _id: 'postgres@0.0.1',
+67 silly install resolved     engines: { node: '*' },
+67 silly install resolved     _nodeSupported: true,
+67 silly install resolved     _npmVersion: '0.2.7-2',
+67 silly install resolved     _nodeVersion: 'v0.3.1-pre',
+67 silly install resolved     dist:
+67 silly install resolved      { tarball: 'http://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz',
+67 silly install resolved        shasum: '93aecd0a7fcf620792bcc2c87a2ead432adaa833' },
+67 silly install resolved     directories: {},
+67 silly install resolved     _shasum: '93aecd0a7fcf620792bcc2c87a2ead432adaa833',
+67 silly install resolved     _resolved: 'https://registry.npmjs.org/postgres/-/postgres-0.0.1.tgz',
+67 silly install resolved     _from: 'postgres@*' } ]
+68 info install postgres@0.0.1 into /Users/Coproductions/DevLeague/grannygram
+69 info installOne postgres@0.0.1
+70 verbose installOne of postgres to /Users/Coproductions/DevLeague/grannygram not in flight; installing
+71 verbose lock using /Users/Coproductions/.npm/_locks/postgres-ee494ab3591c607a.lock for /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+72 silly install write writing postgres 0.0.1 to /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+73 verbose unbuild node_modules/postgres
+74 silly gentlyRm /Users/Coproductions/DevLeague/grannygram/node_modules/postgres is being purged from base /Users/Coproductions/DevLeague/grannygram
+75 verbose gentlyRm don't care about contents; nuking /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+76 verbose tar unpack /Users/Coproductions/.npm/postgres/0.0.1/package.tgz
+77 verbose tar unpacking to /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+78 silly gentlyRm /Users/Coproductions/DevLeague/grannygram/node_modules/postgres is being purged
+79 verbose gentlyRm don't care about contents; nuking /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+80 silly gunzTarPerm modes [ '755', '644' ]
+81 silly gunzTarPerm extractEntry
+82 silly gunzTarPerm extractEntry .gitignore
+83 silly gunzTarPerm extractEntry ._.npmignore
+84 silly gunzTarPerm extractEntry .npmignore
+85 silly gunzTarPerm extractEntry binding.cc
+86 silly gunzTarPerm extractEntry LICENSE-MIT
+87 silly gunzTarPerm extractEntry ._package.json
+88 silly gunzTarPerm extractEntry package.json
+89 silly gunzTarPerm extractEntry postgres.js
+90 silly gunzTarPerm extractEntry README
+91 silly gunzTarPerm extractEntry test.js
+92 silly gunzTarPerm extractEntry type-oids.h
+93 silly gunzTarPerm extractEntry wscript
+94 verbose write writing to /Users/Coproductions/DevLeague/grannygram/node_modules/postgres/package.json
+95 info preinstall postgres@0.0.1
+96 verbose readDependencies loading dependencies from /Users/Coproductions/DevLeague/grannygram/node_modules/postgres/package.json
+97 verbose readDependencies loading dependencies from /Users/Coproductions/DevLeague/grannygram/node_modules/postgres/package.json
+98 silly install resolved []
+99 verbose about to build /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+100 info build /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+101 info linkStuff postgres@0.0.1
+102 silly linkStuff postgres@0.0.1 has /Users/Coproductions/DevLeague/grannygram/node_modules as its parent node_modules
+103 verbose linkBins postgres@0.0.1
+104 verbose linkMans postgres@0.0.1
+105 verbose rebuildBundles postgres@0.0.1
+106 info install postgres@0.0.1
+107 verbose unsafe-perm in lifecycle true
+108 info postgres@0.0.1 Failed to exec install script
+109 verbose unlock done using /Users/Coproductions/.npm/_locks/postgres-ee494ab3591c607a.lock for /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+110 verbose stack Error: postgres@0.0.1 install: `node-waf configure build`
+110 verbose stack spawn ENOENT
+110 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:17:16)
+110 verbose stack     at ChildProcess.emit (events.js:110:17)
+110 verbose stack     at maybeClose (child_process.js:1015:16)
+110 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+111 verbose pkgid postgres@0.0.1
+112 verbose cwd /Users/Coproductions/DevLeague/grannygram
+113 error Darwin 14.4.0
+114 error argv "node" "/usr/local/bin/npm" "install" "postgres"
+115 error node v0.12.4
+116 error npm  v2.10.1
+117 error file sh
+118 error code ELIFECYCLE
+119 error errno ENOENT
+120 error syscall spawn
+121 error postgres@0.0.1 install: `node-waf configure build`
+121 error spawn ENOENT
+122 error Failed at the postgres@0.0.1 install script 'node-waf configure build'.
+122 error This is most likely a problem with the postgres package,
+122 error not with npm itself.
+122 error Tell the author that this fails on your system:
+122 error     node-waf configure build
+122 error You can get their info via:
+122 error     npm owner ls postgres
+122 error There is likely additional logging output above.
+123 verbose exit [ 1, true ]
+124 verbose unbuild node_modules/postgres
+125 info preuninstall postgres@0.0.1
+126 info uninstall postgres@0.0.1
+127 verbose unbuild rmStuff postgres@0.0.1 from /Users/Coproductions/DevLeague/grannygram/node_modules
+128 info postuninstall postgres@0.0.1
+129 silly gentlyRm /Users/Coproductions/DevLeague/grannygram/node_modules/postgres is being purged from base /Users/Coproductions/DevLeague/grannygram
+130 verbose gentlyRm don't care about contents; nuking /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+131 silly vacuum-fs purging /Users/Coproductions/DevLeague/grannygram/node_modules/postgres
+132 silly vacuum-fs quitting because other entries in /Users/Coproductions/DevLeague/grannygram/node_modules
