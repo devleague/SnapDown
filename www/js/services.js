@@ -56,12 +56,21 @@ function LogOutService($http){
 
 function PictureService ($http){
   //not added to any controller yet
-  this.savePictureToAws = function (){
+  this.savePictureToAws = function (s3_reference, privacy_status, challenger_id){
 
+    var new_image = {
+
+      s3_reference: s3_reference,
+      privacy_status: privacy_status,
+      challenger_id: challenger_id
+    };
+
+    return $http.post('/api/images/', new_image);
   }
 
-  this.getChallengePics = function (){
+  this.getChallengePics = function (challenge_id){
 
+    return $http.get('/api/challenges/' + challenge_id + '/images');
   }
 
   this.getIndividualPic = function (){

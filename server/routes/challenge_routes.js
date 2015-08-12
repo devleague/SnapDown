@@ -3,6 +3,8 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenge;
+var images = require('../models').Image;
+var challengers = require('../models').Challenger;
 
 router.get('/', function(req,res) {
 
@@ -34,6 +36,41 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
+  });
+});
+
+router.get('/:id/images', function(req,res) {
+
+  console.log("HERE!!!!");
+
+  db.findOne({
+
+    where: {
+
+      id: req.params.id
+    }, include :[{model:challengers}]
+
+  }).then(function(result) {
+
+    res.json(result);
+
+    if(!result) {
+
+      res.status(404);
+      res.send("Could not locate the requested resource.");
+    }
+
+    challengers.findAll( {
+
+      where: {
+
+        challenger_id: result.id
+      }
+
+    }).then(function(results) {
+
+
+    });
   });
 });
 
