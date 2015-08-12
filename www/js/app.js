@@ -1,3 +1,4 @@
+FB_SNAPDOWN_ID = '394498294076827';
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules

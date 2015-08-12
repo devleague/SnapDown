@@ -7,19 +7,16 @@
                 <p>{{profileData.id}}</p>
             </div>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-earth"></i>
-                {{profileData.website}}
-            </a>
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-home"></i>
-                {{profileData.location.name}}
-            </a>
-            <a href="#" class="item item-icon-left">
                 <i class="icon ion-heart"></i>
                 {{profileData.relationship_status}}
             </a>
-            <div>First name:{{ profileData.first_name}}</div>
-            <div>First name:{{ profileData.last_name}}</div>
+            <div>First name:{{ profileData.first_name }}</div>
+            <div>Last name:{{ profileData.last_name }}</div>
+            <div>ID:{{ profileData.id }}</div>
+            <div>picture {{ profileData.picture.data.url }}</div>
+            <div>email {{ profileData.email }}</div>
+
+
         </div>
     </ion-content>
 </ion-view>

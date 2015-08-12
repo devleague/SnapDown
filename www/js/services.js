@@ -3,7 +3,7 @@
 var DEFAULT_CHALLENGE_LENGTH = 300000;
 
 angular.module('starter')
-  .service('RegisterService', ['$http', RegisterService])
+  .service('RegisterService', ['$http', '$localStorage', '$location', RegisterService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -12,32 +12,38 @@ angular.module('starter')
 
 
 
-function RegisterService($http){
-  this.createUser = function (new_user){
-
-    //Grab the necessary info from the register form and assign
-    //to a user object
-
-    //get info from Facebook
-    var facebook_id = facebookid;
-    var facebook_image_url = facebookimage;
-
-    var new_register = {
-      user_name: new_user.user_name,
-      first_name : new_user.first_name,
-      last_name : new_user.last_name,
-      facebook_id: facebook_id,
-      facebook_image_url: facebook_image_url,
-      email: new_user.email,
-      phone: new_user.phone
-    };
-    return $http.post('/api/users/register', new_register);
+function RegisterService($http, $localStorage, $location) {
+  this.createUser = function() {
+    if ($localStorage.hasOwnProperty('accessToken') === true) {
+      $http.get('https://graph.facebook.com/v2.2/me', {
+        params: {
+          access_token: $localStorage.accessToken,
+          fields: 'id,first_name,last_name,picture,email',
+          format: 'json'
+        }
+      }).then(function(result) {
+        var user = {
+          first_name: result.data.first_name,
+          last_name: result.data.last_name,
+          id: result.data.id,
+          email: result.data.email,
+          picture: result.data.picture.data.url
+        };
+        return $http.post('http://10.0.1.41:3000/api/register/facebook_register_user', user);
+      }, function(error) {
+        alert('There was a problem getting your profile.  Check the logs for details.');
+        console.log(error);
+      });
+    } else {
+      alert('Not signed in');
+      $location.path('/#/landing');
+    }
   }
 
 }
 
-function LoginService($http){
-  this.loginUser = function (login_user){
+function LoginService($http) {
+  this.loginUser = function(login_user) {
 
     //Grab the necessary info from the register form and assign
     //to a user object
@@ -51,15 +57,15 @@ function LoginService($http){
 
 }
 
-function LogOutService($http){
-  this.logUserOut = function (){
+function LogOutService($http) {
+  this.logUserOut = function() {
     // return $http.get('/api/users/logout');
   }
 }
 
-function PictureService ($http){
+function PictureService($http) {
   //not added to any controller yet
-  this.savePictureToAws = function (s3_reference, privacy_status, challenger_id){
+  this.savePictureToAws = function(s3_reference, privacy_status, challenger_id) {
 
     var new_image = {
 
@@ -76,9 +82,9 @@ function PictureService ($http){
   // }
 }
 
-function ChallengeService ($http) {
+function ChallengeService($http) {
   //will get the current users challenges (for their feed)
-  this.getMyChallenges = function (user_id){
+  this.getMyChallenges = function(user_id) {
 
     return $http.get('/api/challengers/' + user_id + '/challenges');
   }
@@ -100,7 +106,7 @@ function ChallengeService ($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-  this.addUserToChallenge = function (challenger) {
+  this.addUserToChallenge = function(challenger) {
 
     var new_challenger = {
 
@@ -115,13 +121,13 @@ function ChallengeService ($http) {
   //will remove a user from challenge
   //can be from the user who iniated the challenge
   //or when they don't respond to a challenge
-  this.removeUserFromChallenge = function (challenger_id){
+  this.removeUserFromChallenge = function(challenger_id) {
 
     return $http.delete('/api/challenger/' + challenger_id);
   }
 
 
-  this.createNewChallenge = function (challenge){
+  this.createNewChallenge = function(challenge) {
 
     var new_challenge = {
 
@@ -137,7 +143,7 @@ function ChallengeService ($http) {
 
   // }
 
-  this.getChallengeContext = function (challenge_id){
+  this.getChallengeContext = function(challenge_id) {
 
     return $http.get('/api/challenges/' + challenge_id + '/context');
   }
@@ -145,20 +151,20 @@ function ChallengeService ($http) {
 
 }
 
-function UserService ($http){
+function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
-  this.getAllUsers = function (){
+  this.getAllUsers = function() {
     return $http.get('/api/users/');
   }
 
   //not in any controller or funcitonality as now
-  this.getIndividualUser = function (userId){
+  this.getIndividualUser = function(userId) {
     var user_id = userId
     return $http.get('/api/users/' + user_id);
   }
 
   //not in any controller - need to grab userid somehow
-  this.updateUserInfo = function (user){
+  this.updateUserInfo = function(user) {
 
     // var user_id = userId;
     var user_profile = {
@@ -177,7 +183,7 @@ function UserService ($http){
   }
 
   //not in any controller - need to grab userid somehow
-  this.deleteUser = function (userId){
+  this.deleteUser = function(userId) {
     var user_id = userId;
     return $http.delete('/api/users/' + user_id)
   }

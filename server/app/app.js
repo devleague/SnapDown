@@ -10,6 +10,7 @@ var routes = require('../routes');
 // var image_routes = require('../routes/image_routes');
 // var user_routes = require('../routes/user_routes');
 // var user_friend_routes = require('../routes/user_friend_routes');
+var fbauth_routes = require('../routes/fbauth_routes');
 var bodyParser = require('body-parser');
 // var session = require('express-session');
 // var passport = require('passport');
@@ -28,7 +29,9 @@ var bodyParser = require('body-parser');
 
 // app.use(express.static('./public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
 
 // app.use(passport.initialize());
 // app.use(passport.session());
@@ -70,13 +73,14 @@ app.use('/api', routes);
 // app.use('/api/images', image_routes);
 // app.use('/api/users', user_routes);
 // app.use('/api/user_friends', user_friend_routes);
+app.use('/api/register/facebook_register_user',fbauth_routes);
 
 var server = app.listen(3000, function() {
 
-  var host = server.address().address;
-  var port = server.address().port;
+	var host = server.address().address;
+	var port = server.address().port;
 
-  console.log('App listening at http://%s:%s', host, port);
+	console.log('App listening at http://%s:%s', host, port);
 
-  db.sequelize.sync();
+	db.sequelize.sync();
 });
