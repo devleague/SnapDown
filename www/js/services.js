@@ -1,5 +1,7 @@
 'use strict';
 
+var DEFAULT_CHALLENGE_LENGTH = 300000;
+
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
@@ -97,22 +99,37 @@ function ChallengeService ($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-  this.addUserToChallenge = function (user_id, challenge_id) {
+  this.addUserToChallenge = function (challenger) {
 
+    var new_challenger = {
 
+      initiator: challenger.initiator_flag,
+      user_id: challenger.user_id,
+      challenge_id: challenger.challenge_id
+    };
+
+    return $http.post('/api/challengers', new_challenger);
   }
 
   //will remove a user from challenge
   //can be from the user who iniated the challenge
   //or when they don't respond to a challenge
-  this.removeUserFromChallenge = function (){
+  this.removeUserFromChallenge = function (challenger_id){
 
+    return $http.delete('/api/challenger/' + challenger_id);
   }
 
 
-  this.createNewChallenge = function (){
+  this.createNewChallenge = function (challenge){
 
+    var new_challenge = {
 
+      start_at: Date.now(),
+      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
+      name: challenge.name
+    };
+
+    return $http.post('/api/challenges', new_challenge);
   }
 
   // this.getTimeRemaining = function (){
@@ -140,13 +157,18 @@ function UserService ($http){
   }
 
   //not in any controller - need to grab userid somehow
-  this.updateUserInfo = function (userId){
+  this.updateUserInfo = function (user){
 
-    var user_id = userId;
+    // var user_id = userId;
     var user_profile = {
-      //populate this with the profile fields on the user profile page
 
-    }
+      first_name: user.first_name,
+      last_name: user.last_name,
+      facebook_id: user.facebook_id,
+      facebook_image_url: user.facebook_image_url,
+      email: user.email,
+      phone: user.phone
+    };
 
     return $http.put('/api/users/' + user_id, user_profile)
 
