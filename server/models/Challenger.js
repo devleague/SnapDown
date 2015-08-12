@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
 
     // challenge_id: DataTypes.INTEGER,
     // user_id: DataTypes.INTEGER
+    initiator_flag: DataTypes.BOOLEAN
 
   },{
 
