@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core','ionic.service.push', 'starter.controllers', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -127,15 +127,6 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.push', 's
     }
   })
 
-  .state('app.push-notifications',{
-    url: '/push-notifications',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/push-notifications.html',
-        controller: 'push-notifications-controller'
-      }
-    }
-  })
 
   // if none of the above states are matched, use this as the fallback
 
