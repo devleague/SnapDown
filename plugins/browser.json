@@ -28,9 +28,6 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.grannygram260579"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.ionicframework.grannygram260579"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.ionicframework.grannygram260579"
         },
