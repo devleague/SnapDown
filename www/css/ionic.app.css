@@ -15,68 +15,6 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-body, html {
-  min-height: 100%; }
-
-.feed {
-  height: 100px;
-  width: 300px;
-  background-color: yellow;
-  margin: 0 auto; }
-
-.startChallenge {
-  height: 53px;
-  width: 300px;
-  background-color: red;
-  margin: 0 auto; }
-
-#start_challenge {
-  height: 50px;
-  background-color: red;
-  text-align: center;
-  border-radius: 5px; }
-
-.imageHolder {
-  height: 100px; }
-
-.imageDiv {
-  width: 90%;
-  height: 90px;
-  margin: auto auto;
-  background-color: blue; }
-
-.timeRemaining {
-  height: 40px;
-  border-radius: 5px;
-  background-color: purple;
-  text-align: center; }
-
-.newChallenge {
-  height: 40px;
-  border-radius: 5px;
-  background-color: pink;
-  text-align: center; }
-
-.tabs {
-  left: 0; }
-
-.myModal {
-  height: 90%;
-  width: 90%;
-  background-color: red; }
-
-ion-content.myModal.scroll-content.ionic-scroll {
-  width: 95%;
-  height: 95%;
-  margin: auto auto; }
-
-.closeModal {
-  height: 30px;
-  width: 30px;
-  border-radius: 30px;
-  background-color: white;
-  border: 1px solid black; }
-
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7754,3 +7692,90 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+body, html {
+  min-height: 100%; }
+
+.feed {
+  height: 100px;
+  width: 300px;
+  background-color: yellow;
+  margin: 0 auto; }
+
+.startChallenge {
+  height: 53px;
+  width: 300px;
+  background-color: red;
+  margin: 0 auto; }
+
+#start_challenge {
+  height: 50px;
+  background-color: red;
+  text-align: center;
+  border-radius: 5px; }
+
+.imageHolder {
+  height: 100px; }
+
+.imageDiv {
+  width: 90%;
+  height: 90px;
+  margin: auto auto;
+  background-color: blue; }
+
+.newChallenge {
+  height: 40px;
+  border-radius: 5px;
+  background-color: pink;
+  text-align: center; }
+
+.tabs {
+  left: 0; }
+
+.myModal {
+  height: 90%;
+  width: 90%;
+  background-color: red; }
+
+ion-content.myModal.scroll-content.ionic-scroll {
+  width: 95%;
+  height: 95%;
+  margin: auto auto; }
+
+.closeModal {
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid black; }
+
+.timeRemainingContainer {
+  position: relative; }
+  .timeRemainingContainer .timeRemaining {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translate(50%, 0);
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: purple;
+    text-align: center; }
+
+.headerBar .avatarDiv {
+  display: inline-block;
+  float: left;
+  height: 20%; }
+  .headerBar .avatarDiv img {
+    max-height: 60px;
+    max-width: 60px;
+    border-radius: 40px;
+    margin: 0 5px; }
+
+.statistics {
+  height: 40%;
+  width: 100%;
+  bottom: 0;
+  background-color: red; }

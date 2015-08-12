@@ -82,16 +82,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.detail-view',{
-    url: '/detail-view',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/detail-view.html',
-        // controller: 'detail-view-controller'
-      }
-    }
-  })
-
   .state('app.user-challenged',{
     url: '/user-challenged',
     views: {
@@ -108,6 +98,16 @@ angular.module('starter', ['ionic',
       'menuContent' :{
         templateUrl: 'templates/user-feed.html',
         controller: 'user-feed-controller'
+      }
+    }
+  })
+
+  .state('app.edit-profile',{
+    url: '/edit-profile',
+    views: {
+      'menuContent' :{
+        templateUrl: 'templates/edit-profile.html',
+        // controller: 'edit-profile-controller'
       }
     }
   })
