@@ -11,8 +11,16 @@
         <a class="col tab-item" ui-sref="app.user-feed">
           <i class="icon ion-ios-filing"></i>
         </a>
-        <a class="col tab-item" ui-sref="app.edit-profile">
+        <a class="col tab-item" ng-click="openModal()">
           <i class="icon ion-gear-a"></i>
+          <script id="edit-profile-modal.html" type="text/ng-template">
+            <ion-modal-view>
+              <ion-content class="editProfileModal">
+                <div class="closeModal" ng-click="closeModal()">x</div>
+                <div class="editModal"></div>
+              </ion-content>
+            </ion-modal-view>
+          </script>
         </a>
       </div>
     </ion-footer-bar>

@@ -44,6 +44,7 @@ angular.module('starter')
   };
   $scope.closeModal = function() {
     $scope.modal.hide();
-  }
+  };
+
 
 });

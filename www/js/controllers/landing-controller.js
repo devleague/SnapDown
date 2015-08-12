@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state) {
+.controller('landing-controller', function($scope, RegisterService, LoginService, $ionicGesture, $state, $ionicModal) {
 
   $scope.createUser = function (){
 
@@ -35,6 +35,19 @@ angular.module('starter')
     $state.go('app.user-feed');
   }
 
+  $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
 
 
 

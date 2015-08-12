@@ -102,15 +102,15 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.edit-profile',{
-    url: '/edit-profile',
-    views: {
-      'menuContent' :{
-        templateUrl: 'templates/edit-profile.html',
-        // controller: 'edit-profile-controller'
-      }
-    }
-  })
+  // .state('app.edit-profile',{
+  //   url: '/edit-profile',
+  //   views: {
+  //     'menuContent' :{
+  //       templateUrl: 'templates/edit-profile.html',
+  //       // controller: 'edit-profile-controller'
+  //     }
+  //   }
+  // })
 
   .state('app.camera',{
     url: '/camera',
