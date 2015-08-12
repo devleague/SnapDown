@@ -53,16 +53,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngStorage', 'ngCordo
       }
     }
   })
-  
+
   .state('app.profile', {
     url: '/profile',
     views: {
       'menuContent': {
         templateUrl: 'templates/profile.html',
-        controller: 'ProfileController'
+        controller: 'profile-controller'
       }
     }
   })
+
   .state('app.select-challenger', {
     url: '/select-challenger',
     params: {

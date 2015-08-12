@@ -1,4 +1,4 @@
-<ion-view title="Profile" ng-init="init()">
+<ion-view view-title="profile" ng-init="init()">
     <ion-content>
         <div class="list card">
             <div class="item item-avatar">
@@ -18,6 +18,8 @@
                 <i class="icon ion-heart"></i>
                 {{profileData.relationship_status}}
             </a>
+            <div>First name:{{ profileData.first_name}}</div>
+            <div>First name:{{ profileData.last_name}}</div>
         </div>
     </ion-content>
 </ion-view>
