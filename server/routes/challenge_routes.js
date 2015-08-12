@@ -39,7 +39,7 @@ router.get('/:id', function(req,res) {
   });
 });
 
-router.get('/:id/images', function(req,res) {
+router.get('/:id/context', function(req,res) {
 
   console.log("HERE!!!!");
 
@@ -50,27 +50,20 @@ router.get('/:id/images', function(req,res) {
       id: req.params.id
     }, include :[{model:challengers}]
 
-  }).then(function(result) {
+  }).then(function(challenge) {
 
-    res.json(result);
+    console.log("challenge : " + challenge);
 
-    if(!result) {
+    challenge.Challengers.forEach(function(challenger) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
-    }
+      console.log("image : " + challenger);
 
-    challengers.findAll( {
-
-      where: {
-
-        challenger_id: result.id
-      }
-
-    }).then(function(results) {
-
-
+      challenger.Image;
     });
+
+    console.log("challenge : " + challenge);
+
+    res.json(challenge);
   });
 });
 
