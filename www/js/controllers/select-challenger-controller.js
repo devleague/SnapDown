@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams, DataSharingService, MessageServices, ChallengerService) {
+.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService) {
 
   $scope.imageURI = $stateParams.imageURI;
 
@@ -67,6 +67,11 @@ angular.module('starter')
 
       MessageServices.sendChallengeInvites(invitationObj);
 
+    };
+
+    $scope.changeView = function(){
+      console.log('changing view')
+      $state.go('app.challenge-in-progress');
     };
 
 
