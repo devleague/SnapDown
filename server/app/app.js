@@ -3,7 +3,6 @@
 var express = require('express');
 var app = express();
 var db = require('../models');
-var routes = require('../routes');
 // var challenge_routes = require('../routes/challenge_routes');
 // var challenge_image_routes = require('../routes/challenge_image_routes');
 // var challenge_user_routes = require('../routes/challenge_user_routes');
@@ -29,6 +28,15 @@ var bodyParser = require('body-parser');
 // app.use(express.static('./public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+var routes = require('../routes');
+
 
 // app.use(passport.initialize());
 // app.use(passport.session());

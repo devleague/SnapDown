@@ -1,7 +1,9 @@
 <ion-view view-title="landing">
-  <ion-content on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
-    <div class="startChallenge" ng-click="getPhoto()">Start Challenge</div>
-    <div class="feed" ui-sref="app.user-feed">Feed</div>
+  <ion-content on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" can-swipe-back="false">
+    <div class="startChallenge" ng-click="createNewChallenge()">Start Challenge</div>
+    <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
+    <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
+    <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
   </ion-content>
   <ion-footer-bar>
     <div class="tabs tabs-icon-top tabs-positive">

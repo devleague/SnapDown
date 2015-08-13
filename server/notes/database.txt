@@ -38,3 +38,5 @@ kill server
 
 -----
 
+Re-populate the database with info: 
+\i ~/LOCATION OF MASTER.SQL FILE

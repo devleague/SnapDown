@@ -23,7 +23,6 @@ function RegisterService($http){
     var facebook_image_url = facebookimage;
 
     var new_register = {
-      user_name: new_user.user_name,
       first_name : new_user.first_name,
       last_name : new_user.last_name,
       facebook_id: facebook_id,
@@ -31,7 +30,8 @@ function RegisterService($http){
       email: new_user.email,
       phone: new_user.phone
     };
-    return $http.post('/api/users/register', new_register);
+
+    return $http.post('/api/users/', new_register);
   }
 
 }
@@ -75,6 +75,16 @@ function PictureService ($http){
 
   // }
 }
+
+function MessageServices ($http) {
+  this.sendChallengeInvites = function(challenge_obj){
+
+    return $http.post('/api/message/', challenge_obj);
+
+
+  }
+
+};
 
 function ChallengeService ($http) {
   //will get the current users challenges (for their feed)
@@ -127,10 +137,11 @@ function ChallengeService ($http) {
 
       start_at: Date.now(),
       expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
-      name: challenge.name
+      name: 'challenge.name',
+      privacy_status: 'public'
     };
 
-    return $http.post('/api/challenges', new_challenge);
+    return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
 
   // this.getTimeRemaining = function (){
@@ -148,7 +159,8 @@ function ChallengeService ($http) {
 function UserService ($http){
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function (){
-    return $http.get('/api/users/');
+    console.log('going for the usres');
+    return $http.get('http://localhost:3000/api/users/');
   }
 
   //not in any controller or funcitonality as now
@@ -162,14 +174,12 @@ function UserService ($http){
 
     // var user_id = userId;
     var user_profile = {
-
-      user_name: user.user_name,
+      user_name : user.user_name,
       first_name: user.first_name,
       last_name: user.last_name,
-      facebook_id: user.facebook_id,
-      facebook_image_url: user.facebook_image_url,
       email: user.email,
-      phone: user.phone
+      phone: user.phone,
+      service_provider : user.service_provider
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
