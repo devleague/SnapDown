@@ -77,9 +77,6 @@ router.get('/:id/context', function(req,res) {
 router.post('/', function(req,res) {
 
   db.create({
-
-    start_at: req.body.start_at,
-    expire_at: req.body.expire_at,
     name: req.body.name,
     privacy_status: req.body.privacy_status,
     challenger_id: req.body.challenger_id
@@ -91,25 +88,15 @@ router.post('/', function(req,res) {
 });
 
 router.put('/:id', function(req,res) {
-
-console.log('updating the challenge!');
-
   db.findOne({
-
     where: {
-
       id: req.params.id
     }
-
   }).then(function(result){
-
     if(!result) {
-
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
-
-    console.log('challenge found!')
     var updateData = {};
 
     if(req.body.start_at !== undefined) {
