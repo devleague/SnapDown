@@ -32,7 +32,6 @@ router.get('/:id', function(req,res) {
 
 //creates a new user
 router.post('/', function(req,res) {
-
   db.create({
 
     user_name: req.body.user_name,
