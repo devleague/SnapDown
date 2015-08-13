@@ -9,6 +9,8 @@ angular.module('starter')
   .service('PictureService', ['$http', PictureService])
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
+  .service('ChallengerService', ['$http', ChallengerService])
+  .service('DataSharingService', DataSharingService)
 
 
 
@@ -192,3 +194,22 @@ function UserService ($http){
     return $http.delete('/api/users/' + user_id)
   }
 }
+
+function ChallengerService($http){
+
+  this.createChallenger = function(userId, challengeId, initiator){
+    var challenger = {
+      initiator_flag : initiator,
+      challenge_id: challengeId,
+      user_id: userId
+    };
+    return $http.post('/api/challengers/', challenger);
+  }
+
+};
+
+function DataSharingService(){
+
+  this.activeChallenge = {};
+  this.activeUser = {};
+};
