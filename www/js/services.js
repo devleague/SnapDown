@@ -67,15 +67,18 @@ function PictureService ($http){
     var imageData = {
       dataURI : imageURI
     };
-    return $http.post('http://localhost:3000/api/upload/', imageData);
+    // return $http.post('http://localhost:3000/api/upload/', imageURI);
+    return $http.post('http://10.0.1.30:3000/api/upload/', imageData);
+
 
   }
 }
 
 function MessageServices ($http) {
   this.sendChallengeInvites = function(invitationObj){
-    console.log('sending invites')
+    // return $http.post('http://localhost:3000/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
+
   }
 };
 
