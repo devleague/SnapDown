@@ -198,12 +198,13 @@ function UserService ($http){
 function ChallengerService($http){
 
   this.createChallenger = function(userId, challengeId, initiator){
+    console.log('creating challenger',userId,challengeId,initiator)
     var challenger = {
       initiator_flag : initiator,
       challenge_id: challengeId,
       user_id: userId
     };
-    return $http.post('/api/challengers/', challenger);
+    return $http.post('http://localhost/api/challengers/', challenger);
   }
 
 };
