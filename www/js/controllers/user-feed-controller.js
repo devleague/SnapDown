@@ -28,6 +28,7 @@ angular.module('starter')
 
 
   $scope.onSwipeLeft = function() {
+    console.log('going left');
     $state.go('app.landing');
   }
 });
