@@ -13,9 +13,12 @@ angular.module('starter')
         DataSharingService.activeChallenge.name = res.name;
         //DataSharingServise.activeUser.id =
 
-        ChallengerService.createChallenger(1, res.id, true)
+        ChallengerService.createChallenger(2, res.id, true)
           .success(function(res){
             console.log('challenger created', res);
+          })
+          .error(function(error){
+            console.log(error);
           })
 
 
