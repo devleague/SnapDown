@@ -1,17 +1,25 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
+.controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
 
   $scope.UserService = UserService;
   $scope.users = [];
-
+  // $localStorage.activeUserId = 2;
 
 
     UserService.getAllUsers()
     .success(function (res){
-      console.log(res);
-      $scope.users = res;
+      console.log('res',res);
+      var filteredUser = res.filter(function(element,index,array){
+        if(element.id === 1){
+          return false;
+        }else{
+          return true;
+        }
+        console.log('filteredUser',filteredUser);
+      });
+      $scope.users = filteredUser;
     })
     .error(function (err){
       console.log('Error with receiving users', err);
