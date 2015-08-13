@@ -14,15 +14,6 @@ var messageService = require('../services/message_service.js')
 
 
 router.post('/',function(req,res){
-  //need to json parse the req body
-  console.log('hitting post messages',req.body)
-
-  // var challengeContext = JSON.parse(req.body);
-  // console.log('challenge context: ',challengeContext)
-  // var messageLog = {
-  //   challengeId : req.body.id,
-  //   messages: []
-  // };
 
   req.body.users.forEach(function(user){
     var messageBody = 'Hi '
@@ -44,13 +35,12 @@ router.post('/',function(req,res){
         console.log(error);
       }
     }).then(function(result){
-      console.log('result',result);
-      fs.writeFile("./logs/message_logs.txt", "Hey there!", function(err) {
+
+      var stringResult = JSON.stringify(result) + '\n';
+      fs.appendFile("./server/logs/message_logs.txt", stringResult, function(err) {
         if(err) {
           return console.log(err);
         }
-
-        console.log("The file was saved!");
       });
     });
   });

@@ -61,6 +61,7 @@ angular.module('starter')
     $scope.sendInvites = function(){
       var invitationObj = {
         users: $scope.usersChecked,
+        challengeId: DataSharingService.activeChallenge.id,
         challengerName: 'testName',
         startTime: Date.now()
       };
