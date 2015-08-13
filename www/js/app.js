@@ -76,7 +76,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/select-challenger.html',
-        controller: 'select-challenger-controller as SelectChallengeController'
+        controller: 'select-challenger-controller'
       }
     }
   })

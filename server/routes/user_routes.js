@@ -7,6 +7,7 @@ var db = require('../models').User;
 //Gets all the users
 router.get('/', function(req,res) {
 
+console.log('database gimme the users');
   db.findAll()
     .then(function(results) {
       res.json(results);
@@ -15,7 +16,6 @@ router.get('/', function(req,res) {
 
 //Gets an individual user
 router.get('/:id', function(req,res) {
-
   db.findOne({
     where: {
       user_id: req.params.id

@@ -7,15 +7,16 @@ angular.module('starter')
   $scope.UserService = UserService;
   $scope.users = [];
 
-  $scope.getAllUsers = function(){
+
     UserService.getAllUsers()
     .success(function (res){
+      console.log(res);
       $scope.users = res;
     })
     .error(function (err){
       console.log('Error with receiving users', err);
     })
-  };
+
 
   $scope.addUserToChallenge = function (){
     ChallengeService.addUserToChallenge()
