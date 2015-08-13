@@ -1,11 +1,12 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams) {
+.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams, DataSharingService) {
 
   $scope.imageURI = $stateParams.imageURI;
 
   $scope.UserService = UserService;
   $scope.users = [];
+
 
 
     UserService.getAllUsers()
@@ -25,12 +26,14 @@ angular.module('starter')
       if(bool){
         $scope.usersChecked.push(user);
       }else if($scope.usersChecked.indexOf(user) > -1){
-        $scope.usersChecked.pop(user);
+        $scope.usersChecked.splice($scope.usersChecked.indexOf(user),1);
       }
     }
 
     $scope.consoleSelected = function (){
       console.log('users checked', $scope.usersChecked);
+        console.log('DataSharingService',DataSharingService.activeUser,DataSharingService.activeChallenge)
+
     }
 
 

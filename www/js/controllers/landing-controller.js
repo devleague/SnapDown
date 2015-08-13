@@ -29,6 +29,7 @@ angular.module('starter')
       })
     };
 
+
     // $scope.getPhoto = function() {
     //   Camera.getPicture(
     //     {
