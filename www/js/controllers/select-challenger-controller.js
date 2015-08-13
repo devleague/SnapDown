@@ -17,6 +17,21 @@ angular.module('starter')
       console.log('Error with receiving users', err);
     })
 
+    $scope.usersSelected = [];
+    $scope.isChecked = function (bool, user){
+      console.log('bools and users', bool, user);
+      if(bool){
+        $scope.usersSelected.push(user);
+      }else if($scope.usersSelected.indexOf(user) > -1){
+        $scope.usersSelected.pop(user);
+      }
+
+
+    }
+
+
+
+
 
   $scope.addUserToChallenge = function (){
     ChallengeService.addUserToChallenge()
@@ -35,17 +50,6 @@ angular.module('starter')
     })
     .error(function (err){
       console.log('Error with removing user', err);
-    })
-  };
-
-  $scope.createNewChallenge = function (){
-    ChallengeService.createNewChallenge()
-    .success(function (res){
-      console.log('challenge created', res)
-      //forward to the in progress page
-    })
-    .error(function (err){
-      console.log('Error with creating a challenge', err);
     })
   };
 
