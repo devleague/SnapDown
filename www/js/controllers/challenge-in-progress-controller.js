@@ -7,14 +7,8 @@ angular.module('starter')
 
   //Can be used to validate if the user sent in a picture.
   //if so, display greyed out version
-  $scope.getChallengeContext = function (challenge_id){
-    PictureService.getChallengePics()
-      .success(function (res){
-        console.log('challenge pictures', res);
-      })
-      .error(function (err){
-        console.log('err w/challenge pics', err);
-      })
+  $scope.getChallengeContext = function (DataSharingService.activeChallenge.id){
+
   }
 
   $ionicPlatform.ready(function() {
