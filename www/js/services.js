@@ -125,8 +125,8 @@ function ChallengeService ($http) {
 
     var new_challenge = {
 
-      // start_at: Date.now(),
-      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
+      start_at: Date.now(),
+      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
       name: 'challenge.name',
       privacy_status: 'public'
     };
