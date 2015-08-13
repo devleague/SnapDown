@@ -8,7 +8,7 @@ angular.module('starter')
             alert('hello login');
             $localStorage.accessToken = result.access_token;
             RegisterService.createUser();
-            $location.path('/profile');
+            $location.path('/app/profile');
         }, function(error) {
             alert('There was a problem signing in!  See the console for logs');
             alert(error);

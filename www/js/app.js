@@ -152,7 +152,6 @@ angular.module('starter', ['ionic',
 });
 
 var ensureAuthenticated = function($q, $rootScope, $location, $localStorage, $http) {
-  alert($location);
   if ($localStorage.accessToken) {
     return true;
   } else {

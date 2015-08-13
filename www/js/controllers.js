@@ -48,7 +48,6 @@
 
    $scope.logout = function() {
      RegisterService.logout();
-     alert($localStorage.accessToken);
    }
 
    // Perform the login action when the user submits the login form
