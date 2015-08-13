@@ -59,7 +59,6 @@ angular.module('starter')
 
 
     $scope.sendInvites = function(){
-      console.log('invite button clicked')
       var invitationObj = {
         users: $scope.usersChecked,
         challengerName: 'testName',

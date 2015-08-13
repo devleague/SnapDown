@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var challengeDb = require('../models').Challenge;
 var challengerDb = require('../models').Challenger;
 var userDb = require('../models').User;
@@ -44,6 +45,13 @@ router.post('/',function(req,res){
       }
     }).then(function(result){
       console.log('result',result);
+      fs.writeFile("./logs/message_logs.txt", "Hey there!", function(err) {
+        if(err) {
+          return console.log(err);
+        }
+
+        console.log("The file was saved!");
+      });
     });
   });
 });
