@@ -125,12 +125,13 @@ function ChallengeService ($http) {
 
     var new_challenge = {
 
-      start_at: Date.now(),
-      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
-      name: challenge.name
+      // start_at: Date.now(),
+      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
+      name: 'challenge.name',
+      privacy_status: 'public'
     };
 
-    return $http.post('/api/challenges', new_challenge);
+    return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
 
   // this.getTimeRemaining = function (){
