@@ -30,7 +30,8 @@ function RegisterService($http){
       email: new_user.email,
       phone: new_user.phone
     };
-    return $http.post('/api/users/register', new_register);
+
+    return $http.post('/api/users/', new_register);
   }
 
 }
@@ -147,7 +148,8 @@ function ChallengeService ($http) {
 function UserService ($http){
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function (){
-    return $http.get('/api/users/');
+    console.log('going for the usres');
+    return $http.get('http://localhost:3000/api/users/');
   }
 
   //not in any controller or funcitonality as now
@@ -161,13 +163,12 @@ function UserService ($http){
 
     // var user_id = userId;
     var user_profile = {
-
+      user_name : user.user_name,
       first_name: user.first_name,
       last_name: user.last_name,
-      facebook_id: user.facebook_id,
-      facebook_image_url: user.facebook_image_url,
       email: user.email,
-      phone: user.phone
+      phone: user.phone,
+      service_provider : user.service_provider
     };
 
     return $http.put('/api/users/' + user_id, user_profile)

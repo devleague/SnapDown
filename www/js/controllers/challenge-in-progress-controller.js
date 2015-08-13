@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope, ChallengeService) {
+.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture, $ionicModal) {
 
   // $scope.getChallengeUsers = function (){
   //   ChallengeService.getChallengeUsers()
@@ -33,5 +33,26 @@ angular.module('starter')
   //       console.log('err w/ time remaining', err);
   //     })
   // }
+
+  $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+
+  $scope.onSwipeRight = function() {
+      $state.go('app.landing');
+  }
+
+
 
 });

@@ -53,7 +53,24 @@ router.get('/:id/context', function(req,res) {
 
   }).then(function(challenge) {
 
-    res.json(challenge);
+    challenge.Challengers.forEach(function(challenger) {
+
+      if(challenger.initiator_flag) {
+
+        var challenge_context = {
+
+          challenge: challenge,
+          initiator: challenger.User
+        }
+
+        // challenge.initiator = challenger.User;
+
+        console.log(challenge_context);
+        res.json(challenge_context);
+      }
+    });
+
+    // res.json(challenge);
   });
 });
 
