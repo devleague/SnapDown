@@ -31,7 +31,6 @@ angular.module('starter')
 
     //for each user selected, they are added as a player into the challenge
     $scope.createChallenger = function (){
-      var userId = 2;
       var challengeId = DataSharingService.activeChallenge.id;
       var selectedUsers = $scope.usersChecked;
       selectedUsers.forEach(function (user){
