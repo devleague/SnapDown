@@ -5,7 +5,8 @@
     <ul class="list">
 
       <li class="item item-checkbox" data-ng-repeat="challenge in challenges" ng-click="renderChallenge(challenge)">
-        {{challenge}}
+        {{challenge.name}}
+        {{challenge.expire_at}}
       </li>
     </ul>
   </ion-content>
