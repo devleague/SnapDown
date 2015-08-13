@@ -29,15 +29,18 @@ function RegisterService($http, $localStorage, $location) {
           email: result.data.email,
           picture: result.data.picture.data.url
         };
-        return $http.post('http://10.0.1.41:3000/api/register/facebook_register_user', user);
+        return $http.post(SERVER_IP+'/api/register/facebook_register_user', user);
       }, function(error) {
-        alert('There was a problem getting your profile.  Check the logs for details.');
         console.log(error);
       });
     } else {
       alert('Not signed in');
       $location.path('/#/landing');
     }
+  }
+
+  this.logout = function(){
+    return delete($localStorage.accessToken);
   }
 
 }

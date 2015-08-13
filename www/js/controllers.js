@@ -1,6 +1,6 @@
  angular.module('starter.controllers', [])
 
- .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+ .controller('AppCtrl', function($scope, $ionicModal, $timeout,$localStorage,RegisterService) {
 
    // With the new view caching in Ionic, Controllers are only called
    // when they are recreated or on app start, instead of every page change.
@@ -46,7 +46,10 @@
      $scope.fb_modal.hide();
    }
 
-
+   $scope.logout = function() {
+     RegisterService.logout();
+     alert($localStorage.accessToken);
+   }
 
    // Perform the login action when the user submits the login form
    $scope.doLogin = function() {

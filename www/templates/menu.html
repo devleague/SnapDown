@@ -39,7 +39,6 @@
         <ion-item menu-close ui-sref="app.user-feed">
           user-feed
         </ion-item>
-
         <ion-item menu-close ui-sref="app.oauth">
           auth
         </ion-item>
@@ -48,6 +47,9 @@
         </ion-item>
         <ion-item menu-close ui-sref="app.push-notifications">
           push-notifications
+        </ion-item>
+        <ion-item menu-close ng-click="logout()">
+          logout
         </ion-item>
       </ion-list>
     </ion-content>

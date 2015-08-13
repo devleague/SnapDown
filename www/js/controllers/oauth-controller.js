@@ -6,6 +6,7 @@ angular.module('starter')
     $scope.login = function() {
         $cordovaOauth.facebook(FB_SNAPDOWN_ID, ['email']).then(function(result) {
             alert('hello login');
+            $localStorage.accessToken = result.access_token;
             RegisterService.createUser();
             $location.path('/profile');
         }, function(error) {
@@ -21,6 +22,8 @@ angular.module('starter')
             last_name:'kekahuna'
         });
     }
+
+
 
 });
 
