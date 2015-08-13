@@ -163,7 +163,7 @@ function ChallengeService ($http) {
 
   this.getChallengeContext = function (challenge_id){
 
-    return $http.get('/api/challenges/' + challenge_id + '/context');
+    return $http.get('http://localhost:3000/api/challenges/' + challenge_id + '/context');
   }
 
 
