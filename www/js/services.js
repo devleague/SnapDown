@@ -11,11 +11,11 @@ angular.module('starter')
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
-  .service('DataSharingService', DataSharingService)
+  .service('DataSharingService', [DataSharingService])
 
 
 
-function RegisterService($http, $localStorage, $location) {
+function RegisterService($http, $localStorage, $location,DataSharingService) {
   this.createUser = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
       $http.get('https://graph.facebook.com/v2.2/me', {
@@ -33,7 +33,11 @@ function RegisterService($http, $localStorage, $location) {
           picture: result.data.picture.data.url
         };
 
-        return $http.post(SERVER_IP + '/api/register/facebook_register_user', user);
+        $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
+          $localStorage.activeUserId = res.data.id;
+          alert($localStorage.activeUserId);
+        });
+
       }, function(error) {
         console.log(error);
       });
@@ -89,20 +93,10 @@ function PictureService($http) {
   // }
 }
 
-<<<<<<< HEAD
-
 function MessageServices($http) {
-  this.sendChallengeInvites = function(challenge_obj) {
-
-    return $http.post('/api/message/', challenge_obj);
-=======
-function MessageServices ($http) {
-  this.sendChallengeInvites = function(invitationObj){
+  this.sendChallengeInvites = function(invitationObj) {
     console.log('sending invites')
     return $http.post('http://localhost:3000/api/message/', invitationObj);
->>>>>>> develop
-
-
   }
 
 };
@@ -145,7 +139,7 @@ function ChallengeService($http) {
   //   return $http.post('/api/challengers', new_challenger);
   // }
 
- // //will remove a user from challenge
+  // //will remove a user from challenge
   // //can be from the user who iniated the challenge
   // //or when they don't respond to a challenge
   // this.removeUserFromChallenge = function (challenger_id){
@@ -167,12 +161,12 @@ function ChallengeService($http) {
     return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
 
-  this.updateChallengeTimes = function (challengeId){
+  this.updateChallengeTimes = function(challengeId) {
     console.log('updating challenge time');
-      var updateData = {
-        start_at : Date.now(),
-        expire_at : Date.now() + DEFAULT_CHALLENGE_LENGTH
-      }
+    var updateData = {
+      start_at: Date.now(),
+      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
+    }
 
     return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
@@ -226,12 +220,12 @@ function UserService($http) {
   }
 }
 
-function ChallengerService($http){
+function ChallengerService($http) {
 
-  this.createChallenger = function(userId, challengeId, initiator){
-    console.log('creating challenger',userId,challengeId,initiator)
+  this.createChallenger = function(userId, challengeId, initiator) {
+    console.log('creating challenger', userId, challengeId, initiator)
     var challenger = {
-      initiator_flag : initiator,
+      initiator_flag: initiator,
       challenge_id: challengeId,
       user_id: userId
     };
@@ -240,8 +234,16 @@ function ChallengerService($http){
 
 };
 
-function DataSharingService(){
+function DataSharingService() {
 
   this.activeChallenge = {};
   this.activeUser = {};
+
+  this.addUserId = function(id){
+    this.activeUser.id = id;
+  }
+
+  this.getUserId = function(){
+    return this.activeUser.id;
+  }
 };

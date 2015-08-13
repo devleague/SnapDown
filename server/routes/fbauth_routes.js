@@ -26,14 +26,19 @@ router.post('/', function(req, res) {
 				console.log('---------------------------------');
 				console.log('user added')
 				console.log('---------------------------------');
-				res.json(user);
+				res.json({
+					id: user.id
+				});
 			})
 		} else {
 			console.log('---------------------------------');
 			console.log('user denied.  already in system')
 			console.log('---------------------------------');
-
-			res.send('user already in system');
+			console.log(result.id);
+			res.json({
+				id: result.id
+			});
+			// res.json(id);
 		}
 	})
 

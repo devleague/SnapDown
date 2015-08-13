@@ -1,16 +1,13 @@
 angular.module('starter')
 
-.controller('OauthCtrl', function($scope, $cordovaOauth, $localStorage, $location, RegisterService, DataSharingService) {
+.controller('OauthCtrl', function($scope, $cordovaOauth, $localStorage, $location, RegisterService) {
 
 
     $scope.login = function() {
         $cordovaOauth.facebook(FB_SNAPDOWN_ID, ['email']).then(function(result) {
             alert('hello login');
             $localStorage.accessToken = result.access_token;
-            RegisterService.createUser();.then(function(res) {
-                DataSharingService.activeUser.id = res.id
-                alert('DataSharingService.activeUser',DataSharingService.activeUser);
-            });
+            RegisterService.createUser();
             $location.path('/app/profile');
         }, function(error) {
             alert('There was a problem signing in!  See the console for logs');

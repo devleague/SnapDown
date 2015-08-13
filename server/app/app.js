@@ -75,12 +75,7 @@ var routes = require('../routes');
 //   }
 // ));
 //
-app.get('/oauth',function(req,res){
-	console.log('---------------------');
-	console.log('request hit');
-	console.log('---------------------');
-	res.redirect('../../www/templates/oauth.html');
-});
+
 app.use('/api', routes);
 // app.use('/api/challenges', challenge_routes);
 // app.use('/api/challenge_images', challenge_image_routes);
