@@ -16,6 +16,8 @@ router.post('/',function(req,res){
   //need to json parse the req body
   console.log('hitting post messages',req.body)
 
+  var challengeContext = JSON.parse(req.body);
+  console.log('challenge context: ',challengeContext)
   var messageLog = {
     challengeId : req.body.id,
     messages: []
