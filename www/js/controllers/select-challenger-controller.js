@@ -17,16 +17,20 @@ angular.module('starter')
       console.log('Error with receiving users', err);
     })
 
-    $scope.usersSelected = [];
+
+    //generates an array of all the checked users
+    $scope.usersChecked = [];
     $scope.isChecked = function (bool, user){
       console.log('bools and users', bool, user);
       if(bool){
-        $scope.usersSelected.push(user);
-      }else if($scope.usersSelected.indexOf(user) > -1){
-        $scope.usersSelected.pop(user);
+        $scope.usersChecked.push(user);
+      }else if($scope.usersChecked.indexOf(user) > -1){
+        $scope.usersChecked.pop(user);
       }
+    }
 
-
+    $scope.consoleSelected = function (){
+      console.log('users checked', $scope.usersChecked);
     }
 
 

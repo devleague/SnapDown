@@ -19,8 +19,8 @@
           <input type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
 
       </div>
-      <div>{{usersSelected}}</div>
-      <button ng-click="consoleSelected(user)">Click to test</button>
+
+      <button ng-click="consoleSelected({{usersChecked}})">Click to test</button>
 
 
     <div class="row row-bottom">
