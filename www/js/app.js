@@ -30,18 +30,22 @@ angular.module('starter', ['ionic',
 })
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-  // $locationProvider.html5Mode({
-  //   enabled:true,
-  //   requiredBase:false
-  // })
-  $stateProvider
+  /**
+   *
+   * Uncomment to block routes:
+   * 
+   * resolve: {
+   *   factory: ensureAuthenticated
+   * },
+   */
 
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
+  $stateProvider
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
 
   .state('app.landing', {
     url: '/landing',
@@ -148,7 +152,7 @@ angular.module('starter', ['ionic',
 
   // if none of the above states are matched, use this as the fallback
 
-  $urlRouterProvider.otherwise('/app/oauth');
+  $urlRouterProvider.otherwise('/app/landing');
 });
 
 // var ensureAuthenticated = function($q, $rootScope, $location, $localStorage, $http) {
