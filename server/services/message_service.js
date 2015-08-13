@@ -5,12 +5,6 @@ module.exports = {
   Verizon: '@vtext.com',
   ATT: '@txt.att.net',
   subject: 'test subject',
-  messageBody: 'test message Body'
-
-
-
-
-
-
-}
+  messageBody: 'invited you to a challenge ..... message Body'
+};
 

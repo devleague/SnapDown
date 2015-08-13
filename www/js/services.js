@@ -29,7 +29,7 @@ function RegisterService($http, $localStorage, $location) {
           email: result.data.email,
           picture: result.data.picture.data.url
         };
-        return $http.post(SERVER_IP+'/api/register/facebook_register_user', user);
+        return $http.post(SERVER_IP + '/api/register/facebook_register_user', user);
       }, function(error) {
         console.log(error);
       });
@@ -39,7 +39,7 @@ function RegisterService($http, $localStorage, $location) {
     }
   }
 
-  this.logout = function(){
+  this.logout = function() {
     return delete($localStorage.accessToken);
   }
 
@@ -85,11 +85,23 @@ function PictureService($http) {
   // }
 }
 
+
+function MessageServices($http) {
+  this.sendChallengeInvites = function(challenge_obj) {
+
+    return $http.post('/api/message/', challenge_obj);
+
+
+  }
+
+};
+
 function ChallengeService($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function(user_id) {
+    //hard coded user_id to 1 need to populate dynamically
+    return $http.get('http://localhost:3000/api/challengers/1/challenges');
 
-    return $http.get('/api/challengers/' + user_id + '/challenges');
   }
 
   //Can use the below for a global view at some point in the future
@@ -136,10 +148,11 @@ function ChallengeService($http) {
 
       start_at: Date.now(),
       expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
-      name: challenge.name
+      name: 'challenge.name',
+      privacy_status: 'public'
     };
 
-    return $http.post('/api/challenges', new_challenge);
+    return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
 
   // this.getTimeRemaining = function (){
@@ -157,7 +170,8 @@ function ChallengeService($http) {
 function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function() {
-    return $http.get('/api/users/');
+    console.log('going for the usres');
+    return $http.get('http://localhost:3000/api/users/');
   }
 
   //not in any controller or funcitonality as now
@@ -171,14 +185,12 @@ function UserService($http) {
 
     // var user_id = userId;
     var user_profile = {
-
       user_name: user.user_name,
       first_name: user.first_name,
       last_name: user.last_name,
-      facebook_id: user.facebook_id,
-      facebook_image_url: user.facebook_image_url,
       email: user.email,
-      phone: user.phone
+      phone: user.phone,
+      service_provider: user.service_provider
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
