@@ -7773,8 +7773,8 @@ body, html {
         display: inline-block;
         float: left; }
         .editProfileModal.scroll-content.ionic-scroll .scroll .headerContainer .avatar img {
-          max-height: 90px;
-          max-width: 90px;
+          max-height: 80px;
+          max-width: 80px;
           border-radius: 90px; }
     .editProfileModal.scroll-content.ionic-scroll .scroll .editProfileContainer {
       height: 50%;
