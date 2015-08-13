@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-feed-controller', function($scope, ChallengeService) {
+.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal) {
 
   $scope.getMyChallenges = function (){
     ChallengeService.getMyChallenges()
@@ -12,4 +12,22 @@ angular.module('starter')
       })
   }
 
+  $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+
+  $scope.onSwipeLeft = function() {
+    $state.go('app.landing');
+  }
 });

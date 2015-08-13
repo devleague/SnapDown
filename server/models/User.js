@@ -9,12 +9,15 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
+    user_name: DataTypes.STRING,
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     facebook_id: DataTypes.STRING,
     facebook_image_url: DataTypes.STRING,
     email: DataTypes.STRING,
-    phone: DataTypes.STRING
+    phone: DataTypes.STRING,
+    device_token: DataTypes.STRING,
+    service_provider: DataTypes.STRING
 
   },{
 

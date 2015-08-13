@@ -18,14 +18,11 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-click="nativeLogin()">
           Login
         </ion-item>
         <ion-item menu-close ui-sref="app.landing">
           Landing
-        </ion-item>
-        <ion-item menu-close href="#/app/camera">
-          camera
         </ion-item>
         <ion-item menu-close ui-sref="app.select-challenger">
           select-challenger
@@ -36,19 +33,20 @@
         <ion-item menu-close ui-sref="app.challenge-complete">
           challenge-complete
         </ion-item>
-         <ion-item menu-close ui-sref="app.detail-view">
-          detail-view
-        </ion-item>
         <ion-item menu-close ui-sref="app.user-challenged">
           user-challenged
         </ion-item>
-         <ion-item menu-close ui-sref="app.user-feed">
+        <ion-item menu-close ui-sref="app.user-feed">
           user-feed
         </ion-item>
-        <ion-item menu-close ui-sref="app.notification">
-          notification
+
+        <ion-item menu-close ui-sref="app.oauth">
+          auth
         </ion-item>
-         <ion-item menu-close ui-sref="app.push-notifications">
+        <ion-item menu-close ui-sref="app.profile">
+          profile
+        </ion-item>
+        <ion-item menu-close ui-sref="app.push-notifications">
           push-notifications
         </ion-item>
       </ion-list>

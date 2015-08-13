@@ -35,12 +35,15 @@ router.post('/', function(req,res) {
 
   db.create({
 
+    user_name: req.body.user_name,
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     facebook_id: req.body.facebook_id,
     facebook_image_url: req.body.facebook_image_url,
     email: req.body.email,
-    phone: req.body.phone
+    phone: req.body.phone,
+    device_token: req.body.device_token,
+    service_provider: req.body.service_provider
 
   }).then(function(result) { //may be unnecessary
 
@@ -67,6 +70,10 @@ router.put('/:id', function(req,res) {
 
     var updateData = {};
 
+    if(req.body.user_name !== undefined) {
+      updateData.user_name = req.body.user_name;
+    }
+
     if(req.body.first_name !== undefined) {
       updateData.first_name = req.body.first_name;
     }
@@ -89,6 +96,14 @@ router.put('/:id', function(req,res) {
 
     if(req.body.phone !== undefined) {
       updateData.phone = req.body.phone;
+    }
+
+    if(req.body.device_token !== undefined) {
+      updateData.device_token = req.body.device_token;
+    }
+
+    if(req.body.service_provider !== undefined) {
+      updateData.service_provider = req.body.service_provider;
     }
 
     result.updateAttributes(updateData).then(function(result) {

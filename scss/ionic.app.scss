@@ -16,16 +16,21 @@ $dark:                            #444 !default;
 */
 
 // The path for our ionicons font files, relative to the built CSS in www/css
+// Include all of Ionic
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "www/lib/ionic/scss/ionic";
+body, html {
+  min-height: 100%;
+}
 .feed {
   height: 100px;
   width: 300px;
-  background-color: yellow;
+  background-color: blue;
   margin: 0 auto;
 }
 
 .startChallenge {
-  height: 513px;
+  height: 53px;
   width: 300px;
   background-color: red;
   margin: 0 auto;
@@ -47,27 +52,89 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   width: 90%;
   height: 90px;
   margin: auto auto;
-  background-color: blue;
+  background-color: green;
 }
 
-.timeRemaining {
-  height: 40px;
-  border-radius: 5px;
-  background-color: purple;
-  text-align: center;
-}
 
 .newChallenge {
   height: 40px;
   border-radius: 5px;
-  background-color: pink;
+  background-color: green;
   text-align: center;
 }
 
-.footer-bar {
-  position: fixed;
-  left: 0px;
+.tabs {
+  left: 0;
 }
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+
+.myModal {
+  height: 90%;
+  width: 90%;
+  background-color: red;
+}
+
+.closeModal {
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: rgba(255,255,255,.5);
+  border: 1px solid black;
+}
+
+.timeRemainingContainer {
+  position: relative;
+  .timeRemaining {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translate(50%,0);
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: purple;
+    text-align: center;
+  }
+}
+
+.editProfileModal.scroll-content.ionic-scroll {
+  height: 95%;
+  width: 95%;
+  margin: auto auto;
+  .scroll {
+    height: 100%;
+    background-color: purple;
+    .headerContainer {
+      height: 20%;
+      background-color: yellow;
+      .avatar {
+        display: inline-block;
+        float: left;
+        img {
+          max-height: 80px;
+          max-width: 80px;
+          border-radius: 90px;
+        }
+      }
+    }
+    .editProfileContainer {
+      height: 50%;
+      background-color: red;
+    }
+    .statisticsContainer {
+      height: 20%;
+      background-color: pink;
+    }
+    .logoutDelete {
+      height: 10%;
+      background-color: orange;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
 

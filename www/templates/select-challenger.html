@@ -1,8 +1,6 @@
 <ion-view view-title="select-challenger">
   <ion-content>
-
     <h1>Select Challenger</h1>
-
 
       <div>{{imageURI}}</div>
       <button class="button button-block button-dark" ng-click="identifyUser()">
@@ -16,6 +14,7 @@
       <i class="icon ion-search placeholder-icon"></i>
       <input type="search" placeholder="Search">
     </label>
+
     <ul class="list">
       <li class="item item-checkbox">
         <label class="checkbox">
@@ -51,5 +50,19 @@
     <div class="row row-bottom">
       <div class="col col-33 col-offset-33" id="start_challenge" ui-sref="app.challenge-in-progress">Start Challenge</div>
     </div>
+>>>>>>> develop
   </ion-content>
+  <ion-footer-bar>
+    <div class="tabs tabs-icon-only tabs-positive">
+      <a class="col tab-item" ui-sref="app.landing">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="col tab-item" ui-sref="app.user-feed">
+        <i class="icon ion-ios-filing"></i>
+      </a>
+      <a class="col tab-item">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
 </ion-view>

@@ -2,22 +2,43 @@
   <ion-content>
     <h1>Challenge Complete</h1>
     <div class="row row-wrap">
+      <div class="col col-33 imageHolder" ng-click="openModal()">
+        <div class="imageDiv"></div>
+      </div>
+      <script id="my-modal.html" type="text/ng-template">
+        <ion-modal-view>
+          <ion-content class="myModal">
+            <div class="closeModal" ng-click="closeModal()">x</div>
+            <div class="modalImage"></div>
+          </ion-content>
+        </ion-modal-view>
+      </script>
       <div class="col col-33 imageHolder">
         <div class="imageDiv"></div>
       </div>
-       <div class="col col-33 imageHolder">
+      <div class="col col-33 imageHolder">
         <div class="imageDiv"></div>
       </div>
-       <div class="col col-33 imageHolder">
+      <div class="col col-33 imageHolder">
         <div class="imageDiv"></div>
       </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
+      <div class="col col-33 imageHolder">
         <div class="imageDiv"></div>
       </div>
     </div>
-    <div class="col col-50 col-offset-25 newChallenge">New Challenge</div>
+    <div class="col col-50 col-offset-25 newChallenge" ui-sref="app.landing">New Challenge</div>
   </ion-content>
+  <ion-footer-bar>
+    <div class="tabs tabs-icon-only tabs-positive">
+      <a class="col tab-item" ui-sref="app.landing">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="col tab-item" ui-sref="app.user-feed">
+        <i class="icon ion-ios-filing"></i>
+      </a>
+      <a class="col tab-item">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
 </ion-view>

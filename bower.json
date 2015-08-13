@@ -8,6 +8,7 @@
     "ionic-service-push": "~0.1.13"
   },
   "dependencies": {
-    "ngCordova": "~0.1.19-alpha"
+    "ngCordova": "~0.1.19-alpha",
+    "ng-cordova-oauth": "~0.1.4"
   }
 }
