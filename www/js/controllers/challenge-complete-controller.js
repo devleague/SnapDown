@@ -1,37 +1,24 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal) {
-
-  $scope.getChallengeUsers = function (){
-    ChallengeService.getChallengeUsers()
+.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal, $ionicPlatform,DataSharingService) {
+  $scope.getChallengeContext = function (){
+    console.log('hi there')
+    var challengeId = DataSharingService.activeChallenge.id;
+    ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
-        console.log('challenge users', res);
+        console.log('challenge context', res);
+        $scope.allChallengers = res.challenge.Challengers;
+        console.log('all challengers',$scope.allChallengers)
       })
       .error(function (err){
-        console.log('err w/ challenge users', err);
+        console.log('err w/challenge context', err);
       })
   }
 
-  $scope.getChallengePics = function (){
-    PictureService.getChallengePics()
-      .success(function (res){
-        console.log('challenge pictures', res);
-      })
-      .error(function (err){
-        console.log('err w/challenge pics', err);
-      })
-  }
+  $ionicPlatform.ready(function() {
+    $scope.getChallengeContext();
+  });
 
-
-  $scope.getIndividualPic = function (){
-    PictureService.getIndividualPic()
-      .success(function (res){
-        console.log('individual pictures', res);
-      })
-      .error(function (err){
-        console.log('err w/ individual pics', err);
-      })
-  }
 
   $ionicModal.fromTemplateUrl('my-modal.html', {
     scope: $scope,
