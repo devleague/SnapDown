@@ -161,13 +161,13 @@ function UserService ($http){
 
     // var user_id = userId;
     var user_profile = {
-
+      user_name : user.user_name,
       first_name: user.first_name,
       last_name: user.last_name,
-      facebook_id: user.facebook_id,
-      facebook_image_url: user.facebook_image_url,
       email: user.email,
-      phone: user.phone
+      phone: user.phone,
+      service_provider : user.service_provider
+
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
