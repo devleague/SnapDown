@@ -20,11 +20,11 @@
 
       </div>
 
-      <button ng-click="consoleSelected({{usersChecked}})">Click to test</button>
+
 
 
     <div class="row row-bottom">
-      <div class="col col-33 col-offset-33" id="start_challenge" ui-sref="app.challenge-in-progress">Start Challenge</div>
+      <div class="col col-33 col-offset-33" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
     </div>
 
   </ion-content>

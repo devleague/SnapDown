@@ -7,8 +7,11 @@ angular.module('starter')
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
+  .service('MessageServices', MessageServices)
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
+  .service('ChallengerService', ['$http', ChallengerService])
+  .service('DataSharingService', DataSharingService)
 
 
 
@@ -85,11 +88,18 @@ function PictureService($http) {
   // }
 }
 
+<<<<<<< HEAD
 
 function MessageServices($http) {
   this.sendChallengeInvites = function(challenge_obj) {
 
     return $http.post('/api/message/', challenge_obj);
+=======
+function MessageServices ($http) {
+  this.sendChallengeInvites = function(invitationObj){
+    console.log('sending invites')
+    return $http.post('http://localhost:3000/api/message/', invitationObj);
+>>>>>>> develop
 
 
   }
@@ -121,38 +131,59 @@ function ChallengeService($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
+<<<<<<< HEAD
   this.addUserToChallenge = function(challenger) {
+=======
+  // this.addUserToChallenge = function (challenger) {
+>>>>>>> develop
 
-    var new_challenger = {
+  //   var new_challenger = {
 
-      initiator: challenger.initiator_flag,
-      user_id: challenger.user_id,
-      challenge_id: challenger.challenge_id
-    };
+  //     initiator: challenger.initiator_flag,
+  //     user_id: challenger.user_id,
+  //     challenge_id: challenger.challenge_id
+  //   };
 
-    return $http.post('/api/challengers', new_challenger);
-  }
+  //   return $http.post('/api/challengers', new_challenger);
+  // }
 
+<<<<<<< HEAD
   //will remove a user from challenge
   //can be from the user who iniated the challenge
   //or when they don't respond to a challenge
   this.removeUserFromChallenge = function(challenger_id) {
+=======
+  // //will remove a user from challenge
+  // //can be from the user who iniated the challenge
+  // //or when they don't respond to a challenge
+  // this.removeUserFromChallenge = function (challenger_id){
+>>>>>>> develop
 
-    return $http.delete('/api/challenger/' + challenger_id);
-  }
+  //   return $http.delete('/api/challenger/' + challenger_id);
+  // }
 
 
   this.createNewChallenge = function(challenge) {
 
     var new_challenge = {
 
-      start_at: Date.now(),
-      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
+      // start_at: Date.now(),
+      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
       name: 'challenge.name',
       privacy_status: 'public'
     };
 
     return $http.post('http://localhost:3000/api/challenges', new_challenge);
+  }
+
+  this.updateChallengeTimes = function (challengeId){
+    console.log('updating challenge time');
+      var updateData = {
+        start_at : Date.now(),
+        expire_at : Date.now() + DEFAULT_CHALLENGE_LENGTH
+      }
+
+    return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
 
   // this.getTimeRemaining = function (){
@@ -161,7 +192,7 @@ function ChallengeService($http) {
 
   this.getChallengeContext = function(challenge_id) {
 
-    return $http.get('/api/challenges/' + challenge_id + '/context');
+    return $http.get('http://localhost:3000/api/challenges/' + challenge_id + '/context');
   }
 
 
@@ -203,3 +234,23 @@ function UserService($http) {
     return $http.delete('/api/users/' + user_id)
   }
 }
+
+function ChallengerService($http){
+
+  this.createChallenger = function(userId, challengeId, initiator){
+    console.log('creating challenger',userId,challengeId,initiator)
+    var challenger = {
+      initiator_flag : initiator,
+      challenge_id: challengeId,
+      user_id: userId
+    };
+    return $http.post('http://localhost:3000/api/challengers/', challenger);
+  }
+
+};
+
+function DataSharingService(){
+
+  this.activeChallenge = {};
+  this.activeUser = {};
+};

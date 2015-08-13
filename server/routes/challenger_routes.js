@@ -70,7 +70,7 @@ router.get('/:id/challenges', function(req,res) {
 
 router.post('/', function(req,res) {
 
-  console.log('new challenger')
+  console.log('new challenger');
 
   db.create({
     challenge_id: req.body.challenge_id,
