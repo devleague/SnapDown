@@ -30,10 +30,23 @@ angular.module('starter')
       }
     }
 
+    $scope.updateChallengeTimes = function (){
+      var challengeId = DataSharingService.activeChallenge.id;
+      ChallengeService.updateChallengeTimes(challengeId)
+        .success(function (res){
+          console.log('res', res)
+        })
+        .error(function (error){
+          console.log('error', error)
+        })
+
+
+    }
+
     $scope.consoleSelected = function (){
       console.log('users checked', $scope.usersChecked);
-        console.log('DataSharingService',DataSharingService.activeUser,DataSharingService.activeChallenge)
-
+        console.log('DataSharingService',DataSharingService.activeUser,DataSharingService.activeChallenge.id);
+        updateChallengeTimes();
     }
 
 

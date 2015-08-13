@@ -92,6 +92,8 @@ router.post('/', function(req,res) {
 
 router.put('/:id', function(req,res) {
 
+console.log('updating the challenge!');
+
   db.findOne({
 
     where: {
@@ -107,6 +109,7 @@ router.put('/:id', function(req,res) {
       res.send("Could not locate the requested resource.");
     }
 
+    console.log('challenge found!')
     var updateData = {};
 
     if(req.body.start_at !== undefined) {

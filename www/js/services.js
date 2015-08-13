@@ -112,38 +112,48 @@ function ChallengeService ($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-  this.addUserToChallenge = function (challenger) {
+  // this.addUserToChallenge = function (challenger) {
 
-    var new_challenger = {
+  //   var new_challenger = {
 
-      initiator: challenger.initiator_flag,
-      user_id: challenger.user_id,
-      challenge_id: challenger.challenge_id
-    };
+  //     initiator: challenger.initiator_flag,
+  //     user_id: challenger.user_id,
+  //     challenge_id: challenger.challenge_id
+  //   };
 
-    return $http.post('/api/challengers', new_challenger);
-  }
+  //   return $http.post('/api/challengers', new_challenger);
+  // }
 
-  //will remove a user from challenge
-  //can be from the user who iniated the challenge
-  //or when they don't respond to a challenge
-  this.removeUserFromChallenge = function (challenger_id){
+  // //will remove a user from challenge
+  // //can be from the user who iniated the challenge
+  // //or when they don't respond to a challenge
+  // this.removeUserFromChallenge = function (challenger_id){
 
-    return $http.delete('/api/challenger/' + challenger_id);
-  }
+  //   return $http.delete('/api/challenger/' + challenger_id);
+  // }
 
 
   this.createNewChallenge = function (challenge){
 
     var new_challenge = {
 
-      start_at: Date.now(),
-      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
+      // start_at: Date.now(),
+      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
       name: 'challenge.name',
       privacy_status: 'public'
     };
 
     return $http.post('http://localhost:3000/api/challenges', new_challenge);
+  }
+
+  this.updateChallengeTimes = function (challengeId){
+    console.log('updating challenge time');
+      var updateData = {
+        start_at : Date.now(),
+        expire_at : Date.now() + DEFAULT_CHALLENGE_LENGTH
+      }
+
+    return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
 
   // this.getTimeRemaining = function (){
