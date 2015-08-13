@@ -13,19 +13,20 @@ var messageService = require('../services/message_service.js')
 
 
 router.post('/',function(req,res){
+  //need to json parse the req body
   console.log('hitting post messages',req.body)
 
   var messageLog = {
-    challengeId : req.id,
+    challengeId : req.body.id,
     messages: []
   };
 
-  req.Challengers.forEach(function(user){
+  req.body.Challengers.forEach(function(challenger){
     var messageData = {
       from: messageService.from,
-      to: user.phone + messageService[user.carrier],
+      to: challenger.User.phone + messageService[challenger.User.carrier],
       subject: messageService.subject,
-      text: user.username + messageService.messageBody
+      text: challenger.User.first_name + messageService.messageBody
     }
 
     mailgun.messages().send(messageData, function (error, body) {
