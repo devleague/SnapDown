@@ -204,7 +204,7 @@ function ChallengerService($http){
       challenge_id: challengeId,
       user_id: userId
     };
-    return $http.post('http://localhost/api/challengers/', challenger);
+    return $http.post('http://localhost:3000/api/challengers/', challenger);
   }
 
 };
