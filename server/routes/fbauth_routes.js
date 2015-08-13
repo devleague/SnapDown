@@ -10,23 +10,25 @@ var users = require('../models').User;
 router.post('/', function(req, res) {
 	console.log(req.body);
 
-	users.findOne({where:{
-		facebook_id:req.body.id
-	}}).then(function(result){
-		if(!result){
+	users.findOne({
+		where: {
+			facebook_id: req.body.id
+		}
+	}).then(function(result) {
+		if (!result) {
 			users.create({
 				first_name: req.body.first_name,
 				last_name: req.body.last_name,
 				facebook_id: req.body.id,
 				facebook_image_url: req.body.picture,
 				email: req.body.email,
-			});
-			console.log('---------------------------------');
-			console.log('user added')
-			console.log('---------------------------------');
-
-			res.send('user added')
-		}else{
+			}).then(function(user) {
+				console.log('---------------------------------');
+				console.log('user added')
+				console.log('---------------------------------');
+				res.json(user);
+			})
+		} else {
 			console.log('---------------------------------');
 			console.log('user denied.  already in system')
 			console.log('---------------------------------');

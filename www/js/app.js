@@ -151,17 +151,17 @@ angular.module('starter', ['ionic',
   $urlRouterProvider.otherwise('/app/oauth');
 });
 
-var ensureAuthenticated = function($q, $rootScope, $location, $localStorage, $http) {
-  if ($localStorage.accessToken) {
-    return true;
-  } else {
-    var deferred = $q.defer();
-    deferred.reject();
-    /**
-     * $rootScope needs to call $apply in order to render page.
-     */
-    $location.path('/app/oauth');
-    $rootScope.$apply();
-    return deferred.promise;
-  }
-}
+// var ensureAuthenticated = function($q, $rootScope, $location, $localStorage, $http) {
+//   if ($localStorage.accessToken) {
+//     return true;
+//   } else {
+//     var deferred = $q.defer();
+//     deferred.reject();
+//     /**
+//      * $rootScope needs to call $apply in order to render page.
+//      */
+//     $location.path('/app/oauth');
+//     $rootScope.$apply();
+//     return deferred.promise;
+//   }
+// }

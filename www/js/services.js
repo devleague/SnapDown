@@ -32,6 +32,7 @@ function RegisterService($http, $localStorage, $location) {
           email: result.data.email,
           picture: result.data.picture.data.url
         };
+
         return $http.post(SERVER_IP + '/api/register/facebook_register_user', user);
       }, function(error) {
         console.log(error);
@@ -131,11 +132,8 @@ function ChallengeService($http) {
 
   //will allow a User to add other users to the challenge
   //will also be called when a user 'accepts' a challenge request
-<<<<<<< HEAD
-  this.addUserToChallenge = function(challenger) {
-=======
+
   // this.addUserToChallenge = function (challenger) {
->>>>>>> develop
 
   //   var new_challenger = {
 
@@ -147,17 +145,10 @@ function ChallengeService($http) {
   //   return $http.post('/api/challengers', new_challenger);
   // }
 
-<<<<<<< HEAD
-  //will remove a user from challenge
-  //can be from the user who iniated the challenge
-  //or when they don't respond to a challenge
-  this.removeUserFromChallenge = function(challenger_id) {
-=======
-  // //will remove a user from challenge
+ // //will remove a user from challenge
   // //can be from the user who iniated the challenge
   // //or when they don't respond to a challenge
   // this.removeUserFromChallenge = function (challenger_id){
->>>>>>> develop
 
   //   return $http.delete('/api/challenger/' + challenger_id);
   // }
