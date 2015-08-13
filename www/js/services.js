@@ -23,6 +23,7 @@ function RegisterService($http){
     var facebook_image_url = facebookimage;
 
     var new_register = {
+      user_name: new_user.user_name,
       first_name : new_user.first_name,
       last_name : new_user.last_name,
       facebook_id: facebook_id,
@@ -161,7 +162,12 @@ function UserService ($http){
 
     // var user_id = userId;
     var user_profile = {
+<<<<<<< HEAD
       user_name : user.user_name,
+=======
+
+      user_name: user.user_name,
+>>>>>>> develop
       first_name: user.first_name,
       last_name: user.last_name,
       email: user.email,
