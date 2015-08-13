@@ -76,6 +76,16 @@ function PictureService ($http){
   // }
 }
 
+function MessageServices ($http) {
+  this.sendChallengeInvites = function(challenge_obj){
+
+    return $http.post('/api/message/', challenge_obj);
+
+
+  }
+
+};
+
 function ChallengeService ($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function (user_id){
