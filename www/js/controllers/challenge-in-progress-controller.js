@@ -7,8 +7,10 @@ angular.module('starter')
 
   //Can be used to validate if the user sent in a picture.
   //if so, display greyed out version
-  $scope.getChallengeContext = function (challenge_id){
-    ChallengeService.getChallengeContext()
+  $scope.getChallengeContext = function (){
+  var challengeId = DataSharingService.activeChallenge.id;
+
+    ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
         console.log('challenge context', res);
       })
