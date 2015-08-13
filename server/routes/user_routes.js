@@ -32,7 +32,7 @@ router.get('/:id', function(req,res) {
 
 //creates a new user
 router.post('/', function(req,res) {
-
+  console.log('body',req.body);
   db.create({
 
     first_name: req.body.first_name,
