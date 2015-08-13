@@ -3,6 +3,9 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenge;
+var images = require('../models').Image;
+var challengers = require('../models').Challenger;
+var users = require('../models').User;
 
 router.get('/', function(req,res) {
 
@@ -34,6 +37,40 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
+  });
+});
+
+router.get('/:id/context', function(req,res) {
+
+  db.findOne({
+
+    where: { id: req.params.id },
+    include :[
+      { model:challengers,
+        include: [
+          {model:images},
+          {model:users}]}]
+
+  }).then(function(challenge) {
+
+    challenge.Challengers.forEach(function(challenger) {
+
+      if(challenger.initiator_flag) {
+
+        var challenge_context = {
+
+          challenge: challenge,
+          initiator: challenger.User
+        }
+
+        // challenge.initiator = challenger.User;
+
+        console.log(challenge_context);
+        res.json(challenge_context);
+      }
+    });
+
+    // res.json(challenge);
   });
 });
 

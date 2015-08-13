@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
 
     // challenge_id: DataTypes.INTEGER,
     // user_id: DataTypes.INTEGER
+    initiator_flag: DataTypes.BOOLEAN
 
   },{
 
@@ -21,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       associate : function(models){
 
         Challenger.belongsTo(models.User/*, {foreignKey:"user_id", foreignKeyConstraint: true}*/);
-        Challenger.hasOne(models.Challenge/*, {foreignKey:"challenge_id", foreignKeyConstraint: true}*/);
+        Challenger.belongsTo(models.Challenge/*, {foreignKey:"challenge_id", foreignKeyConstraint: true}*/);
         Challenger.hasOne(models.Image/*, {foreignKey: "image_id"}*/);
       }
     }

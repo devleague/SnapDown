@@ -5,15 +5,15 @@ var router = express.Router();
 var db = require('../models').Image;
 
 //Don't need to get all the pictures yet
-// router.get('/', function(req,res) {
+router.get('/', function(req,res) {
 
-//   db.findAll()
+  db.findAll()
 
-//     .then(function(results) {
+    .then(function(results) {
 
-//       res.json(results);
-//     });
-// });
+      res.json(results);
+    });
+});
 
 
 

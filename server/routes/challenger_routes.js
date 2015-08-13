@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenger;
+var challenge = require('../models').Challenge;
 
 router.get('/', function(req,res) {
 
@@ -37,13 +38,44 @@ router.get('/:id', function(req,res) {
   })
 });
 
+router.get('/:id/challenges', function(req,res) {
+
+  db.findAll({
+
+    where: { user_id: req.params.id },
+    include :[
+      { model:challenge}]
+
+  }).then(function(challengers) {
+
+    console.log("CHALLENGERS : " + challengers);
+
+    var challengeArray = [];
+
+    challengers.forEach(function(challenger) {
+
+      console.log("CHALLENGER : " + challenger);
+
+      challengeArray.push(challenger.Challenge);
+    });
+
+    // var challenges = {
+
+    //   challenges: challengeArray
+    // };
+
+    res.json(challengeArray);
+  });
+});
+
 router.post('/', function(req,res) {
 
   db.create({
 
     challenge_id: req.body.challenge_id,
     user_id: req.body.user_id,
-    image_id: req.body.image_id
+    image_id: req.body.image_id,
+    initiator_flag: req.body.initiator_flag
 
   }).then(function(result) { //may be unnecessary
 
@@ -83,6 +115,11 @@ router.put('/:id', function(req,res) {
     if(req.body.image_id !== undefined) {
 
       updateData.image_id = req.body.image_id;
+    }
+
+    if(req.body.initiator_flag !== undefined) {
+
+      updateData.initiator_flag = req.body.initiator_flag;
     }
 
     result.updateAttributes(updateData).then(function(result) {
