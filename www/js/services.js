@@ -7,6 +7,7 @@ angular.module('starter')
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
+  .service('MessageServices', MessageServices)
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
@@ -79,9 +80,9 @@ function PictureService ($http){
 }
 
 function MessageServices ($http) {
-  this.sendChallengeInvites = function(challenge_obj){
-
-    return $http.post('/api/message/', challenge_obj);
+  this.sendChallengeInvites = function(invitationObj){
+    console.log('sending invites')
+    return $http.post('/api/message/', invitationObj);
 
 
   }
