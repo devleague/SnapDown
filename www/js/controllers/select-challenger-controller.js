@@ -18,6 +18,25 @@ angular.module('starter')
     })
 
 
+    //generates an array of all the checked users
+    $scope.usersChecked = [];
+    $scope.isChecked = function (bool, user){
+      console.log('bools and users', bool, user);
+      if(bool){
+        $scope.usersChecked.push(user);
+      }else if($scope.usersChecked.indexOf(user) > -1){
+        $scope.usersChecked.pop(user);
+      }
+    }
+
+    $scope.consoleSelected = function (){
+      console.log('users checked', $scope.usersChecked);
+    }
+
+
+
+
+
   $scope.addUserToChallenge = function (){
     ChallengeService.addUserToChallenge()
     .success(function (res){
@@ -35,17 +54,6 @@ angular.module('starter')
     })
     .error(function (err){
       console.log('Error with removing user', err);
-    })
-  };
-
-  $scope.createNewChallenge = function (){
-    ChallengeService.createNewChallenge()
-    .success(function (res){
-      console.log('challenge created', res)
-      //forward to the in progress page
-    })
-    .error(function (err){
-      console.log('Error with creating a challenge', err);
     })
   };
 
