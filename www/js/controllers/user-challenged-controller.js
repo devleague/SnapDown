@@ -18,12 +18,13 @@ angular.module('starter')
 
 	$scope.expireTime = function() {
 		if (Date.now() < DataSharingService.activeChallenge.expireAt) {
+			var timer = document.querySelector('.timer');
+			console.log('timer',timer);
+		}else{
 			$scope.timerComplete = 'timer stopped';
 			var currentPath = $location.path();
 			$location.path(currentPath);
-			var timer = document.querySelector('.timer');
-			console.log('timer',timer);
-			$rootScope.apply();
+			return;
 		}
 	};
 
