@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams, DataSharingService, ChallengerService) {
+.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $stateParams, DataSharingService, MessageServices, ChallengerService) {
 
   $scope.imageURI = $stateParams.imageURI;
 
@@ -58,6 +58,17 @@ angular.module('starter')
     }
 
 
+    $scope.sendInvites = function(){
+      console.log('invite button clicked')
+      var invitationObj = {
+        users: $scope.usersChecked,
+        challengerName: 'testName',
+        startTime: Date.now()
+      };
+
+      MessageServices.sendChallengeInvites(invitationObj);
+
+    };
 
 
 
@@ -81,5 +92,6 @@ angular.module('starter')
   //     console.log('Error with removing user', err);
   //   })
   // };
+
 
 });

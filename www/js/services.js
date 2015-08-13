@@ -7,6 +7,7 @@ angular.module('starter')
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
+  .service('MessageServices', MessageServices)
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
@@ -79,9 +80,9 @@ function PictureService ($http){
 }
 
 function MessageServices ($http) {
-  this.sendChallengeInvites = function(challenge_obj){
-
-    return $http.post('/api/message/', challenge_obj);
+  this.sendChallengeInvites = function(invitationObj){
+    console.log('sending invites')
+    return $http.post('http://localhost:3000/api/message/', invitationObj);
 
 
   }
@@ -91,8 +92,8 @@ function MessageServices ($http) {
 function ChallengeService ($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function (user_id){
-
-    return $http.get('/api/challengers/' + user_id + '/challenges');
+    //hard coded user_id to 1 need to populate dynamically
+    return $http.get('http://localhost:3000/api/challengers/1/challenges');
   }
 
   //Can use the below for a global view at some point in the future
