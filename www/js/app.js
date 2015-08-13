@@ -121,6 +121,18 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.user-profile', {
+    url: '/user-profile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'user-profile-controller'
+      }
+    }
+  })
+
+
+
 
   // if none of the above states are matched, use this as the fallback
 
