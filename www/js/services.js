@@ -2,7 +2,6 @@
 
 var DEFAULT_CHALLENGE_LENGTH = 50000;
 
-
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
