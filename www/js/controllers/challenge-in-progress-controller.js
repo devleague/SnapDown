@@ -3,21 +3,13 @@ angular.module('starter')
 .controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService) {
 
   $scope.allChallengers = [];
-  $scope.showTimer = function(){
-    if(DataSharingService.activeChallenge.expireAt > Date.now()){
-      $scope.showTimer = true;
-    }
-    else{
-      $scope.showTimer = false;
 
-    }
-  };
   $scope.expireTime = function(){
     return DataSharingService.activeChallenge.expireAt;
   };
   var challenge = DataSharingService.activeChallenge;
   var challengeId = DataSharingService.activeChallenge.id;
-  console.log('challengeId', challengeId);
+
 
   //Can be used to validate if the user sent in a picture.
   //if so, display greyed out version
@@ -39,15 +31,7 @@ angular.module('starter')
     $scope.getChallengeContext();
   });
 
-  // $scope.getTimeRemaining = function (){
-  //   ChallengeService.getTimeRemaining()
-  //     .success(function (res){
-  //       console.log('time remaining', res);
-  //     })
-  //     .error(function (err){
-  //       console.log('err w/ time remaining', err);
-  //     })
-  // }
+
 
   $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
     scope: $scope,
