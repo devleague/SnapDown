@@ -1,26 +1,28 @@
 'use strict';
 
-// var AWS = require('aws-sdk');
-// var uuid = require('node-uuid');
+var AWS = require('aws-sdk');
+var uuid = require('node-uuid');
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Image;
+
+var S3_BUCKET_NAME = "snapdown-development";
+var S3_FOLDER = "images/";
 
 router.post('/', function(req,res) {
 
   console.log(req.body);
 
-  // db.create({
+  // var keyName = S3_FOLDER + uuid.v4() + ".jpg";
 
-  //   // user_id: req.body.user_id,
-  //   // image_id: req.body.image_id,
-  //   // challenger_id: req.body.challenge_id,
-  //   s3_reference: req.body.s3_reference,
-  //   privacy_status: req.body.privacy_status,
-  //   challenger_id: req.body.challenger_id
+  // // var body = fs.createReadStream(req.body);
+  // var s3 = new AWS.S3({params: {Bucket: S3_BUCKET_NAME, Key: keyName}});
 
-  // }).then(function(result) { //may be unnecessary
-
-  //   res.status(200).json(result);
-  // });
+  // s3.upload({Body: req.body})
+  //   .on('httpUploadProgress', function(evt) { console.log(evt); }).
+  //   send(function(err, data) { console.log(err, data) });
+  //
+  res.status(200).send("done");
 });
+
+module.exports = router;
