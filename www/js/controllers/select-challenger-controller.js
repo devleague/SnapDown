@@ -39,7 +39,9 @@ angular.module('starter')
       })
 
       $q.all(promiseArray)
-        .then(function(){
+        .then(function(res){
+          //update DataSharingService with new challenge time
+          DataSharingService.activeChallenge.expireAt = res[0].data.expire_at;
           $state.go('app.challenge-in-progress');
         })
     };
