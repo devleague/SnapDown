@@ -360,8 +360,13 @@ body, html {
 
   .challengedPlayers {
     height: 80vh;
-    background-color: red;
+    // background-color: red;
     padding-bottom: 20px;
+
+    li {
+      height: 10vh;
+      border-bottom: 1px solid $lightGray;
+    }
   }
 
   .timerBox {

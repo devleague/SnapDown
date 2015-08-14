@@ -7,11 +7,18 @@ challenge-in-progress">
 
     <div class="challengedPlayers">
       <ul ng-repeat="challenger in allChallengers">
-        <li>{{challenger.User.first_name}}</li>
+        <li>
+          <div class="challengerName">
+            {{challenger.User.first_name}}
+          </div>
+          <div class="challengerImage">
+            {{challenger.Image}}
+          </div>
+        </li>
       </ul>
     </div>
 
-    <div class="row row-wrap" ng-repeat="challenger in allChallengers">
+   <!--  <div class="row row-wrap" ng-repeat="challenger in allChallengers">
       <div>
         <div>
           {{challenger.Image}}
@@ -20,7 +27,7 @@ challenge-in-progress">
           {{challenger.User.first_name}}
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="timerBox">
       <div class="timer">
         <timer end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds.</timer>

@@ -7916,8 +7916,10 @@ body, html {
       font-size: 2em; }
   .challenge-in-progress .challengedPlayers {
     height: 80vh;
-    background-color: red;
     padding-bottom: 20px; }
+    .challenge-in-progress .challengedPlayers li {
+      height: 10vh;
+      border-bottom: 1px solid #818E9D; }
   .challenge-in-progress .timerBox {
     height: 10vh; }
     .challenge-in-progress .timerBox .timer {
