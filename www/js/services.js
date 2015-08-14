@@ -93,19 +93,16 @@ function ChallengeService($http) {
 
     var filteredChallenges = challengeArr.filter(function(element,index,array){
       if(!element.start_at || !element.expire_at){
-        console.log('remove challenge');
         return false;
       }else{
         var date = element.expire_at.toString();
         var utc = new Date(parseInt(date));
-        console.log('utc',utc.toUTCString());
         element.utc_time = utc.toUTCString();
         return true;
       };
     })
 
     filteredChallenges = filteredChallenges.sort(function(a, b){return b.expire_at-a.expire_at});
-    console.log(filteredChallenges);
     return filteredChallenges;
   }
 
