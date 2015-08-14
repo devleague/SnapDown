@@ -30,6 +30,7 @@ angular.module('starter')
   $scope.expireTime = function(){
     return DataSharingService.activeChallenge.expireAt;
   };
+  
   var challenge = DataSharingService.activeChallenge;
   var challengeId = DataSharingService.activeChallenge.id;
 

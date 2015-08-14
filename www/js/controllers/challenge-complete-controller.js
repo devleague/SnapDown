@@ -2,7 +2,6 @@ angular.module('starter')
 
 .controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal, $ionicPlatform,DataSharingService) {
   $scope.getChallengeContext = function (){
-    console.log('hi there')
     var challengeId = DataSharingService.activeChallenge.id;
     ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
