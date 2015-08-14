@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 10000;
+var DEFAULT_CHALLENGE_LENGTH = 50000;
 
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
@@ -91,25 +91,44 @@ function ChallengeService($http) {
    */
   this.filterChallenges = function(challengeArr) {
 
-    var filteredChallenges = challengeArr.filter(function(element, index, array) {
-      if (!element.start_at || !element.expire_at) {
-        return false;
-      } else {
-        var date = parseInt(element.expire_at.toString());
-        var utc = new Date(date);
-        element.utc_time = utc.toUTCString();
-        if (Date.now() < date) {
-          element.state = 'active';
+      var filteredChallenges = challengeArr.filter(function(element, index, array) {
+        if (!element.start_at || !element.expire_at) {
+          return false;
         } else {
-          element.state = 'inactive';
-        }
+          var date = parseInt(element.expire_at.toString());
+          var utc = new Date(date);
+          element.utc_time = utc.toUTCString();
+          if (Date.now() < date) {
+            element.state = 'active';
+          } else {
+            element.state = 'inactive';
+          }
+          return true;
+        };
+      })
+      filteredChallenges = filteredChallenges.sort(function(a, b) {
+        return b.expire_at - a.expire_at
+      });
+      return filteredChallenges;
+    }
+    /**
+     * [Returns an array of all active challenges]
+     * @param  {[Array]} challengeArr [Array of Challenges]
+     * @return {[Array]}              [Array of Active Challenges]
+     */
+  this.getActiveChallenges = function(challengeArr) {
+    console.log(challengeArr);
+    var activeChallenges = challengeArr.filter(function(element, index, array) {
+      console.log('element.state', element.state);
+      if (element.state === 'active') {
+        console.log('active');
         return true;
-      };
+      } else {
+        return false;
+      }
     })
-    filteredChallenges = filteredChallenges.sort(function(a, b) {
-      return b.expire_at - a.expire_at
-    });
-    return filteredChallenges;
+      console.log('active', activeChallenges);
+      return activeChallenges;
   }
 
 

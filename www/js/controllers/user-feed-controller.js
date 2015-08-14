@@ -17,18 +17,16 @@ angular.module('starter')
         console.log('err w/ showing challeges', err);
       })
   }
-  $scope.init();
 
-  $scope.renderChallenge = function(challenge) {
+  $scope.renderAllChallenges = function(challenge) {
     DataSharingService.activeChallenge.id = challenge.id;
-    if(challenge.expire_at > Date.now()){
-      console.log('active');
+    if(challenge.state === 'active'){
       $state.go('app.challenge-in-progress')
     }else{
-      console.log('inactive');
       $state.go('app.challenge-complete')
     }
   }
+
 
   $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
     scope: $scope,

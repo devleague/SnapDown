@@ -1,4 +1,4 @@
-<ion-view view-title="landing" class="landing">
+<ion-view view-title="landing" class="landing" ng-init="init()">
   <ion-content on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" can-swipe-back="false">
     <div class="topContainer">
       <div class="logoImage"></div>
@@ -18,10 +18,13 @@
           <h3>People</h3>
         </li>
       </ul>
-   <!--    <div class="activeChallenge" overflow-scroll="true">
-        <h2>Active challenge 1</h2>
-        <h2>Active challenge 1</h2>
-     </div> -->
+      <ul class="list">
+      <li>hello</li>
+        <li class="item item-checkbox" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">
+          {{challenge.name}}
+          {{challenge.utc_time}}
+        </li>
+      </ul>
     </div>
   </ion-content>
   <ion-footer-bar>
