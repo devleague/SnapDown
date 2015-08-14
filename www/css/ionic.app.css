@@ -7758,8 +7758,8 @@ body, html {
     font-size: 2em;
     display: inline-block;
     margin-left: 3%;
+    margin-top: 2%;
     color: #818E9D;
-    border: 1px solid white;
     width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
