@@ -7730,10 +7730,36 @@ body, html {
 .profile .headerContainer {
   height: 20vh;
   width: 100%;
-  background-color: red;
+  background-color: #212A33;
   padding-top: 20px; }
   .profile .headerContainer .headerContent {
     width: 100%;
     height: 90px;
     background-color: green;
     border: 1px solid black; }
+    .profile .headerContainer .headerContent .avatarContainer {
+      height: 100%;
+      width: 30%;
+      float: left;
+      display: inline-block;
+      background-color: pink; }
+      .profile .headerContainer .headerContent .avatarContainer .userAvatar {
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 70px;
+        margin: 0 auto;
+        border-radius: 5px; }
+    .profile .headerContainer .headerContent .usernameWrapper {
+      width: 70%;
+      height: 70px;
+      margin-left: 30%; }
+      .profile .headerContainer .headerContent .usernameWrapper h1 {
+        color: #CDFF33;
+        font-size: 1.5em; }
+      .profile .headerContainer .headerContent .usernameWrapper .logout {
+        height: 35px;
+        width: 80px;
+        border-radius: 5px;
+        background-color: #828F9E;
+        text-align: center;
+        line-height: 35px; }

@@ -79,7 +79,7 @@ body, html {
   .headerContainer {
     height: 20vh;
     width: 100%;
-    background-color: red;
+    background-color: $dark;
     padding-top: 20px;
 
     .headerContent {
@@ -87,69 +87,45 @@ body, html {
       height: 90px;
       background-color: green;
       border: 1px solid black;
+
+      .avatarContainer {
+        height: 100%;
+        width: 30%;
+        float: left;
+        display: inline-block;
+        background-color: pink;
+
+        .userAvatar {
+          background-repeat: no-repeat;
+          height: 70px;
+          width: 70px;
+          margin: 0 auto;
+          border-radius: 5px;
+        }
+      }
+
+      .usernameWrapper {
+        width: 70%;
+        height: 70px;;
+        margin-left: 30%;
+
+        h1 {
+          color: $energized;
+          font-size: 1.5em;
+        }
+
+        .logout {
+          height: 35px;
+          width: 80px;
+          border-radius: 5px;
+          background-color: #828F9E;
+          text-align: center;
+          line-height: 35px;
+        }
+      }
     }
   }
 }
-// .profile {
-//   .headerContainer {
-//     height: 20vh;
-//     width: 100%;
-//     background-color: $dark;
-//     padding-top: 20px;
-
-//     .avatarContainer {
-//       height: 100%;
-//       width: 30%;
-//       float: left;
-//       display: inline-block;
-
-//       .avatar {
-//         background-repeat: no-repeat;
-//         height: 70px;
-//         width: 70px;
-//         margin: 0 auto;
-//         border-radius: 5px;
-//       }
-//     }
-
-//     .usernameWrapper {
-//       width: 70%;
-//       height: 70px;;
-//       margin-left: 30%;
-
-//       h1 {
-//         color: $energized;
-//         font-size: 1.5em;
-//       }
-
-//       .logout {
-//         height: 35px;
-//         width: 80px;
-//         border-radius: 5px;
-//         background-color: #828F9E;
-//         text-align: center;
-//         line-height: 35px;
-//       }
-//     }
-//   }
-
-//   .editProfileContainer {
-//     height: 30vh;
-//     background-color: $lightBackground;
-//   }
-
-//   .statisticsContainer {
-//     height: 35vh;
-//     background-color: yellow;
-//   }
-
-//   .deleteAccount {
-//     height: 15vh;
-//     background-color: orange;
-//   }
-
-// }
-
 
 
 
