@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService) {
+.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
   $scope.imageURI = $stateParams.imageURI;
 
@@ -29,31 +29,25 @@ angular.module('starter')
       }
     }
 
-    //for each user selected, they are added as a player into the challenge
-    $scope.createChallenger = function (){
+    $scope.combinedUpdate = function(){
       var challengeId = DataSharingService.activeChallenge.id;
       var selectedUsers = $scope.usersChecked;
-      selectedUsers.forEach(function (user){
-        ChallengerService.createChallenger(user.id, challengeId, false)
-          .success(function (res){
-            console.log('challenger created', res);
-          })
-          .error(function (error){
-            console.log('error', error);
-          })
+      // var promise1 = $scope.createChallenger();
+      var promiseArray = [$scope.updateChallengeTimes()];
+      var promise3 = selectedUsers.forEach(function (user){
+        promiseArray.push(ChallengerService.createChallenger(user.id, challengeId, false))
       })
-    }
 
-    //updates the start/end time for the challenge on the db
-    $scope.updateChallengeTimes = function (){
+      $q.all(promiseArray)
+        .then(function(){
+          $state.go('app.challenge-in-progress');
+        })
+    };
+
+
+    $scope.updateChallengeTimes = function(){
       var challengeId = DataSharingService.activeChallenge.id;
-      ChallengeService.updateChallengeTimes(challengeId)
-        .success(function (res){
-          console.log('res', res)
-        })
-        .error(function (error){
-          console.log('error', error)
-        })
+      return ChallengeService.updateChallengeTimes(challengeId);
     }
 
 
