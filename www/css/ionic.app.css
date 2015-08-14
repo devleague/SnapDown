@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
@@ -7694,10 +7695,91 @@ a.button {
   transition-duration: 0s; }
 
 body, html {
+  font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%; }
 
 .tabs {
   left: 0; }
+
+.login_container {
+  background-color: #212A33;
+  color: #818E9D;
+  text-align: center; }
+  .login_container .login_logo {
+    height: 150px;
+    width: 330px;
+    margin: 20% auto;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 65%; }
+  .login_container .facebook_heading {
+    font-size: 2em;
+    margin-bottom: 5%; }
+  .login_container .facebook_login_button {
+    border: 1px solid grey;
+    color: #C7F733;
+    width: 75%;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    background-color: #3D4B5B;
+    margin-bottom: 5%;
+    font-size: 2em; }
+  .login_container .facebook_subheading {
+    width: 75%;
+    margin: auto; }
+
+.select-Challenger {
+  background-color: #3D4B5B;
+  color: #818E9D; }
+  .select-Challenger .select_challenger_head {
+    border: 1px solid white;
+    height: 8vh;
+    padding-top: 4%;
+    text-align: center; }
+    .select-Challenger .select_challenger_head .xBox {
+      color: #818E9D;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin-left: 4%; }
+    .select-Challenger .select_challenger_head .challengeName {
+      font-size: 2.3em;
+      color: #C7F733;
+      margin: 0;
+      display: inline-block; }
+  .select-Challenger #user_search {
+    font-size: 1em; }
+  .select-Challenger .checkbox {
+    width: 100%;
+    border-bottom: 1px solid #818E9D; }
+  .select-Challenger .challenger_name {
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 2%;
+    color: #818E9D;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .select-Challenger input[type=checkbox] {
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%; }
+  .select-Challenger .row-bottom .start_challenge_button {
+    height: 75px;
+    width: 95%;
+    background-color: #0194A6;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 6px #017380;
+    text-align: center;
+    color: white;
+    line-height: 75px;
+    font-size: 2em;
+    margin-bottom: 16px; }
 
 .landing {
   background-color: #212A33; }
@@ -7804,3 +7886,67 @@ body, html {
   .profile .deleteAccount h3 {
     color: #818E9D;
     font-size: 1.2em; }
+
+.userChallenged {
+  background-color: #3D4B5B;
+  width: 100%; }
+  .userChallenged .challengeBar {
+    background-color: #212A33;
+    height: 10vh;
+    width: 100%; }
+    .userChallenged .challengeBar .xBox {
+      color: #818E9D;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin: 26px 15px; }
+    .userChallenged .challengeBar .challengeName {
+      padding-top: 26px;
+      font-size: 2.3em;
+      color: #C7F733;
+      text-align: center;
+      height: 100%;
+      width: 100%; }
+  .userChallenged .challengedPlayers {
+    height: 50vh;
+    width: 100%;
+    background-color: green; }
+  .userChallenged .bottomHalf {
+    height: 40vh;
+    width: 100%;
+    padding-top: 20px; }
+    .userChallenged .bottomHalf .timer {
+      height: 50px;
+      width: 95%;
+      background-color: #212A33;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px; }
+    .userChallenged .bottomHalf .declineChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #83909F;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #636E7A;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px; }
+    .userChallenged .bottomHalf .acceptChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px; }

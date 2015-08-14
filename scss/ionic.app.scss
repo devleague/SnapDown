@@ -23,16 +23,140 @@ $dark: #212A33 !default;
 $lightBackground: #3D4B5B;
 $background: #1C242C;
 $lightGray: #818E9D;
+$timer: #212A33;
+$logo: url('../img/logo.svg');
 
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
+
 body, html {
+  font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%;
 }
-//positions stick footer
+//positions sticky footer
 .tabs {
   left: 0;
 }
+
+
+//Login page
+.login_container{
+  background-color: $dark;
+  color: $lightGray;
+  text-align: center;
+
+  .login_logo{
+
+    height: 150px;
+    width: 330px;
+    margin: 20% auto;
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 65%;
+  }
+
+  .facebook_heading{
+    // border: 1px solid white;
+    font-size: 2em;
+    margin-bottom: 5%;
+  }
+
+  .facebook_login_button{
+    border: 1px solid grey;
+    color: $energized;
+    width: 75%;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    background-color: $lightBackground;
+    margin-bottom: 5%;
+    font-size: 2em;
+
+  }
+
+  .facebook_subheading{
+    // border: 1px solid white;
+    width: 75%;
+    margin: auto;
+  }
+
+}
+
+//select a challenger page
+.select-Challenger{
+  background-color: $lightBackground;
+  color: $lightGray;
+
+
+  .select_challenger_head{
+      border: 1px solid white;
+      height: 8vh;
+      padding-top: 4%;
+      text-align: center;
+
+    .xBox {
+      color: $lightGray;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin-left: 4%;
+    }
+
+    .challengeName {
+      font-size: 2.3em;
+      color: $energized;
+      margin: 0;
+      display: inline-block;
+    }
+  }
+
+  #user_search{
+    font-size: 1em;
+  }
+
+  .checkbox{
+    width: 100%;
+    border-bottom: 1px solid $lightGray;
+  }
+
+  .challenger_name{
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 2%;
+    color: $lightGray;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  input[type=checkbox]{
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+  }
+
+  .row-bottom{
+
+    .start_challenge_button{
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+  }
+}
+
 
 // landing page styling
 .landing {
@@ -42,7 +166,7 @@ body, html {
     height: 150px;
     width: 330px;
     margin: 0 auto;
-    background-image: url('../img/logo.svg');
+    background-image: $logo;
     background-repeat: no-repeat;
     background-position: center center;
   }
@@ -194,9 +318,88 @@ body, html {
       font-size: 1.2em;
     }
   }
-
 }
 
+//user challenged styling
+.userChallenged {
+  background-color: $lightBackground;
+  width: 100%;
+
+  .challengeBar {
+    background-color: $dark;
+    height: 10vh;
+    width: 100%;
+
+    .xBox {
+      color: $lightGray;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin: 26px 15px;
+    }
+
+    .challengeName {
+      padding-top: 26px;
+      font-size: 2.3em;
+      color: $energized;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .challengedPlayers {
+    height: 50vh;
+    width: 100%;
+    background-color: green;
+  }
+
+  .bottomHalf {
+    height: 40vh;
+    width: 100%;
+    padding-top: 20px;
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+
+    .declineChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #83909F;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #636E7A;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+
+    .acceptChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+  }
+}
 
 
 
