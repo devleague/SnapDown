@@ -3,6 +3,10 @@ angular.module('starter')
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService) {
    ionic.Platform.ready(function(){
 
+    $scope.gotToCamera = function(){
+      $state.go('camera');
+    }
+
     $scope.createNewChallenge = function (){
       ChallengeService.createNewChallenge()
       .success(function (res){
@@ -31,30 +35,30 @@ angular.module('starter')
     };
 
 
-    // $scope.getPhoto = function() {
-    //   Camera.getPicture(
-    //     {
-    //       quality: 50,
-    //       targetWidth: 512,
-    //       targetHeight: 512,
-    //       destinationType: 0,
-    //       encodingType: 0,
-    //       saveToPhotoAlbum: false
-    //     }
-    //   )
-    //   .then(function(imageData) {
-    //     if(imageData){
-    //       var imageSrc = "data:image/jpeg;base64," + imageData;
-    //       $state.go('app.select-challenger',{imageURI: imageData});
-    //     }
-    //     else{
-    //       $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
-    //     }
-    //   }, function(err) {
-    //     var imageSrc  = err;
-    //       $state.go('app.select-challenger',{imageURI: Camera.DestinationType});
-    //     })
-    // };
+    $scope.getPhoto = function() {
+      Camera.getPicture(
+        {
+          quality: 50,
+          targetWidth: 512,
+          targetHeight: 512,
+          destinationType: 0,
+          encodingType: 0,
+          saveToPhotoAlbum: false
+        }
+      )
+      .then(function(imageData) {
+        if(imageData){
+          var imageSrc = "data:image/jpeg;base64," + imageData;
+          $state.go('app.select-challenger',{imageURI: imageData});
+        }
+        else{
+          $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
+        }
+      }, function(err) {
+        var imageSrc  = err;
+          $state.go('app.select-challenger',{imageURI: Camera.DestinationType});
+        })
+    };
 
     $scope.onSwipeLeft = function() {
       $state.go('app.challenge-in-progress');
