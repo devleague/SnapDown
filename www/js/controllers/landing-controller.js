@@ -11,7 +11,8 @@ angular.module('starter')
         //forward to the in progress page
         DataSharingService.activeChallenge.id = res.id;
         DataSharingService.activeChallenge.name = res.name;
-        //DataSharingServise.activeUser.id =
+        // var userId = DataSharingService.activeUser.id;
+        //add in userId to function
 
         ChallengerService.createChallenger(2, res.id, true)
           .success(function(res){
