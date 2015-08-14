@@ -7733,7 +7733,35 @@ body, html {
 .select-Challenger {
   background-color: #3D4B5B;
   color: #818E9D; }
-  .select-Challenger .start_challenge_button {
+  .select-Challenger .select_challenger_head {
+    border: 1px solid white;
+    height: 8vh;
+    padding-top: 4%;
+    text-align: center; }
+    .select-Challenger .select_challenger_head .xBox {
+      color: #818E9D;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin-left: 4%; }
+    .select-Challenger .select_challenger_head .challengeName {
+      font-size: 2.3em;
+      color: #C7F733;
+      margin: 0;
+      display: inline-block; }
+  .select-Challenger .checkbox {
+    width: 100%;
+    border-bottom: 1px solid #818E9D; }
+  .select-Challenger .challenger_name {
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 3%;
+    color: #818E9D; }
+  .select-Challenger input[type=checkbox] {
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%; }
+  .select-Challenger .row-bottom .start_challenge_button {
     height: 75px;
     width: 95%;
     background-color: #0194A6;
