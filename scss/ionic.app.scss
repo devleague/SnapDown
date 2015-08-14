@@ -128,7 +128,6 @@ body, html {
   .editProfileContainer {
     .formColor {
       border-top: none;
-      margin-top: 0;
       background-color: $lightBackground;
       border-bottom: 2px solid $lightGray;
       height: 60px;
@@ -148,7 +147,7 @@ body, html {
     p {
       text-align: center;
       color: $lightGray;
-      font-size: 1.1em;
+      font-size: 1em;
     }
 
     .requestsBox {

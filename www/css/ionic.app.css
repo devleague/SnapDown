@@ -7762,7 +7762,6 @@ body, html {
         line-height: 35px; }
 .profile .editProfileContainer .formColor {
   border-top: none;
-  margin-top: 0;
   background-color: #3D4B5B;
   border-bottom: 2px solid #818E9D;
   height: 60px; }
@@ -7775,7 +7774,7 @@ body, html {
   .profile .statisticsContainer p {
     text-align: center;
     color: #818E9D;
-    font-size: 1.1em; }
+    font-size: 1em; }
   .profile .statisticsContainer .requestsBox {
     text-align: center;
     color: #CDFF33;
