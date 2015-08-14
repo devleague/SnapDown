@@ -10,7 +10,8 @@ angular.module('starter')
     ChallengeService.getMyChallenges(user_id)
       .success(function(res) {
         console.log('my challengesfasd', res);
-        $scope.challenges = res;
+        var filteredChallenges = ChallengeService.filterChallenges(res);
+        $scope.challenges = filteredChallenges;
       })
       .error(function(err) {
         console.log('err w/ showing challeges', err);
