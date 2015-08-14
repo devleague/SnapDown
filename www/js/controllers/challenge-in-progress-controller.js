@@ -14,6 +14,7 @@ angular.module('starter')
     var challengeId = DataSharingService.activeChallenge.id;
     ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
+        DataSharingService.activeChallenge.expireAt = res.challenge.expire_at;
         console.log('challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
         console.log('all challengers',$scope.allChallengers)
