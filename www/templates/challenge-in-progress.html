@@ -12,10 +12,13 @@
       </div>
     </div>
 
+
   </ion-content>
   <ion-footer-bar class="bar-footer">
     <div class="timeRemainingContainer">
-      <div class="timeRemaining">Time Remaining</div>
+      <div class="timeRemaining">Time Remaining
+        <timer end-time="1451628000000">{{minutes}} minutes, {{seconds}} seconds.</timer>
+      </div>
     </div>
     <div class="tabs tabs-icon-top tabs-positive">
       <a class="tab-item" ui-sref="app.user-feed">

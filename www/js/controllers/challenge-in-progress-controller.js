@@ -1,11 +1,12 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService) {
+.controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService, Countdown) {
 
   $scope.allChallengers = [];
   var challenge = DataSharingService.activeChallenge;
   var challengeId = DataSharingService.activeChallenge.id;
   console.log('challengeId', challengeId);
+  console.log('countdown',Countdown)
 
   //Can be used to validate if the user sent in a picture.
   //if so, display greyed out version

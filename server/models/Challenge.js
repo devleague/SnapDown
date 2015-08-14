@@ -9,8 +9,8 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
-    start_at: DataTypes.DATE,
-    expire_at: DataTypes.DATE,
+    start_at: DataTypes.INTEGER,
+    expire_at: DataTypes.INTEGER,
     name: DataTypes.STRING,
     privacy_status: DataTypes.STRING
 
