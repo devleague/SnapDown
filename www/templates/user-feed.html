@@ -1,4 +1,7 @@
 <ion-view view-title="user-feed">
+    <ion-header-bar align-title="center" class="bar-positive">
+      <h1 class="title">SnapDown</h1>
+    </ion-header-bar>
   <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false">
     <h1>User Feed</h1>
 
@@ -9,6 +12,9 @@
         {{challenge.expire_at}}
       </li>
     </ul>
+     <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
+    <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
+    <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
   </ion-content>
 
 
