@@ -1,8 +1,0 @@
-{"id":"<20150815012743.6320.51882@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815012743.6310.15127@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815012834.15623.25982@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815012834.15621.12795@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815013154.21654.1046@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815013154.6332.7536@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815013154.15605.24642@snapdown.us>","message":"Queued. Thank you."}
-{"id":"<20150815025812.4943.92753@snapdown.us>","message":"Queued. Thank you."}
