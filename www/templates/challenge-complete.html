@@ -1,11 +1,17 @@
 <ion-view view-title="challenge-complete">
   <ion-content>
     <h1>Challenge Complete</h1>
-    <div class="row row-wrap">
-      <div class="col col-33 imageHolder" ng-click="openModal()">
-        <div class="imageDiv"></div>
+    <div class="row row-wrap" ng-repeat="challenger in allChallengers">
+      <div>
+        <div>
+          {{challenger.Image}}
+        </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
       </div>
-      <script id="my-modal.html" type="text/ng-template">
+    </div>      
+    <script id="my-modal.html" type="text/ng-template">
         <ion-modal-view>
           <ion-content class="myModal">
             <div class="closeModal" ng-click="closeModal()">x</div>

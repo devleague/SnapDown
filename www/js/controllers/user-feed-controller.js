@@ -1,25 +1,32 @@
 angular.module('starter')
 
-.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage) {
+.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage, DataSharingService) {
 
-  $scope.init = function(){
+  $scope.init = function() {
     //user id is hard coded!!!!! need to grab from the $localStorage
     // var user_id = $localStorage.activeUserId;
-    var user_id = 6;
+    var user_id = 2;
 
     ChallengeService.getMyChallenges(user_id)
-      .success(function (res){
+      .success(function(res) {
         console.log('my challengesfasd', res);
         $scope.challenges = res;
       })
-      .error(function (err){
+      .error(function(err) {
         console.log('err w/ showing challeges', err);
       })
   }
   $scope.init();
 
-  $scope.test = function() {
-    alert('hi');
+  $scope.renderChallenge = function(challenge) {
+    DataSharingService.activeChallenge.id = challenge.id;
+    if(challenge.expire_at > Date.now()){
+      console.log('active');
+      $state.go('app.challenge-in-progress')
+    }else{
+      console.log('inactive');
+      $state.go('app.challenge-complete')
+    }
   }
 
   $ionicModal.fromTemplateUrl('edit-profile-modal.html', {

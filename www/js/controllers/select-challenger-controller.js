@@ -33,15 +33,19 @@ angular.module('starter')
       var challengeId = DataSharingService.activeChallenge.id;
       var selectedUsers = $scope.usersChecked;
       // var promise1 = $scope.createChallenger();
+
       var promiseArray = [$scope.updateChallengeTimes()];
       var promise3 = selectedUsers.forEach(function (user){
         promiseArray.push(ChallengerService.createChallenger(user.id, challengeId, false))
       })
 
       $q.all(promiseArray)
-        .then(function(res){
+        .then(function(resArr){
           //update DataSharingService with new challenge time
-          DataSharingService.activeChallenge.expireAt = res[0].data.expire_at;
+          console.log('resArr', resArr);
+          DataSharingService.activeChallenge.expireAt = resArr[0].data.expire_at;
+        }).then(function (){
+
           $state.go('app.challenge-in-progress');
         })
     };
