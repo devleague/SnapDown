@@ -97,7 +97,7 @@ function ChallengeService($http) {
         } else {
           var date = parseInt(element.expire_at.toString());
           var utc = new Date(date);
-          element.utc_time = utc.toUTCString();
+          element.time_elapsed = utc.toUTCString();
           if (Date.now() < date) {
             element.state = 'active';
           } else {
@@ -106,6 +106,9 @@ function ChallengeService($http) {
           return true;
         };
       })
+      /**
+       * Sorts array by most recently added.
+       */
       filteredChallenges = filteredChallenges.sort(function(a, b) {
         return b.expire_at - a.expire_at
       });
@@ -119,15 +122,12 @@ function ChallengeService($http) {
   this.getActiveChallenges = function(challengeArr) {
     console.log(challengeArr);
     var activeChallenges = challengeArr.filter(function(element, index, array) {
-      console.log('element.state', element.state);
       if (element.state === 'active') {
-        console.log('active');
         return true;
       } else {
         return false;
       }
     })
-      console.log('active', activeChallenges);
       return activeChallenges;
   }
 

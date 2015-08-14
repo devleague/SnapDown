@@ -8,9 +8,9 @@
      <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
     <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
     <ul class="list">
-      <li class="item item-checkbox" data-ng-repeat="challenge in challenges" ng-click="renderAllChallenges(challenge)">
+      <li class="item item-checkbox" data-ng-repeat="challenge in challenges" ng-click="renderAllChallenges(challenge)" ng-if="challenge.state==='inactive'">
         {{challenge.name}}
-        {{challenge.utc_time}}
+        <span am-time-ago="challenge.time_elapsed"></span>
       </li>
     </ul>
     <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>

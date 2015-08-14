@@ -9,7 +9,8 @@ angular.module('starter', ['ionic',
                           'starter.controllers',
                           'ngCordova',
                           'ngStorage',
-                          'timer'
+                          'timer',
+                          'angularMoment'
                           ])
 
 .run(function($ionicPlatform) {
