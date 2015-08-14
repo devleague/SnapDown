@@ -84,25 +84,31 @@ function MessageServices($http) {
 
 function ChallengeService($http) {
   //will get the current users challenges (for their feed)
-    /**
+  /**
    * Filters challenges to show only those who have been started & completed;
    * @param  {[Array]} challengeArr [Array of Challenges]
    * @return {[Array]}              [Array of filtered Challenges]
    */
   this.filterChallenges = function(challengeArr) {
 
-    var filteredChallenges = challengeArr.filter(function(element,index,array){
-      if(!element.start_at || !element.expire_at){
+    var filteredChallenges = challengeArr.filter(function(element, index, array) {
+      if (!element.start_at || !element.expire_at) {
         return false;
-      }else{
-        var date = element.expire_at.toString();
-        var utc = new Date(parseInt(date));
+      } else {
+        var date = parseInt(element.expire_at.toString());
+        var utc = new Date(date);
         element.utc_time = utc.toUTCString();
+        if (Date.now() < date) {
+          element.state = 'active';
+        } else {
+          element.state = 'inactive';
+        }
         return true;
       };
     })
-
-    filteredChallenges = filteredChallenges.sort(function(a, b){return b.expire_at-a.expire_at});
+    filteredChallenges = filteredChallenges.sort(function(a, b) {
+      return b.expire_at - a.expire_at
+    });
     return filteredChallenges;
   }
 
