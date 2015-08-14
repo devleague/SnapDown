@@ -7730,6 +7730,10 @@ body, html {
     width: 75%;
     margin: auto; }
 
+.select-Challenger {
+  background-color: #3D4B5B;
+  color: #818E9D; }
+
 .landing {
   background-color: #212A33; }
   .landing .logoImage {
