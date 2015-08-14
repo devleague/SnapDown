@@ -130,12 +130,13 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.open-invitations', {
-    url: '/open-invitations',
+  .state('app.active-challenges', {
+    url: '/active-challenges',
+    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/open-invitations.html',
-        controller: 'open-invitations-controller'
+        templateUrl: 'templates/active-challenges.html',
+        controller: 'active-challenges-controller'
       }
     }
   })

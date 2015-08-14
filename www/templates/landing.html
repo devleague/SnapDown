@@ -10,21 +10,6 @@
         <button ng-click="getPhoto()">start camera</button>
       </div>
     </div>
-
-    <div class="bottomContainer" overflow-scroll="true">
-
-        <div ng-show="activeChallenges.length <= 0">
-          <h1>No active challenges. Start one today! YIPIEE</h1>
-        </div>
-
-      <div ng-show="activeChallenges.length > 0" class="active_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">
-
-
-          <span class="active_challenger_name">{{challenge.name}}</span>
-          <!-- Need to change to coutdown timer instead of elapsed -->
-          <span class="active_challenger_time" am-time-ago="challenge.time_elapsed"></span>
-      </div>
-    </div>
   </ion-content>
   <ion-footer-bar>
     <div class="tabs tabs-icon tabs-dark">
@@ -34,13 +19,10 @@
       <a class="tab-item" ui-sref="app.landing">
         <i class="icon ion-home"></i>
       </a>
-      <a class="tab-item" ui-sref="app.open-invitations">
+      <a class="tab-item" ui-sref="app.active-challenges">
         <i class="icon ion-android-wifi"></i>
       </a>
       <a class="tab-item" ui-sref="app.user-profile">
-        <i class="icon ion-gear-a"></i>
-      </a>
-      <a class="tab-item" ui-sref="app.open-invitations">
         <i class="icon ion-gear-a"></i>
       </a>
     </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 50000;
+var DEFAULT_CHALLENGE_LENGTH = 500000;
 
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
@@ -135,7 +135,6 @@ function ChallengeService($http) {
 
 
   this.getMyChallenges = function(user_id) {
-    console.log('going to get my challenges');
     return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
   }
 
@@ -217,7 +216,6 @@ function ChallengeService($http) {
 function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function() {
-    console.log('going for the usres');
     return $http.get('http://localhost:3000/api/users/');
   }
 

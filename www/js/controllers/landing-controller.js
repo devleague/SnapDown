@@ -3,7 +3,6 @@ angular.module('starter')
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
 
 
-  console.log('outside init');
 
   ionic.Platform.ready(function() {
 
@@ -12,7 +11,6 @@ angular.module('starter')
         .success(function (res) {
           var filteredChallenges = ChallengeService.filterChallenges(res);
           var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);
-          console.log('activeChallenges', activeChallenges);
           $scope.activeChallenges = activeChallenges;
         })
         .error(function(err) {

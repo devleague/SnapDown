@@ -1,4 +1,4 @@
-<ion-view view-title="open-invitations" ng-init="init()">
+<ion-view view-title="active-challenges" ng-init="init()">
   <ion-header-bar align-title="center" class="user_feed_heading">
     <div class="user_feed_heading_logo">
 
@@ -6,13 +6,18 @@
   </ion-header-bar>
 
   <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
+    <div class="bottomContainer" overflow-scroll="true">
+        <div ng-show="activeChallenges.length <= 0">
+          <h1>No active challenges. Start one today! YIPIEE</h1>
+        </div>
+      </div>
     <ul class="list">
-      <li class="user_feed_challenges" data-ng-repeat="challenge in challenges" ng-click="renderAllChallenges(challenge)" ng-if="challenge.state==='inactive'">
-        <span class="user_feed_challenger_name">{{challenge.name}}</span>
-        <span class="user_feed_challenger_time" am-time-ago="challenge.time_elapsed"></span>
-      </li>
+        <li ng-show="activeChallenges.length > 0" class="user_feed_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="getActiveChallengeContext(challenge)">
+          <span class="user_feed_challenger_name">{{challenge.name}}</span>
+          <span class="user_feed_challenger_time" am-time-ago="challenge.time_elapsed"></span>
+        </li>
     </ul>
-
+    </div>
   </ion-content>
   <ion-footer-bar>
     <div class="tabs tabs-icon tabs-dark">
