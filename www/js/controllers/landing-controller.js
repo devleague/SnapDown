@@ -55,7 +55,7 @@ angular.module('starter')
 
     $scope.renderActiveChallenges = function(challenge) {
       DataSharingService.activeChallenge.id = challenge.id;
-      $state.go('app.challenge-in-progress')
+      $state.go('app.user-challenged')
     }
 
 
