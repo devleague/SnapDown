@@ -103,7 +103,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/user-challenged.html',
-        // controller: 'user-challenged-controller'
+        controller: 'user-challenged-controller'
       }
     }
   })
