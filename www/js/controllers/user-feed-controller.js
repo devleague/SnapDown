@@ -1,11 +1,15 @@
 angular.module('starter')
 
-.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal) {
+.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage) {
 
   $scope.init = function(){
-    ChallengeService.getMyChallenges()
+    //user id is hard coded!!!!! need to grab from the $localStorage
+    // var user_id = $localStorage.activeUserId;
+    var user_id = 6;
+
+    ChallengeService.getMyChallenges(user_id)
       .success(function (res){
-        console.log('my challengers', res);
+        console.log('my challengesfasd', res);
         $scope.challenges = res;
       })
       .error(function (err){
