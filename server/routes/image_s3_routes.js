@@ -1,7 +1,7 @@
 'use strict';
 
-var AWS = require('aws-sdk');
-var uuid = require('node-uuid');
+// var AWS = require('aws-sdk');
+// var uuid = require('node-uuid');
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Image;

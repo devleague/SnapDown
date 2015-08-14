@@ -1,11 +1,8 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService) {
+.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
    ionic.Platform.ready(function(){
 
-    $scope.gotToCamera = function(){
-      $state.go('camera');
-    }
 
     $scope.createNewChallenge = function (){
       ChallengeService.createNewChallenge()
@@ -49,15 +46,27 @@ angular.module('starter')
       .then(function(imageData) {
         if(imageData){
           var imageSrc = "data:image/jpeg;base64," + imageData;
-          $state.go('app.select-challenger',{imageURI: imageData});
+           PictureService.sendImageToServer(imageSrc)
+            .success(function(res){
+              DataSharingService.errorLog.sendImageToServer = 'no error';
+              $state.go('app.select-challenger');
+              console.log(res)
+            })
+            .error(function(error){
+              DataSharingService.errorLog.sendImageToServer = 'error';
+              $state.go('app.select-challenger');
+            })
+
         }
         else{
-          $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
+          DataSharingService.errorLog.sendImageToServer = 'no image data';
+          $state.go('app.select-challenger');
         }
-      }, function(err) {
-        var imageSrc  = err;
-          $state.go('app.select-challenger',{imageURI: Camera.DestinationType});
-        })
+      });
+      // , function(err) {
+      //     DataSharingService.errorLog.sendImageToServer = err;
+      //     $state.go('app.select-challenger');
+      //   })
     };
 
     $scope.onSwipeLeft = function() {

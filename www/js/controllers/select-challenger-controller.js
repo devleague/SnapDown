@@ -1,18 +1,27 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
+.controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
-  $scope.imageURI = $stateParams.imageURI;
-
+  $scope.imageURI = 'not yet here';
   $scope.UserService = UserService;
   $scope.users = [];
+  // $localStorage.activeUserId = 2;
+  $scope.imageURI = DataSharingService.errorLog;
 
 
 
     UserService.getAllUsers()
     .success(function (res){
-      console.log(res);
-      $scope.users = res;
+      console.log('res',res);
+      var filteredUser = res.filter(function(element,index,array){
+        if(element.id === 2){
+          return false;
+        }else{
+          return true;
+        }
+        console.log('filteredUser',filteredUser);
+      });
+      $scope.users = filteredUser;
     })
     .error(function (err){
       console.log('Error with receiving users', err);
@@ -33,15 +42,19 @@ angular.module('starter')
       var challengeId = DataSharingService.activeChallenge.id;
       var selectedUsers = $scope.usersChecked;
       // var promise1 = $scope.createChallenger();
+
       var promiseArray = [$scope.updateChallengeTimes()];
       var promise3 = selectedUsers.forEach(function (user){
         promiseArray.push(ChallengerService.createChallenger(user.id, challengeId, false))
       })
 
       $q.all(promiseArray)
-        .then(function(res){
+        .then(function(resArr){
           //update DataSharingService with new challenge time
-          DataSharingService.activeChallenge.expireAt = res[0].data.expire_at;
+          console.log('resArr', resArr);
+          DataSharingService.activeChallenge.expireAt = resArr[0].data.expire_at;
+        }).then(function (){
+
           $state.go('app.challenge-in-progress');
         })
     };

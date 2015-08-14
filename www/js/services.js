@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 300000;
+var DEFAULT_CHALLENGE_LENGTH = 10000;
 
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
@@ -62,31 +62,24 @@ function LogOutService($http){
 
 function PictureService ($http){
   //not added to any controller yet
-  this.savePictureToAws = function (s3_reference, privacy_status, challenger_id){
+  this.sendImageToServer = function (imageURI){
 
-    var new_image = {
-
-      s3_reference: s3_reference,
-      privacy_status: privacy_status,
-      challenger_id: challenger_id
+    var imageData = {
+      dataURI : imageURI
     };
+    // return $http.post('http://localhost:3000/api/upload/', imageURI);
+    return $http.post('http://10.0.1.30:3000/api/upload/', imageData);
 
-    return $http.post('/api/images/', new_image);
+
   }
-
-  // this.getIndividualPic = function (){
-
-  // }
 }
 
 function MessageServices ($http) {
   this.sendChallengeInvites = function(invitationObj){
-    console.log('sending invites')
+    // return $http.post('http://localhost:3000/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
 
-
   }
-
 };
 
 function ChallengeService ($http) {
@@ -136,11 +129,13 @@ function ChallengeService ($http) {
 
   this.createNewChallenge = function (challenge){
 
-    var new_challenge = {
+    var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
+    var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
-      // start_at: Date.now(),
-      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
-      name: 'challenge.name',
+    var challengeNameGenerator = challengeCats.slice(randomIndex,randomIndex + 1).toString();
+
+    var new_challenge = {
+      name: challengeNameGenerator,
       privacy_status: 'public'
     };
 
@@ -224,4 +219,5 @@ function DataSharingService(){
 
   this.activeChallenge = {};
   this.activeUser = {};
+  this.errorLog = {};
 };
