@@ -38,7 +38,7 @@ angular.module('starter')
           $state.go('app.select-challenger');
         }
         else{
-          $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
+          $state.go('app.select-challenger');
         }
       }, function(err) {
         var imageSrc  = err;

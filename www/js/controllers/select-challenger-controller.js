@@ -2,7 +2,6 @@ angular.module('starter')
 
 .controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
-  $scope.imageURI = $stateParams.imageURI;
 
   $scope.UserService = UserService;
   $scope.users = [];

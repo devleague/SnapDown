@@ -67,7 +67,7 @@ function PictureService ($http){
     var imageData = {
       dataURI : imageURI
     };
-    return $http.post('/api/upload/', imageData);
+    return $http.post('http://localhost:3000/api/upload/', imageData);
 
   }
 }
@@ -214,4 +214,5 @@ function DataSharingService(){
 
   this.activeChallenge = {};
   this.activeUser = {};
+  this.errorLog = {};
 };

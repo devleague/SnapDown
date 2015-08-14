@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService) {
+.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
    ionic.Platform.ready(function(){
 
 
@@ -46,7 +46,16 @@ angular.module('starter')
       .then(function(imageData) {
         if(imageData){
           var imageSrc = "data:image/jpeg;base64," + imageData;
-          $state.go('app.select-challenger',{imageURI: imageData});
+           PictureService.sendImageToServer(imageSrc)
+            .success(function(res){
+              $state.go('app.select-challenger');
+              console.log(res)
+            })
+            .error(function(error){
+              DataSharingService.errorLog.sendImageToServer = error;
+              $state.go('app.select-challenger');
+            })
+
         }
         else{
           $state.go('app.select-challenger',{imageURI: 'imageData undefined'});
