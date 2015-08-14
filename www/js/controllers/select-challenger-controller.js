@@ -2,11 +2,9 @@ angular.module('starter')
 
 .controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
-  $scope.imageURI = 'not yet here';
   $scope.UserService = UserService;
   $scope.users = [];
   // $localStorage.activeUserId = 2;
-  $scope.imageURI = DataSharingService.errorLog;
 
 
 
@@ -14,7 +12,7 @@ angular.module('starter')
     .success(function (res){
       console.log('res',res);
       var filteredUser = res.filter(function(element,index,array){
-        if(element.id === 2){
+        if(element.id === DataSharingService.activeUser.id){
           return false;
         }else{
           return true;
