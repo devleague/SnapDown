@@ -17,4 +17,5 @@ angular.module('starter')
       return q.promise;
     }
   }
-}]);
+  }]);
+

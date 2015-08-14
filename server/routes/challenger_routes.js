@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenger;
 var challenge = require('../models').Challenge;
+var user = require('../models').User;
 
 router.get('/', function(req,res) {
 
@@ -38,6 +39,7 @@ router.get('/:id', function(req,res) {
   })
 });
 
+//Gets all the challenges a user is in
 router.get('/:id/challenges', function(req,res) {
 
   db.findAll({
@@ -70,7 +72,7 @@ router.get('/:id/challenges', function(req,res) {
 
 router.post('/', function(req,res) {
 
-  console.log('new challenger')
+  console.log('new challenger');
 
   db.create({
     challenge_id: req.body.challenge_id,

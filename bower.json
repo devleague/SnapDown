@@ -9,6 +9,12 @@
   },
   "dependencies": {
     "ngCordova": "~0.1.19-alpha",
-    "ng-cordova-oauth": "~0.1.4"
+    "ng-cordova-oauth": "~0.1.4",
+    "angular-timer": "~1.3.3",
+    "humanize-duration": "~3.3.0",
+    "momentjs": "~2.10.6"
+  },
+  "resolutions": {
+    "humanize-duration": "~2.8.0"
   }
 }

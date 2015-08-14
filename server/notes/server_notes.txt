@@ -58,6 +58,8 @@ npm install --save pg
 npm install --save express
 npm install --save body-parser
 npm install -g forever
+npm install --save aws-sdk
+npm install --save node-uuid
 
 
 if necessary, configure locale

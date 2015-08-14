@@ -1,73 +1,26 @@
 <ion-view view-title="challenge-in-progress">
   <ion-content overflow-scroll="true" on-swipe-right="onSwipeRight()" can-swipe-back="false">
     <h1>Challenge in Progress</h1>
-    <div class="row row-wrap">
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
+    <div class="row row-wrap" ng-repeat="challenger in allChallengers">
+      <div>
+        <div>
+          {{challenger.Image}}
+        </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
       </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-    <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
+    </div>
+    <div>
+      <timer end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds.</timer>
     </div>
 
   </ion-content>
   <ion-footer-bar class="bar-footer">
     <div class="timeRemainingContainer">
-      <div class="timeRemaining">Time Remaining</div>
+      <div class="timeRemaining">Time Remaining
+
+      </div>
     </div>
     <div class="tabs tabs-icon-top tabs-positive">
       <a class="tab-item" ui-sref="app.user-feed">

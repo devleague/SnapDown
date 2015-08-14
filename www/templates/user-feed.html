@@ -6,14 +6,18 @@
     <h1>User Feed</h1>
 
     <ul class="list">
-      <li class="item item-checkbox" data-ng-repeat="challenge in challenges" ng-click="test()">
-        {{challenge.$$hashKey}}
+
+      <li class="item item-checkbox" data-ng-repeat="challenge in challenges" ng-click="renderChallenge(challenge)">
+        {{challenge.name}}
+        {{challenge.expire_at}}
       </li>
     </ul>
      <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
     <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
     <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
   </ion-content>
+
+
   <ion-footer-bar>
       <div class="tabs tabs-icon-top tabs-positive">
        <a class="tab-item">
