@@ -7760,14 +7760,6 @@ body, html {
         background-color: #828F9E;
         text-align: center;
         line-height: 35px; }
-.profile .editProfileContainer .formColor {
-  border-top: none;
-  background-color: #3D4B5B;
-  border-bottom: 2px solid #818E9D;
-  height: 60px; }
-  .profile .editProfileContainer .formColor .input-label {
-    color: #818E9D;
-    font-weight: bold; }
 .profile .statisticsContainer {
   background-color: #3D4B5B;
   height: 40vh; }

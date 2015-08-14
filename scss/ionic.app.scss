@@ -125,20 +125,20 @@ body, html {
     }
   }
 
-  .editProfileContainer {
-    .formColor {
-      border-top: none;
-      background-color: $lightBackground;
-      border-bottom: 2px solid $lightGray;
-      height: 60px;
+  // .editProfileContainer {
+  //   .formColor {
+  //     border-top: none;
+  //     background-color: $lightBackground;
+  //     border-bottom: 2px solid $lightGray;
+  //     height: 60px;
 
-      .input-label {
-        color: $lightGray;
-        font-weight: bold;
-      }
-    }
+  //     .input-label {
+  //       color: $lightGray;
+  //       font-weight: bold;
+  //     }
+  //   }
 
-  }
+  // }
 
   .statisticsContainer {
     background-color: $lightBackground;
