@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('camera-controller', function($scope, Camera, $state) {
+.controller('camera-controller', function($scope, Camera, $state, PictureService) {
 
 
 
@@ -21,8 +21,8 @@ angular.module('starter')
       Camera.getPicture(
         {
           quality: 50,
-          targetWidth: 512,
-          targetHeight: 512,
+          targetWidth: 100,
+          targetHeight: 100,
           destinationType: 0,
           encodingType: 0,
           saveToPhotoAlbum: false
@@ -31,7 +31,11 @@ angular.module('starter')
       .then(function(imageData) {
         if(imageData){
           var imageSrc = "data:image/jpeg;base64," + imageData;
-          $state.go('app.select-challenger',{imageURI: imageData});
+          PictureService.sendImageToServer(imageSrc)
+            .then(function(res){
+              console.log(res)
+            })
+          $state.go('app.select-challenger');
         }
         else{
           $state.go('app.select-challenger',{imageURI: 'imageData undefined'});

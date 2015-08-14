@@ -70,10 +70,6 @@ angular.module('starter', ['ionic',
 
   .state('app.select-challenger', {
     url: '/select-challenger',
-    params: {
-      imageURI: null
-
-    },
     views: {
       'menuContent': {
         templateUrl: 'templates/select-challenger.html',
