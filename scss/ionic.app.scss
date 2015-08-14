@@ -42,7 +42,7 @@ body, html {
 //Login page
 .login_container{
   background-color: $dark;
-  color: $energized;
+  color: $lightGray;
   text-align: center;
 
   .login_logo{
@@ -64,6 +64,7 @@ body, html {
 
   .facebook_login_button{
     border: 1px solid grey;
+    color: $energized;
     width: 75%;
     height: 100px;
     line-height: 100px;

@@ -7703,7 +7703,7 @@ body, html {
 
 .login_container {
   background-color: #212A33;
-  color: #C7F733;
+  color: #818E9D;
   text-align: center; }
   .login_container .login_logo {
     height: 150px;
@@ -7718,6 +7718,7 @@ body, html {
     margin-bottom: 5%; }
   .login_container .facebook_login_button {
     border: 1px solid grey;
+    color: #C7F733;
     width: 75%;
     height: 100px;
     line-height: 100px;
