@@ -1,22 +1,35 @@
-<ion-view view-title="user-challenged">
+<ion-view view-title="user-challenged" class="userChallenged">
   <ion-content>
-    <h1>User Challenged</h1>
-    <div class="row row-wrap" ng-repeat="challenger in allChallengers">
+    <div class="challengeBar">
+      <div class="xBox">x</div>
+      <div class="challengeName">CHALLENGE NAME</div>
+    </div>
+
+    <div class="challengedPlayers">
+      <ul ng-repeat="challenger in allChallengers">
+        <li>{{challenger.User.first_name}}</li>
+      </ul>
+    </div>
+
+<!--     <div class="row row-wrap players" ng-repeat="challenger in allChallengers">
+    <h1>hello</h1>
+      <div>
         <div>
-          <div>
-            {{challenger.Image}}
-          </div>
-          <div>
-            {{challenger.User.first_name}}
-          </div>
+          {{challenger.Image}}
         </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
+      </div>
+    </div> -->
+
+    <div class="bottomHalf">
+      <div class="timer">
+        <timer class="timer" end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
+      </div>
+      <div class="declineChallenge" ui-sref="app.landing">decline challenge</div>
+      <div class="acceptChallenge" ui-sref="app.user-feed">accept challenge</div>
     </div>
-    <div>
-      {{timerComplete}}
-      <timer class="timer" end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds.</timer>
-    </div>
-    <div class="button button-calm col col-50 col-offset-25 " ui-sref="app.landing">Decline Challenge</div>
-    <div class="button button-calm col col-50 col-offset-25" ui-sref="app.user-feed">Accept Challenge</div>
 
   </ion-content>
 </ion-view>

@@ -23,6 +23,7 @@ $dark: #212A33 !default;
 $lightBackground: #3D4B5B;
 $background: #1C242C;
 $lightGray: #818E9D;
+$timer: #212A33;
 
 @import "www/lib/ionic/scss/ionic";
 
@@ -197,6 +198,79 @@ body, html {
 }
 
 //user challenged styling
+.userChallenged {
+  background-color: $lightBackground;
+
+  .challengeBar {
+    background-color: $dark;
+    height: 8vh;
+    width: 100%;
+
+    .xBox {
+      color: $lightGray;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+    }
+
+    .challengeName {
+      font-size: 2.3em;
+      color: $energized;
+    }
+  }
+
+  .challengedPlayers {
+    height: 52vh;
+    width: 100%;
+    background-color: green;
+  }
+
+  .bottomHalf {
+    height: 40vh;
+    width: 100%;
+    padding-top: 20px;
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+
+    .declineChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #83909F;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #636E7A;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+
+    .acceptChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+  }
+}
 
 
 
