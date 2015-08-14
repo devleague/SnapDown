@@ -26,8 +26,6 @@ router.post('/', function(req,res) {
 
   var buffer = new Buffer(req.body.base64Image.replace(/^data:image\/\w+;base64,/, ""),'base64');
 
-  console.log(buffer);
-
   var data = {
 
     Key: keyName,

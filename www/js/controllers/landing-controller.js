@@ -45,8 +45,11 @@ angular.module('starter')
       )
       .then(function(imageData) {
         if(imageData){
-          var imageSrc = "data:image/jpeg;base64," + imageData;
-           PictureService.sendImageToServer(imageSrc)
+          // var imageSrc = /*"data:image/jpeg;base64," + */imageData;
+           PictureService.sendImageToServer({
+            base64Image: imageData,
+            challenger_id: 1 //TODO FIX ME
+          })
             .success(function(res){
               DataSharingService.errorLog.sendImageToServer = 'no error';
               $state.go('app.select-challenger');
