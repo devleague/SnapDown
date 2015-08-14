@@ -7903,3 +7903,31 @@ body, html {
       line-height: 75px;
       font-size: 2em;
       margin-bottom: 16px; }
+
+.challenge-in-progress {
+  background-color: #3D4B5B; }
+  .challenge-in-progress .challengeBar {
+    padding-top: 26px;
+    background-color: #212A33;
+    height: 10vh; }
+    .challenge-in-progress .challengeBar .challengeName {
+      text-align: center;
+      color: #C7F733;
+      font-size: 2em; }
+  .challenge-in-progress .challengedPlayers {
+    height: 80vh;
+    background-color: red;
+    padding-bottom: 20px; }
+  .challenge-in-progress .timerBox {
+    height: 10vh; }
+    .challenge-in-progress .timerBox .timer {
+      height: 50px;
+      width: 95%;
+      background-color: #212A33;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px; }

@@ -342,6 +342,46 @@ body, html {
 }
 
 
+//challenge in progress page
+.challenge-in-progress {
+  background-color: $lightBackground;
+
+  .challengeBar {
+    padding-top: 26px;
+    background-color: $dark;
+    height: 10vh;
+
+    .challengeName {
+      text-align: center;
+      color: $energized;
+      font-size: 2em;
+    }
+  }
+
+  .challengedPlayers {
+    height: 80vh;
+    background-color: red;
+    padding-bottom: 20px;
+  }
+
+  .timerBox {
+    height: 10vh;
+
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+  }
+}
+
 
 
 
