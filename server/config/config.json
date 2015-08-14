@@ -1,8 +1,8 @@
   {
   "development": {
 
-    "username": "judah",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "grannygram_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
