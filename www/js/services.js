@@ -129,10 +129,10 @@ function ChallengeService ($http) {
 
   this.createNewChallenge = function (challenge){
 
-    var animalTypes = ['Cat', 'Dog', 'Deer', 'Mouse', 'Frog', 'Lamb', 'Duck', 'Elephant', 'Rabbit'];
-    var randomIndex = Math.floor((Math.random() * animalTypes.length) + 0);
+    var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
+    var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
-    var challengeNameGenerator = animalTypes.slice(randomIndex,randomIndex + 1).toString();
+    var challengeNameGenerator = challengeCats.slice(randomIndex,randomIndex + 1).toString();
 
     var new_challenge = {
       name: challengeNameGenerator,
