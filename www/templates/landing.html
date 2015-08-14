@@ -1,15 +1,21 @@
 <ion-view view-title="landing" class="landing">
   <ion-content on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" can-swipe-back="false">
-    <div class="logoImage"></div>
-    <div class="startChallenge" ng-click="createNewChallenge()">
-      <div class="cameraImage"></div>
-      <h1>start challenge</h1>
+    <div class="topContainer">
+      <div class="logoImage"></div>
+      <div class="startChallenge" ng-click="createNewChallenge()">
+        <div class="cameraImage">
+          <i class="icon ion-ios-camera-outline"></i>
+        </div>
+        <h1>start challenge</h1>
+      </div>
     </div>
-    <div class="activeChallenge" overflow-scroll="true">
-      <h2>Active challenge 1</h2>
-      <h2>Active challenge 1</h2>
+    <div class="bottomContainer">
+      <div class="activeChallenge" overflow-scroll="true">
+        <h2>Active challenge 1</h2>
+        <h2>Active challenge 1</h2>
+     </div>
+    </div>
 
-    </div>
 
   </ion-content>
   <ion-footer-bar>

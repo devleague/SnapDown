@@ -18,7 +18,7 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 // Include all of Ionic
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-$energized: #CDFF33 !default;
+$energized: #C7F733 !default;
 $dark: #212A33 !default;
 $lightBackground: #3D4B5B;
 $background: #1C242C;
@@ -36,44 +36,63 @@ body, html {
 
 // landing page styling
 .landing {
-  background-color: $background;
+  background-color: $dark;
 
   .logoImage {
     height: 150px;
     width: 330px;
     margin: 0 auto;
-    background-color: green;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
-  .startChallenge {
-    height: 155px;
-    width: 330px;
-    background-color: #0194A6;
-    margin: 10px auto;
-    border-radius: 5px;
+  .topContainer {
+    height: 55vh;
+    .startChallenge {
+      height: 155px;
+      width: 90%;
+      background-color: #0194A6;
+      margin: 10px auto;
+      border-radius: 5px;
+      box-shadow: 0 5px #00606E;
 
-    .cameraImage {
+      .cameraImage {
       height: 80px;
       width: 100%;
-      background-color: red;
-    }
-
-    h1 {
-      color: white;
       text-align: center;
+
+        i {
+          font-size: 90px;
+          color: white;
+        }
+      }
+
+      h1 {
+        color: white;
+        text-align: center;
+        font-size: 1.8em;
+      }
     }
   }
 
-  .activeChallenge {
-    height: 200px;
-    width: 330px;
-    background-color: #3D4B5B;
-    margin: 0 auto;
+  .bottomContainer {
+    height: 45vh;
+    .activeChallenge {
+      height: 100%;
+      width: 100%;
+      background-color: #3D4B5B;
+      margin: 0 auto;
+      border-left:1px solid white;
+      border-right: 1px solid white;
 
-    h2 {
-      color: $energized;
+
+      h2 {
+        color: $energized;
+      }
     }
   }
+
 }
 
 // edit profile styling
