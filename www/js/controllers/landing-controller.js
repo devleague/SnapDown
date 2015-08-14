@@ -3,9 +3,6 @@ angular.module('starter')
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService) {
    ionic.Platform.ready(function(){
 
-    $scope.gotToCamera = function(){
-      $state.go('camera');
-    }
 
     $scope.createNewChallenge = function (){
       ChallengeService.createNewChallenge()
