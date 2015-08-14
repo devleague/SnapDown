@@ -83,12 +83,18 @@ body, html {
       width: 100%;
       background-color: #3D4B5B;
       margin: 0 auto;
-      border-left:1px solid white;
-      border-right: 1px solid white;
+      border-left:1px solid $lightGray;
+      border-right: 1px solid $lightGray;
 
 
-      h2 {
-        color: $energized;
+      li {
+        height: 70px;
+        border-bottom: 1px solid $lightGray;
+
+        h3 {
+          color: $energized;
+          line-height: 70px;
+        }
       }
     }
   }
