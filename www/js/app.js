@@ -91,7 +91,9 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.challenge-complete', {
+    cache: false,
     url: '/challenge-complete',
+    params: {activeChallenge : null},
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
