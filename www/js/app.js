@@ -129,6 +129,16 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.open-invitations', {
+    url: '/open-invitations',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/open-invitations.html',
+        controller: 'open-invitations-controller'
+      }
+    }
+  })
+
 
 
 
