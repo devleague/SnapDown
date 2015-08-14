@@ -267,7 +267,7 @@ body, html {
 
   .challengeBar {
     background-color: $dark;
-    height: 8vh;
+    height: 10vh;
     width: 100%;
 
     .xBox {
@@ -275,11 +275,11 @@ body, html {
       font-size: 2.3em;
       display: inline-block;
       float: left;
-      margin: 15px 15px;
+      margin: 20px 15px;
     }
 
     .challengeName {
-      padding-top: 15px;
+      padding-top: 20px;
       font-size: 2.3em;
       color: $energized;
       text-align: center;
@@ -289,7 +289,7 @@ body, html {
   }
 
   .challengedPlayers {
-    height: 52vh;
+    height: 50vh;
     width: 100%;
     background-color: green;
   }
