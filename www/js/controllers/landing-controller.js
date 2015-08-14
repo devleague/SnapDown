@@ -1,19 +1,35 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService) {
+.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService) {
    ionic.Platform.ready(function(){
 
     $scope.createNewChallenge = function (){
       ChallengeService.createNewChallenge()
       .success(function (res){
         console.log('challenge created', res)
+
         //forward to the in progress page
+        DataSharingService.activeChallenge.id = res.id;
+        DataSharingService.activeChallenge.name = res.name;
+        // var userId = DataSharingService.activeUser.id;
+        //add in userId to function
+
+        ChallengerService.createChallenger(2, res.id, true)
+          .success(function(res){
+            console.log('challenger created', res);
+            DataSharingService.activeUser.challengerId = res.id;
+          })
+          .error(function(error){
+            console.log(error);
+          })
+
 
       })
       .error(function (err){
         console.log('Error with creating a challenge', err);
       })
     };
+
 
     // $scope.getPhoto = function() {
     //   Camera.getPicture(

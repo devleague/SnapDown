@@ -70,15 +70,13 @@ router.get('/:id/challenges', function(req,res) {
 
 router.post('/', function(req,res) {
 
-  db.create({
+  console.log('new challenger');
 
+  db.create({
     challenge_id: req.body.challenge_id,
     user_id: req.body.user_id,
-    image_id: req.body.image_id,
     initiator_flag: req.body.initiator_flag
-
-  }).then(function(result) { //may be unnecessary
-
+  }).then(function (result) {
     res.status(200).json(result);
   });
 });

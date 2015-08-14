@@ -9,17 +9,22 @@
       <input type="search" placeholder="Search">
     </label>
 
-    <ul class="list" ng-repeat="user in users">
-      <li class="item item-checkbox">
+<!--     <ul class="list" >
+      <li class="item item-checkbox"> -->
+      <div ng-repeat="user in users">
+
         <label class="checkbox">
-          <input type="checkbox">
+        <h2>{{user.first_name}}</h2>
         </label>
-        {{user.first_name}}
-      </li>
-    </ul>
+          <input type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
+
+      </div>
+
+
+
 
     <div class="row row-bottom">
-      <div class="col col-33 col-offset-33" id="start_challenge" ui-sref="app.challenge-in-progress">Start Challenge</div>
+      <div class="col col-33 col-offset-33" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
     </div>
 
   </ion-content>
