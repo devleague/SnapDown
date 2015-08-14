@@ -62,7 +62,7 @@ function LogOutService($http){
 
 function PictureService ($http){
   //not added to any controller yet
-  this.savePictureToAws = function (imageURI)
+  this.savePictureToAws = function (imageURI){
     var imageData = {
       dataURI : imageURI
     };
