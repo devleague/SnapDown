@@ -2,9 +2,10 @@ angular.module('starter')
 
 .controller('select-challenger-controller', function ($scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
-
+  $scope.imageURI = 'not yet here';
   $scope.UserService = UserService;
   $scope.users = [];
+  $scope.imageURI = DataSharingService.errorLog;
 
 
 
