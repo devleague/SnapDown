@@ -92,8 +92,8 @@ function MessageServices ($http) {
 function ChallengeService ($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function (user_id){
-    //hard coded user_id to 1 need to populate dynamically
-    return $http.get('http://localhost:3000/api/challengers/1/challenges');
+    console.log('going to get my challenges');
+    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
   }
 
   //Can use the below for a global view at some point in the future
