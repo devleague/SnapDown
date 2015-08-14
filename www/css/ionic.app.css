@@ -7748,7 +7748,7 @@ body, html {
         border-radius: 5px; }
     .profile .headerContainer .headerContent .usernameWrapper {
       width: 70%;
-      height: 70px;
+      height: 27vh;
       margin-left: 30%; }
       .profile .headerContainer .headerContent .usernameWrapper h1 {
         color: #CDFF33;
@@ -7760,3 +7760,30 @@ body, html {
         background-color: #828F9E;
         text-align: center;
         line-height: 35px; }
+.profile .editProfileContainer .formColor {
+  border-top: none;
+  background-color: #3D4B5B;
+  border-bottom: 2px solid #818E9D;
+  height: 60px; }
+  .profile .editProfileContainer .formColor .input-label {
+    color: #818E9D;
+    font-weight: bold; }
+.profile .statisticsContainer {
+  background-color: #3D4B5B;
+  height: 40vh; }
+  .profile .statisticsContainer p {
+    text-align: center;
+    color: #818E9D;
+    font-size: 1.1em; }
+  .profile .statisticsContainer .requestsBox {
+    text-align: center;
+    color: #CDFF33;
+    font-size: 1.5em; }
+.profile .deleteAccount {
+  background-color: #3D4B5B;
+  height: 10vh;
+  border-top: 2px solid #818E9D;
+  padding-top: 10px; }
+  .profile .deleteAccount h3 {
+    color: #818E9D;
+    font-size: 1.2em; }

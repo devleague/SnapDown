@@ -22,6 +22,8 @@ $energized: #CDFF33 !default;
 $dark: #212A33 !default;
 $lightBackground: #3D4B5B;
 $background: #1C242C;
+$lightGray: #818E9D;
+
 @import "www/lib/ionic/scss/ionic";
 
 body, html {
@@ -103,7 +105,7 @@ body, html {
 
       .usernameWrapper {
         width: 70%;
-        height: 70px;;
+        height: 27vh;
         margin-left: 30%;
 
         h1 {
@@ -122,6 +124,52 @@ body, html {
       }
     }
   }
+
+  .editProfileContainer {
+    .formColor {
+      border-top: none;
+      background-color: $lightBackground;
+      border-bottom: 2px solid $lightGray;
+      height: 60px;
+
+      .input-label {
+        color: $lightGray;
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  .statisticsContainer {
+    background-color: $lightBackground;
+    height: 40vh;
+
+    p {
+      text-align: center;
+      color: $lightGray;
+      font-size: 1.1em;
+    }
+
+    .requestsBox {
+      text-align: center;
+      color: $energized;
+      font-size: 1.5em;
+
+    }
+  }
+
+  .deleteAccount {
+    background-color: $lightBackground;
+    height: 10vh;
+    border-top: 2px solid $lightGray;
+    padding-top: 10px;
+
+    h3 {
+      color: $lightGray;
+      font-size: 1.2em;
+    }
+  }
+
 }
 
 
