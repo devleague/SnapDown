@@ -3,12 +3,32 @@ angular.module('starter')
 .controller('challenge-in-progress-controller', function($scope, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService) {
 
   $scope.allChallengers = [];
+  var timeRemaining = DataSharingService.activeChallenge.expireAt - Date.now();
+  console.log('time remaining:',timeRemaining);
+
+
+  setTimeout(function(){
+    $scope.checkIfChallengeActive();
+  },timeRemaining+50)
+
+  $scope.checkIfChallengeActive = function(){
+    if(DataSharingService.activeChallenge.expireAt > Date.now()){
+      $scope.challengeActive = true;
+      $scope.challengeExpired = false;
+    }
+    else{
+        $scope.challengeActive = false;
+      $scope.challengeExpired = true;
+    }
+
+  };
 
   $scope.expireTime = function(){
     return DataSharingService.activeChallenge.expireAt;
   };
   var challenge = DataSharingService.activeChallenge;
   var challengeId = DataSharingService.activeChallenge.id;
+
 
 
   //Can be used to validate if the user sent in a picture.
@@ -28,6 +48,8 @@ angular.module('starter')
   }
 
   $ionicPlatform.ready(function() {
+    console.log('challengeid',challengeId)
+    console.log('getting challenge context')
     $scope.getChallengeContext();
   });
 

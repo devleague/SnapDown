@@ -1,6 +1,5 @@
   {
   "development": {
-
     "username": "postgres",
     "password": null,
     "database": "snapdown_db",
