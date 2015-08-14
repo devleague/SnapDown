@@ -24,16 +24,79 @@ $lightBackground: #3D4B5B;
 $background: #1C242C;
 $lightGray: #818E9D;
 $timer: #212A33;
+$logo: url('../img/logo.svg');
 
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
+
 body, html {
+  font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%;
 }
 //positions sticky footer
 .tabs {
   left: 0;
 }
+
+
+//Login page
+.login_container{
+  background-color: $dark;
+  color: $lightGray;
+  text-align: center;
+
+  .login_logo{
+
+    height: 150px;
+    width: 330px;
+    margin: 20% auto;
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 65%;
+  }
+
+  .facebook_heading{
+    // border: 1px solid white;
+    font-size: 2em;
+    margin-bottom: 5%;
+  }
+
+  .facebook_login_button{
+    border: 1px solid grey;
+    color: $energized;
+    width: 75%;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    background-color: $lightBackground;
+    margin-bottom: 5%;
+    font-size: 2em;
+
+  }
+
+  .facebook_subheading{
+    // border: 1px solid white;
+    width: 75%;
+    margin: auto;
+  }
+
+}
+
+//select a challenger page
+.select-Challenger{
+  background-color: $lightBackground;
+  color: $lightGray;
+
+  .xBox{
+  }
+
+  .challengeName{
+
+  }
+}
+
 
 // landing page styling
 .landing {
@@ -43,7 +106,7 @@ body, html {
     height: 150px;
     width: 330px;
     margin: 0 auto;
-    background-image: url('../img/logo.svg');
+    background-image: $logo;
     background-repeat: no-repeat;
     background-position: center center;
   }
