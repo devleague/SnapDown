@@ -18,139 +18,258 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 // Include all of Ionic
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$energized: #CDFF33 !default;
+$dark: #212A33 !default;
+$lightBackground: #3D4B5B;
+$background: #1C242C;
 @import "www/lib/ionic/scss/ionic";
+
 body, html {
   min-height: 100%;
 }
-.feed {
-  height: 100px;
-  width: 300px;
-  background-color: blue;
-  margin: 0 auto;
-}
-
-.startChallenge {
-  height: 53px;
-  width: 300px;
-  background-color: red;
-  margin: 0 auto;
-}
-.selectChallenger {
-  height: 53px;
-  width: 300px;
-  background-color: yellow;
-  margin: 0 auto;
-}
-.challengeComplete {
-  height: 53px;
-  width: 300px;
-  background-color: pink;
-  margin: 0 auto;
-}
-.userChallenged {
-  height: 53px;
-  width: 300px;
-  background-color: orange;
-  margin: 0 auto;
-}
-#start_challenge {
-  height: 50px;
-  background-color: red;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.imageHolder {
-  height: 100px;
-  // background-color: red;
-  // border: 1px solid black;
-}
-
-.imageDiv {
-  width: 90%;
-  height: 90px;
-  margin: auto auto;
-  background-color: green;
-}
-
-
-.newChallenge {
-  height: 40px;
-  border-radius: 5px;
-  background-color: green;
-  text-align: center;
-}
-
+//positions stick footer
 .tabs {
   left: 0;
 }
 
-.myModal {
-  height: 90%;
-  width: 90%;
-  background-color: red;
-}
+// landing page styling
+.landing {
+  background-color: $background;
 
-.closeModal {
-  height: 25px;
-  width: 25px;
-  line-height: 25px;
-  text-align: center;
-  border-radius: 25px;
-  background-color: rgba(255,255,255,.5);
-  border: 1px solid black;
-}
-
-.timeRemainingContainer {
-  position: relative;
-  .timeRemaining {
-    position: absolute;
-    top: -70px;
-    left: 50%;
-    transform: translate(50%,0);
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: purple;
-    text-align: center;
+  .logoImage {
+    height: 150px;
+    width: 330px;
+    margin: 0 auto;
+    background-color: green;
   }
-}
 
-.editProfileModal.scroll-content.ionic-scroll {
-  height: 95%;
-  width: 95%;
-  margin: auto auto;
-  .scroll {
-    height: 100%;
-    background-color: purple;
-    .headerContainer {
-      height: 20%;
-      background-color: yellow;
-      .avatar {
-        display: inline-block;
-        float: left;
-        img {
-          max-height: 80px;
-          max-width: 80px;
-          border-radius: 90px;
-        }
-      }
-    }
-    .editProfileContainer {
-      height: 50%;
+  .startChallenge {
+    height: 155px;
+    width: 330px;
+    background-color: #0194A6;
+    margin: 10px auto;
+    border-radius: 5px;
+
+    .cameraImage {
+      height: 80px;
+      width: 100%;
       background-color: red;
     }
-    .statisticsContainer {
-      height: 20%;
-      background-color: pink;
-    }
-    .logoutDelete {
-      height: 10%;
-      background-color: orange;
+
+    h1 {
+      color: white;
       text-align: center;
     }
   }
+
+  .activeChallenge {
+    height: 200px;
+    width: 330px;
+    background-color: #3D4B5B;
+    margin: 0 auto;
+
+    h2 {
+      color: $energized;
+    }
+  }
 }
+
+// edit profile styling
+
+
+  .headerContainer {
+    height: 15vh;
+    width: 100%;
+    background-color: $dark;
+    padding-top: 15px;
+
+    .avatarContainer {
+      height: 100%;
+      width: 30%;
+      float: left;
+      display: inline-block;
+
+      .avatar {
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 70px;
+        margin: 0 auto;
+        border-radius: 5px;
+      }
+    }
+
+    .usernameWrapper {
+      width: 70%;
+      height: 70px;;
+      margin-left: 30%;
+
+      h1 {
+        color: $energized;
+        font-size: 1.5em;
+      }
+
+      .logout {
+        height: 35px;
+        width: 80px;
+        border-radius: 5px;
+        background-color: #828F9E;
+        text-align: center;
+        line-height: 35px;
+      }
+    }
+  }
+
+  .editProfileContainer {
+    height: 35vh;
+    background-color: $lightBackground;
+  }
+
+  .statisticsContainer {
+    height: 35vh;
+    background-color: yellow;
+  }
+
+  .deleteAccount {
+    height: 15vh;
+    background-color: orange;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .feed {
+//   height: 100px;
+//   width: 300px;
+//   background-color: blue;
+//   margin: 0 auto;
+// }
+
+
+// .selectChallenger {
+//   height: 53px;
+//   width: 300px;
+//   background-color: yellow;
+//   margin: 0 auto;
+// }
+// .challengeComplete {
+//   height: 53px;
+//   width: 300px;
+//   background-color: pink;
+//   margin: 0 auto;
+// }
+// .userChallenged {
+//   height: 53px;
+//   width: 300px;
+//   background-color: orange;
+//   margin: 0 auto;
+// }
+// #start_challenge {
+//   height: 50px;
+//   background-color: red;
+//   text-align: center;
+//   border-radius: 5px;
+// }
+
+// .imageHolder {
+//   height: 100px;
+//   // background-color: red;
+//   // border: 1px solid black;
+// }
+
+// .imageDiv {
+//   width: 90%;
+//   height: 90px;
+//   margin: auto auto;
+//   background-color: green;
+// }
+
+
+// .newChallenge {
+//   height: 40px;
+//   border-radius: 5px;
+//   background-color: green;
+//   text-align: center;
+// }
+
+// .tabs {
+//   left: 0;
+// }
+
+// .myModal {
+//   height: 90%;
+//   width: 90%;
+//   background-color: red;
+// }
+
+// .closeModal {
+//   height: 25px;
+//   width: 25px;
+//   line-height: 25px;
+//   text-align: center;
+//   border-radius: 25px;
+//   background-color: rgba(255,255,255,.5);
+//   border: 1px solid black;
+// }
+
+// .timeRemainingContainer {
+//   position: relative;
+//   .timeRemaining {
+//     position: absolute;
+//     top: -70px;
+//     left: 50%;
+//     transform: translate(50%,0);
+//     width: 200px;
+//     height: 50px;
+//     border-radius: 5px;
+//     background-color: purple;
+//     text-align: center;
+//   }
+// }
+
+// .editProfileModal.scroll-content.ionic-scroll {
+//   height: 95%;
+//   width: 95%;
+//   margin: auto auto;
+//   .scroll {
+//     height: 100%;
+//     background-color: purple;
+//     .headerContainer {
+//       height: 20%;
+//       background-color: yellow;
+//       .avatar {
+//         display: inline-block;
+//         float: left;
+//         img {
+//           max-height: 80px;
+//           max-width: 80px;
+//           border-radius: 90px;
+//         }
+//       }
+//     }
+//     .editProfileContainer {
+//       height: 50%;
+//       background-color: red;
+//     }
+//     .statisticsContainer {
+//       height: 20%;
+//       background-color: pink;
+//     }
+//     .logoutDelete {
+//       height: 10%;
+//       background-color: orange;
+//       text-align: center;
+//     }
+//   }
+// }
 
 
 
