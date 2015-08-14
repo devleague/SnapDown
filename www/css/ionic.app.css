@@ -7881,21 +7881,27 @@ body, html {
     font-size: 1.2em; }
 
 .userChallenged {
-  background-color: #3D4B5B; }
+  background-color: #3D4B5B;
+  width: 100%; }
   .userChallenged .challengeBar {
     background-color: #212A33;
-    height: 8vh;
+    height: 10vh;
     width: 100%; }
     .userChallenged .challengeBar .xBox {
       color: #818E9D;
       font-size: 2.3em;
       display: inline-block;
-      float: left; }
+      float: left;
+      margin: 26px 15px; }
     .userChallenged .challengeBar .challengeName {
+      padding-top: 26px;
       font-size: 2.3em;
-      color: #C7F733; }
+      color: #C7F733;
+      text-align: center;
+      height: 100%;
+      width: 100%; }
   .userChallenged .challengedPlayers {
-    height: 52vh;
+    height: 50vh;
     width: 100%;
     background-color: green; }
   .userChallenged .bottomHalf {

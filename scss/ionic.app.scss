@@ -319,10 +319,11 @@ body, html {
 //user challenged styling
 .userChallenged {
   background-color: $lightBackground;
+  width: 100%;
 
   .challengeBar {
     background-color: $dark;
-    height: 8vh;
+    height: 10vh;
     width: 100%;
 
     .xBox {
@@ -330,16 +331,21 @@ body, html {
       font-size: 2.3em;
       display: inline-block;
       float: left;
+      margin: 26px 15px;
     }
 
     .challengeName {
+      padding-top: 26px;
       font-size: 2.3em;
       color: $energized;
+      text-align: center;
+      height: 100%;
+      width: 100%;
     }
   }
 
   .challengedPlayers {
-    height: 52vh;
+    height: 50vh;
     width: 100%;
     background-color: green;
   }
