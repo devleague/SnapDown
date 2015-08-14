@@ -133,7 +133,6 @@ function ChallengeService($http) {
   }
 
 
-
   this.getMyChallenges = function(user_id) {
     console.log('going to get my challenges');
     return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
@@ -202,9 +201,7 @@ function ChallengeService($http) {
     return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
 
-  // this.getTimeRemaining = function (){
 
-  // }
 
   this.getChallengeContext = function(challenge_id) {
 
@@ -261,6 +258,12 @@ function ChallengerService($http) {
       user_id: userId
     };
     return $http.post('http://localhost:3000/api/challengers/', challenger);
+  }
+
+
+  this.getChallengerContext = function (user_id){
+    console.log('get me the challenge context');
+    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/context');
   }
 
 
