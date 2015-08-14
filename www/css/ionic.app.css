@@ -7841,7 +7841,8 @@ body, html {
     font-size: 1.2em; }
 
 .userChallenged {
-  background-color: #3D4B5B; }
+  background-color: #3D4B5B;
+  width: 100%; }
   .userChallenged .challengeBar {
     background-color: #212A33;
     height: 8vh;
@@ -7850,10 +7851,15 @@ body, html {
       color: #818E9D;
       font-size: 2.3em;
       display: inline-block;
-      float: left; }
+      float: left;
+      margin: 15px 15px; }
     .userChallenged .challengeBar .challengeName {
+      padding-top: 15px;
       font-size: 2.3em;
-      color: #C7F733; }
+      color: #C7F733;
+      text-align: center;
+      height: 100%;
+      width: 100%; }
   .userChallenged .challengedPlayers {
     height: 52vh;
     width: 100%;

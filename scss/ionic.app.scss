@@ -263,6 +263,7 @@ body, html {
 //user challenged styling
 .userChallenged {
   background-color: $lightBackground;
+  width: 100%;
 
   .challengeBar {
     background-color: $dark;
@@ -274,11 +275,16 @@ body, html {
       font-size: 2.3em;
       display: inline-block;
       float: left;
+      margin: 15px 15px;
     }
 
     .challengeName {
+      padding-top: 15px;
       font-size: 2.3em;
       color: $energized;
+      text-align: center;
+      height: 100%;
+      width: 100%;
     }
   }
 
