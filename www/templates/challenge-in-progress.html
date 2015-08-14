@@ -1,66 +1,14 @@
 <ion-view view-title="challenge-in-progress">
   <ion-content overflow-scroll="true" on-swipe-right="onSwipeRight()" can-swipe-back="false">
     <h1>Challenge in Progress</h1>
-    <div class="row row-wrap">
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-    <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
+    <div class="row row-wrap" ng-repeat="challenger in allChallengers">
+      <div>
+        <div>
+          image
+        </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
       </div>
     </div>
 
