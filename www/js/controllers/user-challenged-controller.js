@@ -20,14 +20,13 @@ angular.module('starter')
 	}
 
 	$scope.expireTime = function() {
-		if (Date.now() < expireTime {
-			var timer = document.querySelector('.timer');
-			console.log('timer',timer);
+		if (Date.now() < expireTime) {
+      return expireTime;
 		}else{
-			$scope.timerComplete = 'timer stopped';
-			var currentPath = $location.path();
-			$location.path(currentPath);
-			return;
+			// $scope.timerComplete = 'timer stopped';
+			// var currentPath = $location.path();
+			// $location.path(currentPath);
+			// return;
 		}
 	};
 
