@@ -7916,27 +7916,15 @@ body, html {
 .userChallenged {
   background-color: #3D4B5B;
   width: 100%; }
-  .userChallenged .challengeBar {
-    background-color: #212A33;
-    height: 10vh;
+  .userChallenged .challengeHeader {
     width: 100%; }
-    .userChallenged .challengeBar .xBox {
-      color: #818E9D;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin: 26px 15px; }
-    .userChallenged .challengeBar .challengeName {
-      padding-top: 26px;
-      font-size: 2.3em;
+    .userChallenged .challengeHeader h3 {
       color: #C7F733;
-      text-align: center;
-      height: 100%;
-      width: 100%; }
+      text-align: center; }
   .userChallenged .challengedPlayers {
-    height: 50vh;
-    background-color: red;
-    padding-bottom: 20px; }
+    height: 53vh;
+    padding-bottom: 20px;
+    overflow: auto; }
     .userChallenged .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }
@@ -8012,13 +8000,13 @@ body, html {
   background-color: #3D4B5B; }
   .challenge-in-progress .challengeName {
     width: 100%; }
-    .challenge-in-progress .challengeName h1 {
+    .challenge-in-progress .challengeName h3 {
       color: #C7F733;
-      font-size: 1.6em;
       text-align: center; }
   .challenge-in-progress .challengedPlayers {
     height: 73vh;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    overflow: auto; }
     .challenge-in-progress .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }

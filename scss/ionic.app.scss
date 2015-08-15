@@ -363,33 +363,20 @@ body, html {
   background-color: $lightBackground;
   width: 100%;
 
-  .challengeBar {
-    background-color: $dark;
-    height: 10vh;
+  .challengeHeader {
     width: 100%;
 
-    .xBox {
-      color: $lightGray;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin: 26px 15px;
-    }
-
-    .challengeName {
-      padding-top: 26px;
-      font-size: 2.3em;
+    h3 {
       color: $energized;
       text-align: center;
-      height: 100%;
-      width: 100%;
     }
+
   }
 
   .challengedPlayers {
-    height: 50vh;
-    background-color: red;
+    height: 53vh;
     padding-bottom: 20px;
+    overflow: auto;
 
     li {
       height: 10vh;
@@ -489,9 +476,8 @@ body, html {
 
   .challengeName {
     width: 100%;
-    h1 {
+    h3 {
       color: $energized;
-      font-size: 1.6em;
       text-align: center;
     }
   }
@@ -500,6 +486,7 @@ body, html {
   .challengedPlayers {
     height: 73vh;
     padding-bottom: 20px;
+    overflow: auto;
 
     li {
       height: 10vh;
