@@ -44,6 +44,7 @@ angular.module('starter')
       .success(function (res){
         console.log('challenge-in-progress challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
+        $scope.challengeName = res.challenge.name;
         console.log('challenge-in-progress all challengers',$scope.allChallengers)
       })
       .error(function (err){
