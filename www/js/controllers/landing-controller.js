@@ -15,12 +15,17 @@ angular.module('starter')
 
           challengeContextArr.forEach(function (curr, index) {
               // console.log('current image', curr);
-            if(curr.Image === null){
-              $scope.openChallenges.push(curr)
+
+            if(curr.Challenge){
+              if(curr.Image === null && curr.Challenge.expire_at !== null){
+                $scope.openChallenges.push(curr)
+              }
             }
           })
 
-          console.log('my challenges', $scope.openChallenges.length);
+
+
+          console.log('my challenges', $scope.openChallenges);
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
@@ -32,8 +37,8 @@ angular.module('starter')
           console.log('challenge created', res)
 
           //forward to the in progress page
-          DataSharingService.activeChallenge.id = res.id;
-          DataSharingService.activeChallenge.name = res.name;
+          DataSharingService.startedChallenge.id = res.id;
+          DataSharingService.startedChallenge.name = res.name;
           // var userId = DataSharingService.activeUser.id;
           //add in userId to function
 
@@ -54,7 +59,7 @@ angular.module('starter')
     };
 
     $scope.renderActiveChallenges = function(challenge) {
-      DataSharingService.activeChallenge.id = challenge.id;
+      DataSharingService.startedChallenge.id = challenge.id;
       $state.go('app.user-challenged')
     }
 

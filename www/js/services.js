@@ -271,7 +271,7 @@ function ChallengerService($http) {
 
 function DataSharingService() {
 
-  this.activeChallenge = {};
+  this.startedChallenge = {};
   this.activeUser = {};
   this.errorLog = {};
 };
