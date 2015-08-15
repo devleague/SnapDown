@@ -1,15 +1,16 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService) {
+.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform,  DataSharingService) {
 
   $scope.allChallengers = [];
   var timeRemaining = DataSharingService.activeChallenge.expireAt - Date.now();
   console.log('time remaining:',timeRemaining);
 
-
+//this function fires when the time expires
   $timeout(function(){
     console.log('timeout triggered')
-    $scope.checkIfChallengeActive();
+    // $scope.checkIfChallengeActive();
+    $state.go('app.challenge-complete',{activeChallenge: "hello challenge"});
   },timeRemaining+50)
 
   $scope.checkIfChallengeActive = function(){

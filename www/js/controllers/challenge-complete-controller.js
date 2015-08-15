@@ -1,6 +1,8 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal, $ionicPlatform,DataSharingService) {
+.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
+
+
   $scope.getChallengeContext = function (){
     console.log('hi there')
     var challengeId = DataSharingService.activeChallenge.id;
@@ -16,6 +18,8 @@ angular.module('starter')
   }
 
   $ionicPlatform.ready(function() {
+    console.log('stateparams',$stateParams)
+    console.log('hello I am in complet aretn i????????')
     $scope.getChallengeContext();
   });
 
