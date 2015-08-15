@@ -7909,6 +7909,7 @@ body, html {
       width: 100%; }
   .userChallenged .challengedPlayers {
     height: 50vh;
+    background-color: red;
     padding-bottom: 20px; }
     .userChallenged .challengedPlayers li {
       height: 10vh;
@@ -7992,7 +7993,7 @@ body, html {
       color: #C7F733;
       font-size: 2em; }
   .challenge-in-progress .challengedPlayers {
-    height: 80vh;
+    height: 73vh;
     padding-bottom: 20px; }
     .challenge-in-progress .challengedPlayers li {
       height: 10vh;
@@ -8036,5 +8037,4 @@ body, html {
       text-align: center;
       color: #0093A1;
       font-size: 1.4em;
-      margin-bottom: 10px;
       line-height: 50px; }

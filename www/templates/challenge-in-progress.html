@@ -21,25 +21,26 @@ challenge-in-progress">
       </ul>
     </div>
 
-   <!--  <div class="row row-wrap" ng-repeat="challenger in allChallengers">
-      <div>
-        <div>
-          {{challenger.Image}}
-        </div>
-        <div>
-          {{challenger.User.first_name}}
-        </div>
-      </div>
-    </div> -->
+
     <div class="timerBox">
       <div class="timer">
         <timer end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
-    </div>
-
       </div>
     </div>
-
   </ion-content>
+  <ion-footer-bar>
+    <div class="tabs tabs-icon tabs-dark">
+      <a class="tab-item" ui-sref="app.user-feed">
+        <i class="icon ion-ios-paper-outline"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.user-profile">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
 </ion-view>
 
 
