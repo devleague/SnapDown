@@ -7730,44 +7730,21 @@ body, html {
     width: 75%;
     margin: auto; }
 
-.select_challenger_head {
-  text-align: center;
+.selectChallenger {
   background-color: #3D4B5B; }
-  .select_challenger_head .xBox {
-    color: #818E9D;
-    font-size: 2.3em;
-    display: inline-block;
-    float: left;
-    margin-left: 4%; }
-  .select_challenger_head .challengeName {
-    font-size: 2.3em;
+  .selectChallenger h3 {
     color: #C7F733;
-    margin: 0 auto;
-    display: inline-block; }
-
-.select-Challenger {
-  background-color: #3D4B5B;
-  color: #818E9D; }
-  .select-Challenger #user_search {
-    font-size: 1em; }
-  .select-Challenger .checkbox {
-    width: 100%;
-    border-bottom: 1px solid #818E9D; }
-  .select-Challenger .challenger_name {
-    font-size: 2em;
-    display: inline-block;
-    margin-left: 3%;
-    margin-top: 2%;
-    color: #818E9D;
-    width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  .select-Challenger input[type=checkbox] {
-    float: right;
-    margin-right: 5%;
-    margin-top: 2%; }
-  .select-Challenger .row-bottom .start_challenge_button {
+    margin: 0 auto; }
+  .selectChallenger .item-input {
+    background-color: #3D4B5B;
+    border-bottom: 2px solid #818E9D;
+    font-size: 1.3em; }
+  .selectChallenger .selectedChallengers {
+    overflow: auto;
+    height: 70vh;
+    background-color: red;
+    color: #818E9D; }
+  .selectChallenger .row-bottom .start_challenge_button {
     height: 75px;
     width: 95%;
     background-color: #0194A6;

@@ -9,19 +9,23 @@ angular.module('starter')
       $scope.openChallenges = [];
       ChallengerService.getChallengerContext(user_id)
         .success(function (res) {
-
           var challengeContextArr = res;
           console.log(res);
           console.log('before length', challengeContextArr.length);
 
           challengeContextArr.forEach(function (curr, index) {
               // console.log('current image', curr);
-            if(curr.Image === null){
-              $scope.openChallenges.push(curr)
+
+            if(curr.Challenge){
+              if(curr.Image === null && curr.Challenge.expire_at !== null){
+                $scope.openChallenges.push(curr)
+              }
             }
           })
 
-          console.log('my challenges', $scope.openChallenges.length);
+
+
+          console.log('my challenges', $scope.openChallenges);
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
@@ -56,16 +60,16 @@ angular.module('starter')
 
     $scope.renderActiveChallenges = function(challenge) {
       DataSharingService.activeChallenge.id = challenge.id;
-      $state.go('app.challenge-in-progress')
+      $state.go('app.user-challenged')
     }
 
 
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-          quality: 50,
-          targetWidth: 512,
-          targetHeight: 512,
+          quality: 75,
+          targetWidth: 1024,
+          targetHeight: 1024,
           destinationType: 0,
           encodingType: 0,
           saveToPhotoAlbum: false

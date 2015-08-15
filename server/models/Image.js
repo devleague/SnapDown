@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        Image.belongsTo(models.Challenger/*, {foreignKey:"challenger_id", foreignKeyConstraint: true}*/);
+        Image.belongsTo(models.Challenger);
       }
     }
   });

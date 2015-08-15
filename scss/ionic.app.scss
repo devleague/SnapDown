@@ -58,7 +58,6 @@ body, html {
   }
 
   .facebook_heading{
-    // border: 1px solid white;
     font-size: 2em;
     margin-bottom: 5%;
   }
@@ -84,58 +83,53 @@ body, html {
 }
 
 //select a challenger page
-
-.select_challenger_head{
-  // padding-top: 4%;
-  text-align: center;
+.selectChallenger {
   background-color: $lightBackground;
 
-  .xBox {
-    color: $lightGray;
-    font-size: 2.3em;
-    display: inline-block;
-    float: left;
-    margin-left: 4%;
-  }
-
-  .challengeName {
-    font-size: 2.3em;
+  h3 {
     color: $energized;
     margin: 0 auto;
-    display: inline-block;
-  }
-}
-.select-Challenger{
-  background-color: $lightBackground;
-  color: $lightGray;
-
-  #user_search{
-    font-size: 1em;
   }
 
-  .checkbox{
-    width: 100%;
-    border-bottom: 1px solid $lightGray;
+  .item-input {
+    background-color: $lightBackground;
+    border-bottom: 2px solid $lightGray;
+    font-size: 1.3em;
   }
 
-  .challenger_name{
-    font-size: 2em;
-    display: inline-block;
-    margin-left: 3%;
-    margin-top: 2%;
+  .selectedChallengers {
+    overflow: auto;
+    height: 70vh;
+    background-color: red;
     color: $lightGray;
-    width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
-  input[type=checkbox]{
-    float: right;
-    margin-right: 5%;
-    margin-top: 2%;
-  }
+    // #user_search{
+    //   font-size: 1em;
+    // }
 
+    // .checkbox{
+    //   width: 100%;
+    //   border-bottom: 1px solid $lightGray;
+    // }
+
+    // .challenger_name{
+    //   font-size: 2em;
+    //   display: inline-block;
+    //   margin-left: 3%;
+    //   margin-top: 2%;
+    //   color: $lightGray;
+    //   width: 80%;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   white-space: nowrap;
+    // }
+
+    // input[type=checkbox]{
+    //   float: right;
+    //   margin-right: 5%;
+    //   margin-top: 2%;
+    // }
+  }
   .row-bottom{
 
     .start_challenge_button{
@@ -152,7 +146,13 @@ body, html {
       margin-bottom: 16px;
     }
   }
+
+
+
+
+
 }
+
 
 //User Feed
 

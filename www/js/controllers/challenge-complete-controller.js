@@ -4,8 +4,9 @@ angular.module('starter')
 
 
   $scope.getChallengeContext = function (){
-    console.log('hi there')
+
     var challengeId = $stateParams.activeChallengeId;
+
     ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
         console.log('challenge context', res);
