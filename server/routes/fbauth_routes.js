@@ -23,17 +23,11 @@ router.post('/', function(req, res) {
 				facebook_image_url: req.body.picture,
 				email: req.body.email,
 			}).then(function(user) {
-				console.log('---------------------------------');
-				console.log('USER ADDED');
-				console.log('---------------------------------');
 				res.json({
 					id: user.id
 				});
 			})
 		} else {
-			console.log('---------------------------------');
-			console.log('USER EXISTS');
-			console.log('---------------------------------');
 			res.json({
 				id: result.id
 			});
