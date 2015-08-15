@@ -43,6 +43,16 @@ angular.module('starter')
     return parseInt(challenge.expire_at);
   };
 
+  $scope.isActiveClass = function(challenge){
+    if(challenge.expire_at > Date.now()){
+      return "activeChallenge";
+    }
+    else{
+      return "inactiveChallenge";
+    }
+
+  };
+
   $scope.isActive = function(challenge){
     if(challenge.expire_at > Date.now()){
       return true;

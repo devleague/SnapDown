@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 5000;
+var DEFAULT_CHALLENGE_LENGTH = 500000;
 
 
 angular.module('starter')
@@ -108,8 +108,13 @@ function PictureService($http) {
       base64Image: image,
       challenger_id: challenger_id
     };
+<<<<<<< HEAD
     return $http.post(SERVER_IP + '/api/upload/', imageURI);
     // return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
+=======
+
+    return $http.post(SERVER_IP + '/api/upload/', imageData);
+>>>>>>> bb59bc15717906506c1ff5ae2897730bcd221cd0
   }
 }
 
@@ -210,7 +215,11 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
+<<<<<<< HEAD
     return $http.put(SERVER_IP + '/api/users/' + user_id, user_phone_info)
+=======
+    return $http.put(SERVER_IP + user_id, user_phone_info)
+>>>>>>> bb59bc15717906506c1ff5ae2897730bcd221cd0
 
   }
 
@@ -238,7 +247,7 @@ function UserService($http) {
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {
     var user_id = userId;
-    return $http.delete('/api/users/' + user_id)
+    return $http.delete(SERVER_IP + '/api/users/' + user_id)
   }
 }
 
@@ -270,8 +279,14 @@ function DataSharingService() {
   this.errorLog = {};
 };
 
+<<<<<<< HEAD
 function ProviderService($http) {
   this.getAllProviders = function() {
     return $http.get(SERVER_IP + '/api/providers');
+=======
+function ProviderService($http){
+  this.getAllProviders = function (){
+    return $http.get(SERVER_IP+ '/api/providers');
+>>>>>>> bb59bc15717906506c1ff5ae2897730bcd221cd0
   }
 }

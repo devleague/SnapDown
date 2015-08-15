@@ -188,16 +188,16 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.active-challenges', {
-    url: '/active-challenges',
-    cache: false,
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/active-challenges.html',
-        controller: 'active-challenges-controller'
-      }
-    }
-  })
+  // .state('app.active-challenges', {
+  //   url: '/active-challenges',
+  //   cache: false,
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/active-challenges.html',
+  //       controller: 'active-challenges-controller'
+  //     }
+  //   }
+  // })
 
 
 

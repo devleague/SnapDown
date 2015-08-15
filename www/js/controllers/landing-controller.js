@@ -106,7 +106,6 @@ angular.module('starter')
     $scope.onSwipeRight = function() {
       $state.go('app.user-feed');
     }
-
   })
 
 
