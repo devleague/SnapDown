@@ -89,11 +89,67 @@ body, html {
   background-color: $lightBackground;
   color: $lightGray;
 
-  .xBox{
+
+  .select_challenger_head{
+      border: 1px solid white;
+      height: 8vh;
+      padding-top: 4%;
+      text-align: center;
+
+    .xBox {
+      color: $lightGray;
+      font-size: 2.3em;
+      display: inline-block;
+      float: left;
+      margin-left: 4%;
+    }
+
+    .challengeName {
+      font-size: 2.3em;
+      color: $energized;
+      margin: 0;
+      display: inline-block;
+    }
+
   }
 
-  .challengeName{
+  .select_user_row{
 
+  }
+
+  .checkbox{
+    width: 100%;
+    border-bottom: 1px solid $lightGray;
+  }
+
+  .challenger_name{
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 3%;
+    color: $lightGray;
+  }
+
+  input[type=checkbox]{
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+  }
+
+  .row-bottom{
+
+    .start_challenge_button{
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
   }
 }
 
@@ -366,6 +422,44 @@ body, html {
     li {
       height: 10vh;
       border-bottom: 1px solid $lightGray;
+
+      .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left;
+
+        h1 {
+          color: $lightGray;
+          font-size: 1.6em;
+          line-height: 10vh;
+        }
+      }
+
+      .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left;
+
+        .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh;
+        }
+      }
     }
   }
 
