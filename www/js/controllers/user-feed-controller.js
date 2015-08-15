@@ -2,7 +2,6 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage, DataSharingService) {
 
-    console.log('view loaded again');
   $scope.init = function() {
     //user id is hard coded!!!!! need to grab from the $localStorage
     // var user_id = $localStorage.activeUserId;
@@ -12,7 +11,6 @@ angular.module('starter')
 
     ChallengeService.getMyChallenges(user_id)
       .success(function(res) {
-        console.log('my challengesfasd', res);
         var filteredChallenges = ChallengeService.filterChallenges(res);
         $scope.challenges = filteredChallenges;
       })
@@ -32,7 +30,6 @@ angular.module('starter')
 
 
   $scope.onSwipeLeft = function() {
-    console.log('going left');
     $state.go('app.landing');
   }
 });

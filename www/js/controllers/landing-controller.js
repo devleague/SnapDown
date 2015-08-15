@@ -9,7 +9,6 @@ angular.module('starter')
       $scope.openChallenges = [];
       ChallengerService.getChallengerContext(user_id)
         .success(function (res) {
-
           var challengeContextArr = res;
           console.log(res);
           console.log('before length', challengeContextArr.length);
@@ -56,7 +55,7 @@ angular.module('starter')
 
     $scope.renderActiveChallenges = function(challenge) {
       DataSharingService.activeChallenge.id = challenge.id;
-      $state.go('app.challenge-in-progress')
+      $state.go('app.user-challenged')
     }
 
 

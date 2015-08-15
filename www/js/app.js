@@ -91,7 +91,9 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.challenge-complete', {
+    cache: false,
     url: '/challenge-complete',
+    params: {activeChallenge : null},
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
@@ -126,6 +128,17 @@ angular.module('starter', ['ionic',
       'menuContent': {
         templateUrl: 'templates/user-profile.html',
         controller: 'user-profile-controller'
+      }
+    }
+  })
+
+  .state('app.active-challenges', {
+    url: '/active-challenges',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/active-challenges.html',
+        controller: 'active-challenges-controller'
       }
     }
   })
