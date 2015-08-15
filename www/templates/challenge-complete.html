@@ -5,14 +5,22 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <ul class="quilt">
+    <ul class="quilt" ng-repeat="challenger in allChallengers">
+      <li>
+        <div class="imageHolder">
+          <img src="{{challenger.Image.s3_reference}}" alt="still waiting for the image">
+          <div>{{challenger.User.first_name}}</div>
+        </div>
+
+      </li>
+<!--       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
+      <li class="imageHolder"></li> -->
     </ul>
     <div class="challengers">
+<!-- needs moment version of complete date KAWIKA please -->
       <h3>Completed DATE</h3>
       <p>CHALLENGERS</p>
     </div>

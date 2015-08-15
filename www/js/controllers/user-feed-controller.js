@@ -20,11 +20,16 @@ angular.module('starter')
   }
 
   $scope.renderAllChallenges = function(challenge) {
-    DataSharingService.activeChallenge.id = challenge.id;
+    console.log('logging challenge',challenge)
     if(challenge.state === 'active'){
-      $state.go('app.challenge-in-progress')
+      $state.go('app.challenge-in-progress',{
+        activeChallengeId : challenge.id,
+        activeChallengeExpireTime : challenge.expire_at
+      });
     }else{
-      $state.go('app.challenge-complete')
+      $state.go('app.challenge-complete',{
+        activeChallengeId : challenge.id
+      });
     }
   }
 
