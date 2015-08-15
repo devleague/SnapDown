@@ -5,12 +5,19 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <ul class="quilt">
+    <ul class="quilt" ng-repeat="challenger in allChallengers">
+      <li>
+        <div class="imageHolder">
+          <img src="{{challenger.Image}}" alt="still waiting for the image">
+          <div>{{challenger.User.first_name}}</div>
+        </div>
+
+      </li>
+<!--       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
       <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
+      <li class="imageHolder"></li> -->
     </ul>
     <div class="challengers">
       <h3>Completed DATE</h3>
