@@ -68,7 +68,7 @@ router.post('/info', function(req, res) {
 		console.log('facebookInfo', facebookInfo);
 
 		for(var i = 0; i < facebookInfo.Challengers.length; i++){
-			if(facebookInfo.Challengers[i].initator_flag){
+			if(facebookInfo.Challengers[i].initiator_flag ){
 				stat_started++;
 			}else{
 				stat_received++;
