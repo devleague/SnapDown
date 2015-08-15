@@ -108,6 +108,7 @@ angular.module('starter', ['ionic',
 
   .state('app.user-challenged', {
     url: '/user-challenged',
+    params: {activeChallengeId : null},
     views: {
       'menuContent': {
         templateUrl: 'templates/user-challenged.html',
