@@ -52,7 +52,6 @@ function LoginService($http) {
     // };
     // return $http.post('/api/users/login', user_login);
   }
-
 }
 
 function LogOutService($http) {
