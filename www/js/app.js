@@ -11,6 +11,7 @@ angular.module('starter', ['ionic',
                           'starter.controllers',
                           'ngCordova',
                           'ngStorage',
+                          'ngMessages',
                           'timer',
                           'angularMoment'
                           ])
@@ -48,6 +49,16 @@ angular.module('starter', ['ionic',
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
+
+  .state('app.get-user-phone-info', {
+    url: '/get-user-phone-info',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/get-user-phone-info.html',
+        controller: 'get-user-phone-info'
+      }
+    }
+  })
 
   .state('app.landing',{
     cache: false,
@@ -152,6 +163,7 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.user-feed', {
+    cache: false,
     url: '/user-feed',
     // resolve: {
     //   factory: ensureAuthenticated
@@ -190,7 +202,7 @@ angular.module('starter', ['ionic',
 
   // if none of the above states are matched, use this as the fallback
 
-  $urlRouterProvider.otherwise('/app/oauth');
+  $urlRouterProvider.otherwise('/app/landing');
   
 });
 

@@ -29,6 +29,19 @@ $logo: url('../img/logo.svg');
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
 
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
@@ -39,6 +52,13 @@ body, html {
   left: 0;
 }
 
+//footer-bar
+div.tabs.tabs-icon.tabs-dark {
+  a:active {
+    color: $energized;
+    border-top: 4px solid $energized;
+  }
+}
 
 //Login page
 .login_container{
@@ -100,37 +120,33 @@ body, html {
   .selectedChallengers {
     overflow: auto;
     height: 70vh;
-    background-color: red;
+    background-color: $lightBackground;
     color: $lightGray;
+      .checkbox {
+        width: 100%;
+        border-bottom: 1px solid $lightGray;
+        .challenger_name {
+          font-size: 2em;
+          display: inline-block;
+          margin-left: 3%;
+          margin-top: 2%;
+          color: $lightGray;
+          width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
 
-    // #user_search{
-    //   font-size: 1em;
-    // }
-
-    // .checkbox{
-    //   width: 100%;
-    //   border-bottom: 1px solid $lightGray;
-    // }
-
-    // .challenger_name{
-    //   font-size: 2em;
-    //   display: inline-block;
-    //   margin-left: 3%;
-    //   margin-top: 2%;
-    //   color: $lightGray;
-    //   width: 80%;
-    //   overflow: hidden;
-    //   text-overflow: ellipsis;
-    //   white-space: nowrap;
-    // }
-
-    // input[type=checkbox]{
-    //   float: right;
-    //   margin-right: 5%;
-    //   margin-top: 2%;
-    // }
+      input[type=checkbox]{
+        float: right;
+        margin-right: 5%;
+        margin-top: 2%;
+      }
+    }
   }
-  .row-bottom{
+
+  .startChallengeButton {
+    padding-top: 10px;
 
     .start_challenge_button{
       height: 75px;
@@ -143,19 +159,12 @@ body, html {
       color: white;
       line-height: 75px;
       font-size: 2em;
-      margin-bottom: 16px;
     }
   }
-
-
-
-
-
 }
 
 
 //User Feed
-
 .user_feed_heading{
   background-color: $dark;
   padding-top: 2%;
@@ -171,28 +180,62 @@ body, html {
 
 .user_feed_container{
   background-color: $lightBackground;
+  .userFeed {
+    .user_feed_challenges{
+      border-bottom: 1px solid $lightGray;
+      margin-bottom: 3%;
+      padding-top: 2%;
+      padding-bottom: 4%;
+      font-size: 1.5em;
 
-  .user_feed_challenges{
-    border-bottom: 1px solid $lightGray;
-    margin-bottom: 3%;
-    padding-top: 2%;
-    padding-bottom: 4%;
-    font-size: 1.5em;
+      .user_feed_challenger_name{
+        color: $lightGray;
+        margin-left: 5%;
+      }
 
-    .user_feed_challenger_name{
-      color: $lightGray;
-      margin-left: 5%;
-    }
-
-    .user_feed_challenger_time{
-      color: $energized;
-      float: right;
-      margin-right: 5%;
+      .user_feed_challenger_time{
+        color: $energized;
+        float: right;
+        margin-right: 5%;
+      }
     }
   }
 }
 
+//active challenge page
+.activeChallenge {
+  background-color: $lightBackground;
+  width: 100%;
+  padding-top: 20vh;
 
+  .noChallenges {
+    height: 20vh;
+    width: 95%;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      color: $energized;
+    }
+
+    .newChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      margin-top: 5vh;
+
+      h3 {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        line-height: 75px;
+      }
+    }
+  }
+}
 
 // landing page styling
 .landing {
@@ -239,6 +282,8 @@ body, html {
   .bottomContainer {
     height: 45vh;
     border-top: 1px solid $lightGray;
+    overflow: auto;
+    background-color: $lightBackground;
 
     .no_active_challenge{
       color: $energized;
@@ -252,10 +297,12 @@ body, html {
       padding-top: 2%;
       padding-bottom: 2%;
       font-size: 1.5em;
+      height: 8vh;
 
       .active_challenger_name{
         margin-left: 5%;
         color: $energized;
+        line-height: 6vh;
 
       }
       .active_challenger_time{
@@ -263,6 +310,7 @@ body, html {
         margin-left: 5%;
         float: right;
         margin-right: 5%;
+        line-height: 6vh;
       }
     }
   }
@@ -565,19 +613,36 @@ body, html {
   }
 
   .quilt {
-    height: 60vh;
+    height: 59vh;
     width: 100%;
     background-color: $lightBackground;
     overflow: auto;
-    padding: 20px 2.6%;
+    padding: 20px 2.4%;
 
-    .imageHolder {
-      height: 30vh;
-      width: 31vw;
-      background-color: red;
-      display: inline-block;
+
+    ul {
+      li {
+        height: 28vh;
+        width: 31vw;
+        display: inline-block;
+        float: left;
+
+        .imageHolder {
+          height: 85%;
+          width: 100%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin: 5px;
+          margin-bottom: -20px;
+        }
+
+        h1 {
+          text-align: center;
+          color: $energized;
+          font-size: 1.3em;
+        }
+      }
     }
-
   }
 
   .challengers {
@@ -593,8 +658,22 @@ body, html {
       font-size: 1em;
     }
 
-    p {
-      font-size: 1.5em;
+    .challengerName {
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+      &:last-child {
+        p:after {
+          content: "";
+        }
+      }
+      p {
+        font-size: 1.5em;
+        &:after {
+          content: ",";
+        }
+
+      }
     }
   }
 
@@ -617,138 +696,4 @@ body, html {
     }
   }
 }
-
-
-
-
-
-
-// .feed {
-//   height: 100px;
-//   width: 300px;
-//   background-color: blue;
-//   margin: 0 auto;
-// }
-
-
-// .selectChallenger {
-//   height: 53px;
-//   width: 300px;
-//   background-color: yellow;
-//   margin: 0 auto;
-// }
-// .challengeComplete {
-//   height: 53px;
-//   width: 300px;
-//   background-color: pink;
-//   margin: 0 auto;
-// }
-// .userChallenged {
-//   height: 53px;
-//   width: 300px;
-//   background-color: orange;
-//   margin: 0 auto;
-// }
-// #start_challenge {
-//   height: 50px;
-//   background-color: red;
-//   text-align: center;
-//   border-radius: 5px;
-// }
-
-// .imageHolder {
-//   height: 100px;
-//   // background-color: red;
-//   // border: 1px solid black;
-// }
-
-// .imageDiv {
-//   width: 90%;
-//   height: 90px;
-//   margin: auto auto;
-//   background-color: green;
-// }
-
-
-// .newChallenge {
-//   height: 40px;
-//   border-radius: 5px;
-//   background-color: green;
-//   text-align: center;
-// }
-
-// .tabs {
-//   left: 0;
-// }
-
-// .myModal {
-//   height: 90%;
-//   width: 90%;
-//   background-color: red;
-// }
-
-// .closeModal {
-//   height: 25px;
-//   width: 25px;
-//   line-height: 25px;
-//   text-align: center;
-//   border-radius: 25px;
-//   background-color: rgba(255,255,255,.5);
-//   border: 1px solid black;
-// }
-
-// .timeRemainingContainer {
-//   position: relative;
-//   .timeRemaining {
-//     position: absolute;
-//     top: -70px;
-//     left: 50%;
-//     transform: translate(50%,0);
-//     width: 200px;
-//     height: 50px;
-//     border-radius: 5px;
-//     background-color: purple;
-//     text-align: center;
-//   }
-// }
-
-// .editProfileModal.scroll-content.ionic-scroll {
-//   height: 95%;
-//   width: 95%;
-//   margin: auto auto;
-//   .scroll {
-//     height: 100%;
-//     background-color: purple;
-//     .headerContainer {
-//       height: 20%;
-//       background-color: yellow;
-//       .avatar {
-//         display: inline-block;
-//         float: left;
-//         img {
-//           max-height: 80px;
-//           max-width: 80px;
-//           border-radius: 90px;
-//         }
-//       }
-//     }
-//     .editProfileContainer {
-//       height: 50%;
-//       background-color: red;
-//     }
-//     .statisticsContainer {
-//       height: 20%;
-//       background-color: pink;
-//     }
-//     .logoutDelete {
-//       height: 10%;
-//       background-color: orange;
-//       text-align: center;
-//     }
-//   }
-// }
-
-
-
-
 

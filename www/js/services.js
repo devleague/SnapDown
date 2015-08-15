@@ -12,7 +12,8 @@ angular.module('starter')
   .service('ChallengeService', ['$http', ChallengeService])
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
-  .service('DataSharingService', [DataSharingService])
+  .service('DataSharingService', DataSharingService)
+  .service('ProviderService', ProviderService)
 
 
 //oauth registration
@@ -215,7 +216,6 @@ this.createNewChallenge = function(challenge) {
   var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
   var challengeNameGenerator = challengeCats.slice(randomIndex, randomIndex + 1).toString();
-
   var new_challenge = {
     name: challengeNameGenerator,
     privacy_status: 'public'
@@ -249,27 +249,37 @@ function UserService($http) {
     return $http.get(SERVER_IP + '/api/users/');
   }
 
-  //not in any controller or funcitonality as now
-  this.getIndividualUser = function(userId) {
-    var user_id = userId
-    return $http.get('/api/users/' + user_id);
+  this.updateUserPhoneInfo = function (user_id, user_info){
+    console.log('phoneincoming', user_info);
+
+    var user_phone_info = {
+      phone: user_info.phone,
+      service_provider: user_info.service_provider.id
+    }
+    return $http.put('http://localhost:3000/api/users/' + user_id, user_phone_info)
+
   }
+
+  // //not in any controller or funcitonality as now
+  // this.getIndividualUser = function(userId) {
+  //   var user_id = userId
+  //   return $http.get('/api/users/' + user_id);
+  // }
 
   //not in any controller - need to grab userid somehow
-  this.updateUserInfo = function(user) {
+  // this.updateUserInfo = function(user) {
 
-    // var user_id = userId;
-    var user_profile = {
-      user_name: user.user_name,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      email: user.email,
-      phone: user.phone,
-      service_provider: user.service_provider
-    };
+  //   // var user_id = userId;
+  //   var user_profile = {
+  //     user_name: user.user_name,
+  //     first_name: user.first_name,
+  //     last_name: user.last_name,
+  //     email: user.email,
+  //     phone: user.phone,
+  //     service_provider: user.service_provider
+  //   };
 
-    return $http.put('/api/users/' + user_id, user_profile)
-  }
+    // return $http.put('/api/users/' + user_id, user_profile)
 
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {
@@ -306,3 +316,9 @@ function DataSharingService() {
   this.activeUser = {};
   this.errorLog = {};
 };
+
+function ProviderService($http){
+  this.getAllProviders = function (){
+    return $http.get('http://localhost:3000/api/providers');
+  }
+}

@@ -50,6 +50,39 @@ router.post('/', function(req,res) {
   });
 });
 
+//updates the users phone number and phone provider
+router.put('/:id', function (req, res){
+   console.log('looking for user', req.params.id);
+  db.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(result){
+      console.log('user in the system', result);
+
+      if(!result) {
+        res.status(404);
+        res.send("Could not locate the requested resource.");
+      }
+
+      var updateData = {};
+
+      if(req.body.phone !== undefined) {
+        updateData.phone = req.body.phone;
+      }
+      console.log('id of the provvider', req.body.service_provider);
+
+      if(req.body.service_provider !== undefined) {
+        updateData.provider_id = req.body.service_provider;
+      }
+
+      result.updateAttributes(updateData).then(function(result) {
+      res.status(200);
+      res.json(result);
+    });
+  });
+});
+
 //updates a user
 router.put('/:id', function(req,res) {
 

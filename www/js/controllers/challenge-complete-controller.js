@@ -12,6 +12,7 @@ angular.module('starter')
         console.log('challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
         $scope.challengeName = res.challenge.name;
+        $scope.date = res.challenge.expire_at;
         console.log('all challengers',$scope.allChallengers)
       })
       .error(function (err){
