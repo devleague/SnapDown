@@ -1,6 +1,6 @@
 {
   "name": "grannygram",
-  "app_id": "86feb5f6",
+  "app_id": "759d7eff",
   "gulpStartupTasks": [
     "sass",
     "watch"

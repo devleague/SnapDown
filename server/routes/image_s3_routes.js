@@ -1,7 +1,7 @@
 'use strict';
 
-// var AWS = require('aws-sdk');
-// var uuid = require('node-uuid');
+var AWS = require('aws-sdk');
+var uuid = require('node-uuid');
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Image;
@@ -11,6 +11,8 @@ var S3_FOLDER = "images/";
 
 router.post('/', function(req,res) {
 
+  console.log("UPLOAD POST RECEIVED");
+
   if(!req.body.base64Image) {
 
     res.status(400).send("No image attached to image upload request");
@@ -18,15 +20,13 @@ router.post('/', function(req,res) {
 
   if(!req.body.challenger_id) {
 
-    res.status(400).send("No id attached to image upload request");
+    res.status(400).send("No challenger_id attached to image upload request");
   }
 
   var s3 = new AWS.S3( { params: {Bucket: S3_BUCKET_NAME} } );
   var keyName = S3_FOLDER + uuid.v4() + ".jpg";
 
   var buffer = new Buffer(req.body.base64Image.replace(/^data:image\/\w+;base64,/, ""),'base64');
-
-  console.log(buffer);
 
   var data = {
 
