@@ -69,8 +69,6 @@ function PictureService ($http){
     // };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
     return $http.post('http://10.0.1.6:3000/api/upload/', data);
-
-
   }
 }
 
