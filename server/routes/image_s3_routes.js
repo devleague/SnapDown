@@ -53,7 +53,7 @@ router.post('/', function(req,res) {
         privacy_status: req.body.privacy_status,
         challenger_id: req.body.challenger_id
 
-      }).then(function(result) { //may be unnecessary
+      }).then(function(result) {
 
         res.status(200).send(data.Location);
       });

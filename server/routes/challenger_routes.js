@@ -50,29 +50,18 @@ router.get('/:id/challenges', function(req,res) {
 
   }).then(function(challengers) {
 
-    console.log("CHALLENGERS : " + challengers);
-
     var challengeArray = [];
 
     challengers.forEach(function(challenger) {
 
-      console.log("CHALLENGER : " + challenger);
-
       challengeArray.push(challenger.Challenge);
     });
-
-    // var challenges = {
-
-    //   challenges: challengeArray
-    // };
 
     res.json(challengeArray);
   });
 });
 
 router.post('/', function(req,res) {
-
-  console.log('new challenger');
 
   db.create({
     challenge_id: req.body.challenge_id,

@@ -54,9 +54,9 @@ angular.module('starter')
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-          quality: 50,
-          targetWidth: 512,
-          targetHeight: 512,
+          quality: 75,
+          targetWidth: 1024,
+          targetHeight: 1024,
           destinationType: 0,
           encodingType: 0,
           saveToPhotoAlbum: false
