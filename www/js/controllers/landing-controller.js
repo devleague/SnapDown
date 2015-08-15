@@ -5,6 +5,7 @@ angular.module('starter')
   ionic.Platform.ready(function() {
 
       var user_id = 2;
+      var challengerId;
 
       $scope.openChallenges = [];
       ChallengerService.getChallengerContext(user_id)
@@ -46,6 +47,7 @@ angular.module('starter')
             .success(function(res) {
               console.log('challenger created', res);
               DataSharingService.activeUser.challengerId = res.id;
+              challengerId = res.id;
             })
             .error(function(error) {
               console.log(error);
