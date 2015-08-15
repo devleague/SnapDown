@@ -215,6 +215,9 @@ function UserService($http) {
   }
 
   this.updateUserPhoneInfo = function (user_id, user_info){
+
+    console.log('user info', user_info);
+
     var user_phone_info = {
       phone: user_info.phone,
       service_provider: user_info.service_provider
