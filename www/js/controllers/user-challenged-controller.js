@@ -1,9 +1,11 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope) {
+.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope, Camera, $timeout) {
 	$scope.allChallengers = [];
 	var challengeId = $stateParams.activeChallengeId;
   var expireTime = $stateParams.activeChallengeExpireTime;
+  $scope.expireTime = expireTime;
+  var challengerId; //needs to be defined somehow
 
   $scope.getChallengeContext = function() {
 		ChallengeService.getChallengeContext(challengeId)
@@ -19,16 +21,45 @@ angular.module('starter')
 			})
 	}
 
-	$scope.expireTime = function() {
-		if (Date.now() < expireTime) {
-      return expireTime;
-		}else{
-			// $scope.timerComplete = 'timer stopped';
-			// var currentPath = $location.path();
-			// $location.path(currentPath);
-			// return;
-		}
-	};
+  $scope.challengeActive = function(){
+    if (Date.now() < expireTime){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+
+  $scope.acceptChallenge = function(){
+   Camera.getPicture({
+      quality: 75,
+      targetWidth: 1024,
+      targetHeight: 1024,
+      destinationType: 0,
+      encodingType: 0,
+      saveToPhotoAlbum: false
+    })
+    .then(function(imageData) {
+
+      if (imageData) {
+        PictureService.sendImageToServer(imageData, challengerId)
+          .success(function(res) {
+            DataSharingService.errorLog.sendImageToServer = 'no error';
+            $state.go('app.challenge-in-progress',{
+              activeChallengeId: challengeId,
+              activeChallengeExpireTime: expireTime
+            });
+          })
+          .error(function(error) {
+            DataSharingService.errorLog.sendImageToServer = 'error';
+          })
+
+      } else {
+        DataSharingService.errorLog.sendImageToServer = 'no image data';
+      }
+    });
+
+  };
 
 	$ionicPlatform.ready(function() {
 		$scope.getChallengeContext();
