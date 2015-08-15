@@ -1,50 +1,30 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService, $ionicModal) {
+.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
 
-  $scope.getChallengeUsers = function (){
-    ChallengeService.getChallengeUsers()
+
+  $scope.getChallengeContext = function (){
+
+    var challengeId = $stateParams.activeChallengeId;
+
+    ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
-        console.log('challenge users', res);
+        console.log('challenge context', res);
+        $scope.allChallengers = res.challenge.Challengers;
+        $scope.challengeName = res.challenge.name;
+        console.log('all challengers',$scope.allChallengers)
       })
       .error(function (err){
-        console.log('err w/ challenge users', err);
+        console.log('err w/challenge context', err);
       })
   }
 
-  $scope.getChallengePics = function (){
-    PictureService.getChallengePics()
-      .success(function (res){
-        console.log('challenge pictures', res);
-      })
-      .error(function (err){
-        console.log('err w/challenge pics', err);
-      })
-  }
-
-
-  $scope.getIndividualPic = function (){
-    PictureService.getIndividualPic()
-      .success(function (res){
-        console.log('individual pictures', res);
-      })
-      .error(function (err){
-        console.log('err w/ individual pics', err);
-      })
-  }
-
-  $ionicModal.fromTemplateUrl('my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
+  $ionicPlatform.ready(function() {
+    console.log('stateparams',$stateParams)
+    $scope.getChallengeContext();
   });
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
+
+
 
 
 });

@@ -1,5 +1,36 @@
 angular.module('starter')
 
-.controller('detail-view-controller', function($scope) {
+.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope) {
+	$scope.allChallengers = [];
+	var challengeId = $stateParams.activeChallengeId;
+  var expireTime = $stateParams.activeChallengeExpireTime;
 
+  $scope.getChallengeContext = function() {
+		ChallengeService.getChallengeContext(challengeId)
+			.success(function(res) {
+				$scope.challengeName = res.challenge.name;
+				console.log('challengeName', challengeName);
+				console.log('challenge context', res);
+				$scope.allChallengers = res.challenge.Challengers;
+				console.log('all challengers', $scope.allChallengers)
+			})
+			.error(function(err) {
+				console.log('err w/challenge context', err);
+			})
+	}
+
+	$scope.expireTime = function() {
+		if (Date.now() < expireTime) {
+      return expireTime;
+		}else{
+			// $scope.timerComplete = 'timer stopped';
+			// var currentPath = $location.path();
+			// $location.path(currentPath);
+			// return;
+		}
+	};
+
+	$ionicPlatform.ready(function() {
+		$scope.getChallengeContext();
+	});
 });

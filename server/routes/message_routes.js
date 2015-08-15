@@ -8,7 +8,7 @@ var challengerDb = require('../models').Challenger;
 var userDb = require('../models').User;
 
 var api_key = 'key-a69495336dc135f2789876d8c09e9d4e';
-var domain = 'sandboxb9b6462eb23d4e9da7ce8569e9354d0f.mailgun.org';
+var domain = 'snapdown.us';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var messageService = require('../services/message_service.js')
 

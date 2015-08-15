@@ -1,6 +1,7 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 300000;
+var DEFAULT_CHALLENGE_LENGTH = 500000;
+
 
 angular.module('starter')
   .service('RegisterService', ['$http', '$localStorage', '$location', RegisterService])
@@ -14,7 +15,7 @@ angular.module('starter')
   .service('DataSharingService', [DataSharingService])
 
 
-
+//oauth registration
 function RegisterService($http, $localStorage, $location,DataSharingService) {
   this.createUser = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
@@ -65,7 +66,6 @@ function LoginService($http) {
     // };
     // return $http.post('/api/users/login', user_login);
   }
-
 }
 
 function LogOutService($http) {
@@ -75,39 +75,77 @@ function LogOutService($http) {
 }
 
 function PictureService($http) {
-  //not added to any controller yet
-  this.savePictureToAws = function(s3_reference, privacy_status, challenger_id) {
-
-    var new_image = {
-
-      s3_reference: s3_reference,
-      privacy_status: privacy_status,
-      challenger_id: challenger_id
+  this.sendImageToServer = function (image, challenger_id){
+    var imageData = {
+      base64Image : image,
+      challenger_id : challenger_id
     };
-
-    return $http.post('/api/images/', new_image);
+    // return $http.post('http://localhost:3000/api/upload/', imageURI);
+    return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
   }
-
-  // this.getIndividualPic = function (){
-
-  // }
 }
 
 function MessageServices($http) {
   this.sendChallengeInvites = function(invitationObj) {
-    console.log('sending invites')
+   // return $http.post('http://localhost:3000/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
   }
-
 };
 
 function ChallengeService($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function(user_id) {
-    //hard coded user_id to 1 need to populate dynamically
-    return $http.get('http://localhost:3000/api/challengers/1/challenges');
-
+    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
   }
+
+  /**
+   * Filters challenges to show only those who have been started & completed;
+   * @param  {[Array]} challengeArr [Array of Challenges]
+   * @return {[Array]}              [Array of filtered Challenges]
+   */
+  this.filterChallenges = function(challengeArr) {
+
+      var filteredChallenges = challengeArr.filter(function(element, index, array) {
+        if (!element.start_at || !element.expire_at) {
+          return false;
+        } else {
+          var date = parseInt(element.expire_at.toString());
+          var utc = new Date(date);
+          element.time_elapsed = utc.toUTCString();
+          if (Date.now() < date) {
+            element.state = 'active';
+          } else {
+            element.state = 'inactive';
+          }
+          return true;
+        };
+      })
+      /**
+       * Sorts array by most recently added.
+       */
+      filteredChallenges = filteredChallenges.sort(function(a, b) {
+        return b.expire_at - a.expire_at
+      });
+      return filteredChallenges;
+    }
+    /**
+     * [Returns an array of all active challenges]
+     * @param  {[Array]} challengeArr [Array of Challenges]
+     * @return {[Array]}              [Array of Active Challenges]
+     */
+  this.getActiveChallenges = function(challengeArr) {
+    console.log(challengeArr);
+    var activeChallenges = challengeArr.filter(function(element, index, array) {
+      if (element.state === 'active') {
+        return true;
+      } else {
+        return false;
+      }
+    })
+      return activeChallenges;
+  }
+
+}
 
   //Can use the below for a global view at some point in the future
   // //will get all the open challenges in the system
@@ -150,11 +188,13 @@ function ChallengeService($http) {
 
   this.createNewChallenge = function(challenge) {
 
-    var new_challenge = {
+    var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
+    var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
-      // start_at: Date.now(),
-      // expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH,
-      name: 'challenge.name',
+    var challengeNameGenerator = challengeCats.slice(randomIndex, randomIndex + 1).toString();
+
+    var new_challenge = {
+      name: challengeNameGenerator,
       privacy_status: 'public'
     };
 
@@ -171,9 +211,7 @@ function ChallengeService($http) {
     return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
 
-  // this.getTimeRemaining = function (){
 
-  // }
 
   this.getChallengeContext = function(challenge_id) {
 
@@ -186,7 +224,6 @@ function ChallengeService($http) {
 function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function() {
-    console.log('going for the usres');
     return $http.get('http://localhost:3000/api/users/');
   }
 
@@ -210,7 +247,6 @@ function UserService($http) {
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
-
   }
 
   //not in any controller - need to grab userid somehow
@@ -232,18 +268,19 @@ function ChallengerService($http) {
     return $http.post('http://localhost:3000/api/challengers/', challenger);
   }
 
+
+  this.getChallengerContext = function (user_id){
+    console.log('get me the challenge context');
+    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/context');
+  }
+
+
+
 };
 
 function DataSharingService() {
 
-  this.activeChallenge = {};
+  this.startedChallenge = {};
   this.activeUser = {};
-
-  this.addUserId = function(id){
-    this.activeUser.id = id;
-  }
-
-  this.getUserId = function(){
-    return this.activeUser.id;
-  }
+  this.errorLog = {};
 };

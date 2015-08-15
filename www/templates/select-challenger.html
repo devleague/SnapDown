@@ -1,44 +1,32 @@
-<ion-view view-title="select-challenger">
+<ion-view view-title="select-challenger" class="selectChallenger">
+  <ion-header-bar class="bar-dark">
+    <h3>{{challengeName}}</h3>
+  </ion-header-bar>
+
   <ion-content>
-    <h1>Select Challenger</h1>
 
-      <div>{{imageURI}}</div>
+      <!-- <div>{{imageURI}}</div> -->
+    <div>
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="searchUsers" placeholder="Search" id="user_search">
+      </label>
+    </div>
 
-    <label class="item item-input">
-      <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="Search">
-    </label>
-
-<!--     <ul class="list" >
-      <li class="item item-checkbox"> -->
-      <div ng-repeat="user in users">
-
-        <label class="checkbox">
-        <h2>{{user.first_name}}</h2>
-        </label>
-          <input type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
-
+    <div ng-repeat="user in users | filter:searchUsers" class="select-challenger">
+      <div class="checkbox">
+        <h2 class="challenger_name">{{user.first_name}}</h2>
+        <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
       </div>
+    <!--
+      <label class="checkbox">
+      </label>
+        <input class='box' type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool"> -->
+    </div>
 
-
-
-
-    <div class="row row-bottom">
-      <div class="col col-33 col-offset-33" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
+    <div>
+      <div class="start_challenge_button" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
     </div>
 
   </ion-content>
-  <ion-footer-bar>
-    <div class="tabs tabs-icon-only tabs-positive">
-      <a class="col tab-item" ui-sref="app.landing">
-        <i class="icon ion-home"></i>
-      </a>
-      <a class="col tab-item" ui-sref="app.user-feed">
-        <i class="icon ion-ios-filing"></i>
-      </a>
-      <a class="col tab-item">
-        <i class="icon ion-gear-a"></i>
-      </a>
-    </div>
-  </ion-footer-bar>
 </ion-view>

@@ -1,26 +1,46 @@
-<ion-view view-title="user-challenged">
-  <ion-content>
-    <h1>User Challenged</h1>
-    <div class="row row-wrap">
-      <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
-       <div class="col col-33 imageHolder">
-        <div class="imageDiv"></div>
-      </div>
+<ion-view view-title="user-challenged" class="userChallenged">
+  <ion-header-bar class="bar-dark">
+    <div class="challengeHeader">
+      <h3>{{challengeName}}</h3>
     </div>
-    <div class="button button-calm col col-50 col-offset-25 " ui-sref="app.landing">Time Remaining</div>
-    <div class="button button-calm col col-50 col-offset-25 " ui-sref="app.landing">Accept Challenge</div>
-    <div class="button button-calm col col-50 col-offset-25" ui-sref="app.user-feed">Decline Challenge</div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
+
+    <div class="challengedPlayers">
+      <ul ng-repeat="challenger in allChallengers">
+        <li>
+          <div class="acceptStatus"></div>
+          <div class="challengerName">
+            <h1>{{challenger.User.first_name}}</h1>
+          </div>
+          <div class="challengerImage">
+            <div class="image" style="background-image: url('https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97200&w=200&h=200')">
+              {{challenger.Image}}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+<!--     <div class="row row-wrap players" ng-repeat="challenger in allChallengers">
+    <h1>hello</h1>
+      <div>
+        <div>
+          {{challenger.Image}}
+        </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
+      </div>
+    </div> -->
+
+    <div class="bottomHalf">
+      <div class="timer">
+        <timer class="timer" end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
+      </div>
+      <div class="declineChallenge" ui-sref="app.landing">decline challenge</div>
+      <div class="acceptChallenge" ui-sref="app.user-feed">accept challenge</div>
+    </div>
 
   </ion-content>
 </ion-view>

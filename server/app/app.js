@@ -11,22 +11,7 @@ var db = require('../models');
 // var user_friend_routes = require('../routes/user_friend_routes');
 var fbauth_routes = require('../routes/fbauth_routes');
 var bodyParser = require('body-parser');
-// var session = require('express-session');
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
-// var crypto = require('crypto');
 
-// var User = db.User;
-
-// app.use(session(
-//   {
-//     secret: 'keyboard cat',
-//     resave: false,
-//     saveUninitialized: true
-//   }
-// ));
-
-// app.use(express.static('./public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false

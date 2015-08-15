@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models').Challenger;
 var challenge = require('../models').Challenge;
+var user = require('../models').User;
+var images = require('../models').Image;
 
 router.get('/', function(req,res) {
 
@@ -38,39 +40,47 @@ router.get('/:id', function(req,res) {
   })
 });
 
+//Gets all the challenges a user is in
 router.get('/:id/challenges', function(req,res) {
 
   db.findAll({
 
     where: { user_id: req.params.id },
     include :[
-      { model:challenge}]
+      { model:challenge},
+      {model:images}]
 
   }).then(function(challengers) {
-
-    console.log("CHALLENGERS : " + challengers);
 
     var challengeArray = [];
 
     challengers.forEach(function(challenger) {
 
-      console.log("CHALLENGER : " + challenger);
-
       challengeArray.push(challenger.Challenge);
     });
-
-    // var challenges = {
-
-    //   challenges: challengeArray
-    // };
 
     res.json(challengeArray);
   });
 });
 
-router.post('/', function(req,res) {
+//Gets the Challenger context
+router.get('/:id/context', function(req,res) {
 
-  console.log('new challenger');
+  db.findAll({
+    where: { user_id: req.params.id },
+    include :[
+      {model:challenge},
+      {model:images}]
+
+  }).then(function(challengers) {
+    console.log("Challengers : ", challengers);
+    res.json(challengers);
+  });
+});
+
+
+
+router.post('/', function(req,res) {
 
   db.create({
     challenge_id: req.body.challenge_id,

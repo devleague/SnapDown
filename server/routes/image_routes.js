@@ -44,14 +44,11 @@ router.post('/', function(req,res) {
 
   db.create({
 
-    // user_id: req.body.user_id,
-    // image_id: req.body.image_id,
-    // challenger_id: req.body.challenge_id,
     s3_reference: req.body.s3_reference,
     privacy_status: req.body.privacy_status,
     challenger_id: req.body.challenger_id
 
-  }).then(function(result) { //may be unnecessary
+  }).then(function(result) {
 
     res.status(200).json(result);
   });
@@ -75,21 +72,6 @@ router.put('/:id', function(req,res) {
     }
 
     var updateData = {};
-
-    // if(req.body.user_id !== undefined) {
-
-    //   updateData.user_id = req.body.user_id;
-    // }
-
-    // if(req.body.image_id !== undefined) {
-
-    //   updateData.image_id = req.body.image_id;
-    // }
-
-    // if(req.body.challenger_id !== undefined) {
-
-    //   updateData.challenger_id = req.body.challenger_id;
-    // }
 
     if(req.body.s3_reference !== undefined) {
 

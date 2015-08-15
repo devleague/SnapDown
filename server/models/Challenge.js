@@ -9,8 +9,8 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
-    start_at: DataTypes.DATE,
-    expire_at: DataTypes.DATE,
+    start_at: DataTypes.BIGINT,
+    expire_at: DataTypes.BIGINT,
     name: DataTypes.STRING,
     privacy_status: DataTypes.STRING
 
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        Challenge.hasMany(models.Challenger/*, {foreignKey:"challenger_id", foreignKeyConstraint: true}*/);
+        Challenge.hasMany(models.Challenger);
       }
     }
   });

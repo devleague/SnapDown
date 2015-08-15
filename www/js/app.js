@@ -8,10 +8,12 @@ SERVER_IP = 'http://10.0.1.41:3000';
 // 'starter.controllers' is found in controllers.js
 
 angular.module('starter', ['ionic',
-  'starter.controllers',
-  'ngCordova',
-  'ngStorage'
-])
+                          'starter.controllers',
+                          'ngCordova',
+                          'ngStorage',
+                          'timer',
+                          'angularMoment'
+                          ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -47,7 +49,8 @@ angular.module('starter', ['ionic',
       controller: 'AppCtrl'
     })
 
-  .state('app.landing', {
+  .state('app.landing',{
+    cache: false,
     url: '/landing',
     views: {
       'menuContent': {
@@ -84,7 +87,6 @@ angular.module('starter', ['ionic',
     url: '/select-challenger',
     params: {
       imageURI: null
-
     },
     // resolve: {
     //   factory: ensureAuthenticated
@@ -102,6 +104,10 @@ angular.module('starter', ['ionic',
     // resolve: {
     //   factory: ensureAuthenticated
     // },
+    params: {
+      activeChallengeId: null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-in-progress.html',
@@ -111,10 +117,15 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.challenge-complete', {
+    cache: false,
     url: '/challenge-complete',
     // resolve: {
     //   factory: ensureAuthenticated
     // },
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
@@ -128,10 +139,14 @@ angular.module('starter', ['ionic',
     // resolve: {
     //   factory: ensureAuthenticated
     // },
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/user-challenged.html',
-        // controller: 'user-challenged-controller'
+        controller: 'user-challenged-controller'
       }
     }
   })
@@ -148,6 +163,29 @@ angular.module('starter', ['ionic',
       }
     }
   })
+
+  .state('app.user-profile', {
+    url: '/user-profile',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/user-profile.html',
+        controller: 'user-profile-controller'
+      }
+    }
+  })
+
+  .state('app.active-challenges', {
+    url: '/active-challenges',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/active-challenges.html',
+        controller: 'active-challenges-controller'
+      }
+    }
+  })
+
+
 
 
   // if none of the above states are matched, use this as the fallback
