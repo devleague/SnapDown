@@ -7794,6 +7794,15 @@ div.tabs.tabs-icon.tabs-dark a:active {
 
 .user_feed_container {
   background-color: #3D4B5B; }
+  .user_feed_container .userFeed .image_thumb_container {
+    width: 100%;
+    white-space: nowrap; }
+    .user_feed_container .userFeed .image_thumb_container .imageThumbnailWrapper {
+      display: inline-block;
+      margin: 0 2%; }
+      .user_feed_container .userFeed .image_thumb_container .imageThumbnailWrapper .imageThumbnail {
+        width: 55px;
+        height: 55px; }
   .user_feed_container .userFeed .activeChallenge {
     border-bottom: 1px solid #818E9D;
     margin-bottom: 3%;

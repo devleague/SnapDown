@@ -2,6 +2,9 @@ angular.module('starter')
 
 .controller('get-user-phone-info', function ($scope, $state, $localStorage, UserService, ProviderService){
 
+  // var user_id = 2;
+  // var user_id =  $localStorage.activeUserId;
+
   $scope.updateUserPhoneInfo = function (user_info){
     UserService.updateUserPhoneInfo($localStorage.activeUserId, user_info)
       .success(function (res){
