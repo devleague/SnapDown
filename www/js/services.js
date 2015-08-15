@@ -241,8 +241,7 @@ function UserService($http) {
   //     service_provider: user.service_provider
   //   };
 
-    return $http.put('/api/users/' + user_id, user_profile)
-  }
+    // return $http.put('/api/users/' + user_id, user_profile)
 
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {
