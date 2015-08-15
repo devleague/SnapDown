@@ -77,7 +77,6 @@ body, html {
   }
 
   .facebook_subheading{
-    // border: 1px solid white;
     width: 75%;
     margin: auto;
   }
@@ -85,32 +84,30 @@ body, html {
 }
 
 //select a challenger page
+
+.select_challenger_head{
+  // padding-top: 4%;
+  text-align: center;
+  background-color: $lightBackground;
+
+  .xBox {
+    color: $lightGray;
+    font-size: 2.3em;
+    display: inline-block;
+    float: left;
+    margin-left: 4%;
+  }
+
+  .challengeName {
+    font-size: 2.3em;
+    color: $energized;
+    margin: 0 auto;
+    display: inline-block;
+  }
+}
 .select-Challenger{
   background-color: $lightBackground;
   color: $lightGray;
-
-
-  .select_challenger_head{
-      border: 1px solid white;
-      height: 8vh;
-      padding-top: 4%;
-      text-align: center;
-
-    .xBox {
-      color: $lightGray;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin-left: 4%;
-    }
-
-    .challengeName {
-      font-size: 2.3em;
-      color: $energized;
-      margin: 0;
-      display: inline-block;
-    }
-  }
 
   #user_search{
     font-size: 1em;
@@ -156,6 +153,45 @@ body, html {
     }
   }
 }
+
+//User Feed
+
+.user_feed_heading{
+  background-color: $dark;
+  padding-top: 2%;
+
+  .user_feed_heading_logo{
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    width: 100%;
+  }
+}
+
+.user_feed_container{
+  background-color: $lightBackground;
+
+  .user_feed_challenges{
+    border-bottom: 1px solid $lightGray;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    font-size: 1.5em;
+
+    .user_feed_challenger_name{
+      color: $lightGray;
+      margin-left: 5%;
+    }
+
+    .user_feed_challenger_time{
+      color: $energized;
+      float: right;
+      margin-right: 5%;
+    }
+  }
+}
+
 
 
 // landing page styling
@@ -350,8 +386,51 @@ body, html {
 
   .challengedPlayers {
     height: 50vh;
-    width: 100%;
-    background-color: green;
+    background-color: red;
+    padding-bottom: 20px;
+
+    li {
+      height: 10vh;
+      border-bottom: 1px solid $lightGray;
+
+      .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left;
+
+        h1 {
+          color: $lightGray;
+          font-size: 1.6em;
+          line-height: 10vh;
+        }
+      }
+
+      .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left;
+
+        .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh;
+        }
+      }
+    }
   }
 
   .bottomHalf {
@@ -401,6 +480,85 @@ body, html {
   }
 }
 
+
+//challenge in progress page
+.challenge-in-progress {
+  background-color: $lightBackground;
+
+  .challengeName {
+    width: 100%;
+    h1 {
+      color: $energized;
+      font-size: 1.6em;
+      text-align: center;
+    }
+  }
+
+
+  .challengedPlayers {
+    height: 73vh;
+    padding-bottom: 20px;
+
+    li {
+      height: 10vh;
+      border-bottom: 1px solid $lightGray;
+
+      .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left;
+
+        h1 {
+          color: $lightGray;
+          font-size: 1.6em;
+          line-height: 10vh;
+        }
+      }
+
+      .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left;
+
+        .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh;
+        }
+      }
+    }
+  }
+
+  .timerBox {
+    height: 10vh;
+
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      line-height: 50px;
+    }
+  }
+}
 
 
 

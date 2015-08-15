@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 3000;
+var DEFAULT_CHALLENGE_LENGTH = 50000;
 
 angular.module('starter')
   .service('RegisterService', ['$http', RegisterService])
@@ -15,8 +15,8 @@ angular.module('starter')
 
 
 
-function RegisterService($http){
-  this.createUser = function (new_user){
+function RegisterService($http) {
+  this.createUser = function(new_user) {
 
     //Grab the necessary info from the register form and assign
     //to a user object
@@ -26,8 +26,8 @@ function RegisterService($http){
     var facebook_image_url = facebookimage;
 
     var new_register = {
-      first_name : new_user.first_name,
-      last_name : new_user.last_name,
+      first_name: new_user.first_name,
+      last_name: new_user.last_name,
       facebook_id: facebook_id,
       facebook_image_url: facebook_image_url,
       email: new_user.email,
@@ -39,8 +39,8 @@ function RegisterService($http){
 
 }
 
-function LoginService($http){
-  this.loginUser = function (login_user){
+function LoginService($http) {
+  this.loginUser = function(login_user) {
 
     //Grab the necessary info from the register form and assign
     //to a user object
@@ -54,13 +54,13 @@ function LoginService($http){
 
 }
 
-function LogOutService($http){
-  this.logUserOut = function (){
+function LogOutService($http) {
+  this.logUserOut = function() {
     // return $http.get('/api/users/logout');
   }
 }
 
-function PictureService ($http){
+function PictureService($http) {
   //not added to any controller yet
   this.sendImageToServer = function (image, challenger_id){
 
@@ -75,17 +75,66 @@ function PictureService ($http){
   }
 }
 
-function MessageServices ($http) {
-  this.sendChallengeInvites = function(invitationObj){
+function MessageServices($http) {
+  this.sendChallengeInvites = function(invitationObj) {
     // return $http.post('http://localhost:3000/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
 
   }
 };
 
-function ChallengeService ($http) {
+function ChallengeService($http) {
   //will get the current users challenges (for their feed)
-  this.getMyChallenges = function (user_id){
+  /**
+   * Filters challenges to show only those who have been started & completed;
+   * @param  {[Array]} challengeArr [Array of Challenges]
+   * @return {[Array]}              [Array of filtered Challenges]
+   */
+  this.filterChallenges = function(challengeArr) {
+
+      var filteredChallenges = challengeArr.filter(function(element, index, array) {
+        if (!element.start_at || !element.expire_at) {
+          return false;
+        } else {
+          var date = parseInt(element.expire_at.toString());
+          var utc = new Date(date);
+          element.time_elapsed = utc.toUTCString();
+          if (Date.now() < date) {
+            element.state = 'active';
+          } else {
+            element.state = 'inactive';
+          }
+          return true;
+        };
+      })
+      /**
+       * Sorts array by most recently added.
+       */
+      filteredChallenges = filteredChallenges.sort(function(a, b) {
+        return b.expire_at - a.expire_at
+      });
+      return filteredChallenges;
+    }
+    /**
+     * [Returns an array of all active challenges]
+     * @param  {[Array]} challengeArr [Array of Challenges]
+     * @return {[Array]}              [Array of Active Challenges]
+     */
+  this.getActiveChallenges = function(challengeArr) {
+    console.log(challengeArr);
+    var activeChallenges = challengeArr.filter(function(element, index, array) {
+      if (element.state === 'active') {
+        return true;
+      } else {
+        return false;
+      }
+    })
+      return activeChallenges;
+  }
+
+
+
+  this.getMyChallenges = function(user_id) {
     console.log('going to get my challenges');
     return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
   }
@@ -128,12 +177,12 @@ function ChallengeService ($http) {
   // }
 
 
-  this.createNewChallenge = function (challenge){
+  this.createNewChallenge = function(challenge) {
 
     var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
     var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
-    var challengeNameGenerator = challengeCats.slice(randomIndex,randomIndex + 1).toString();
+    var challengeNameGenerator = challengeCats.slice(randomIndex, randomIndex + 1).toString();
 
     var new_challenge = {
       name: challengeNameGenerator,
@@ -143,12 +192,12 @@ function ChallengeService ($http) {
     return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
 
-  this.updateChallengeTimes = function (challengeId){
+  this.updateChallengeTimes = function(challengeId) {
     console.log('updating challenge time');
-      var updateData = {
-        start_at : Date.now(),
-        expire_at : Date.now() + DEFAULT_CHALLENGE_LENGTH
-      }
+    var updateData = {
+      start_at: Date.now(),
+      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
+    }
 
     return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
@@ -157,7 +206,7 @@ function ChallengeService ($http) {
 
   // }
 
-  this.getChallengeContext = function (challenge_id){
+  this.getChallengeContext = function(challenge_id) {
 
     return $http.get('http://localhost:3000/api/challenges/' + challenge_id + '/context');
   }
@@ -165,30 +214,30 @@ function ChallengeService ($http) {
 
 }
 
-function UserService ($http){
+function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
-  this.getAllUsers = function (){
+  this.getAllUsers = function() {
     console.log('going for the usres');
     return $http.get('http://localhost:3000/api/users/');
   }
 
   //not in any controller or funcitonality as now
-  this.getIndividualUser = function (userId){
+  this.getIndividualUser = function(userId) {
     var user_id = userId
     return $http.get('/api/users/' + user_id);
   }
 
   //not in any controller - need to grab userid somehow
-  this.updateUserInfo = function (user){
+  this.updateUserInfo = function(user) {
 
     // var user_id = userId;
     var user_profile = {
-      user_name : user.user_name,
+      user_name: user.user_name,
       first_name: user.first_name,
       last_name: user.last_name,
       email: user.email,
       phone: user.phone,
-      service_provider : user.service_provider
+      service_provider: user.service_provider
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
@@ -196,27 +245,29 @@ function UserService ($http){
   }
 
   //not in any controller - need to grab userid somehow
-  this.deleteUser = function (userId){
+  this.deleteUser = function(userId) {
     var user_id = userId;
     return $http.delete('/api/users/' + user_id)
   }
 }
 
-function ChallengerService($http){
+function ChallengerService($http) {
 
-  this.createChallenger = function(userId, challengeId, initiator){
-    console.log('creating challenger',userId,challengeId,initiator)
+  this.createChallenger = function(userId, challengeId, initiator) {
+    console.log('creating challenger', userId, challengeId, initiator)
     var challenger = {
-      initiator_flag : initiator,
+      initiator_flag: initiator,
       challenge_id: challengeId,
       user_id: userId
     };
     return $http.post('http://localhost:3000/api/challengers/', challenger);
   }
 
+
+
 };
 
-function DataSharingService(){
+function DataSharingService() {
 
   this.activeChallenge = {};
   this.activeUser = {};

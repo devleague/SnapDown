@@ -1,6 +1,5 @@
   {
   "development": {
-
     "username": "postgres",
     "password": "postgres",
     "database": "grannygram_test",

@@ -7730,25 +7730,24 @@ body, html {
     width: 75%;
     margin: auto; }
 
+.select_challenger_head {
+  text-align: center;
+  background-color: #3D4B5B; }
+  .select_challenger_head .xBox {
+    color: #818E9D;
+    font-size: 2.3em;
+    display: inline-block;
+    float: left;
+    margin-left: 4%; }
+  .select_challenger_head .challengeName {
+    font-size: 2.3em;
+    color: #C7F733;
+    margin: 0 auto;
+    display: inline-block; }
+
 .select-Challenger {
   background-color: #3D4B5B;
   color: #818E9D; }
-  .select-Challenger .select_challenger_head {
-    border: 1px solid white;
-    height: 8vh;
-    padding-top: 4%;
-    text-align: center; }
-    .select-Challenger .select_challenger_head .xBox {
-      color: #818E9D;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin-left: 4%; }
-    .select-Challenger .select_challenger_head .challengeName {
-      font-size: 2.3em;
-      color: #C7F733;
-      margin: 0;
-      display: inline-block; }
   .select-Challenger #user_search {
     font-size: 1em; }
   .select-Challenger .checkbox {
@@ -7780,6 +7779,32 @@ body, html {
     line-height: 75px;
     font-size: 2em;
     margin-bottom: 16px; }
+
+.user_feed_heading {
+  background-color: #212A33;
+  padding-top: 2%; }
+  .user_feed_heading .user_feed_heading_logo {
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    width: 100%; }
+
+.user_feed_container {
+  background-color: #3D4B5B; }
+  .user_feed_container .user_feed_challenges {
+    border-bottom: 1px solid #818E9D;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    font-size: 1.5em; }
+    .user_feed_container .user_feed_challenges .user_feed_challenger_name {
+      color: #818E9D;
+      margin-left: 5%; }
+    .user_feed_container .user_feed_challenges .user_feed_challenger_time {
+      color: #C7F733;
+      float: right;
+      margin-right: 5%; }
 
 .landing {
   background-color: #212A33; }
@@ -7909,8 +7934,39 @@ body, html {
       width: 100%; }
   .userChallenged .challengedPlayers {
     height: 50vh;
-    width: 100%;
-    background-color: green; }
+    background-color: red;
+    padding-bottom: 20px; }
+    .userChallenged .challengedPlayers li {
+      height: 10vh;
+      border-bottom: 1px solid #818E9D; }
+      .userChallenged .challengedPlayers li .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .userChallenged .challengedPlayers li .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left; }
+        .userChallenged .challengedPlayers li .challengerName h1 {
+          color: #818E9D;
+          font-size: 1.6em;
+          line-height: 10vh; }
+      .userChallenged .challengedPlayers li .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left; }
+        .userChallenged .challengedPlayers li .challengerImage .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh; }
   .userChallenged .bottomHalf {
     height: 40vh;
     width: 100%;
@@ -7950,3 +8006,58 @@ body, html {
       line-height: 75px;
       font-size: 2em;
       margin-bottom: 16px; }
+
+.challenge-in-progress {
+  background-color: #3D4B5B; }
+  .challenge-in-progress .challengeName {
+    width: 100%; }
+    .challenge-in-progress .challengeName h1 {
+      color: #C7F733;
+      font-size: 1.6em;
+      text-align: center; }
+  .challenge-in-progress .challengedPlayers {
+    height: 73vh;
+    padding-bottom: 20px; }
+    .challenge-in-progress .challengedPlayers li {
+      height: 10vh;
+      border-bottom: 1px solid #818E9D; }
+      .challenge-in-progress .challengedPlayers li .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .challenge-in-progress .challengedPlayers li .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left; }
+        .challenge-in-progress .challengedPlayers li .challengerName h1 {
+          color: #818E9D;
+          font-size: 1.6em;
+          line-height: 10vh; }
+      .challenge-in-progress .challengedPlayers li .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left; }
+        .challenge-in-progress .challengedPlayers li .challengerImage .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh; }
+  .challenge-in-progress .timerBox {
+    height: 10vh; }
+    .challenge-in-progress .timerBox .timer {
+      height: 50px;
+      width: 95%;
+      background-color: #212A33;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      line-height: 50px; }
