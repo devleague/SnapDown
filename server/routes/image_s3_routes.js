@@ -1,7 +1,7 @@
 'use strict';
 
-// var AWS = require('aws-sdk');
-// var uuid = require('node-uuid');
+var AWS = require('aws-sdk');
+var uuid = require('node-uuid');
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Image;
@@ -10,6 +10,8 @@ var S3_BUCKET_NAME = "snapdown-development";
 var S3_FOLDER = "images/";
 
 router.post('/', function(req,res) {
+
+  console.log("UPLOAD POST RECEIVED");
 
   if(!req.body.base64Image) {
 
@@ -25,8 +27,6 @@ router.post('/', function(req,res) {
   var keyName = S3_FOLDER + uuid.v4() + ".jpg";
 
   var buffer = new Buffer(req.body.base64Image.replace(/^data:image\/\w+;base64,/, ""),'base64');
-
-  console.log(buffer);
 
   var data = {
 

@@ -50,7 +50,7 @@ angular.module('starter')
             .success(function(res){
               DataSharingService.errorLog.sendImageToServer = 'no error';
               $state.go('app.select-challenger');
-              console.log(res)
+              // console.log(res)
             })
             .error(function(error){
               DataSharingService.errorLog.sendImageToServer = 'error';
