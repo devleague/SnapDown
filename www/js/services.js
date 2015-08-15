@@ -52,7 +52,6 @@ function LoginService($http) {
     // };
     // return $http.post('/api/users/login', user_login);
   }
-
 }
 
 function LogOutService($http) {
@@ -70,7 +69,7 @@ function PictureService($http) {
       challenger_id : challenger_id
     };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
-    return $http.post('http://localhost:3000/api/upload/', imageData);
+    return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
 
 
   }
