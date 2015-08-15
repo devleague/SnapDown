@@ -2,13 +2,13 @@
 
 module.exports = {
   from: 'SnapDown <me@snapdown.us>',
-  att: '@txt.att.net',
-  boostmobile : '@myboostmobile.com',
-  metropcs: '@mymetropcs.com',
-  sprint : '@messaging.sprintpcs.com',
-  tmobile: '@tmomail.net',
-  verizon: '@vtext.com',
-  virginmobile : '@vmobl.com',
+  '1' : '@txt.att.net',
+  '2' : '@myboostmobile.com',
+  '3' : '@mymetropcs.com',
+  '4' : '@messaging.sprintpcs.com',
+  '5' : '@tmomail.net',
+  '6' : '@vtext.com',
+  '7' : '@vmobl.com',
   subject: 'test subject',
   messageBody: 'invited you to a challenge ..... message Body'
 };

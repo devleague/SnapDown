@@ -278,3 +278,9 @@ function DataSharingService() {
   this.activeUser = {};
   this.errorLog = {};
 };
+
+function ProviderService(){
+  this.getAllProviders = function (){
+    return $http.get('http://localhost:3000/api/providers');
+  }
+}

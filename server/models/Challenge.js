@@ -21,7 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
 
       associate : function(models){
-
         Challenge.hasMany(models.Challenger);
       }
     }

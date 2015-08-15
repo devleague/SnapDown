@@ -15,4 +15,17 @@ angular.module('starter')
       })
   }
 
+
+
+
+
+  $scope.providers = [];
+  ProviderService.getAllProviders()
+  .success(function (res){
+    $scope.providers = res;
+  })
+  .error(function (err){
+    console.log('err', err);
+  })
+
 })
