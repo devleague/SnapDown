@@ -44,7 +44,7 @@ router.post('/', function(req,res) {
     device_token: req.body.device_token,
     service_provider: req.body.service_provider
 
-  }).then(function(result) { //may be unnecessary
+  }).then(function(result) {
 
     res.status(200).json(result);
   });

@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        Challenge.hasMany(models.Challenger/*, {foreignKey:"challenger_id", foreignKeyConstraint: true}*/);
+        Challenge.hasMany(models.Challenger);
       }
     }
   });

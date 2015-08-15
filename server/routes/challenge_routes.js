@@ -63,14 +63,9 @@ router.get('/:id/context', function(req,res) {
           initiator: challenger.User
         }
 
-        // challenge.initiator = challenger.User;
-
-        console.log(challenge_context);
         res.json(challenge_context);
       }
     });
-
-    // res.json(challenge);
   });
 });
 
@@ -81,7 +76,7 @@ router.post('/', function(req,res) {
     privacy_status: req.body.privacy_status,
     challenger_id: req.body.challenger_id
 
-  }).then(function(result) { //may be unnecessary
+  }).then(function(result) {
 
     res.status(200).json(result);
   });

@@ -44,7 +44,7 @@ router.post('/', function(req,res) {
     user_id: req.body.user_id,
     friend_id: req.body.friend_id
 
-  }).then(function(result) { //may be unnecessary
+  }).then(function(result) {
 
     res.status(200).json(result);
   });

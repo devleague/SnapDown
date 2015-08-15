@@ -10,16 +10,6 @@ var user_routes = require('./user_routes');
 var user_friend_routes = require('./user_friend_routes');
 var message_routes = require('./message_routes');
 var image_s3_routes = require('./image_s3_routes');
-// var bodyParser = require('body-parser');
-
-// router.use(function(req,res,next) {
-
-//   console.log(req.url);
-//   next();
-// })
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 router.use('/challenges', challenge_routes);
 router.use('/challengers', challenger_routes);
