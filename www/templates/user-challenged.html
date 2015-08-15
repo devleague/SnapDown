@@ -36,10 +36,13 @@
 
     <div class="bottomHalf">
       <div class="timer">
-        <timer class="timer" end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
+        <timer class="timer" ng-show="challengeActive()" end-time="expireTime">{{minutes}} minutes, {{seconds}} seconds</timer>
+      </div>
+      <div ng-hide="challengeActive()">
+        This challenge has expired.
       </div>
       <div class="declineChallenge" ui-sref="app.landing">decline challenge</div>
-      <div class="acceptChallenge" ui-sref="app.user-feed">accept challenge</div>
+      <div class="acceptChallenge" ui-sref="app.user-feed" ng-click="acceptChallenge">accept challenge</div>
     </div>
 
   </ion-content>
