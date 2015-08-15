@@ -14,7 +14,7 @@
     <div class="bottomContainer" overflow-scroll="true">
 
         <div ng-show="activeChallenges.length <= 0">
-          <h1>No active challenges. Start one today! YIPIEE</h1>
+          <h1 class="no_active_challenge">No active challenges</h1>
         </div>
 
       <div ng-show="activeChallenges.length > 0" class="active_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">

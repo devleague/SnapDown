@@ -7838,6 +7838,11 @@ body, html {
   .landing .bottomContainer {
     height: 45vh;
     border-top: 1px solid #818E9D; }
+    .landing .bottomContainer .no_active_challenge {
+      color: #C7F733;
+      text-align: center;
+      padding: 5% 5%;
+      font-size: 2em; }
     .landing .bottomContainer .active_challenges {
       border-bottom: 1px solid #818E9D;
       padding-top: 2%;
