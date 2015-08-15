@@ -97,7 +97,10 @@ angular.module('starter', ['ionic',
   .state('app.challenge-complete', {
     cache: false,
     url: '/challenge-complete',
-    params: {activeChallengeId : null},
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
@@ -108,7 +111,10 @@ angular.module('starter', ['ionic',
 
   .state('app.user-challenged', {
     url: '/user-challenged',
-    params: {activeChallengeId : null},
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/user-challenged.html',

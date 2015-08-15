@@ -62,7 +62,10 @@ angular.module('starter')
     };
 
     $scope.renderActiveChallenges = function(challenge) {
-      $state.go('app.user-challenged',{activeChallengeId : challenge.id})
+      $state.go('app.user-challenged',{
+        activeChallengeId : challenge.id,
+        activeChallengeExpireTime: challenge.expire_at
+      })
     }
 
 
