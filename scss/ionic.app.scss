@@ -91,7 +91,6 @@ body, html {
 
 
   .select_challenger_head{
-      border: 1px solid white;
       height: 8vh;
       padding-top: 4%;
       text-align: center;
@@ -156,6 +155,31 @@ body, html {
     }
   }
 }
+
+//User Feed
+
+.user_feed_heading{
+  background-color: $dark;
+  padding-top: 2%;
+
+  .user_feed_heading_logo{
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    width: 100%;
+  }
+
+}
+
+.user_feed_container{
+  background-color: $lightBackground;
+
+  .user_feed_challenges{
+    border: 1px solid white;
+  }
+}
+
 
 
 // landing page styling
