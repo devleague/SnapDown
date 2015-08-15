@@ -13,8 +13,8 @@
 
     <ul class="list">
       <li class="user_feed_challenges" data-ng-repeat="challenge in challenges" ng-click="renderChallenge(challenge)">
-        {{challenge.name}}
-        {{challenge.expire_at}}
+        <span class="user_feed_challenger_name">{{challenge.name}}</span>
+        <span class="user_feed_challenger_time">{{challenge.expire_at}}</span>
       </li>
     </ul>
 

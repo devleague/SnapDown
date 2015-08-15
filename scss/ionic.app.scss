@@ -85,31 +85,31 @@ body, html {
 }
 
 //select a challenger page
+
+.select_challenger_head{
+  // padding-top: 4%;
+  text-align: center;
+  background-color: $lightBackground;
+
+  .xBox {
+    color: $lightGray;
+    font-size: 2.3em;
+    display: inline-block;
+    float: left;
+    margin-left: 4%;
+    // margin-right: 15%;
+  }
+
+  .challengeName {
+    font-size: 2.3em;
+    color: $energized;
+    margin: 0 auto;
+    display: inline-block;
+  }
+}
 .select-Challenger{
   background-color: $lightBackground;
   color: $lightGray;
-
-
-  .select_challenger_head{
-      height: 8vh;
-      padding-top: 4%;
-      text-align: center;
-
-    .xBox {
-      color: $lightGray;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin-left: 4%;
-    }
-
-    .challengeName {
-      font-size: 2.3em;
-      color: $energized;
-      margin: 0;
-      display: inline-block;
-    }
-  }
 
   #user_search{
     font-size: 1em;
@@ -176,7 +176,22 @@ body, html {
   background-color: $lightBackground;
 
   .user_feed_challenges{
-    border: 1px solid white;
+    border-bottom: 1px solid $lightGray;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+
+    .user_feed_challenger_name{
+      color: $lightGray;
+      margin-left: 5%;
+      font-size: 1.5em;
+    }
+
+    .user_feed_challenger_time{
+      color: $energized;
+      float: right;
+      margin-right: 5%;
+    }
   }
 }
 
