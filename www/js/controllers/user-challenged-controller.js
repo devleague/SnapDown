@@ -1,10 +1,11 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, DataSharingService,$rootScope) {
+.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope) {
 	$scope.allChallengers = [];
+	var challengeId = $stateParams.activeChallengeId;
+  var expireTime = $stateParams.activeChallengeExpireTime;
 
-	$scope.getChallengeContext = function() {
-		var challengeId = DataSharingService.startedChallenge.id;
+  $scope.getChallengeContext = function() {
 		ChallengeService.getChallengeContext(challengeId)
 			.success(function(res) {
 				$scope.challengeName = res.challenge.name;
@@ -19,14 +20,13 @@ angular.module('starter')
 	}
 
 	$scope.expireTime = function() {
-		if (Date.now() < DataSharingService.startedChallenge.expireAt) {
-			var timer = document.querySelector('.timer');
-			console.log('timer',timer);
+		if (Date.now() < expireTime) {
+      return expireTime;
 		}else{
-			$scope.timerComplete = 'timer stopped';
-			var currentPath = $location.path();
-			$location.path(currentPath);
-			return;
+			// $scope.timerComplete = 'timer stopped';
+			// var currentPath = $location.path();
+			// $location.path(currentPath);
+			// return;
 		}
 	};
 

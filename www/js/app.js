@@ -39,6 +39,16 @@ angular.module('starter', ['ionic',
     controller: 'AppCtrl'
   })
 
+  .state('app.get-user-phone-info', {
+    url: '/get-user-phone-info',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/get-user-phone-info.html',
+        controller: 'get-user-phone-info'
+      }
+    }
+  })
+
   .state('app.landing',{
     cache: false,
     url: '/landing',
@@ -97,7 +107,10 @@ angular.module('starter', ['ionic',
   .state('app.challenge-complete', {
     cache: false,
     url: '/challenge-complete',
-    params: {activeChallengeId : null},
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
@@ -108,6 +121,10 @@ angular.module('starter', ['ionic',
 
   .state('app.user-challenged', {
     url: '/user-challenged',
+    params: {
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/user-challenged.html',

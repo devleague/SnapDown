@@ -1,35 +1,39 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
+.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
 
   ionic.Platform.ready(function() {
-
+    // console.log('outsiide init');
+    $scope.init = function() {
+      // console.log('inside init')
       var user_id = 2;
+      // var user_id =  $localStorage.activeUserId;
+      var challengerId;
 
       $scope.openChallenges = [];
       ChallengerService.getChallengerContext(user_id)
-        .success(function (res) {
+        .success(function(res) {
           var challengeContextArr = res;
           console.log(res);
           console.log('before length', challengeContextArr.length);
 
-          challengeContextArr.forEach(function (curr, index) {
-              // console.log('current image', curr);
+          challengeContextArr.forEach(function(curr, index) {
+            // console.log('current image', curr);
 
-            if(curr.Challenge && !curr.initiator_flag){
-              if(curr.Image === null && curr.Challenge.expire_at !== null){
+            if (curr.Challenge && !curr.initiator_flag) {
+              if (curr.Image === null && curr.Challenge.expire_at !== null) {
                 $scope.openChallenges.push(curr)
               }
             }
           })
-
-
-
           console.log('my challenges', $scope.openChallenges);
+
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
         })
+    }
+
 
     $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
@@ -42,10 +46,11 @@ angular.module('starter')
           // var userId = DataSharingService.activeUser.id;
           //add in userId to function
 
-          ChallengerService.createChallenger(user_id, res.id, true)
+          ChallengerService.createChallenger(2, res.id, true)
             .success(function(res) {
               console.log('challenger created', res);
               DataSharingService.activeUser.challengerId = res.id;
+              challengerId = res.id;
             })
             .error(function(error) {
               console.log(error);
@@ -59,41 +64,35 @@ angular.module('starter')
     };
 
     $scope.renderActiveChallenges = function(challenge) {
-      DataSharingService.startedChallenge.id = challenge.id;
-      $state.go('app.user-challenged')
+      $state.go('app.user-challenged',{
+        activeChallengeId : challenge.id,
+        activeChallengeExpireTime: challenge.expire_at
+      })
     }
-
-
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-          quality: 75,
-          targetWidth: 1024,
-          targetHeight: 1024,
-          destinationType: 0,
-          encodingType: 0,
-          saveToPhotoAlbum: false
-        }
-      )
+        quality: 75,
+        targetWidth: 1024,
+        targetHeight: 1024,
+        destinationType: 0,
+        encodingType: 0,
+        saveToPhotoAlbum: false
+      })
       .then(function(imageData) {
-        if(imageData){
 
-          var challenger_id = 1; //TODO FIX MEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-
-           PictureService.sendImageToServer(imageData, challenger_id)
-
-            .success(function(res){
+        if (imageData) {
+          PictureService.sendImageToServer(imageData, challengerId)
+            .success(function(res) {
               DataSharingService.errorLog.sendImageToServer = 'no error';
               $state.go('app.select-challenger');
             })
-
-            .error(function(error){
+            .error(function(error) {
               DataSharingService.errorLog.sendImageToServer = 'error';
               $state.go('app.select-challenger');
             })
 
         } else {
-
           DataSharingService.errorLog.sendImageToServer = 'no image data';
           $state.go('app.select-challenger');
         }
@@ -108,7 +107,19 @@ angular.module('starter')
       $state.go('app.user-feed');
     }
 
+    $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
 
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
 
 
   })
