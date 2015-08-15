@@ -23,18 +23,13 @@ router.post('/', function(req, res) {
 				facebook_image_url: req.body.picture,
 				email: req.body.email,
 			}).then(function(user) {
-				console.log('---------------------------------');
-				console.log('user added')
-				console.log('---------------------------------');
+
 				res.json({
 					id: user.id
 				});
 			})
 		} else {
-			console.log('---------------------------------');
-			console.log('user denied.  already in system')
-			console.log('---------------------------------');
-			console.log(result.id);
+
 			res.json({
 				id: result.id
 			});
