@@ -39,6 +39,16 @@ angular.module('starter', ['ionic',
     controller: 'AppCtrl'
   })
 
+  .state('app.get-user-phone-info', {
+    url: '/get-user-phone-info',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/get-user-phone-info.html',
+        controller: 'get-user-phone-info'
+      }
+    }
+  })
+
   .state('app.landing',{
     cache: false,
     url: '/landing',

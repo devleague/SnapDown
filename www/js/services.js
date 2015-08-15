@@ -182,7 +182,7 @@ function ChallengeService($http) {
     var new_challenge = {
       name: challengeNameGenerator,
       privacy_status: 'public'
-    };
+    }
 
     return $http.post('http://localhost:3000/api/challenges', new_challenge);
   }
@@ -213,27 +213,35 @@ function UserService($http) {
     return $http.get('http://localhost:3000/api/users/');
   }
 
-  //not in any controller or funcitonality as now
-  this.getIndividualUser = function(userId) {
-    var user_id = userId
-    return $http.get('/api/users/' + user_id);
+  this.updateUserPhoneInfo = function (user_id, user_info){
+    var user_phone_info = {
+      phone: user_info.phone,
+      service_provider: user_info.service_provider
+    }
+    console.log('update');
+    return $http.put('http://localhost:3000/api/users/' + user_id + '',user )
   }
+
+  // //not in any controller or funcitonality as now
+  // this.getIndividualUser = function(userId) {
+  //   var user_id = userId
+  //   return $http.get('/api/users/' + user_id);
+  // }
 
   //not in any controller - need to grab userid somehow
-  this.updateUserInfo = function(user) {
+  // this.updateUserInfo = function(user) {
 
-    // var user_id = userId;
-    var user_profile = {
-      user_name: user.user_name,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      email: user.email,
-      phone: user.phone,
-      service_provider: user.service_provider
-    };
+  //   // var user_id = userId;
+  //   var user_profile = {
+  //     user_name: user.user_name,
+  //     first_name: user.first_name,
+  //     last_name: user.last_name,
+  //     email: user.email,
+  //     phone: user.phone,
+  //     service_provider: user.service_provider
+  //   };
 
-    return $http.put('/api/users/' + user_id, user_profile)
-  }
+    // return $http.put('/api/users/' + user_id, user_profile)
 
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {

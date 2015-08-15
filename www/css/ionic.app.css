@@ -7742,20 +7742,38 @@ body, html {
   .selectChallenger .selectedChallengers {
     overflow: auto;
     height: 70vh;
-    background-color: red;
+    background-color: #3D4B5B;
     color: #818E9D; }
-  .selectChallenger .row-bottom .start_challenge_button {
-    height: 75px;
-    width: 95%;
-    background-color: #0194A6;
-    margin: 0 auto;
-    border-radius: 3px;
-    box-shadow: 0 6px #017380;
-    text-align: center;
-    color: white;
-    line-height: 75px;
-    font-size: 2em;
-    margin-bottom: 16px; }
+    .selectChallenger .selectedChallengers .checkbox {
+      width: 100%;
+      border-bottom: 1px solid #818E9D; }
+      .selectChallenger .selectedChallengers .checkbox .challenger_name {
+        font-size: 2em;
+        display: inline-block;
+        margin-left: 3%;
+        margin-top: 2%;
+        color: #818E9D;
+        width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .selectChallenger .selectedChallengers .checkbox input[type=checkbox] {
+        float: right;
+        margin-right: 5%;
+        margin-top: 2%; }
+  .selectChallenger .startChallengeButton {
+    padding-top: 10px; }
+    .selectChallenger .startChallengeButton .start_challenge_button {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em; }
 
 .user_feed_heading {
   background-color: #212A33;
@@ -7769,16 +7787,16 @@ body, html {
 
 .user_feed_container {
   background-color: #3D4B5B; }
-  .user_feed_container .user_feed_challenges {
+  .user_feed_container .userFeed .user_feed_challenges {
     border-bottom: 1px solid #818E9D;
     margin-bottom: 3%;
     padding-top: 2%;
     padding-bottom: 4%;
     font-size: 1.5em; }
-    .user_feed_container .user_feed_challenges .user_feed_challenger_name {
+    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_name {
       color: #818E9D;
       margin-left: 5%; }
-    .user_feed_container .user_feed_challenges .user_feed_challenger_time {
+    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_time {
       color: #C7F733;
       float: right;
       margin-right: 5%; }
@@ -7814,7 +7832,9 @@ body, html {
         font-size: 1.8em; }
   .landing .bottomContainer {
     height: 45vh;
-    border-top: 1px solid #818E9D; }
+    border-top: 1px solid #818E9D;
+    overflow: auto;
+    background-color: #3D4B5B; }
     .landing .bottomContainer .no_active_challenge {
       color: #C7F733;
       text-align: center;
@@ -7824,15 +7844,18 @@ body, html {
       border-bottom: 1px solid #818E9D;
       padding-top: 2%;
       padding-bottom: 2%;
-      font-size: 1.5em; }
+      font-size: 1.5em;
+      height: 8vh; }
       .landing .bottomContainer .active_challenges .active_challenger_name {
         margin-left: 5%;
-        color: #C7F733; }
+        color: #C7F733;
+        line-height: 6vh; }
       .landing .bottomContainer .active_challenges .active_challenger_time {
         color: #C7F733;
         margin-left: 5%;
         float: right;
-        margin-right: 5%; }
+        margin-right: 5%;
+        line-height: 6vh; }
 
 .profile .headerContainer {
   height: 18vh;
