@@ -49,8 +49,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-
-
   .state('app.landing',{
     cache: false,
     url: '/landing',
