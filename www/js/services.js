@@ -272,6 +272,5 @@ function DataSharingService() {
 
   this.startedChallenge = {};
   this.activeUser = {};
-  this.activeChallenge = {}
   this.errorLog = {};
 };
