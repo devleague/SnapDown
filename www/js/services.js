@@ -26,6 +26,7 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
           format: 'json'
         }
       }).then(function(result) {
+
         var user = {
           first_name: result.data.first_name,
           last_name: result.data.last_name,
@@ -33,6 +34,7 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
           email: result.data.email,
           picture: result.data.picture.data.url
         };
+
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
           $localStorage.activeUserId = res.data.id;
           alert($localStorage.activeUserId);
@@ -48,13 +50,9 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
   }
 
   this.getUserFacebook = function(id) {
-    console.log('grabbing facebook info');
-    console.log('id', id);
-    return $http.get(SERVER_IP + '/api/register/facebook_register_user/info', {
-      id: id
-    }).then(function(res) {
-      console.log('response from facebook', res);
-    })
+    var userId = {id:$localStorage.activeUserId};
+    return $http.post(SERVER_IP + '/api/register/facebook_register_user/info',userId);
+
 
   }
 

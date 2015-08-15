@@ -3,11 +3,11 @@
     <div class="headerContainer">
       <div class="headerContent">
         <div class="avatarContainer">
-          <div class="userAvatar" style="background-image: url(http://www.placehold.it/100x100)"></div>
+          <div class="userAvatar" style="background-image:url('{{fb_user.picture}}')"></div>
         </div>
         <div class="usernameWrapper">
           <div class="username">
-            <h1>Jon Borgonia</h1>
+            <h1>{{fb_user.first_name}} {{fb_user.last_name}}</h1>
           </div>
           <div class="logout">
             <p>Logout</p>
@@ -18,38 +18,39 @@
 
     <div class="editProfileContainer">
       <div class="list">
-        <label class="item item-input formColor">
+<!--         <label class="item item-input formColor">
           <span class="input-label" placeholder="Username">Username</span>
           <input type="text">
-        </label>
+        </label> -->
         <label class="item item-input formColor">
           <span class="input-label" placeholder="password">Password</span>
-          <input type="password">
+          <input type="password" value="password">
         </label>
         <label class="item item-input formColor">
           <span class="input-label" placeholder="email">Email</span>
-          <input type="email">
+          <input type="email" value="{{fb_user.email}}">
         </label>
       </div>
     </div>
 
+
       <div class="statisticsContainer">
         <div class="row">
           <div class="col col-25 stats">
+            <p>Started</p>
+            <div class="requestsBox">{{fb_user.challenge_start_count}}</div>
+          </div>
+          <div class="col col-25 stats">
             <p>Received</p>
-            <div class="requestsBox">10</div>
+            <div class="requestsBox">{{fb_user.challenge_received_count}}</div>
           </div>
           <div class="col col-25 stats">
             <p>Accepted</p>
-            <div class="requestsBox">8</div>
+            <div class="requestsBox">{{fb_user.challenge_accepted_count}}</div>
           </div>
           <div class="col col-25 stats">
-            <p>Declined</p>
-            <div class="requestsBox">2</div>
-          </div>
-          <div class="col col-25 stats">
-            <p>Invites</p>
-            <div class="requestsBox">7</div>
+            <p>Rejected</p>
+            <div class="requestsBox">{{fb_user.challenge_rejected_count}}</div>
           </div>
         </div>
       </div>
