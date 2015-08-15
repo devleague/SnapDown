@@ -1,9 +1,8 @@
   {
   "development": {
-    "username": "jasontsukamoto",
-
+    "username": "judah",
     "password": null,
-    "database": "snapdown_db",
+    "database": "grannygram_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
