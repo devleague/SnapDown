@@ -1,4 +1,4 @@
-<ion-view view-title="user-feed">
+<ion-view view-title="user-feed" ng-init="init()">
   <ion-header-bar align-title="center" class="user_feed_heading">
     <div class="user_feed_heading_logo">
 
@@ -8,13 +8,15 @@
   <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
      <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
     <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
+
     <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
 
 
     <ul class="list">
-      <li class="user_feed_challenges" data-ng-repeat="challenge in challenges" ng-click="renderChallenge(challenge)">
+
+      <li class="user_feed_challenges" data-ng-repeat="challenge in challenges" ng-click="renderAllChallenges(challenge)" ng-if="challenge.state==='inactive'">
         <span class="user_feed_challenger_name">{{challenge.name}}</span>
-        <span class="user_feed_challenger_time">{{challenge.expire_at}}</span>
+        <span class="user_feed_challenger_time" am-time-ago="challenge.time_elapsed"></span>
       </li>
     </ul>
 
