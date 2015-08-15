@@ -1,13 +1,9 @@
-<ion-view view-title="select-challenger">
-
-  <ion-header-bar align-title="center" class="select_challenger_head">
-
-      <div class="xBox">X</div>
-      <div class="challengeName">{{challengeName}}</div>
-
+<ion-view view-title="select-challenger" class="selectChallenger">
+  <ion-header-bar class="bar-dark">
+    <h3>Challenge Name</h3>
   </ion-header-bar>
 
-  <ion-content class="select-Challenger">
+  <ion-content>
 
       <!-- <div>{{imageURI}}</div> -->
     <div>
@@ -17,7 +13,7 @@
       </label>
     </div>
 
-    <div ng-repeat="user in users | filter:searchUsers" class="select_user_row">
+    <div ng-repeat="user in users | filter:searchUsers" class="select-challenger">
       <div class="checkbox">
         <h2 class="challenger_name">{{user.first_name}}</h2>
         <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
@@ -28,7 +24,7 @@
         <input class='box' type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool"> -->
     </div>
 
-    <div class="row row-bottom">
+    <div>
       <div class="start_challenge_button" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
     </div>
 
