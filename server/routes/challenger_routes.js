@@ -5,6 +5,7 @@ var router = express.Router();
 var db = require('../models').Challenger;
 var challenge = require('../models').Challenge;
 var user = require('../models').User;
+var images = require('../models').Image;
 
 router.get('/', function(req,res) {
 
@@ -46,7 +47,8 @@ router.get('/:id/challenges', function(req,res) {
 
     where: { user_id: req.params.id },
     include :[
-      { model:challenge}]
+      { model:challenge},
+      {model:images}]
 
   }).then(function(challengers) {
 
@@ -69,6 +71,23 @@ router.get('/:id/challenges', function(req,res) {
     res.json(challengeArray);
   });
 });
+
+//Gets the Challenger context
+router.get('/:id/context', function(req,res) {
+
+  db.findAll({
+    where: { user_id: req.params.id },
+    include :[
+      {model:challenge},
+      {model:images}]
+
+  }).then(function(challengers) {
+    console.log("Challengers : ", challengers);
+    res.json(challengers);
+  });
+});
+
+
 
 router.post('/', function(req,res) {
 
