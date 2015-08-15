@@ -8049,3 +8049,47 @@ body, html {
       color: #0093A1;
       font-size: 1.4em;
       line-height: 50px; }
+
+.challenge-complete .quiltHeader {
+  width: 100%; }
+  .challenge-complete .quiltHeader h3 {
+    color: #C7F733;
+    text-align: center; }
+.challenge-complete .quilt {
+  height: 60vh;
+  width: 100%;
+  background-color: #3D4B5B;
+  overflow: auto;
+  padding: 20px 2.6%; }
+  .challenge-complete .quilt .imageHolder {
+    height: 30vh;
+    width: 31vw;
+    background-color: red;
+    display: inline-block; }
+.challenge-complete .challengers {
+  height: 18vh;
+  width: 100%;
+  background-color: #D4DBE3;
+  color: #818E9D;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .challenge-complete .challengers h3 {
+    color: #818E9D;
+    font-size: 1em; }
+  .challenge-complete .challengers p {
+    font-size: 1.5em; }
+.challenge-complete .newChallenge {
+  height: 12vh;
+  width: 100%;
+  background-color: #D4DBE3; }
+  .challenge-complete .newChallenge .newChallengeButton {
+    height: 50px;
+    width: 95%;
+    background-color: #212A33;
+    margin: 0 auto;
+    border-radius: 3px;
+    text-align: center;
+    color: #0093A1;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    line-height: 50px; }
