@@ -7796,11 +7796,11 @@ body, html {
     border-bottom: 1px solid #818E9D;
     margin-bottom: 3%;
     padding-top: 2%;
-    padding-bottom: 4%; }
+    padding-bottom: 4%;
+    font-size: 1.5em; }
     .user_feed_container .user_feed_challenges .user_feed_challenger_name {
       color: #818E9D;
-      margin-left: 5%;
-      font-size: 1.5em; }
+      margin-left: 5%; }
     .user_feed_container .user_feed_challenges .user_feed_challenger_time {
       color: #C7F733;
       float: right;
