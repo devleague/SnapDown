@@ -7999,13 +7999,13 @@ body, html {
   background-color: #3D4B5B; }
   .challenge-in-progress .challengeName {
     width: 100%; }
-    .challenge-in-progress .challengeName h1 {
+    .challenge-in-progress .challengeName h3 {
       color: #C7F733;
-      font-size: 1.6em;
       text-align: center; }
   .challenge-in-progress .challengedPlayers {
     height: 73vh;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    overflow: auto; }
     .challenge-in-progress .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }
