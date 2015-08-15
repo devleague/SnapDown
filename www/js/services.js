@@ -70,8 +70,6 @@ function PictureService($http) {
     };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
     return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
-
-
   }
 }
 
@@ -79,7 +77,6 @@ function MessageServices($http) {
   this.sendChallengeInvites = function(invitationObj) {
     // return $http.post('http://localhost:3000/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
-
   }
 };
 
@@ -236,7 +233,6 @@ function UserService($http) {
     };
 
     return $http.put('/api/users/' + user_id, user_profile)
-
   }
 
   //not in any controller - need to grab userid somehow

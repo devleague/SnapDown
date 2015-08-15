@@ -66,40 +66,33 @@ angular.module('starter')
       $state.go('app.user-challenged')
     }
 
-
-
     $scope.getPhoto = function() {
       Camera.getPicture({
-          quality: 50,
-          targetWidth: 512,
-          targetHeight: 512,
-          destinationType: 0,
-          encodingType: 0,
-          saveToPhotoAlbum: false
-        })
-        .then(function(imageData) {
-          if (imageData) {
-            var imageSrc = "data:image/jpeg;base64," + imageData;
-            PictureService.sendImageToServer(imageSrc)
-              .success(function(res) {
-                DataSharingService.errorLog.sendImageToServer = 'no error';
-                $state.go('app.select-challenger');
-                console.log(res)
-              })
-              .error(function(error) {
-                DataSharingService.errorLog.sendImageToServer = 'error';
-                $state.go('app.select-challenger');
-              })
+        quality: 75,
+        targetWidth: 1024,
+        targetHeight: 1024,
+        destinationType: 0,
+        encodingType: 0,
+        saveToPhotoAlbum: false
+      })
+      .then(function(imageData) {
 
-          } else {
-            DataSharingService.errorLog.sendImageToServer = 'no image data';
-            $state.go('app.select-challenger');
-          }
-        });
-      // , function(err) {
-      //     DataSharingService.errorLog.sendImageToServer = err;
-      //     $state.go('app.select-challenger');
-      //   })
+        if (imageData) {
+          PictureService.sendImageToServer(imageData, challengerId)
+            .success(function(res) {
+              DataSharingService.errorLog.sendImageToServer = 'no error';
+              $state.go('app.select-challenger');
+            })
+            .error(function(error) {
+              DataSharingService.errorLog.sendImageToServer = 'error';
+              $state.go('app.select-challenger');
+            })
+
+        } else {
+          DataSharingService.errorLog.sendImageToServer = 'no image data';
+          $state.go('app.select-challenger');
+        }
+      });
     };
 
     $scope.onSwipeLeft = function() {
