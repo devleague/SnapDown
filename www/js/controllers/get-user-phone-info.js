@@ -6,7 +6,7 @@ angular.module('starter')
   // var user_id =  $localStorage.activeUserId;
 
   $scope.updateUserPhoneInfo = function (){
-    UserService.updateUserPhoneInfo(user_id, user_info)
+    UserService.updateUserPhoneInfo(user_info)
       .success(function (res){
         console.log('updated user info', res);
       })
