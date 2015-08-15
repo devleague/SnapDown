@@ -1,12 +1,13 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
+.controller('select-challenger-controller', function ($localStorage, $scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
-  console.log('challenge name', DataSharingService.activeChallenge.name)
-  $scope.challengeName = DataSharingService.activeChallenge.name;
+  console.log('challenge name', DataSharingService.startedChallenge.name)
+  $scope.challengeName = DataSharingService.startedChallenge.name;
   $scope.UserService = UserService;
   $scope.users = [];
-  // $localStorage.activeUserId = 2;
+  var user_id = 2;
+  // var user_id =  $localStorage.activeUserId;
 
 
 
@@ -14,7 +15,7 @@ angular.module('starter')
     .success(function (res){
       console.log('res',res);
       var filteredUser = res.filter(function(element,index,array){
-        if(element.id === DataSharingService.activeUser.id){
+        if(element.id === user_id){
           return false;
         }else{
           return true;
@@ -39,7 +40,7 @@ angular.module('starter')
     }
 
     $scope.combinedUpdate = function(){
-      var challengeId = DataSharingService.activeChallenge.id;
+      var challengeId = DataSharingService.startedChallenge.id;
       var selectedUsers = $scope.usersChecked;
       // var promise1 = $scope.createChallenger();
 
@@ -50,18 +51,19 @@ angular.module('starter')
 
       $q.all(promiseArray)
         .then(function(resArr){
-          //update DataSharingService with new challenge time
           console.log('resArr', resArr);
-          DataSharingService.activeChallenge.expireAt = resArr[0].data.expire_at;
+          $state.go('app.challenge-in-progress',{
+            activeChallengeId: resArr[0].data.id,
+            activeChallengeExpireTime: resArr[0].data.expire_at
+          });
         }).then(function (){
 
-          $state.go('app.challenge-in-progress');
         })
     };
 
 
     $scope.updateChallengeTimes = function(){
-      var challengeId = DataSharingService.activeChallenge.id;
+      var challengeId = DataSharingService.startedChallenge.id;
       return ChallengeService.updateChallengeTimes(challengeId);
     }
 
@@ -69,7 +71,7 @@ angular.module('starter')
     $scope.sendInvites = function(){
       var invitationObj = {
         users: $scope.usersChecked,
-        challengeId: DataSharingService.activeChallenge.id,
+        challengeId: DataSharingService.startedChallenge.id,
         challengerName: 'testName',
         startTime: Date.now()
       };
@@ -78,10 +80,10 @@ angular.module('starter')
 
     };
 
-    $scope.changeView = function(){
-      console.log('changing view')
-      $state.go('app.challenge-in-progress');
-    };
+    // $scope.changeView = function(){
+    //   console.log('changing view')
+    //   $state.go('app.challenge-in-progress');
+    // };
 
 
 

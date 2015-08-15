@@ -82,6 +82,10 @@ angular.module('starter', ['ionic',
 
   .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
+    params: {
+      activeChallengeId: null,
+      activeChallengeExpireTime: null
+    },
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-in-progress.html',
@@ -93,7 +97,7 @@ angular.module('starter', ['ionic',
   .state('app.challenge-complete', {
     cache: false,
     url: '/challenge-complete',
-    params: {activeChallenge : null},
+    params: {activeChallengeId : null},
     views: {
       'menuContent': {
         templateUrl: 'templates/challenge-complete.html',
