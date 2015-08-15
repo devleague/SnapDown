@@ -45,28 +45,27 @@ angular.module('starter')
       )
       .then(function(imageData) {
         if(imageData){
-          // var imageSrc = "data:image/jpeg;base64," + imageData;
-           PictureService.sendImageToServer(imageData)
+
+          var challenger_id = 1; //TODO FIX MEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+           PictureService.sendImageToServer(imageData, challenger_id)
+
             .success(function(res){
               DataSharingService.errorLog.sendImageToServer = 'no error';
               $state.go('app.select-challenger');
-              // console.log(res)
             })
+
             .error(function(error){
               DataSharingService.errorLog.sendImageToServer = 'error';
               $state.go('app.select-challenger');
             })
 
-        }
-        else{
+        } else {
+
           DataSharingService.errorLog.sendImageToServer = 'no image data';
           $state.go('app.select-challenger');
         }
       });
-      // , function(err) {
-      //     DataSharingService.errorLog.sendImageToServer = err;
-      //     $state.go('app.select-challenger');
-      //   })
     };
 
     $scope.onSwipeLeft = function() {

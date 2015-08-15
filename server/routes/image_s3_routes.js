@@ -20,7 +20,7 @@ router.post('/', function(req,res) {
 
   if(!req.body.challenger_id) {
 
-    res.status(400).send("No id attached to image upload request");
+    res.status(400).send("No challenger_id attached to image upload request");
   }
 
   var s3 = new AWS.S3( { params: {Bucket: S3_BUCKET_NAME} } );

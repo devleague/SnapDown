@@ -62,11 +62,11 @@ function LogOutService($http){
 
 function PictureService ($http){
   //not added to any controller yet
-  this.sendImageToServer = function (image){
+  this.sendImageToServer = function (image, challenger_id){
 
     var imageData = {
       base64Image : image,
-      challenger_id : 1 //TODO FIX ME
+      challenger_id : challenger_id
     };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
     return $http.post('http://10.0.1.6:3000/api/upload/', imageData);
