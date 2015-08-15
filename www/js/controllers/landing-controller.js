@@ -33,8 +33,8 @@ angular.module('starter')
           console.log('challenge created', res)
 
           //forward to the in progress page
-          DataSharingService.activeChallenge.id = res.id;
-          DataSharingService.activeChallenge.name = res.name;
+          DataSharingService.startedChallenge.id = res.id;
+          DataSharingService.startedChallenge.name = res.name;
           // var userId = DataSharingService.activeUser.id;
           //add in userId to function
 

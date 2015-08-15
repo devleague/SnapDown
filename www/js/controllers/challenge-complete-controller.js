@@ -5,7 +5,7 @@ angular.module('starter')
 
   $scope.getChallengeContext = function (){
     console.log('hi there')
-    var challengeId = DataSharingService.activeChallenge.id;
+    var challengeId = $stateParams.activeChallengeId;
     ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
         console.log('challenge context', res);
@@ -19,7 +19,6 @@ angular.module('starter')
 
   $ionicPlatform.ready(function() {
     console.log('stateparams',$stateParams)
-    console.log('hello I am in complet aretn i????????')
     $scope.getChallengeContext();
   });
 
