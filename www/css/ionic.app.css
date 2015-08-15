@@ -7730,25 +7730,24 @@ body, html {
     width: 75%;
     margin: auto; }
 
+.select_challenger_head {
+  text-align: center;
+  background-color: #3D4B5B; }
+  .select_challenger_head .xBox {
+    color: #818E9D;
+    font-size: 2.3em;
+    display: inline-block;
+    float: left;
+    margin-left: 4%; }
+  .select_challenger_head .challengeName {
+    font-size: 2.3em;
+    color: #C7F733;
+    margin: 0 auto;
+    display: inline-block; }
+
 .select-Challenger {
   background-color: #3D4B5B;
   color: #818E9D; }
-  .select-Challenger .select_challenger_head {
-    border: 1px solid white;
-    height: 8vh;
-    padding-top: 4%;
-    text-align: center; }
-    .select-Challenger .select_challenger_head .xBox {
-      color: #818E9D;
-      font-size: 2.3em;
-      display: inline-block;
-      float: left;
-      margin-left: 4%; }
-    .select-Challenger .select_challenger_head .challengeName {
-      font-size: 2.3em;
-      color: #C7F733;
-      margin: 0;
-      display: inline-block; }
   .select-Challenger #user_search {
     font-size: 1em; }
   .select-Challenger .checkbox {
@@ -7780,6 +7779,32 @@ body, html {
     line-height: 75px;
     font-size: 2em;
     margin-bottom: 16px; }
+
+.user_feed_heading {
+  background-color: #212A33;
+  padding-top: 2%; }
+  .user_feed_heading .user_feed_heading_logo {
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    width: 100%; }
+
+.user_feed_container {
+  background-color: #3D4B5B; }
+  .user_feed_container .user_feed_challenges {
+    border-bottom: 1px solid #818E9D;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    font-size: 1.5em; }
+    .user_feed_container .user_feed_challenges .user_feed_challenger_name {
+      color: #818E9D;
+      margin-left: 5%; }
+    .user_feed_container .user_feed_challenges .user_feed_challenger_time {
+      color: #C7F733;
+      float: right;
+      margin-right: 5%; }
 
 .landing {
   background-color: #212A33; }

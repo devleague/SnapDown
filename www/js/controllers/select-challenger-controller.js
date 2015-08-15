@@ -2,6 +2,8 @@ angular.module('starter')
 
 .controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
+  console.log('challenge name', DataSharingService.activeChallenge.name)
+  $scope.challengeName = DataSharingService.activeChallenge.name;
   $scope.UserService = UserService;
   $scope.users = [];
   // $localStorage.activeUserId = 2;

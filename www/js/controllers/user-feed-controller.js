@@ -5,7 +5,7 @@ angular.module('starter')
   $scope.init = function() {
     //user id is hard coded!!!!! need to grab from the $localStorage
     // var user_id = $localStorage.activeUserId;
-    var user_id = 2;
+    var user_id = 4;
 
     ChallengeService.getMyChallenges(user_id)
       .success(function(res) {
