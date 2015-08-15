@@ -8,9 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-
-    // user_id: DataTypes.INTEGER,
-    // friend_id: DataTypes.INTEGER
   },{
 
     underscored: true,
@@ -19,8 +16,8 @@ module.exports = function(sequelize, DataTypes) {
 
       associate : function(models){
 
-        UserFriend.belongsTo(models.User/*, {foreignKey:"user_id", foreignKeyConstraint: true}*/);
-        UserFriend.belongsTo(models.User/*, {foreignKey:"friend_id", foreignKeyConstraint: true}*/);
+        UserFriend.belongsTo(models.User);
+        UserFriend.belongsTo(models.User);
       }
     }
   });

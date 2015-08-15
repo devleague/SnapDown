@@ -68,6 +68,10 @@ $ sudo locale-gen en_US.UTF-8
 
 $ dpkg-reconfigure locales
 
+
+
 ****************************
 
 amazon credentials for s3 are in ~/.aws
+
+installation of aws cli can be useful for setting this up and otherwise managing aws-related tasks
