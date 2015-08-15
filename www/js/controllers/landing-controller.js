@@ -21,7 +21,7 @@ angular.module('starter')
             }
           })
 
-            console.log('my challenges', $scope.openChallenges.length);
+          console.log('my challenges', $scope.openChallenges.length);
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
