@@ -88,14 +88,14 @@ function PictureService($http) {
 function MessageServices($http) {
   this.sendChallengeInvites = function(invitationObj) {
    // return $http.post('http://localhost:3000/api/message/', invitationObj);
-    return $http.post('http://localhost:3000/api/message/', invitationObj);
+    return $http.post(SERVER_IP+'/api/message/', invitationObj);
   }
 };
 
 function ChallengeService($http) {
   //will get the current users challenges (for their feed)
   this.getMyChallenges = function(user_id) {
-    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/challenges');
+    return $http.get(SERVER_IP+'/api/challengers/' + user_id + '/challenges');
   }
 
   /**
@@ -198,7 +198,7 @@ function ChallengeService($http) {
       privacy_status: 'public'
     };
 
-    return $http.post('http://localhost:3000/api/challenges', new_challenge);
+    return $http.post(SERVER_IP+'/api/challenges', new_challenge);
   }
 
   this.updateChallengeTimes = function(challengeId) {
@@ -208,23 +208,23 @@ function ChallengeService($http) {
       expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
     }
 
-    return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
+    return $http.put(SERVER_IP+'/api/challenges/' + challengeId, updateData);
   }
 
 
 
   this.getChallengeContext = function(challenge_id) {
 
-    return $http.get('http://localhost:3000/api/challenges/' + challenge_id + '/context');
+    return $http.get(SERVER_IP+'/api/challenges/' + challenge_id + '/context');
   }
 
 
-}
+
 
 function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
   this.getAllUsers = function() {
-    return $http.get('http://localhost:3000/api/users/');
+    return $http.get(SERVER_IP+'/api/users/');
   }
 
   //not in any controller or funcitonality as now
@@ -265,13 +265,13 @@ function ChallengerService($http) {
       challenge_id: challengeId,
       user_id: userId
     };
-    return $http.post('http://localhost:3000/api/challengers/', challenger);
+    return $http.post(SERVER_IP+'/api/challengers/', challenger);
   }
 
 
   this.getChallengerContext = function (user_id){
     console.log('get me the challenge context');
-    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/context');
+    return $http.get(SERVER_IP+'/api/challengers/' + user_id + '/context');
   }
 
 
