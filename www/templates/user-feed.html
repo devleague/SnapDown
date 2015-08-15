@@ -16,89 +16,17 @@
     <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
     <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
   </ion-content>
-
-
   <ion-footer-bar>
-      <div class="tabs tabs-icon-top tabs-positive">
-       <a class="tab-item">
-          <i class="icon ion-ios-paper-outline"></i>
-          Feed
-        </a>
-        <a class="tab-item" ui-sref="app.landing">
-          <i class="icon ion-home"></i>
-          Home
-        </a>
-        <a class="tab-item" ui-sref="app.challenge-in-progress">
-          <i class="icon ion-ios-game-controller-a-outline"></i>
-          Active Challenges
-        </a>
-        <a class="tab-item" ng-click="openModal()">
-          <i class="icon ion-gear-a"></i>
-          Settings
-          <script id="edit-profile-modal.html" type="text/ng-template">
-            <ion-modal-view>
-              <ion-content class="editProfileModal">
-
-                <div class="headerContainer">
-                  <div class="closeModal" ng-click="closeModal()">x</div>
-                  <div class="avatar">
-                    <img src="http://www.mensleadershiphawaii.org/wp-content/uploads/2012/03/Screen-Shot-2013-04-07-at-11.16.46-PM-e1366674931981.png">
-                  </div>
-                  <div class="username">
-                    <h1>Jon Borgonia</h1>
-                  </div>
-                  <div class="logout">Logout</div>
-                </div>
-
-                <div class="editProfileContainer">
-                  <h1>Edit Profile</h1>
-                  <div class="list">
-                    <label class="item item-input">
-                      <span class="input-label">Username</span>
-                      <input type="text">
-                    </label>
-                    <label class="item item-input">
-                      <span class="input-label">Password</span>
-                      <input type="password">
-                    </label>
-                    <label class="item item-input">
-                      <span class="input-label">Email</span>
-                      <input type="email">
-                    </label>
-                  </div>
-                  <div class="button">Edit Settings</div>
-                </div>
-
-                <div class="statisticsContainer">
-                  <h1>Statistics</h1>
-                  <div class="row">
-                    <div class="col col-25 stats">
-                      <p>Received</p>
-                      <div class="requestsBox">10</div>
-                    </div>
-                    <div class="col col-25 stats">
-                      <p>Accepted</p>
-                      <div class="requestsBox">8</div>
-                    </div>
-                    <div class="col col-25 stats">
-                      <p>Declined</p>
-                      <div class="requestsBox">2</div>
-                    </div>
-                    <div class="col col-25 stats">
-                      <p>Invites Sent</p>
-                      <div class="requestBox">7</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="logoutDelete">
-                  <div class="delete">Delete Account</div>
-                </div>
-
-              </ion-content>
-            </ion-modal-view>
-          </script>
-        </a>
-      </div>
-    </ion-footer-bar>
+    <div class="tabs tabs-icon tabs-dark">
+      <a class="tab-item">
+        <i class="icon ion-ios-paper-outline"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.landing">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.user-profile">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
 </ion-view>
