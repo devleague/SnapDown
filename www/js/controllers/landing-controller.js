@@ -2,8 +2,9 @@ angular.module('starter')
 
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
   ionic.Platform.ready(function() {
-
+    console.log('outside init')
     $scope.init = function() {
+      console.log('inside init')
       var user_id = 2;
       ChallengeService.getMyChallenges(user_id)
         .success(function(res) {

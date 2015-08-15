@@ -23,7 +23,7 @@
       <li>hello</li>
         <li class="item item-checkbox" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">
           {{challenge.name}}
-          <!-- Need to change to coutdown timer instead of elapsed --> 
+          <!-- Need to change to coutdown timer instead of elapsed -->
           <span am-time-ago="challenge.time_elapsed"></span>
         </li>
       </ul>
