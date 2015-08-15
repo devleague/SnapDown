@@ -15,14 +15,17 @@ angular.module('starter')
 
           challengeContextArr.forEach(function (curr, index) {
               // console.log('current image', curr);
-            if(curr.Image === null && curr.Challenge.expire_at !== null){
-              $scope.openChallenges.push(curr)
+
+            if(curr.Challenge){
+              if(curr.Image === null && curr.Challenge.expire_at !== null){
+                $scope.openChallenges.push(curr)
+              }
             }
           })
 
 
 
-          console.log('my challenges', $scope.openChallenges.length);
+          console.log('my challenges', $scope.openChallenges);
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
