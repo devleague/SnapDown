@@ -1,17 +1,16 @@
 angular.module('starter')
 
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
-  ionic.Platform.ready(function() {
-    console.log('outside init')
 
-    $scope.init = function() {
-      console.log('inside init')
+
+  console.log('outside init');
+
+  ionic.Platform.ready(function() {
+
       var user_id = 2;
       ChallengeService.getMyChallenges(user_id)
         .success(function (res) {
-          console.log('all challenge', res);
           var filteredChallenges = ChallengeService.filterChallenges(res);
-          console.log('filteredChallenges', filteredChallenges);
           var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);
           console.log('activeChallenges', activeChallenges);
           $scope.activeChallenges = activeChallenges;
@@ -19,9 +18,6 @@ angular.module('starter')
         .error(function(err) {
           console.log('err w/ showing challeges', err);
         })
-    }
-
-    $scope.init();
 
     $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
