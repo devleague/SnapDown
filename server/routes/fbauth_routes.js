@@ -67,21 +67,18 @@ router.post('/info', function(req, res) {
 
 		console.log('facebookInfo', facebookInfo);
 
-		for(var i = 0; i < facebookInfo.Challengers.length; i++){
-			if(facebookInfo.Challengers[i].initiator_flag ){
+		for (var i = 0; i < facebookInfo.Challengers.length; i++) {
+			if (facebookInfo.Challengers[i].initiator_flag) {
 				stat_started++;
-			}else{
+			} else {
 				stat_received++;
 			}
-
-			if(facebookInfo.Challengers[i].Image){
+			if (facebookInfo.Challengers[i].Image) {
 				stat_accepted++;
-			}else{
+			} else {
 				stat_rejected++;
 			}
-
 		}
-
 		var userInfo = {
 			id: facebookInfo.id,
 			first_name: facebookInfo.first_name,
@@ -89,14 +86,10 @@ router.post('/info', function(req, res) {
 			email: facebookInfo.email,
 			picture: facebookInfo.facebook_image_url,
 			challenge_start_count: stat_started,
-			challenge_received_count : stat_received,
-			challenge_accepted_count : stat_accepted,
-			challenge_rejected_count : stat_rejected
+			challenge_received_count: stat_received,
+			challenge_accepted_count: stat_accepted,
+			challenge_rejected_count: stat_rejected
 		};
-
-		console.log('---------------------------------');
-		console.log(userInfo);
-		console.log('---------------------------------');
 		res.json(userInfo);
 	})
 });
