@@ -4,7 +4,7 @@ var DEFAULT_CHALLENGE_LENGTH = 500000;
 
 
 angular.module('starter')
-  .service('RegisterService', ['$http', '$localStorage', '$location', '$state', RegisterService])
+  .service('FacebookService', ['$http', '$localStorage', '$location', FacebookService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -16,8 +16,23 @@ angular.module('starter')
 
 
 //oauth registration
-function RegisterService($http,$localStorage, $location, DataSharingService) {
-  this.createUser = function() {
+function FacebookService($http,$localStorage, $location, DataSharingService,$state) {
+  
+  /**
+   * Login flow is as follows:
+   *
+   * If user entered correct credentials
+   *   Assigned credential token
+   *   Sends get request to facebook with fields
+   *     Fields define the data to be queried from FB
+   * Else
+   *   Redirect to app.oauth
+   *
+   * On promise, generates User Info object to send to server via POST
+   *   Sets activeUserId to $localStorage
+   * @return {[type]} [description]
+   */
+  this.login = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
       $http.get('https://graph.facebook.com/v2.2/me', {
         params: {
@@ -26,7 +41,6 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
           format: 'json'
         }
       }).then(function(result) {
-
         var user = {
           first_name: result.data.first_name,
           last_name: result.data.last_name,
@@ -45,7 +59,7 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
       });
     } else {
       alert('Not signed in');
-      $location.path('/#/landing');
+      $state.go('app.oauth');
     }
   }
 
@@ -57,6 +71,7 @@ function RegisterService($http,$localStorage, $location, DataSharingService) {
   }
 
   this.logout = function() {
+    alert('user logged out');
     return delete($localStorage.accessToken);
   }
 

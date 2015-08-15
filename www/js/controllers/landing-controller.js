@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
+.controller('landing-controller', function($scope, $state, FacebookService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
   ionic.Platform.ready(function() {
     $scope.init = function() {
       var user_id = 2;
@@ -125,7 +125,7 @@ angular.module('starter')
 
   //   //make sure the model on the form on the login page
   //   //matches the user_info
-  //   RegisterService.createUser($scope.user_info)
+  //   FacebookService.createUser($scope.user_info)
   //     .success(function (res){
   //       console.log('Register sucess', res);
   //     })

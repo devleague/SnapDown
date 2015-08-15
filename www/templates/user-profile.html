@@ -9,7 +9,7 @@
           <div class="username">
             <h1>{{fb_user.first_name}} {{fb_user.last_name}}</h1>
           </div>
-          <div class="logout">
+          <div class="logout" ng-click="logout()">
             <p>Logout</p>
           </div>
         </div>
@@ -55,10 +55,9 @@
         </div>
       </div>
 
-      <div class="deleteAccount">
+<!--       <div class="deleteAccount">
         <h3>Delete Account</h3>
-      </div>
-
+      </div> -->
   </ion-content>
   <ion-footer-bar>
     <div class="tabs tabs-icon tabs-dark">
