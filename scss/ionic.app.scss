@@ -555,7 +555,68 @@ body, html {
   }
 }
 
+.challenge-complete {
+  .quiltHeader {
+    width: 100%;
+    h3 {
+      color: $energized;
+      text-align: center;
+    }
+  }
 
+  .quilt {
+    height: 60vh;
+    width: 100%;
+    background-color: $lightBackground;
+    overflow: auto;
+    padding: 20px 2.6%;
+
+    .imageHolder {
+      height: 30vh;
+      width: 31vw;
+      background-color: red;
+      display: inline-block;
+    }
+
+  }
+
+  .challengers {
+    height: 18vh;
+    width: 100%;
+    background-color: #D4DBE3;
+    color: $lightGray;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    h3 {
+      color: $lightGray;
+      font-size: 1em;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+  .newChallenge {
+    height: 12vh;
+    width: 100%;
+    background-color: #D4DBE3;
+
+    .newChallengeButton {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+  }
+}
 
 
 
