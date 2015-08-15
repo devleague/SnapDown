@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('get-user-phone-info', function ($localStorage){
+.controller('get-user-phone-info', function ($scope, $localStorage){
 
   var user_id = 2;
   // var user_id =  $localStorage.activeUserId;

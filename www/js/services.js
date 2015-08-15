@@ -221,8 +221,8 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider
     }
-
-    return $http.put('http://localhost:3000/api/users/' + user_id + '',user )
+    console.log('update');
+    // return $http.put('http://localhost:3000/api/users/' + user_id + '',user )
   }
 
   // //not in any controller or funcitonality as now
