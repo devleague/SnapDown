@@ -4,7 +4,7 @@ angular.module('starter')
 	$scope.allChallengers = [];
 
 	$scope.getChallengeContext = function() {
-		var challengeId = DataSharingService.activeChallenge.id;
+		var challengeId = DataSharingService.startedChallenge.id;
 		ChallengeService.getChallengeContext(challengeId)
 			.success(function(res) {
 				$scope.challengeName = res.challenge.name;
@@ -19,7 +19,7 @@ angular.module('starter')
 	}
 
 	$scope.expireTime = function() {
-		if (Date.now() < DataSharingService.activeChallenge.expireAt) {
+		if (Date.now() < DataSharingService.startedChallenge.expireAt) {
 			var timer = document.querySelector('.timer');
 			console.log('timer',timer);
 		}else{

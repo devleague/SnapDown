@@ -1,12 +1,13 @@
 angular.module('starter')
 
-.controller('select-challenger-controller', function ($localStorage,$scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
+.controller('select-challenger-controller', function ($localStorage, $scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
 
   console.log('challenge name', DataSharingService.startedChallenge.name)
   $scope.challengeName = DataSharingService.startedChallenge.name;
   $scope.UserService = UserService;
   $scope.users = [];
-  // $localStorage.activeUserId = 2;
+  var user_id = 2;
+  // var user_id =  $localStorage.activeUserId;
 
 
 
@@ -14,7 +15,7 @@ angular.module('starter')
     .success(function (res){
       console.log('res',res);
       var filteredUser = res.filter(function(element,index,array){
-        if(element.id === DataSharingService.activeUser.id){
+        if(element.id === user_id){
           return false;
         }else{
           return true;
