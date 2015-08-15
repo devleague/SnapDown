@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('OauthCtrl', function($scope, $cordovaOauth, $localStorage, $location, RegisterService) {
+.controller('OauthCtrl', function($scope,$state,$cordovaOauth, $localStorage, $location, RegisterService) {
 
 
     $scope.login = function() {
@@ -8,22 +8,13 @@ angular.module('starter')
             alert('hello login');
             $localStorage.accessToken = result.access_token;
             RegisterService.createUser();
-            $location.path('/app/profile');
+            $state.go('app.landing');
         }, function(error) {
             alert('There was a problem signing in!  See the console for logs');
             alert(error);
             console.log(error);
         });
     };
-
-    $scope.test = function() {
-        RegisterService.createUser({
-            first_name: 'kawika',
-            last_name: 'kekahuna'
-        });
-    }
-
-
 
 });
 

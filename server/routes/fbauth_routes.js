@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
 				email: req.body.email,
 			}).then(function(user) {
 				console.log('---------------------------------');
-				console.log('user added')
+				console.log('USER ADDED');
 				console.log('---------------------------------');
 				res.json({
 					id: user.id
@@ -32,9 +32,8 @@ router.post('/', function(req, res) {
 			})
 		} else {
 			console.log('---------------------------------');
-			console.log('user denied.  already in system')
+			console.log('USER EXISTS');
 			console.log('---------------------------------');
-			console.log(result.id);
 			res.json({
 				id: result.id
 			});
@@ -42,6 +41,20 @@ router.post('/', function(req, res) {
 		}
 	})
 
+});
+
+router.get('/info', function(req, res) {
+	console.log('req', req.body);
+	users.findOne({
+		where: {
+			facebook_id: req.body.id
+		}
+	}).then(function(userInfo) {
+		console.log('---------------------------------');
+		console.log(userInfo);
+		console.log('---------------------------------');
+		res.send(userInfo);
+	})
 });
 
 
