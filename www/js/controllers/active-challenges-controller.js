@@ -16,8 +16,8 @@ angular.module('starter')
   });
 
   $scope.getActiveChallengeContext = function(challenge) {
-    DataSharingService.activeChallenge.id = challenge.id;
-      $state.go('app.challenge-in-progress')
+    // DataSharingService.activeChallenge.id = challenge.id;
+      $state.go('app.challenge-in-progress',{activeChallengeId:challenge.id,activeChallengeExpireTime:challenge.expire_at});
   }
 
 

@@ -1,10 +1,10 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, DataSharingService,$rootScope) {
+.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope) {
 	$scope.allChallengers = [];
+	var challengeId = $stateParams.activeChallengeId;
 
-	$scope.getChallengeContext = function() {
-		var challengeId = DataSharingService.startedChallenge.id;
+  $scope.getChallengeContext = function() {
 		ChallengeService.getChallengeContext(challengeId)
 			.success(function(res) {
 				$scope.challengeName = res.challenge.name;
