@@ -62,13 +62,14 @@ function LogOutService($http) {
 
 function PictureService($http) {
   //not added to any controller yet
-  this.sendImageToServer = function(imageURI) {
+  this.sendImageToServer = function (image, challenger_id){
 
     var imageData = {
-      dataURI: imageURI
+      base64Image : image,
+      challenger_id : challenger_id
     };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
-    return $http.post('http://10.0.1.30:3000/api/upload/', imageData);
+    return $http.post('http://10.0.1.6:3000/api/upload/', imageData);
 
 
   }
@@ -130,7 +131,6 @@ function ChallengeService($http) {
     })
       return activeChallenges;
   }
-
 
 
   this.getMyChallenges = function(user_id) {
@@ -201,9 +201,7 @@ function ChallengeService($http) {
     return $http.put('http://localhost:3000/api/challenges/' + challengeId, updateData);
   }
 
-  // this.getTimeRemaining = function (){
 
-  // }
 
   this.getChallengeContext = function(challenge_id) {
 
@@ -260,6 +258,12 @@ function ChallengerService($http) {
       user_id: userId
     };
     return $http.post('http://localhost:3000/api/challengers/', challenger);
+  }
+
+
+  this.getChallengerContext = function (user_id){
+    console.log('get me the challenge context');
+    return $http.get('http://localhost:3000/api/challengers/' + user_id + '/context');
   }
 
 

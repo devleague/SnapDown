@@ -7836,20 +7836,26 @@ body, html {
         text-align: center;
         font-size: 1.8em; }
   .landing .bottomContainer {
-    height: 45vh; }
-    .landing .bottomContainer .activeChallenge {
-      height: 100%;
-      width: 100%;
-      background-color: #3D4B5B;
-      margin: 0 auto;
-      border-left: 1px solid #818E9D;
-      border-right: 1px solid #818E9D; }
-      .landing .bottomContainer .activeChallenge li {
-        height: 70px;
-        border-bottom: 1px solid #818E9D; }
-        .landing .bottomContainer .activeChallenge li h3 {
-          color: #C7F733;
-          line-height: 70px; }
+    height: 45vh;
+    border-top: 1px solid #818E9D; }
+    .landing .bottomContainer .no_active_challenge {
+      color: #C7F733;
+      text-align: center;
+      padding: 5% 5%;
+      font-size: 2em; }
+    .landing .bottomContainer .active_challenges {
+      border-bottom: 1px solid #818E9D;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      font-size: 1.5em; }
+      .landing .bottomContainer .active_challenges .active_challenger_name {
+        margin-left: 5%;
+        color: #C7F733; }
+      .landing .bottomContainer .active_challenges .active_challenger_time {
+        color: #C7F733;
+        margin-left: 5%;
+        float: right;
+        margin-right: 5%; }
 
 .profile .headerContainer {
   height: 18vh;

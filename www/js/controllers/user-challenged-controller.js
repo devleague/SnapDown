@@ -7,6 +7,8 @@ angular.module('starter')
 		var challengeId = DataSharingService.activeChallenge.id;
 		ChallengeService.getChallengeContext(challengeId)
 			.success(function(res) {
+				$scope.challengeName = res.challenge.name;
+				console.log('challengeName', challengeName);
 				console.log('challenge context', res);
 				$scope.allChallengers = res.challenge.Challengers;
 				console.log('all challengers', $scope.allChallengers)

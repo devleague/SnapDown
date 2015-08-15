@@ -13,7 +13,6 @@
 
 
     <ul class="list">
-
       <li class="user_feed_challenges" data-ng-repeat="challenge in challenges" ng-click="renderAllChallenges(challenge)" ng-if="challenge.state==='inactive'">
         <span class="user_feed_challenger_name">{{challenge.name}}</span>
         <span class="user_feed_challenger_time" am-time-ago="challenge.time_elapsed"></span>

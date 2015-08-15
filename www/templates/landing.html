@@ -1,4 +1,4 @@
-<ion-view view-title="landing" class="landing" ng-init="init()">
+<ion-view view-title="landing" class="landing" >
   <ion-content on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" can-swipe-back="false">
     <div class="topContainer">
       <div class="logoImage"></div>
@@ -10,23 +10,20 @@
         <button ng-click="getPhoto()">start camera</button>
       </div>
     </div>
-    <div class="bottomContainer">
-      <ul class="activeChallenge" overflow-scroll="true">
-        <li>
-          <h3>Everything Food</h3>
-        </li>
-        <li>
-          <h3>People</h3>
-        </li>
-      </ul>
-      <ul class="list">
-      <li>hello</li>
-        <li class="item item-checkbox" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">
-          {{challenge.name}}
-          <!-- Need to change to coutdown timer instead of elapsed --> 
-          <span am-time-ago="challenge.time_elapsed"></span>
-        </li>
-      </ul>
+
+    <div class="bottomContainer" overflow-scroll="true">
+
+        <div ng-show="activeChallenges.length <= 0">
+          <h1 class="no_active_challenge">No active challenges</h1>
+        </div>
+
+      <div ng-show="activeChallenges.length > 0" class="active_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="renderActiveChallenges(challenge)">
+
+
+          <span class="active_challenger_name">{{challenge.name}}</span>
+          <!-- Need to change to coutdown timer instead of elapsed -->
+          <span class="active_challenger_time" am-time-ago="challenge.time_elapsed"></span>
+      </div>
     </div>
   </ion-content>
   <ion-footer-bar>
