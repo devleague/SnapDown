@@ -1,22 +1,30 @@
 angular.module('starter')
 
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
+
   ionic.Platform.ready(function() {
-    console.log('outside init')
-    $scope.init = function() {
-      console.log('inside init')
+
       var user_id = 2;
-      ChallengeService.getMyChallenges(user_id)
-        .success(function(res) {
-          var filteredChallenges = ChallengeService.filterChallenges(res);
-          var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);
-          $scope.activeChallenges = activeChallenges;
+
+      $scope.openChallenges = [];
+      ChallengerService.getChallengerContext(user_id)
+        .success(function (res) {
+          var challengeContextArr = res;
+          console.log(res);
+          console.log('before length', challengeContextArr.length);
+
+          challengeContextArr.forEach(function (curr, index) {
+              // console.log('current image', curr);
+            if(curr.Image === null){
+              $scope.openChallenges.push(curr)
+            }
+          })
+
+          console.log('my challenges', $scope.openChallenges.length);
         })
         .error(function(err) {
           console.log('err w/ showing challeges', err);
         })
-    }
-
 
     $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
@@ -29,7 +37,7 @@ angular.module('starter')
           // var userId = DataSharingService.activeUser.id;
           //add in userId to function
 
-          ChallengerService.createChallenger(2, res.id, true)
+          ChallengerService.createChallenger(user_id, res.id, true)
             .success(function(res) {
               console.log('challenger created', res);
               DataSharingService.activeUser.challengerId = res.id;
@@ -47,7 +55,7 @@ angular.module('starter')
 
     $scope.renderActiveChallenges = function(challenge) {
       DataSharingService.activeChallenge.id = challenge.id;
-      $state.go('app.challenge-in-progress')
+      $state.go('app.user-challenged')
     }
 
 
@@ -95,19 +103,7 @@ angular.module('starter')
       $state.go('app.user-feed');
     }
 
-    $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
 
-    $scope.openModal = function() {
-      $scope.modal.show();
-    };
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
 
 
   })

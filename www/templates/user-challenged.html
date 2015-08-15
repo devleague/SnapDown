@@ -1,11 +1,12 @@
 <ion-view view-title="user-challenged" class="userChallenged">
-  <ion-content overflow-scroll="true">
-    <div class="challengeBar">
-      <div class="xBox">x</div>
-      <div class="challengeName">USER CHALLENGED</div>
+  <ion-header-bar class="bar-dark">
+    <div class="challengeHeader">
+      <h3>{{challengeName}}</h3>
     </div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
 
-      <div class="challengedPlayers">
+    <div class="challengedPlayers">
       <ul ng-repeat="challenger in allChallengers">
         <li>
           <div class="acceptStatus"></div>

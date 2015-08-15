@@ -1,15 +1,16 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform, DataSharingService) {
+.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $ionicModal,$ionicPlatform,  DataSharingService) {
 
   $scope.allChallengers = [];
   var timeRemaining = DataSharingService.activeChallenge.expireAt - Date.now();
   console.log('time remaining:',timeRemaining);
 
-
+//this function fires when the time expires
   $timeout(function(){
     console.log('timeout triggered')
-    $scope.checkIfChallengeActive();
+    // $scope.checkIfChallengeActive();
+    $state.go('app.challenge-complete',{activeChallenge: "hello challenge"});
   },timeRemaining+50)
 
   $scope.checkIfChallengeActive = function(){
@@ -30,6 +31,7 @@ angular.module('starter')
   $scope.expireTime = function(){
     return DataSharingService.activeChallenge.expireAt;
   };
+  
   var challenge = DataSharingService.activeChallenge;
   var challengeId = DataSharingService.activeChallenge.id;
 
@@ -60,19 +62,7 @@ angular.module('starter')
 
 
 
-  $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
 
 
   $scope.onSwipeRight = function() {

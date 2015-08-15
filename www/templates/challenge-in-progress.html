@@ -2,10 +2,10 @@
 challenge-in-progress">
   <ion-header-bar class="bar-dark">
     <div class="challengeName">
-      <h1>CHALLENGE IN PROGRESS</h1>
+      <h3>CHALLENGE IN PROGRESS</h3>
     </div>
   </ion-header-bar>
-  <ion-content overflow-scroll="true" on-swipe-right="onSwipeRight()" can-swipe-back="false">
+  <ion-content on-swipe-right="onSwipeRight()" can-swipe-back="false">
     <div class="challengedPlayers">
       <ul ng-repeat="challenger in allChallengers">
         <li>
@@ -36,6 +36,9 @@ challenge-in-progress">
       </a>
       <a class="tab-item" ui-sref="app.landing">
         <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.open-invitations">
+        <i class="icon ion-android-wifi"></i>
       </a>
       <a class="tab-item" ui-sref="app.user-profile">
         <i class="icon ion-gear-a"></i>

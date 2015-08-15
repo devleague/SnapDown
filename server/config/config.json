@@ -1,8 +1,8 @@
   {
   "development": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "grannygram_test",
+    "password": null,
+    "database": "snapdown_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
