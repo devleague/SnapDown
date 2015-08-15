@@ -238,23 +238,25 @@ body, html {
 
   .bottomContainer {
     height: 45vh;
-    .activeChallenge {
-      height: 100%;
-      width: 100%;
-      background-color: #3D4B5B;
-      margin: 0 auto;
-      border-left:1px solid $lightGray;
-      border-right: 1px solid $lightGray;
+    border-top: 1px solid $lightGray;
 
 
-      li {
-        height: 70px;
-        border-bottom: 1px solid $lightGray;
+    .active_challenges {
+      border-bottom: 1px solid $lightGray;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      font-size: 1.5em;
 
-        h3 {
-          color: $energized;
-          line-height: 70px;
-        }
+      .active_challenger_name{
+        margin-left: 5%;
+        color: $energized;
+
+      }
+      .active_challenger_time{
+        color: $energized;
+        margin-left: 5%;
+        float: right;
+        margin-right: 5%;
       }
     }
   }
