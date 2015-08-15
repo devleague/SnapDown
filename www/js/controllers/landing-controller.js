@@ -16,7 +16,7 @@ angular.module('starter')
           challengeContextArr.forEach(function (curr, index) {
               // console.log('current image', curr);
 
-            if(curr.Challenge && curr.initiator_flag){
+            if(curr.Challenge && !curr.initiator_flag){
               if(curr.Image === null && curr.Challenge.expire_at !== null){
                 $scope.openChallenges.push(curr)
               }
