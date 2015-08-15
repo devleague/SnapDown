@@ -449,21 +449,18 @@ body, html {
 .challenge-in-progress {
   background-color: $lightBackground;
 
-  .challengeBar {
-    padding-top: 26px;
-    background-color: $dark;
-    height: 10vh;
-
-    .challengeName {
-      text-align: center;
+  .challengeName {
+    width: 100%;
+    h1 {
       color: $energized;
-      font-size: 2em;
+      font-size: 1.6em;
+      text-align: center;
     }
   }
 
+
   .challengedPlayers {
     height: 73vh;
-    // background-color: red;
     padding-bottom: 20px;
 
     li {

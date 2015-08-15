@@ -7984,14 +7984,12 @@ body, html {
 
 .challenge-in-progress {
   background-color: #3D4B5B; }
-  .challenge-in-progress .challengeBar {
-    padding-top: 26px;
-    background-color: #212A33;
-    height: 10vh; }
-    .challenge-in-progress .challengeBar .challengeName {
-      text-align: center;
+  .challenge-in-progress .challengeName {
+    width: 100%; }
+    .challenge-in-progress .challengeName h1 {
       color: #C7F733;
-      font-size: 2em; }
+      font-size: 1.6em;
+      text-align: center; }
   .challenge-in-progress .challengedPlayers {
     height: 73vh;
     padding-bottom: 20px; }
