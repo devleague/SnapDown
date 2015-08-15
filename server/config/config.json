@@ -1,8 +1,6 @@
   {
   "development": {
-
-    "username": "jasontsukamoto",
-
+    "username": "judah",
     "password": null,
     "database": "grannygram_test",
     "host": "127.0.0.1",

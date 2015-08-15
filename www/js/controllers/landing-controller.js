@@ -2,13 +2,18 @@ angular.module('starter')
 
 .controller('landing-controller', function($scope, $state, RegisterService, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
   ionic.Platform.ready(function() {
+    console.log('outside init')
 
     $scope.init = function() {
+      console.log('inside init')
       var user_id = 2;
       ChallengeService.getMyChallenges(user_id)
-        .success(function(res) {
+        .success(function (res) {
+          console.log('all challenge', res);
           var filteredChallenges = ChallengeService.filterChallenges(res);
+          console.log('filteredChallenges', filteredChallenges);
           var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);
+          console.log('activeChallenges', activeChallenges);
           $scope.activeChallenges = activeChallenges;
         })
         .error(function(err) {
@@ -16,6 +21,7 @@ angular.module('starter')
         })
     }
 
+    $scope.init();
 
     $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
@@ -59,30 +65,31 @@ angular.module('starter')
           destinationType: 0,
           encodingType: 0,
           saveToPhotoAlbum: false
-        })
-        .then(function(imageData) {
-          if (imageData) {
-            var imageSrc = "data:image/jpeg;base64," + imageData;
-            PictureService.sendImageToServer(imageSrc)
-              .success(function(res) {
-                DataSharingService.errorLog.sendImageToServer = 'no error';
-                $state.go('app.select-challenger');
-                console.log(res)
-              })
-              .error(function(error) {
-                DataSharingService.errorLog.sendImageToServer = 'error';
-                $state.go('app.select-challenger');
-              })
+        }
+      )
+      .then(function(imageData) {
+        if(imageData){
 
-          } else {
-            DataSharingService.errorLog.sendImageToServer = 'no image data';
-            $state.go('app.select-challenger');
-          }
-        });
-      // , function(err) {
-      //     DataSharingService.errorLog.sendImageToServer = err;
-      //     $state.go('app.select-challenger');
-      //   })
+          var challenger_id = 1; //TODO FIX MEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+           PictureService.sendImageToServer(imageData, challenger_id)
+
+            .success(function(res){
+              DataSharingService.errorLog.sendImageToServer = 'no error';
+              $state.go('app.select-challenger');
+            })
+
+            .error(function(error){
+              DataSharingService.errorLog.sendImageToServer = 'error';
+              $state.go('app.select-challenger');
+            })
+
+        } else {
+
+          DataSharingService.errorLog.sendImageToServer = 'no image data';
+          $state.go('app.select-challenger');
+        }
+      });
     };
 
     $scope.onSwipeLeft = function() {
