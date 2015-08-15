@@ -1,17 +1,15 @@
 angular.module('starter')
 
-.controller('get-user-phone-info', function ($scope, $localStorage, UserService, ProviderService){
-
-  var user_id = 2;
-  // var user_id =  $localStorage.activeUserId;
+.controller('get-user-phone-info', function ($scope, $state, $localStorage, UserService, ProviderService){
 
   $scope.updateUserPhoneInfo = function (user_info){
-
-    UserService.updateUserPhoneInfo(user_id, user_info)
+    UserService.updateUserPhoneInfo($localStorage.activeUserId, user_info)
       .success(function (res){
         console.log('updated user info', res);
+        $state.go('app.landing');
       })
       .error(function (error){
+        alert(error);
         console.log('error with updating a user phone info', error);
       })
   }
