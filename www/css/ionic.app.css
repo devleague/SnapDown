@@ -7805,6 +7805,31 @@ div.tabs.tabs-icon.tabs-dark a:active {
       float: right;
       margin-right: 5%; }
 
+.activeChallenge {
+  background-color: #3D4B5B;
+  width: 100%;
+  padding-top: 20vh; }
+  .activeChallenge .noChallenges {
+    height: 20vh;
+    width: 95%;
+    margin: 0 auto; }
+    .activeChallenge .noChallenges h1 {
+      text-align: center;
+      color: #C7F733; }
+    .activeChallenge .noChallenges .newChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      margin-top: 5vh; }
+      .activeChallenge .noChallenges .newChallenge h3 {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        line-height: 75px; }
+
 .landing {
   background-color: #212A33; }
   .landing .logoImage {

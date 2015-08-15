@@ -189,6 +189,41 @@ div.tabs.tabs-icon.tabs-dark {
   }
 }
 
+//active challenge page
+.activeChallenge {
+  background-color: $lightBackground;
+  width: 100%;
+  padding-top: 20vh;
+
+  .noChallenges {
+    height: 20vh;
+    width: 95%;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      color: $energized;
+    }
+
+    .newChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      margin-top: 5vh;
+
+      h3 {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        line-height: 75px;
+      }
+    }
+  }
+}
+
 // landing page styling
 .landing {
   background-color: $dark;
