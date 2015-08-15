@@ -13,6 +13,7 @@ angular.module('starter')
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
   .service('DataSharingService', DataSharingService)
+  .service('ProviderService', ProviderService)
 
 
 
@@ -279,7 +280,7 @@ function DataSharingService() {
   this.errorLog = {};
 };
 
-function ProviderService(){
+function ProviderService($http){
   this.getAllProviders = function (){
     return $http.get('http://localhost:3000/api/providers');
   }

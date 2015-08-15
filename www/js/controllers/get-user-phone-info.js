@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('get-user-phone-info', function ($scope, $localStorage, UserService){
+.controller('get-user-phone-info', function ($scope, $localStorage, UserService, ProviderService){
 
   var user_id = 2;
   // var user_id =  $localStorage.activeUserId;
@@ -16,12 +16,10 @@ angular.module('starter')
   }
 
 
-
-
-
   $scope.providers = [];
   ProviderService.getAllProviders()
   .success(function (res){
+    console.log('providers', res)
     $scope.providers = res;
   })
   .error(function (err){
