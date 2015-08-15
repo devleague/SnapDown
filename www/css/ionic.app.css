@@ -7923,8 +7923,38 @@ body, html {
       width: 100%; }
   .userChallenged .challengedPlayers {
     height: 50vh;
-    width: 100%;
-    background-color: green; }
+    padding-bottom: 20px; }
+    .userChallenged .challengedPlayers li {
+      height: 10vh;
+      border-bottom: 1px solid #818E9D; }
+      .userChallenged .challengedPlayers li .acceptStatus {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .userChallenged .challengedPlayers li .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left; }
+        .userChallenged .challengedPlayers li .challengerName h1 {
+          color: #818E9D;
+          font-size: 1.6em;
+          line-height: 10vh; }
+      .userChallenged .challengedPlayers li .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left; }
+        .userChallenged .challengedPlayers li .challengerImage .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+          margin: 0 auto;
+          margin-top: 1.5vh; }
   .userChallenged .bottomHalf {
     height: 40vh;
     width: 100%;
