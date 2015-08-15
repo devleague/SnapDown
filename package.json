@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "grannygram: An Ionic project",
   "dependencies": {
+<<<<<<< HEAD
+    "aws-sdk": "^2.1.45",
+=======
     "angular-moment": "^0.10.2",
+>>>>>>> develop
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
