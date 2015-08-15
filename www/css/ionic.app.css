@@ -7749,6 +7749,8 @@ body, html {
       color: #C7F733;
       margin: 0;
       display: inline-block; }
+  .select-Challenger #user_search {
+    font-size: 1em; }
   .select-Challenger .checkbox {
     width: 100%;
     border-bottom: 1px solid #818E9D; }
@@ -7756,7 +7758,12 @@ body, html {
     font-size: 2em;
     display: inline-block;
     margin-left: 3%;
-    color: #818E9D; }
+    margin-top: 2%;
+    color: #818E9D;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .select-Challenger input[type=checkbox] {
     float: right;
     margin-right: 5%;

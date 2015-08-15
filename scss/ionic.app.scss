@@ -110,11 +110,10 @@ body, html {
       margin: 0;
       display: inline-block;
     }
-
   }
 
-  .select_user_row{
-
+  #user_search{
+    font-size: 1em;
   }
 
   .checkbox{
@@ -126,7 +125,12 @@ body, html {
     font-size: 2em;
     display: inline-block;
     margin-left: 3%;
+    margin-top: 2%;
     color: $lightGray;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   input[type=checkbox]{
