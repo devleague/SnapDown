@@ -11,6 +11,7 @@ angular.module('starter')
       .success(function (res){
         console.log('challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
+        $scope.challengeName = res.challenge.name;
         console.log('all challengers',$scope.allChallengers)
       })
       .error(function (err){
