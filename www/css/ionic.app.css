@@ -7742,20 +7742,38 @@ body, html {
   .selectChallenger .selectedChallengers {
     overflow: auto;
     height: 70vh;
-    background-color: red;
+    background-color: #3D4B5B;
     color: #818E9D; }
-  .selectChallenger .row-bottom .start_challenge_button {
-    height: 75px;
-    width: 95%;
-    background-color: #0194A6;
-    margin: 0 auto;
-    border-radius: 3px;
-    box-shadow: 0 6px #017380;
-    text-align: center;
-    color: white;
-    line-height: 75px;
-    font-size: 2em;
-    margin-bottom: 16px; }
+    .selectChallenger .selectedChallengers .checkbox {
+      width: 100%;
+      border-bottom: 1px solid #818E9D; }
+      .selectChallenger .selectedChallengers .checkbox .challenger_name {
+        font-size: 2em;
+        display: inline-block;
+        margin-left: 3%;
+        margin-top: 2%;
+        color: #818E9D;
+        width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .selectChallenger .selectedChallengers .checkbox input[type=checkbox] {
+        float: right;
+        margin-right: 5%;
+        margin-top: 2%; }
+  .selectChallenger .startChallengeButton {
+    padding-top: 10px; }
+    .selectChallenger .startChallengeButton .start_challenge_button {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em; }
 
 .user_feed_heading {
   background-color: #212A33;

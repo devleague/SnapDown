@@ -13,18 +13,18 @@
       </label>
     </div>
 
-    <div ng-repeat="user in users | filter:searchUsers" class="select-challenger">
-      <div class="checkbox">
-        <h2 class="challenger_name">{{user.first_name}}</h2>
-        <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
-      </div>
-    <!--
-      <label class="checkbox">
-      </label>
-        <input class='box' type="checkbox" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool"> -->
+    <div class="selectedChallengers">
+      <ul ng-repeat="user in users | filter:searchUsers">
+        <li>
+          <div class="checkbox">
+            <h2 class="challenger_name">{{user.first_name}}</h2>
+             <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <div>
+    <div class="startChallengeButton">
       <div class="start_challenge_button" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
     </div>
 
