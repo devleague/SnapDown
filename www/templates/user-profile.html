@@ -13,7 +13,7 @@
             <div class="logout" ng-click="logout()">
               <p>Logout</p>
             </div>
-            <div class="logout" ng-click="update(email,password,phone,phone-carrier)">
+            <div class="logout" ng-click="update(update.email,update.password,update.phone,update.carrier)">
               <p>Update</p>
             </div>
           </div>
@@ -29,19 +29,19 @@
         </label> -->
         <label class="item item-input formColor">
           <span class="input-label" placeholder="password">Password</span>
-          <input type="password" value="password">
+          <input ng-model="update.password" type="password" value="password">
         </label>
         <label class="item item-input formColor">
           <span class="input-label" placeholder="email">Email</span>
-          <input type="email" value="{{fb_user.email}}">
+          <input ng-model="update.email" type="email" value="{{fb_user.email}}">
         </label>
         <label class="item item-input formColor">
           <span class="input-label" placeholder="phonenumber">Phone</span>
-          <input type="text" value="(123.456.7890)">
+          <input ng-model="update.phone" type="text" value="(123.456.7890)">
         </label>
         <label class="item item-input formColor">
           <span class="input-label" placeholder="Carrier">Phone-Carrier</span>
-          <input type="text" value="T-mobile">
+          <input ng-model="update.carrier" type="text" value="T-mobile">
         </label>
       </div>
     </div>
