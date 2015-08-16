@@ -55,13 +55,24 @@ router.get('/:id/challenges', function(req,res) {
     var challengeArray = [];
 
     challengers.forEach(function(challenger) {
-
       challengeArray.push(challenger.Challenge);
     });
 
     res.json(challengeArray);
   });
 });
+
+// router.get('/:id/images', function(req,res) {
+
+//   db.findAll({
+
+//     where { user_id: req.params.id },
+//     include :[
+//       { model: challenge},
+//       {model.images}]
+//     }).then(function(challengers)
+//   }
+// })
 
 //Gets the Challenger context
 router.get('/:id/context', function(req,res) {
