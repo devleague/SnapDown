@@ -18,7 +18,7 @@ angular.module('starter')
 
 //oauth registration
 function FacebookService($http,$localStorage, $location, DataSharingService) {
-  
+
   /**
    * Login flow is as follows:
    *
@@ -129,16 +129,16 @@ function ChallengeService($http) {
   this.filterChallenges = function(challengeArr) {
 
       var filteredChallenges = challengeArr.filter(function(element, index, array) {
-          if (!element.start_at || !element.expire_at) {
+          if (!element.Challenge.start_at || !element.Challenge.expire_at) {
             return false;
           } else {
-            var date = parseInt(element.expire_at.toString());
+            var date = parseInt(element.Challenge.expire_at.toString());
             var utc = new Date(date);
-            element.time_elapsed = utc.toUTCString();
+            element.Challenge.time_elapsed = utc.toUTCString();
             if (Date.now() < date) {
-              element.state = 'active';
+              element.Challenge.state = 'active';
             } else {
-              element.state = 'inactive';
+              element.Challenge.state = 'inactive';
             }
             return true;
           };
@@ -257,9 +257,15 @@ function ChallengerService($http) {
     return $http.get(SERVER_IP + '/api/challengers/' + user_id + '/context');
   }
 
+  this.getChallengesWithImages = function(user_id){
+    return $http.get(SERVER_IP + '/api/users/' + user_id + '/challenges/images');
+  };
+
 
 
 };
+
+
 
 function DataSharingService() {
 
