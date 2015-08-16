@@ -2,7 +2,6 @@ angular.module('starter')
 
 .controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
-  console.log('challenge service', ChallengeService)
   ionic.Platform.ready(function() {
     var user_id = 2;
     // var user_id =  $localStorage.activeUserId;
@@ -25,7 +24,6 @@ angular.module('starter')
             }
           }
         })
-        console.log('my challenges', $scope.openChallenges);
 
       })
       .error(function(err) {
@@ -108,8 +106,6 @@ angular.module('starter')
     $scope.onSwipeRight = function() {
       $state.go('app.user-feed');
     }
-
-
   })
 
 

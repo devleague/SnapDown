@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, ChallengerService, Camera, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
+.controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
 
 
   $scope.getChallengeContext = function (){
@@ -19,6 +19,15 @@ angular.module('starter')
         console.log('err w/challenge context', err);
       })
   }
+
+  $scope.showImage = function(challenger){
+    $state.go('app.individual-image', {
+      imageUrl : challenger.Image.s3_reference,
+      challengerName : challenger.User.first_name
+
+    });
+  }
+
 
   $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()

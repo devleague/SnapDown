@@ -1,7 +1,7 @@
-FB_SNAPDOWN_ID = '394498294076827';
+FB_SNAPDOWN_ID = process.env['FB_SNAPDOWN_ID'];
 // SERVER_IP = 'http://10.0.1.41:3000';
-// SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
-SERVER_IP = 'http://localhost:3000'
+SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
+// SERVER_IP = 'http://localhost:3000';
 
 // Ionic Starter App
 
@@ -14,7 +14,6 @@ angular.module('starter', ['ionic',
                           'starter.controllers',
                           'ngCordova',
                           'ngStorage',
-                          'ngMessages',
                           'timer',
                           'angularMoment'
                           ])
@@ -148,6 +147,26 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.individual-image', {
+    cache: false,
+    url: '/individual-image',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
+    params: {
+      imageUrl : null,
+      challengerName: null
+    },
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/individual-image.html',
+        controller: 'individual-image-controller'
+      }
+    }
+  })
+
+
+
   .state('app.user-challenged', {
     url: '/user-challenged',
     // resolve: {
@@ -205,7 +224,7 @@ angular.module('starter', ['ionic',
 
   // if none of the above states are matched, use this as the fallback
 
-  $urlRouterProvider.otherwise('/app/landing');
+  $urlRouterProvider.otherwise('/app/oauth');
 
 });
 

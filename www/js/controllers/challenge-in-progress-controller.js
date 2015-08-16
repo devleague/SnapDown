@@ -61,7 +61,12 @@ angular.module('starter')
   });
 
 
-
+  $scope.showImage = function(challenger){
+    $state.go('app.individual-image', {
+      imageUrl : challenger.Image.s3_reference,
+      challengerName : challenger.User.first_name
+    });
+  }
 
 
 
