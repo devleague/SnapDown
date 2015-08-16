@@ -20,6 +20,8 @@ angular.module('starter', ['ionic',
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    $localStorage.$state = $state;
+    alert('local storage state set');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -54,6 +56,7 @@ angular.module('starter', ['ionic',
 
   .state('app.get-user-phone-info', {
     url: '/get-user-phone-info',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/get-user-phone-info.html',
@@ -75,6 +78,7 @@ angular.module('starter', ['ionic',
 
   .state('app.oauth', {
     url: '/oauth',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/oauth.html',

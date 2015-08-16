@@ -1,12 +1,12 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
+.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
   ionic.Platform.ready(function() {
     var challengerId;
     //########## HARD CODE ID HERE #################//
     //########## DEVELOPMENT ONLY ##################//
-    /**/$localStorage.activeUserId = 2;/**/
+    $localStorage.activeUserId === true ? $localStorage.activeUserId : 2; 
     //##############################################//
     //##############################################//
     $scope.openChallenges = [];
@@ -15,7 +15,7 @@ angular.module('starter')
         var challengeContextArr = res;
         console.log('before length', challengeContextArr.length);
         challengeContextArr.forEach(function(curr, index) {
-          if (curr.Challenge && !curr.initiator_flag){
+          if (curr.Challenge && !curr.initiator_flag) {
 
             if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
               $scope.openChallenges.push(curr)
@@ -28,7 +28,7 @@ angular.module('starter')
         console.log('err w/ showing challeges', err);
       })
 
-    $scope.returnEndTime = function(challenge){
+    $scope.returnEndTime = function(challenge) {
       return parseInt(challenge.Challenge.expire_at);
     }
 
@@ -62,47 +62,47 @@ angular.module('starter')
     };
 
     $scope.renderChallenge = function(challenge) {
-      $state.go('app.user-challenged',{
-        activeChallengeId : challenge.id,
+      $state.go('app.user-challenged', {
+        activeChallengeId: challenge.id,
         activeChallengeExpireTime: challenge.expire_at
       })
     }
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-        quality: 75,
-        targetWidth: 1024,
-        targetHeight: 1024,
-        destinationType: 0,
-        encodingType: 0,
-        saveToPhotoAlbum: false
-      })
-      .then(function(imageData) {
+          quality: 75,
+          targetWidth: 1024,
+          targetHeight: 1024,
+          destinationType: 0,
+          encodingType: 0,
+          saveToPhotoAlbum: false
+        })
+        .then(function(imageData) {
 
-        if (imageData) {
-          PictureService.sendImageToServer(imageData, challengerId)
-            .success(function(res) {
-              DataSharingService.errorLog.sendImageToServer = 'no error';
-              $state.go('app.select-challenger');
-            })
-            .error(function(error) {
-              DataSharingService.errorLog.sendImageToServer = 'error';
-              $state.go('app.select-challenger');
-            })
+          if (imageData) {
+            PictureService.sendImageToServer(imageData, challengerId)
+              .success(function(res) {
+                DataSharingService.errorLog.sendImageToServer = 'no error';
+                $state.go('app.select-challenger');
+              })
+              .error(function(error) {
+                DataSharingService.errorLog.sendImageToServer = 'error';
+                $state.go('app.select-challenger');
+              })
 
-        } else {
-          DataSharingService.errorLog.sendImageToServer = 'no image data';
-          $state.go('app.select-challenger');
-        }
-      });
+          } else {
+            DataSharingService.errorLog.sendImageToServer = 'no image data';
+            $state.go('app.select-challenger');
+          }
+        });
     };
 
     $scope.onSwipeLeft = function() {
-      $state.go('app.user-feed');
+      $state.go('app.user-profile');
     }
 
     $scope.onSwipeRight = function() {
-      $state.go('app.user-profile');
+      $state.go('app.user-feed');
     }
   })
 

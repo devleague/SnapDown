@@ -4,7 +4,7 @@ var DEFAULT_CHALLENGE_LENGTH = 100000;
 
 
 angular.module('starter')
-  .service('FacebookService', ['$http', '$localStorage', '$location', FacebookService])
+  .service('FacebookService', ['$http', '$localStorage', '$location','$state', FacebookService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -17,8 +17,7 @@ angular.module('starter')
 
 
 //oauth registration
-function FacebookService($http, $localStorage, $location, DataSharingService) {
-
+function FacebookService($http, $localStorage, $location, DataSharingService, $state) {
   /**
    * Login flow is as follows:
    *
@@ -35,7 +34,6 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
    */
   this.login = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
-      alert('in login');
       $http.get('https://graph.facebook.com/v2.2/me', {
         params: {
           access_token: $localStorage.accessToken,
@@ -57,9 +55,13 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
           /**/$localStorage.activeUserId = res.data.id;/**/
           //###############################################
           //Displays true of false if user's first time logging in.
-    
           $localStorage.registered = res.data.registered;
-          alert($localStorage.registered);
+          if($localStorage.registered){
+            $localStorage.$state.go('app.get-user-phone-info');
+          }else{
+            $localStorage.$state.go('app.landing')
+          }
+
         });
 
       }, function(error) {
@@ -82,6 +84,7 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
   this.logout = function() {
     delete($localStorage.activeUserId);
     delete($localStorage.accessToken);
+    delete($localStorage.registered);
     return alert('user deleted');
   }
 
