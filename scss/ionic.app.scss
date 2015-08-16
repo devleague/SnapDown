@@ -29,20 +29,6 @@ $logo: url('../img/logo.svg');
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%;
@@ -657,23 +643,21 @@ div.tabs.tabs-icon.tabs-dark {
     width: 100%;
     background-color: $lightBackground;
     overflow: auto;
-    padding: 20px 2.4%;
-
+    padding: 20px 2vw;
 
     ul {
       li {
         height: 28vh;
-        width: 31vw;
+        width: 32vw;
         display: inline-block;
         float: left;
 
         .imageHolder {
           height: 85%;
-          width: 100%;
+          width: 95%;
           background-repeat: no-repeat;
           background-size: contain;
-          margin: 5px;
-          margin-bottom: -20px;
+          margin-bottom: -30px;
         }
 
         h1 {
