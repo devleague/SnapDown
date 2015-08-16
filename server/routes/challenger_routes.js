@@ -138,32 +138,32 @@ router.post('/', function(req,res) {
 //   });
 // });
 
-// router.delete('/:id', function(req,res) {
+router.delete('/:id', function(req,res) {
 
-//   var id = req.params.id;
+  var id = req.params.id;
 
-//   db.findOne({
+  db.findOne({
 
-//     where: {
+    where: {
 
-//       id: id
-//     }
+      id: id
+    }
 
-//   }).then(function(result) {
+  }).then(function(result) {
 
-//     if(!result) {
+    if(!result) {
 
-//       res.status(404);
-//       res.send("Could not locate the requested resource.");
+      res.status(404);
+      res.send("Could not locate the requested resource.");
 
-//     } else {
+    } else {
 
-//       result.destroy().then(function() {
+      result.destroy().then(function() {
 
-//         res.status(200).send();
-//       });
-//     }
-//   });
-// });
+        res.status(200).send();
+      });
+    }
+  });
+});
 
 module.exports = router;

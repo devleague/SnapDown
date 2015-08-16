@@ -2,9 +2,11 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, ChallengerService, $state, $ionicModal, $localStorage, $timeout, validationService) {
 
+  var filteredChallenges = [];
+
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res){
-      var filteredChallenges = ChallengeService.filterChallenges(res);
+      filteredChallenges = ChallengeService.filterChallenges(res);
 
       var userFeedChallenges = filteredChallenges.filter(function(challenge){
         if($scope.isActive(challenge)){
@@ -72,4 +74,10 @@ angular.module('starter')
       return false;
     }
   };
+
+  validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+
+
+
+
 });

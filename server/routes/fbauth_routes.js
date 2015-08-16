@@ -9,7 +9,6 @@ var users = require('../models').User;
 var user_stats = require('../models').UserStatistics;
 
 router.post('/', function(req, res) {
-  console.log(req.body);
 
 	users.findOne({
 		where: {
