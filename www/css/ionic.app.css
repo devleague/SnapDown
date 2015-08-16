@@ -7694,6 +7694,25 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* close commented backslash hack */
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%; }
@@ -7804,6 +7823,31 @@ div.tabs.tabs-icon.tabs-dark a:active {
       color: #C7F733;
       float: right;
       margin-right: 5%; }
+
+.activeChallenge {
+  background-color: #3D4B5B;
+  width: 100%;
+  padding-top: 20vh; }
+  .activeChallenge .noChallenges {
+    height: 20vh;
+    width: 95%;
+    margin: 0 auto; }
+    .activeChallenge .noChallenges h1 {
+      text-align: center;
+      color: #C7F733; }
+    .activeChallenge .noChallenges .newChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      margin-top: 5vh; }
+      .activeChallenge .noChallenges .newChallenge h3 {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        line-height: 75px; }
 
 .landing {
   background-color: #212A33; }
@@ -8066,16 +8110,27 @@ div.tabs.tabs-icon.tabs-dark a:active {
     color: #C7F733;
     text-align: center; }
 .challenge-complete .quilt {
-  height: 60vh;
+  height: 59vh;
   width: 100%;
   background-color: #3D4B5B;
   overflow: auto;
-  padding: 20px 2.6%; }
-  .challenge-complete .quilt .imageHolder {
-    height: 30vh;
+  padding: 20px 2.4%; }
+  .challenge-complete .quilt ul li {
+    height: 28vh;
     width: 31vw;
-    background-color: red;
-    display: inline-block; }
+    display: inline-block;
+    float: left; }
+    .challenge-complete .quilt ul li .imageHolder {
+      height: 85%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 5px;
+      margin-bottom: -20px; }
+    .challenge-complete .quilt ul li h1 {
+      text-align: center;
+      color: #C7F733;
+      font-size: 1.3em; }
 .challenge-complete .challengers {
   height: 18vh;
   width: 100%;
@@ -8086,8 +8141,16 @@ div.tabs.tabs-icon.tabs-dark a:active {
   .challenge-complete .challengers h3 {
     color: #818E9D;
     font-size: 1em; }
-  .challenge-complete .challengers p {
-    font-size: 1.5em; }
+  .challenge-complete .challengers .challengerName {
+    display: inline-block;
+    float: left;
+    margin-right: 5px; }
+    .challenge-complete .challengers .challengerName:last-child p:after {
+      content: ""; }
+    .challenge-complete .challengers .challengerName p {
+      font-size: 1.5em; }
+      .challenge-complete .challengers .challengerName p:after {
+        content: ","; }
 .challenge-complete .newChallenge {
   height: 12vh;
   width: 100%;
