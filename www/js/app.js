@@ -135,6 +135,7 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.user-feed', {
+    cache: false,
     url: '/user-feed',
     views: {
       'menuContent': {

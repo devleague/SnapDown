@@ -15,12 +15,14 @@
           <h1 class="no_active_challenge">No active challenges</h1>
         </div>
 
-      <div class="active_challenges" data-ng-repeat="openchallenge in openChallenges" ng-click="renderActiveChallenges(openchallenge)">
+      <div class="active_challenges" data-ng-repeat="openchallenge in openChallenges" ng-click="renderChallenge(openchallenge)">
 
 
           <span class="active_challenger_name">{{openchallenge.Challenge.name}}</span>
           <!-- Need to change to coutdown timer instead of elapsed -->
-          <span class="active_challenger_time">COUNTDOWNTIME</span>
+
+          <timer class="active_challenger_time" end-time="returnEndTime(openchallenge)">{{minutes}} minutes, {{seconds}} seconds </timer>
+
       </div>
     </div>
   </ion-content>
