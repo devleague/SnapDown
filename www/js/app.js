@@ -49,6 +49,7 @@ angular.module('starter', ['ionic',
   $stateProvider
     .state('app', {
       url: '/app',
+      cache: false,
       abstract: true,
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
@@ -89,6 +90,7 @@ angular.module('starter', ['ionic',
 
   .state('app.profile', {
     url: '/profile',
+    cache: false,
     // resolve: {
     //   factory: ensureAuthenticated
     // },
@@ -102,6 +104,7 @@ angular.module('starter', ['ionic',
 
   .state('app.select-challenger', {
     url: '/select-challenger',
+    cache: false,
     params: {
       imageURI: null
     },
@@ -118,6 +121,7 @@ angular.module('starter', ['ionic',
 
   .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
+    cache: false,
     // resolve: {
     //   factory: ensureAuthenticated
     // },
@@ -179,6 +183,7 @@ angular.module('starter', ['ionic',
     // resolve: {
     //   factory: ensureAuthenticated
     // },
+    cache: false,
     params: {
       activeChallengeId : null,
       activeChallengeExpireTime: null
@@ -206,6 +211,7 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.user-profile', {
+    cache: false,
     url: '/user-profile',
     views: {
       'menuContent': {
