@@ -7885,12 +7885,14 @@ div.tabs.tabs-icon.tabs-dark a:active {
 .landing {
   background-color: #212A33; }
   .landing .logoImage {
+    border: 1px solid white;
     height: 150px;
     width: 330px;
     margin: 0 auto;
     background-image: url('../img/logo.svg');
     background-repeat: no-repeat;
-    background-position: center center; }
+    background-position: center center;
+    background-size: 60%; }
   .landing .topContainer {
     height: 55vh; }
     .landing .topContainer .startChallenge {

@@ -362,12 +362,14 @@ div.tabs.tabs-icon.tabs-dark {
   background-color: $dark;
 
   .logoImage {
+    border: 1px solid white;
     height: 150px;
     width: 330px;
     margin: 0 auto;
     background-image: $logo;
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 60%;
   }
 
   .topContainer {
