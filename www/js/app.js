@@ -1,7 +1,7 @@
 FB_SNAPDOWN_ID = '394498294076827';
 // SERVER_IP = 'http://10.0.1.41:3000';
-// SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
-SERVER_IP = 'http://localhost:3000';
+SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
+// SERVER_IP = 'http://localhost:3000';
 
 // Ionic Starter App
 
@@ -146,6 +146,29 @@ angular.module('starter', ['ionic',
       }
     }
   })
+
+  .state('app.individual-image', {
+    cache: false,
+    url: '/individual-image',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
+    params: {
+      imageUrl : null,
+      challengerName: null,
+      previousView : null,
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
+    },
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/individual-image.html',
+        controller: 'individual-image-controller'
+      }
+    }
+  })
+
+
 
   .state('app.user-challenged', {
     url: '/user-challenged',

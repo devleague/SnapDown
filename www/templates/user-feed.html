@@ -14,6 +14,9 @@
     <div class="userFeed">
       <ul class="list" ng-repeat="challenge in challenges">
         <li class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
+          <div class="imageThumbnailWrapper">
+
+          </div>
           <span class="user_feed_challenger_name">{{challenge.name}}</span>
           <timer ng-show="isActive(challenge)" end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
             {{minutes}} minutes, {{seconds}} seconds
