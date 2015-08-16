@@ -14,14 +14,13 @@
       </ul>
     </div>
     <div class="challengers">
-<!-- needs moment version of complete date KAWIKA please -->
-      <h3>Completed DATE</h3>
+      <h3>{{ date | date: 'MM/dd/yyyy' }}</h3>
       <div class="challengerName" ng-repeat="challenger in allChallengers">
-        <p>{{challenger.User.first_name}},</p>
+        <p>{{challenger.User.first_name}}</p>
       </div>
     </div>
     <div class="newChallenge">
-      <div class="newChallengeButton">
+      <div class="newChallengeButton" ui-sref="app.landing">
         <p>New Challenge</p>
       </div>
     </div>

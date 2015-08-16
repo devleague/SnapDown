@@ -662,8 +662,17 @@ div.tabs.tabs-icon.tabs-dark {
       display: inline-block;
       float: left;
       margin-right: 5px;
+      &:last-child {
+        p:after {
+          content: "";
+        }
+      }
       p {
         font-size: 1.5em;
+        &:after {
+          content: ",";
+        }
+
       }
     }
   }

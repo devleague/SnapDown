@@ -8145,8 +8145,12 @@ div.tabs.tabs-icon.tabs-dark a:active {
     display: inline-block;
     float: left;
     margin-right: 5px; }
+    .challenge-complete .challengers .challengerName:last-child p:after {
+      content: ""; }
     .challenge-complete .challengers .challengerName p {
       font-size: 1.5em; }
+      .challenge-complete .challengers .challengerName p:after {
+        content: ","; }
 .challenge-complete .newChallenge {
   height: 12vh;
   width: 100%;
