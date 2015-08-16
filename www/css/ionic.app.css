@@ -7755,7 +7755,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
       width: 100%;
       border-bottom: 1px solid #818E9D; }
       .selectChallenger .selectedChallengers .checkbox .challenger_name {
-        font-size: 2em;
+        font-size: 1.5em;
         display: inline-block;
         margin-left: 3%;
         margin-top: 2%;
@@ -7861,14 +7861,14 @@ div.tabs.tabs-icon.tabs-dark a:active {
     height: 5vh;
     width: 60vw;
     padding-left: 15px;
-    font-size: 1.4em; }
-  .contact-info select {
+    font-size: 1.3em; }
+  .contact-info .phone_provider_select {
     height: 7vh;
     width: 60vw;
     margin-top: 4vh;
     margin-left: 20vw;
     margin-bottom: 4vh;
-    font-size: 3em; }
+    font-size: 1em; }
   .contact-info .submitButton {
     height: 5vh;
     width: 60vw;

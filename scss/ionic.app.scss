@@ -114,8 +114,9 @@ div.tabs.tabs-icon.tabs-dark {
       .checkbox {
         width: 100%;
         border-bottom: 1px solid $lightGray;
+
         .challenger_name {
-          font-size: 2em;
+          font-size: 1.5em;
           display: inline-block;
           margin-left: 3%;
           margin-top: 2%;
@@ -270,16 +271,16 @@ div.tabs.tabs-icon.tabs-dark {
     height: 5vh;
     width: 60vw;
     padding-left: 15px;
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
 
-  select {
+  .phone_provider_select {
     height: 7vh;
     width: 60vw;
     margin-top: 4vh;
     margin-left: 20vw;
     margin-bottom: 4vh;
-    font-size: 3em;
+    font-size: 1em;
   }
 
   .submitButton {
