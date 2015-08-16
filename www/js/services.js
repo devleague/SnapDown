@@ -13,6 +13,7 @@ angular.module('starter')
   .service('UserService', ['$http', UserService])
   .service('ChallengerService', ['$http', ChallengerService])
   .service('DataSharingService', DataSharingService)
+  .service('ProviderService', ProviderService)
 
 
 
@@ -214,12 +215,15 @@ function UserService($http) {
   }
 
   this.updateUserPhoneInfo = function (user_id, user_info){
+
+    console.log('user info', user_info);
+
     var user_phone_info = {
       phone: user_info.phone,
       service_provider: user_info.service_provider
     }
     console.log('update');
-    return $http.put('http://localhost:3000/api/users/' + user_id + '',user )
+    return $http.put('http://localhost:3000/api/users/' + user_id, user )
   }
 
   // //not in any controller or funcitonality as now
@@ -278,3 +282,9 @@ function DataSharingService() {
   this.activeUser = {};
   this.errorLog = {};
 };
+
+function ProviderService($http){
+  this.getAllProviders = function (){
+    return $http.get('http://localhost:3000/api/providers');
+  }
+}

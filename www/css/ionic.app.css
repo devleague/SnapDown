@@ -7701,6 +7701,10 @@ body, html {
 .tabs {
   left: 0; }
 
+div.tabs.tabs-icon.tabs-dark a:active {
+  color: #C7F733;
+  border-top: 4px solid #C7F733; }
+
 .login_container {
   background-color: #212A33;
   color: #818E9D;

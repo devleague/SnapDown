@@ -17,7 +17,6 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     device_token: DataTypes.STRING,
-    service_provider: DataTypes.STRING
 
   },{
 
@@ -29,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
 
         User.hasMany(models.Challenger);
         User.hasMany(models.UserFriend);
+        User.belongsTo(models.Provider);
       }
     }
   });
