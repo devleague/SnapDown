@@ -113,16 +113,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.enter-name', {
-    url: '/oauth',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/enter-name.html',
-        controller: 'enter-name-controller'
-      }
-    }
-  })
-
   .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
     // resolve: {
