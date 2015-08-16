@@ -16,6 +16,8 @@ angular.module('starter')
       })
   }
 
+  $scope.phoneNumbr = /^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;
+
   $scope.providers = [];
   ProviderService.getAllProviders()
   .success(function (res){

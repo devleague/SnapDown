@@ -223,60 +223,59 @@ div.tabs.tabs-icon.tabs-dark {
 }
 
 //active challenge page
-.activeChallenge {
-  background-color: $lightBackground;
-  width: 100%;
+// .activeChallenge {
+//   background-color: $lightBackground;
+//   width: 100%;
 
-  .noChallenges {
-    height: 20vh;
-    width: 95%;
-    margin: 20vh auto;
+//   .noChallenges {
+//     height: 20vh;
+//     width: 95%;
+//     margin: 20vh auto;
 
-    h1 {
-      text-align: center;
-      color: $energized;
-    }
+//     h1 {
+//       text-align: center;
+//       color: $energized;
+//     }
 
-    .newChallenge {
-      height: 75px;
-      width: 95%;
-      background-color: #0194A6;
-      margin: 0 auto;
-      border-radius: 3px;
-      box-shadow: 0 6px #017380;
-      margin-top: 5vh;
+//     .newChallenge {
+//       height: 75px;
+//       width: 95%;
+//       background-color: #0194A6;
+//       margin: 0 auto;
+//       border-radius: 3px;
+//       box-shadow: 0 6px #017380;
+//       margin-top: 5vh;
 
-      h3 {
-        text-align: center;
-        color: white;
-        font-size: 2em;
-        line-height: 75px;
-      }
-    }
-  }
+//       h3 {
+//         text-align: center;
+//         color: white;
+//         font-size: 2em;
+//         line-height: 75px;
+//       }
+//     }
+//   }
 
-  .list {
-    overflow: auto;
+//   .list {
+//     overflow: auto;
 
-    li {
-      height: 15vh;
-      width: 100%;
-      background-color: red;
-      border-bottom: 1px solid $lightGray;
+//     li {
+//       height: 15vh;
+//       width: 100%;
+//       background-color: red;
+//       border-bottom: 1px solid $lightGray;
 
-      .user_feed_challenge_name {
-        color: $energized;
-        text-align: center;
-        font-size: 1.5em;
-        font-weight: 700;
-      }
+//       .user_feed_challenge_name {
+//         color: $energized;
+//         text-align: center;
+//         font-size: 1.5em;
+//         font-weight: 700;
+//       }
 
-      .user_feed_challenge_time {
-        // color: red;
-      }
-    }
-  }
-}
+//       .user_feed_challenge_time {
+//       }
+//     }
+//   }
+// }
 
 // landing page styling
 .landing {

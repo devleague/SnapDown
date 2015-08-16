@@ -2,8 +2,8 @@ angular.module('starter')
 
 .controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout,DataSharingService) {
 
+  console.log('challenge service', ChallengeService)
   ionic.Platform.ready(function() {
-
     var user_id = 2;
     // var user_id =  $localStorage.activeUserId;
     var challengerId;
@@ -117,7 +117,7 @@ angular.module('starter')
 
   //   //make sure the model on the form on the login page
   //   //matches the user_info
-  //   RegisterService.createUser($scope.user_info)
+  //   FacebookService.createUser($scope.user_info)
   //     .success(function (res){
   //       console.log('Register sucess', res);
   //     })

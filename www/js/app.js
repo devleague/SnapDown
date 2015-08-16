@@ -1,3 +1,6 @@
+FB_SNAPDOWN_ID = '394498294076827';
+// SERVER_IP = 'http://10.0.1.41:3000';
+SERVER_IP = 'http://localhost:3000';
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -30,15 +33,23 @@ angular.module('starter', ['ionic',
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  /**
+   *
+   * Uncomment to block routes:
+   *
+   * resolve: {
+   *   factory: ensureAuthenticated
+   * },
+   */
 
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
+  $stateProvider
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
 
   .state('app.get-user-phone-info', {
     url: '/get-user-phone-info',
@@ -73,6 +84,9 @@ angular.module('starter', ['ionic',
 
   .state('app.profile', {
     url: '/profile',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     views: {
       'menuContent': {
         templateUrl: 'templates/profile.html',
@@ -83,6 +97,12 @@ angular.module('starter', ['ionic',
 
   .state('app.select-challenger', {
     url: '/select-challenger',
+    params: {
+      imageURI: null
+    },
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     views: {
       'menuContent': {
         templateUrl: 'templates/select-challenger.html',
@@ -93,6 +113,9 @@ angular.module('starter', ['ionic',
 
   .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     params: {
       activeChallengeId: null,
       activeChallengeExpireTime: null
@@ -108,6 +131,9 @@ angular.module('starter', ['ionic',
   .state('app.challenge-complete', {
     cache: false,
     url: '/challenge-complete',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     params: {
       activeChallengeId : null,
       activeChallengeExpireTime: null
@@ -122,6 +148,9 @@ angular.module('starter', ['ionic',
 
   .state('app.user-challenged', {
     url: '/user-challenged',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     params: {
       activeChallengeId : null,
       activeChallengeExpireTime: null
@@ -137,6 +166,9 @@ angular.module('starter', ['ionic',
   .state('app.user-feed', {
     cache: false,
     url: '/user-feed',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
     views: {
       'menuContent': {
         templateUrl: 'templates/user-feed.html',
@@ -155,16 +187,16 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.active-challenges', {
-    url: '/active-challenges',
-    cache: false,
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/active-challenges.html',
-        controller: 'active-challenges-controller'
-      }
-    }
-  })
+  // .state('app.active-challenges', {
+  //   url: '/active-challenges',
+  //   cache: false,
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/active-challenges.html',
+  //       controller: 'active-challenges-controller'
+  //     }
+  //   }
+  // })
 
 
 
@@ -172,4 +204,20 @@ angular.module('starter', ['ionic',
   // if none of the above states are matched, use this as the fallback
 
   $urlRouterProvider.otherwise('/app/landing');
+
 });
+
+// var ensureAuthenticated = function($q, $rootScope, $location, $localStorage, $http) {
+//   if ($localStorage.accessToken) {
+//     return true;
+//   } else {
+//     var deferred = $q.defer();
+//     deferred.reject();
+//     /**
+//      * $rootScope needs to call $apply in order to render page.
+//      */
+//     $location.path('/app/oauth');
+//     $rootScope.$apply();
+//     return deferred.promise;
+//   }
+// }
