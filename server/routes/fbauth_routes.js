@@ -25,13 +25,13 @@ router.post('/', function(req, res) {
 			}).then(function(user) {
 				res.json({
 					id: user.id,
-					registered:true
+					registered: true
 				});
 			})
 		} else {
 			res.json({
 				id: result.id,
-				registered:false
+				registered: false
 			});
 			// res.json(id);
 		}
@@ -56,37 +56,41 @@ router.post('/info', function(req, res) {
 		}]
 
 	}).then(function(facebookInfo) {
-		var stat_started = 0;
-		var stat_received = 0;
-		var stat_accepted = 0;
-		var stat_rejected = 0;
+		if (facebookInfo) {
+			var stat_started = 0;
+			var stat_received = 0;
+			var stat_accepted = 0;
+			var stat_rejected = 0;
 
-		// console.log('facebookInfo', facebookInfo);
+			// console.log('facebookInfo', facebookInfo);
 
-		for (var i = 0; i < facebookInfo.Challengers.length; i++) {
-			if (facebookInfo.Challengers[i].initiator_flag) {
-				stat_started++;
-			} else {
-				stat_received++;
+			for (var i = 0; i < facebookInfo.Challengers.length; i++) {
+				if (facebookInfo.Challengers[i].initiator_flag) {
+					stat_started++;
+				} else {
+					stat_received++;
+				}
+				if (facebookInfo.Challengers[i].Image) {
+					stat_accepted++;
+				} else {
+					stat_rejected++;
+				}
 			}
-			if (facebookInfo.Challengers[i].Image) {
-				stat_accepted++;
-			} else {
-				stat_rejected++;
-			}
+			var userInfo = {
+				id: facebookInfo.id,
+				first_name: facebookInfo.first_name,
+				last_name: facebookInfo.last_name,
+				email: facebookInfo.email,
+				picture: facebookInfo.facebook_image_url,
+				challenge_start_count: stat_started,
+				challenge_received_count: stat_received,
+				challenge_accepted_count: stat_accepted,
+				challenge_rejected_count: stat_rejected
+			};
+			res.json(userInfo);
+		} else {
+			res.status(404).send('Invalid post');
 		}
-		var userInfo = {
-			id: facebookInfo.id,
-			first_name: facebookInfo.first_name,
-			last_name: facebookInfo.last_name,
-			email: facebookInfo.email,
-			picture: facebookInfo.facebook_image_url,
-			challenge_start_count: stat_started,
-			challenge_received_count: stat_received,
-			challenge_accepted_count: stat_accepted,
-			challenge_rejected_count: stat_rejected
-		};
-		res.json(userInfo);
 	})
 });
 

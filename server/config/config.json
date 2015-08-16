@@ -1,7 +1,6 @@
   {
   "development": {
-    "username": "Coproductions",
-
+    "username": "postgres",
     "password": null,
     "database": "snapdown_db",
     "host": "127.0.0.1",

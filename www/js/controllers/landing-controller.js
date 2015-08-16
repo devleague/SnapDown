@@ -4,7 +4,11 @@ angular.module('starter')
 
   ionic.Platform.ready(function() {
     var challengerId;
-
+    //########## HARD CODE ID HERE #################//
+    //########## DEVELOPMENT ONLY ##################//
+    /**/$localStorage.activeUserId = 2;/**/
+    //##############################################//
+    //##############################################//
     $scope.openChallenges = [];
     ChallengerService.getChallengerContext($localStorage.activeUserId)
       .success(function(res) {
