@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout,DataSharingService) {
+.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
   ionic.Platform.ready(function() {
     var user_id = 2;
@@ -124,33 +124,6 @@ angular.module('starter')
 
 
   })
-
-
-  // $scope.createUser = function (){
-
-  //   //make sure the model on the form on the login page
-  //   //matches the user_info
-  //   FacebookService.createUser($scope.user_info)
-  //     .success(function (res){
-  //       console.log('Register sucess', res);
-  //     })
-  //     .error(function (err){
-  //       console.log('Register err', err);
-  //     })
-  // }
-
-  // $scope.loginUser = function (){
-
-
-  //   LoginService.loginUser($scope.user_info)
-  //     .success(function (res){
-  //       console.log('Login sucess', res);
-  //     })
-  //     .error(function (err){
-  //       console.log('Login err', err);
-  //     })
-  // }
-
 
 
 });
