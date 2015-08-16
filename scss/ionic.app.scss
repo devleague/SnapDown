@@ -29,20 +29,6 @@ $logo: url('../img/logo.svg');
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%;
@@ -181,7 +167,7 @@ div.tabs.tabs-icon.tabs-dark {
 .user_feed_container{
   background-color: $lightBackground;
   .userFeed {
-    .user_feed_challenges{
+    .activeChallenge{
       border-bottom: 1px solid $lightGray;
       margin-bottom: 3%;
       padding-top: 2%;
@@ -189,12 +175,32 @@ div.tabs.tabs-icon.tabs-dark {
       font-size: 1.5em;
 
       .user_feed_challenger_name{
-        color: $lightGray;
+        color: $energized;
         margin-left: 5%;
+        font-weight: 700;
       }
 
       .user_feed_challenger_time{
         color: $energized;
+        float: right;
+        margin-right: 5%;
+        font-weight: 700;
+      }
+    }
+    .inactiveChallenge{
+      border-bottom: 1px solid $lightGray;
+      margin-bottom: 3%;
+      padding-top: 2%;
+      padding-bottom: 4%;
+      font-size: 1.5em;
+
+      .user_feed_challenger_name{
+        color: #0093A1;
+        margin-left: 5%;
+      }
+
+      .user_feed_challenger_time{
+        color: #0093A1;
         float: right;
         margin-right: 5%;
       }
@@ -203,39 +209,59 @@ div.tabs.tabs-icon.tabs-dark {
 }
 
 //active challenge page
-.activeChallenge {
-  background-color: $lightBackground;
-  width: 100%;
-  padding-top: 20vh;
+// .activeChallenge {
+//   background-color: $lightBackground;
+//   width: 100%;
 
-  .noChallenges {
-    height: 20vh;
-    width: 95%;
-    margin: 0 auto;
+//   .noChallenges {
+//     height: 20vh;
+//     width: 95%;
+//     margin: 20vh auto;
 
-    h1 {
-      text-align: center;
-      color: $energized;
-    }
+//     h1 {
+//       text-align: center;
+//       color: $energized;
+//     }
 
-    .newChallenge {
-      height: 75px;
-      width: 95%;
-      background-color: #0194A6;
-      margin: 0 auto;
-      border-radius: 3px;
-      box-shadow: 0 6px #017380;
-      margin-top: 5vh;
+//     .newChallenge {
+//       height: 75px;
+//       width: 95%;
+//       background-color: #0194A6;
+//       margin: 0 auto;
+//       border-radius: 3px;
+//       box-shadow: 0 6px #017380;
+//       margin-top: 5vh;
 
-      h3 {
-        text-align: center;
-        color: white;
-        font-size: 2em;
-        line-height: 75px;
-      }
-    }
-  }
-}
+//       h3 {
+//         text-align: center;
+//         color: white;
+//         font-size: 2em;
+//         line-height: 75px;
+//       }
+//     }
+//   }
+
+//   .list {
+//     overflow: auto;
+
+//     li {
+//       height: 15vh;
+//       width: 100%;
+//       background-color: red;
+//       border-bottom: 1px solid $lightGray;
+
+//       .user_feed_challenge_name {
+//         color: $energized;
+//         text-align: center;
+//         font-size: 1.5em;
+//         font-weight: 700;
+//       }
+
+//       .user_feed_challenge_time {
+//       }
+//     }
+//   }
+// }
 
 // landing page styling
 .landing {
@@ -383,7 +409,7 @@ div.tabs.tabs-icon.tabs-dark {
 
   .statisticsContainer {
     background-color: $lightBackground;
-    height: 40vh;
+    height: 50vh;
 
     p {
       text-align: center;
@@ -399,17 +425,17 @@ div.tabs.tabs-icon.tabs-dark {
     }
   }
 
-  .deleteAccount {
-    background-color: $lightBackground;
-    height: 10vh;
-    border-top: 2px solid $lightGray;
-    padding-top: 10px;
+  // .deleteAccount {
+  //   background-color: $lightBackground;
+  //   height: 10vh;
+  //   border-top: 2px solid $lightGray;
+  //   padding-top: 10px;
 
-    h3 {
-      color: $lightGray;
-      font-size: 1.2em;
-    }
-  }
+  //   h3 {
+  //     color: $lightGray;
+  //     font-size: 1.2em;
+  //   }
+  // }
 }
 
 //user challenged styling
@@ -617,23 +643,21 @@ div.tabs.tabs-icon.tabs-dark {
     width: 100%;
     background-color: $lightBackground;
     overflow: auto;
-    padding: 20px 2.4%;
-
+    padding: 20px 2vw;
 
     ul {
       li {
         height: 28vh;
-        width: 31vw;
+        width: 32vw;
         display: inline-block;
         float: left;
 
         .imageHolder {
           height: 85%;
-          width: 100%;
+          width: 95%;
           background-repeat: no-repeat;
           background-size: contain;
-          margin: 5px;
-          margin-bottom: -20px;
+          margin-bottom: -30px;
         }
 
         h1 {

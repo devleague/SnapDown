@@ -7694,25 +7694,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0; }
-
-.clearfix {
-  display: inline-block; }
-
-/* start commented backslash hack \*/
-* html .clearfix {
-  height: 1%; }
-
-.clearfix {
-  display: block; }
-
-/* close commented backslash hack */
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%; }
@@ -7810,44 +7791,34 @@ div.tabs.tabs-icon.tabs-dark a:active {
 
 .user_feed_container {
   background-color: #3D4B5B; }
-  .user_feed_container .userFeed .user_feed_challenges {
+  .user_feed_container .userFeed .activeChallenge {
     border-bottom: 1px solid #818E9D;
     margin-bottom: 3%;
     padding-top: 2%;
     padding-bottom: 4%;
     font-size: 1.5em; }
-    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_name {
-      color: #818E9D;
-      margin-left: 5%; }
-    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_time {
+    .user_feed_container .userFeed .activeChallenge .user_feed_challenger_name {
+      color: #C7F733;
+      margin-left: 5%;
+      font-weight: 700; }
+    .user_feed_container .userFeed .activeChallenge .user_feed_challenger_time {
       color: #C7F733;
       float: right;
+      margin-right: 5%;
+      font-weight: 700; }
+  .user_feed_container .userFeed .inactiveChallenge {
+    border-bottom: 1px solid #818E9D;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    font-size: 1.5em; }
+    .user_feed_container .userFeed .inactiveChallenge .user_feed_challenger_name {
+      color: #0093A1;
+      margin-left: 5%; }
+    .user_feed_container .userFeed .inactiveChallenge .user_feed_challenger_time {
+      color: #0093A1;
+      float: right;
       margin-right: 5%; }
-
-.activeChallenge {
-  background-color: #3D4B5B;
-  width: 100%;
-  padding-top: 20vh; }
-  .activeChallenge .noChallenges {
-    height: 20vh;
-    width: 95%;
-    margin: 0 auto; }
-    .activeChallenge .noChallenges h1 {
-      text-align: center;
-      color: #C7F733; }
-    .activeChallenge .noChallenges .newChallenge {
-      height: 75px;
-      width: 95%;
-      background-color: #0194A6;
-      margin: 0 auto;
-      border-radius: 3px;
-      box-shadow: 0 6px #017380;
-      margin-top: 5vh; }
-      .activeChallenge .noChallenges .newChallenge h3 {
-        text-align: center;
-        color: white;
-        font-size: 2em;
-        line-height: 75px; }
 
 .landing {
   background-color: #212A33; }
@@ -7948,7 +7919,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
     font-weight: bold; }
 .profile .statisticsContainer {
   background-color: #3D4B5B;
-  height: 40vh; }
+  height: 50vh; }
   .profile .statisticsContainer p {
     text-align: center;
     color: #818E9D;
@@ -7957,14 +7928,6 @@ div.tabs.tabs-icon.tabs-dark a:active {
     text-align: center;
     color: #C7F733;
     font-size: 1.5em; }
-.profile .deleteAccount {
-  background-color: #3D4B5B;
-  height: 10vh;
-  border-top: 2px solid #818E9D;
-  padding-top: 10px; }
-  .profile .deleteAccount h3 {
-    color: #818E9D;
-    font-size: 1.2em; }
 
 .userChallenged {
   background-color: #3D4B5B;
@@ -8114,19 +8077,18 @@ div.tabs.tabs-icon.tabs-dark a:active {
   width: 100%;
   background-color: #3D4B5B;
   overflow: auto;
-  padding: 20px 2.4%; }
+  padding: 20px 2vw; }
   .challenge-complete .quilt ul li {
     height: 28vh;
-    width: 31vw;
+    width: 32vw;
     display: inline-block;
     float: left; }
     .challenge-complete .quilt ul li .imageHolder {
       height: 85%;
-      width: 100%;
+      width: 95%;
       background-repeat: no-repeat;
       background-size: contain;
-      margin: 5px;
-      margin-bottom: -20px; }
+      margin-bottom: -30px; }
     .challenge-complete .quilt ul li h1 {
       text-align: center;
       color: #C7F733;

@@ -1,6 +1,8 @@
 FB_SNAPDOWN_ID = '394498294076827';
 // SERVER_IP = 'http://10.0.1.41:3000';
-SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
+// SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
+SERVER_IP = 'http://localhost:3000'
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -187,16 +189,16 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.active-challenges', {
-    url: '/active-challenges',
-    cache: false,
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/active-challenges.html',
-        controller: 'active-challenges-controller'
-      }
-    }
-  })
+  // .state('app.active-challenges', {
+  //   url: '/active-challenges',
+  //   cache: false,
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/active-challenges.html',
+  //       controller: 'active-challenges-controller'
+  //     }
+  //   }
+  // })
 
 
 

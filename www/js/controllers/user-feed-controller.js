@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage, DataSharingService) {
+.controller('user-feed-controller', function($scope, ChallengeService, $state, $ionicModal, $localStorage, $timeout) {
 
   $scope.init = function() {
     //user id is hard coded!!!!! need to grab from the $localStorage
@@ -13,6 +13,7 @@ angular.module('starter')
       .success(function(res) {
         var filteredChallenges = ChallengeService.filterChallenges(res);
         $scope.challenges = filteredChallenges;
+        console.log($scope.challenges)
       })
       .error(function(err) {
         console.log('err w/ showing challeges', err);
@@ -36,14 +37,28 @@ angular.module('starter')
 
   $scope.onSwipeLeft = function() {
     $state.go('app.landing');
-  }
+  };
+
+  $scope.getExpireTime = function(challenge){
+    return parseInt(challenge.expire_at);
+  };
+
+  $scope.isActiveClass = function(challenge){
+    if(challenge.expire_at > Date.now()){
+      return "activeChallenge";
+    }
+    else{
+      return "inactiveChallenge";
+    }
+
+  };
 
   $scope.isActive = function(challenge){
     if(challenge.expire_at > Date.now()){
-      return 'activeChallenge';
+      return true;
     }
     else{
-      return 'inactiveChallenge';
+      return false;
     }
   };
 });

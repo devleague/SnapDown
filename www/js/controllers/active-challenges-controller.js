@@ -1,5 +1,3 @@
-angular.module('starter')
-
 .controller('active-challenges-controller', function($scope, PictureService, $ionicModal, $ionicPlatform, DataSharingService, ChallengeService, ChallengerService,$state, $timeout, Camera) {
 
   $ionicPlatform.ready(function() {
