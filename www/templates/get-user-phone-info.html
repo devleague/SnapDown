@@ -6,7 +6,7 @@
   <ion-content>
     <form name="get-user-phone-info-form"></form>
 
-      <input required type="text" placeholder="(xxx)xxx-xxxx" name="phone" ng-model="user_info.phone">
+      <input required type="text" placeholder="(xxx)xxx-xxxx" ng-pattern="phoneNumbr" name="phone" ng-model="user_info.phone">
 
       <div ng-messages="get-user-phone-info-form.link.$error" ng-show="get-user-phone-info-form.link.$touched">
         <p ng-message="pattern">Bad phone number</p>
