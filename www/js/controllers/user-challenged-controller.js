@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope, Camera, $timeout) {
+.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope, Camera, $timeout, UserStatsService) {
 	$scope.allChallengers = [];
 	var challengeId = $stateParams.activeChallengeId;
   var expireTime = $stateParams.activeChallengeExpireTime;
