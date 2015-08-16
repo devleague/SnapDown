@@ -5,12 +5,17 @@
     </div>
   </ion-header-bar>
 
-  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
+  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="activeChallenge">
     <div class="bottomContainer" overflow-scroll="true">
-        <div ng-show="activeChallenges.length <= 0">
-          <h1>No active challenges. Start one today! YIPIEE</h1>
+      <div ng-show="activeChallenges.length <= 0">
+        <div class="noChallenges">
+          <h1>No active challenges...</h1>
+          <div class="newChallenge" ui-sref="app.landing">
+            <h3>Click here to start one!</h3>
+          </div>
         </div>
       </div>
+    </div>
     <ul class="list">
         <li ng-show="activeChallenges.length > 0" class="user_feed_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="getActiveChallengeContext(challenge)">
           <span class="user_feed_challenger_name">{{challenge.name}}</span>

@@ -9,6 +9,7 @@ angular.module('starter', ['ionic',
                           'starter.controllers',
                           'ngCordova',
                           'ngStorage',
+                          'ngMessages',
                           'timer',
                           'angularMoment'
                           ])
