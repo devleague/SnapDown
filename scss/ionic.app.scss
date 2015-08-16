@@ -181,7 +181,7 @@ div.tabs.tabs-icon.tabs-dark {
 .user_feed_container{
   background-color: $lightBackground;
   .userFeed {
-    .user_feed_challenges{
+    .activeChallenge{
       border-bottom: 1px solid $lightGray;
       margin-bottom: 3%;
       padding-top: 2%;
@@ -189,12 +189,32 @@ div.tabs.tabs-icon.tabs-dark {
       font-size: 1.5em;
 
       .user_feed_challenger_name{
-        color: $lightGray;
+        color: $energized;
         margin-left: 5%;
+        font-weight: 700;
       }
 
       .user_feed_challenger_time{
         color: $energized;
+        float: right;
+        margin-right: 5%;
+        font-weight: 700;
+      }
+    }
+    .inactiveChallenge{
+      border-bottom: 1px solid $lightGray;
+      margin-bottom: 3%;
+      padding-top: 2%;
+      padding-bottom: 4%;
+      font-size: 1.5em;
+
+      .user_feed_challenger_name{
+        color: #0093A1;
+        margin-left: 5%;
+      }
+
+      .user_feed_challenger_time{
+        color: #0093A1;
         float: right;
         margin-right: 5%;
       }
@@ -206,12 +226,11 @@ div.tabs.tabs-icon.tabs-dark {
 .activeChallenge {
   background-color: $lightBackground;
   width: 100%;
-  padding-top: 20vh;
 
   .noChallenges {
     height: 20vh;
     width: 95%;
-    margin: 0 auto;
+    margin: 20vh auto;
 
     h1 {
       text-align: center;
@@ -232,6 +251,28 @@ div.tabs.tabs-icon.tabs-dark {
         color: white;
         font-size: 2em;
         line-height: 75px;
+      }
+    }
+  }
+
+  .list {
+    overflow: auto;
+
+    li {
+      height: 15vh;
+      width: 100%;
+      background-color: red;
+      border-bottom: 1px solid $lightGray;
+
+      .user_feed_challenge_name {
+        color: $energized;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+
+      .user_feed_challenge_time {
+        // color: red;
       }
     }
   }

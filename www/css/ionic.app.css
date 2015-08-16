@@ -7810,28 +7810,42 @@ div.tabs.tabs-icon.tabs-dark a:active {
 
 .user_feed_container {
   background-color: #3D4B5B; }
-  .user_feed_container .userFeed .user_feed_challenges {
+  .user_feed_container .userFeed .activeChallenge {
     border-bottom: 1px solid #818E9D;
     margin-bottom: 3%;
     padding-top: 2%;
     padding-bottom: 4%;
     font-size: 1.5em; }
-    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_name {
-      color: #818E9D;
-      margin-left: 5%; }
-    .user_feed_container .userFeed .user_feed_challenges .user_feed_challenger_time {
+    .user_feed_container .userFeed .activeChallenge .user_feed_challenger_name {
       color: #C7F733;
+      margin-left: 5%;
+      font-weight: 700; }
+    .user_feed_container .userFeed .activeChallenge .user_feed_challenger_time {
+      color: #C7F733;
+      float: right;
+      margin-right: 5%;
+      font-weight: 700; }
+  .user_feed_container .userFeed .inactiveChallenge {
+    border-bottom: 1px solid #818E9D;
+    margin-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    font-size: 1.5em; }
+    .user_feed_container .userFeed .inactiveChallenge .user_feed_challenger_name {
+      color: #0093A1;
+      margin-left: 5%; }
+    .user_feed_container .userFeed .inactiveChallenge .user_feed_challenger_time {
+      color: #0093A1;
       float: right;
       margin-right: 5%; }
 
 .activeChallenge {
   background-color: #3D4B5B;
-  width: 100%;
-  padding-top: 20vh; }
+  width: 100%; }
   .activeChallenge .noChallenges {
     height: 20vh;
     width: 95%;
-    margin: 0 auto; }
+    margin: 20vh auto; }
     .activeChallenge .noChallenges h1 {
       text-align: center;
       color: #C7F733; }
@@ -7848,6 +7862,18 @@ div.tabs.tabs-icon.tabs-dark a:active {
         color: white;
         font-size: 2em;
         line-height: 75px; }
+  .activeChallenge .list {
+    overflow: auto; }
+    .activeChallenge .list li {
+      height: 15vh;
+      width: 100%;
+      background-color: red;
+      border-bottom: 1px solid #818E9D; }
+      .activeChallenge .list li .user_feed_challenge_name {
+        color: #C7F733;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 700; }
 
 .landing {
   background-color: #212A33; }
