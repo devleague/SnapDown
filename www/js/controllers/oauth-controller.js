@@ -7,7 +7,7 @@ angular.module('starter')
         $cordovaOauth.facebook(FB_SNAPDOWN_ID, ['email']).then(function(result) {
             $localStorage.accessToken = result.access_token;
             FacebookService.login();
-            $state.go('app.landing');
+            $state.go('app.get-user-phone-info');
         }, function(error) {
             alert('There was a problem signing in!  See the console for logs');
             alert(error);

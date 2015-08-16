@@ -4,7 +4,7 @@ var DEFAULT_CHALLENGE_LENGTH = 100000;
 
 
 angular.module('starter')
-  .service('FacebookService', ['$http','$localStorage', '$location', FacebookService])
+  .service('FacebookService', ['$http', '$localStorage', '$location', FacebookService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -17,7 +17,7 @@ angular.module('starter')
 
 
 //oauth registration
-function FacebookService($http,$localStorage, $location, DataSharingService) {
+function FacebookService($http, $localStorage, $location, DataSharingService) {
 
   /**
    * Login flow is as follows:
@@ -35,7 +35,7 @@ function FacebookService($http,$localStorage, $location, DataSharingService) {
    */
   this.login = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
-        alert('in login');
+      alert('in login');
       $http.get('https://graph.facebook.com/v2.2/me', {
         params: {
           access_token: $localStorage.accessToken,
@@ -54,6 +54,7 @@ function FacebookService($http,$localStorage, $location, DataSharingService) {
 
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
           $localStorage.activeUserId = res.data.id;
+          alert('id set');
           alert($localStorage.activeUserId);
         });
 
@@ -66,8 +67,10 @@ function FacebookService($http,$localStorage, $location, DataSharingService) {
   }
 
   this.getUserFacebook = function(id) {
-    var userId = {id:$localStorage.activeUserId};
-    return $http.post(SERVER_IP + '/api/register/facebook_register_user/info',userId);
+    var userId = {
+      id: $localStorage.activeUserId
+    };
+    return $http.post(SERVER_IP + '/api/register/facebook_register_user/info', userId);
 
 
   }
@@ -235,8 +238,7 @@ function UserService($http) {
 
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {
-    var user_id = userId;
-    return $http.delete(SERVER_IP + '/api/users/' + user_id)
+    return $http.delete(SERVER_IP + '/api/users/' + userId)
   }
 }
 
@@ -257,7 +259,7 @@ function ChallengerService($http) {
     return $http.get(SERVER_IP + '/api/challengers/' + user_id + '/context');
   }
 
-  this.getChallengesWithImages = function(user_id){
+  this.getChallengesWithImages = function(user_id) {
     return $http.get(SERVER_IP + '/api/users/' + user_id + '/challenges/images');
   };
 

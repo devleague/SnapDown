@@ -1,17 +1,14 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
+.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
   ionic.Platform.ready(function() {
-    var user_id = 2;
-    // var user_id =  $localStorage.activeUserId;
     var challengerId;
 
     $scope.openChallenges = [];
-    ChallengerService.getChallengerContext(user_id)
+    ChallengerService.getChallengerContext($localStorage.activeUserId)
       .success(function(res) {
         var challengeContextArr = res;
-        console.log(res);
         console.log('before length', challengeContextArr.length);
 
         challengeContextArr.forEach(function(curr, index) {

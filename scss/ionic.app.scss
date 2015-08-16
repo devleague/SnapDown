@@ -170,6 +170,25 @@ div.tabs.tabs-icon.tabs-dark {
 .user_feed_container{
   background-color: $lightBackground;
   .userFeed {
+
+    .image_thumb_container{
+      width: 100%;
+      white-space: nowrap;
+      // border: 1px solid white;
+
+      .imageThumbnailWrapper{
+        display: inline-block;
+        margin: 0 2%;
+
+        .imageThumbnail{
+          width: 55px;
+          height: 55px;
+        }
+      }
+
+    }
+
+
     .activeChallenge{
       border-bottom: 1px solid $lightGray;
       margin-bottom: 3%;
