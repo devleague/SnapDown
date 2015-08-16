@@ -66,11 +66,11 @@ div.tabs.tabs-icon.tabs-dark {
   .facebook_heading{
     font-size: 2em;
     margin-bottom: 5%;
+    color: #0194A6;
   }
 
   .facebook_login_button{
-    border: 1px solid grey;
-    color: $energized;
+    border: 1px solid $lightGray;
     width: 75%;
     height: 100px;
     line-height: 100px;
@@ -78,12 +78,15 @@ div.tabs.tabs-icon.tabs-dark {
     background-color: $lightBackground;
     margin-bottom: 5%;
     font-size: 2em;
+    font-weight: 700;
+    color: $energized;
 
   }
 
   .facebook_subheading{
     width: 75%;
     margin: auto;
+    color: $energized;
   }
 
 }
@@ -207,6 +210,77 @@ div.tabs.tabs-icon.tabs-dark {
     }
   }
 }
+
+//contact info page
+.contact-info {
+  background-color: $lightBackground;
+  .header-bar {
+    .title {
+      color: $energized;
+    }
+  }
+
+  .welcomeMessage {
+    width: 90%;
+    height: 100px;
+    margin: 0px auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    p {
+      color: $energized;
+      font-size: 1.4em;
+      font-weight: bolder;
+    }
+  }
+
+  .phNumberDiv {
+    height: 5vh;
+    width: 30vw;
+    display: inline-block;
+    float: left;
+    margin-left: 5vw;
+
+    h3 {
+      font-size: 1.4em;
+      color: $energized;
+      line-height: 5vh;
+      font-weight: bolder;
+    }
+  }
+  .numberField {
+    height: 5vh;
+    width: 60vw;
+    padding-left: 15px;
+    font-size: 1.4em;
+  }
+
+  select {
+    height: 7vh;
+    width: 60vw;
+    margin-top: 4vh;
+    margin-left: 20vw;
+    margin-bottom: 4vh;
+    font-size: 3em;
+  }
+
+  .submitButton {
+    height: 5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    background-color: #0194A6;
+    border-radius: 3px;
+    box-shadow: 0 4px #017380;
+    color: white;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+
+
+}
+
+
 
 //active challenge page
 // .activeChallenge {

@@ -7719,20 +7719,23 @@ div.tabs.tabs-icon.tabs-dark a:active {
     background-size: 65%; }
   .login_container .facebook_heading {
     font-size: 2em;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    color: #0194A6; }
   .login_container .facebook_login_button {
-    border: 1px solid grey;
-    color: #C7F733;
+    border: 1px solid #818E9D;
     width: 75%;
     height: 100px;
     line-height: 100px;
     margin: auto;
     background-color: #3D4B5B;
     margin-bottom: 5%;
-    font-size: 2em; }
+    font-size: 2em;
+    font-weight: 700;
+    color: #C7F733; }
   .login_container .facebook_subheading {
     width: 75%;
-    margin: auto; }
+    margin: auto;
+    color: #C7F733; }
 
 .selectChallenger {
   background-color: #3D4B5B; }
@@ -7819,6 +7822,56 @@ div.tabs.tabs-icon.tabs-dark a:active {
       color: #0093A1;
       float: right;
       margin-right: 5%; }
+
+.contact-info {
+  background-color: #3D4B5B; }
+  .contact-info .header-bar .title {
+    color: #C7F733; }
+  .contact-info .welcomeMessage {
+    width: 90%;
+    height: 100px;
+    margin: 0px auto;
+    margin-top: 100px;
+    margin-bottom: 40px; }
+    .contact-info .welcomeMessage p {
+      color: #C7F733;
+      font-size: 1.4em;
+      font-weight: bolder; }
+  .contact-info .phNumberDiv {
+    height: 5vh;
+    width: 30vw;
+    display: inline-block;
+    float: left;
+    margin-left: 5vw; }
+    .contact-info .phNumberDiv h3 {
+      font-size: 1.4em;
+      color: #C7F733;
+      line-height: 5vh;
+      font-weight: bolder; }
+  .contact-info .numberField {
+    height: 5vh;
+    width: 60vw;
+    padding-left: 15px;
+    font-size: 1.4em; }
+  .contact-info select {
+    height: 7vh;
+    width: 60vw;
+    margin-top: 4vh;
+    margin-left: 20vw;
+    margin-bottom: 4vh;
+    font-size: 3em; }
+  .contact-info .submitButton {
+    height: 5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    background-color: #0194A6;
+    border-radius: 3px;
+    box-shadow: 0 4px #017380;
+    color: white;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1.3em;
+    font-weight: 700; }
 
 .landing {
   background-color: #212A33; }
