@@ -29,10 +29,6 @@
         </label> -->
         <form name="updateForm">
           <label class="item item-input formColor">
-            <span class="input-label" placeholder="password">Password</span>
-            <input ng-model="update.password" name="password"  type="password" value="password">
-          </label>
-          <label class="item item-input formColor">
             <span class="input-label" placeholder="email">Email</span>
             <input ng-model="update.email" type="email" name="email" value="{{fb_user.email}}">
             <span class="error" ng-show="updateForm.email.$error.required">
@@ -51,7 +47,9 @@
           </label>
           <label class="item item-input formColor">
             <span class="input-label" placeholder="Carrier">Phone-Carrier</span>
-            <input ng-model="update.carrier" type="text" value="T-mobile">
+            <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+              <option value="">-- choose your provider--</option>
+            </select>
           </label>
         </form>
       </div>
