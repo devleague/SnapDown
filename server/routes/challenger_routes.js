@@ -55,7 +55,6 @@ router.get('/:id/challenges', function(req,res) {
     var challengeArray = [];
 
     challengers.forEach(function(challenger) {
-
       challengeArray.push(challenger.Challenge);
     });
 
