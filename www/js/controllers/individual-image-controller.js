@@ -5,5 +5,10 @@ angular.module('starter')
   $scope.imageUrl = $stateParams.imageUrl;
   $scope.challengerName = $stateParams.challengerName;
 
-
+  $scope.return = function (){
+    $state.go($stateParams.previousView, {
+      activeChallengeId : $stateParams.activeChallengeId,
+      activeChallengeExpireTime: $stateParams.activeChallengeExpireTime
+    })
+  }
 })

@@ -1,4 +1,4 @@
-FB_SNAPDOWN_ID = process.env['FB_SNAPDOWN_ID'];
+FB_SNAPDOWN_ID = '394498294076827';
 // SERVER_IP = 'http://10.0.1.41:3000';
 SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
 // SERVER_IP = 'http://localhost:3000';
@@ -155,7 +155,10 @@ angular.module('starter', ['ionic',
     // },
     params: {
       imageUrl : null,
-      challengerName: null
+      challengerName: null,
+      previousView : null,
+      activeChallengeId : null,
+      activeChallengeExpireTime: null
     },
     views: {
       'menuContent': {
