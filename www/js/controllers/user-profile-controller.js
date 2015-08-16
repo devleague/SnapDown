@@ -8,13 +8,14 @@ angular.module('starter')
 	});
 
 
-  UserStatsService.getUserStats($localStorage.activeUserId)
-    .success(function (res){
-      console.log('user stats', res);
-    })
-    .error(function (err){
-      console.log('err', err);
-    })
+	UserStatsService.getUserStats($localStorage.activeUserId)
+		.success(function(res) {
+			console.log('user stats', res);
+		})
+		.error(function(err) {
+			console.log('err', err);
+		});
+
 
 	$scope.onSwipeRight = function() {
 		$state.go('app.landing');
@@ -24,4 +25,13 @@ angular.module('starter')
 		FacebookService.logout();
 		$state.go('app.oauth')
 	}
+
+	$scope.update = function(email,password,phone,carrier){
+		console.log('email',email);
+		console.log('password',password);
+		console.log('phone',phone);
+		console.log('carrier',carrier);
+	}
+
+
 });

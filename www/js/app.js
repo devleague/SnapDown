@@ -21,7 +21,6 @@ angular.module('starter', ['ionic',
 .run(function($ionicPlatform, $localStorage, $state) {
   $ionicPlatform.ready(function() {
     $localStorage.$state = $state;
-    alert('local storage state set');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {

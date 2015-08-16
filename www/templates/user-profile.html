@@ -9,11 +9,13 @@
           <div class="username">
             <h1>{{fb_user.first_name}} {{fb_user.last_name}}</h1>
           </div>
-          <div class="logout" ng-click="logout()">
-            <p>Logout</p>
-          </div>
-          <div class="logout" ng-click="update()">
-            <p>Update</p>
+          <div class="optionsWrapper">
+            <div class="logout" ng-click="logout()">
+              <p>Logout</p>
+            </div>
+            <div class="logout" ng-click="update(email,password,phone,phone-carrier)">
+              <p>Update</p>
+            </div>
           </div>
         </div>
       </div>
@@ -32,6 +34,14 @@
         <label class="item item-input formColor">
           <span class="input-label" placeholder="email">Email</span>
           <input type="email" value="{{fb_user.email}}">
+        </label>
+        <label class="item item-input formColor">
+          <span class="input-label" placeholder="phonenumber">Phone</span>
+          <input type="text" value="(123.456.7890)">
+        </label>
+        <label class="item item-input formColor">
+          <span class="input-label" placeholder="Carrier">Phone-Carrier</span>
+          <input type="text" value="T-mobile">
         </label>
       </div>
     </div>
