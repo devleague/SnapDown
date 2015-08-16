@@ -56,9 +56,10 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
           //###############################################
           /**/$localStorage.activeUserId = res.data.id;/**/
           //###############################################
-
           //Displays true of false if user's first time logging in.
+    
           $localStorage.registered = res.data.registered;
+          alert($localStorage.registered);
         });
 
       }, function(error) {
@@ -216,6 +217,7 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
+
     return $http.put(SERVER_IP + '/api/users/' + user_id, user_phone_info)
   }
 
