@@ -219,7 +219,7 @@ div.tabs.tabs-icon.tabs-dark {
         width: 100%;
         margin-right: 5%;
         font-weight: 700;
-        border: 1px solid white;
+        // border: 1px solid white;
       }
     }
     .inactiveChallenge{
@@ -435,8 +435,8 @@ div.tabs.tabs-icon.tabs-dark {
   .bottomContainer {
     height: 45vh;
     border-top: 1px solid $lightGray;
-    overflow: auto;
     background-color: $lightBackground;
+    overflow: auto;
 
     .no_active_challenge{
       color: $energized;
@@ -444,6 +444,50 @@ div.tabs.tabs-icon.tabs-dark {
       padding: 5% 5%;
       font-size: 2em;
     }
+
+    .list_of_challenges{
+      // border: 1px solid white;
+      padding-top: 1%;
+      height: 6em;
+      border-bottom: 1px solid $lightGray;
+
+      .image_thumb_container{
+        width: 100%;
+        // height: 3em;
+        //below only works on browser
+        // overflow-x: scroll;
+        overflow-y: hidden;
+        // overflow-scrolling: touch;
+        // white-space: nowrap;
+
+        .imageThumbnailWrapper{
+          display: inline-block;
+          margin: 0 1.5%;
+
+          .imageThumbnail{
+            width: 55px;
+            height: 55px;
+          }
+        }
+      }
+
+      .user_feed_challenger_name{
+        color: $energized;
+        margin-left: 5%;
+        font-weight: 700;
+      }
+
+      .user_feed_challenger_time{
+        color: $energized;
+        text-align: right;
+        float: right;
+        width: 100%;
+        margin-right: 5%;
+        font-weight: 700;
+        // border: 1px solid white;
+      }
+    }
+
 
     .active_challenges {
       border-bottom: 1px solid $lightGray;
@@ -769,6 +813,16 @@ div.tabs.tabs-icon.tabs-dark {
 
   .individual_page_container{
     background-color: $lightBackground;
+    background-size:100%;
+
+    .image_container{
+
+      .individual_image{
+        width: 100%;
+        height: 600px;
+      }
+    }
+
   }
 }
 

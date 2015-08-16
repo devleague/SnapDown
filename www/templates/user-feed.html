@@ -1,11 +1,11 @@
 <ion-view view-title="user-feed" ng-init="init()">
-  <ion-header-bar align-title="center" class="user_feed_heading">
+  <ion-header-bar align-title="center" class="user_feed_heading" >
     <div class="user_feed_heading_logo">
 
     </div>
   </ion-header-bar>
 
-  <ion-content can-swipe-back="false" class="user_feed_container">
+  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
      <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
     <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
 
@@ -21,7 +21,7 @@
    <!--        <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em"> -->
           <div class="image_thumb_container">
 
-            <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers">
+            <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers | limitTo:5" ng-show="user.Image">
               <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
             </div>
           </div>
