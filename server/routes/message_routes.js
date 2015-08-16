@@ -25,10 +25,11 @@ router.post('/',function(req,res){
 
     var messageData = {
       from: messageService.from,
-      to: user.phone + messageService[user.service_provider],
+      to: user.phone + messageService[user.provider_id],
       subject: messageService.subject,
       text: messageBody
     }
+    console.log('messageData', messageData);
 
     mailgun.messages().send(messageData, function (error, body) {
       if(error){

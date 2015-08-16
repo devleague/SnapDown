@@ -39,6 +39,13 @@ body, html {
   left: 0;
 }
 
+//footer-bar
+div.tabs.tabs-icon.tabs-dark {
+  a:active {
+    color: $energized;
+    border-top: 4px solid $energized;
+  }
+}
 
 //Login page
 .login_container{

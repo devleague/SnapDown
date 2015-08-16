@@ -13,7 +13,7 @@ angular.module('starter')
 
     UserService.getAllUsers()
     .success(function (res){
-      console.log('res',res);
+      console.log('get all users',res);
       var filteredUser = res.filter(function(element,index,array){
         if(element.id === user_id){
           return false;
@@ -69,6 +69,7 @@ angular.module('starter')
 
 
     $scope.sendInvites = function(){
+
       var invitationObj = {
         users: $scope.usersChecked,
         challengeId: DataSharingService.startedChallenge.id,
