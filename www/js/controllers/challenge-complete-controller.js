@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, ChallengeService, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
+.controller('challenge-complete-controller', function($scope, ChallengeService, ChallengerService, Camera, PictureService,$stateParams, $ionicModal, $ionicPlatform,DataSharingService) {
 
 
   $scope.getChallengeContext = function (){
@@ -19,6 +19,34 @@ angular.module('starter')
         console.log('err w/challenge context', err);
       })
   }
+
+  $scope.createNewChallenge = function() {
+      ChallengeService.createNewChallenge()
+        .success(function(res) {
+          console.log('challenge created', res)
+
+          //forward to the in progress page
+          DataSharingService.startedChallenge.id = res.id;
+          DataSharingService.startedChallenge.name = res.name;
+          // var userId = DataSharingService.activeUser.id;
+          //add in userId to function
+
+          ChallengerService.createChallenger(2, res.id, true)
+            .success(function(res) {
+              console.log('challenger created', res);
+              DataSharingService.activeUser.challengerId = res.id;
+              challengerId = res.id;
+            })
+            .error(function(error) {
+              console.log(error);
+            })
+
+
+        })
+        .error(function(err) {
+          console.log('Error with creating a challenge', err);
+        })
+  };
 
   $ionicPlatform.ready(function() {
     console.log('stateparams',$stateParams)

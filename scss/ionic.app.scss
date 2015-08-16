@@ -409,7 +409,7 @@ div.tabs.tabs-icon.tabs-dark {
 
   .statisticsContainer {
     background-color: $lightBackground;
-    height: 40vh;
+    height: 50vh;
 
     p {
       text-align: center;
@@ -425,17 +425,17 @@ div.tabs.tabs-icon.tabs-dark {
     }
   }
 
-  .deleteAccount {
-    background-color: $lightBackground;
-    height: 10vh;
-    border-top: 2px solid $lightGray;
-    padding-top: 10px;
+  // .deleteAccount {
+  //   background-color: $lightBackground;
+  //   height: 10vh;
+  //   border-top: 2px solid $lightGray;
+  //   padding-top: 10px;
 
-    h3 {
-      color: $lightGray;
-      font-size: 1.2em;
-    }
-  }
+  //   h3 {
+  //     color: $lightGray;
+  //     font-size: 1.2em;
+  //   }
+  // }
 }
 
 //user challenged styling
