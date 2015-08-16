@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('active-challenges-controller', function($scope, ChallengeService, PictureService, $ionicModal, $ionicPlatform, DataSharingService,$state) {
+.controller('active-challenges-controller', function($scope, ChallengeService, PictureService, $ionicModal, $ionicPlatform, DataSharingService,$state, $timeout) {
 
   $ionicPlatform.ready(function() {
     var user_id = 2;
@@ -19,6 +19,10 @@ angular.module('starter')
     // DataSharingService.activeChallenge.id = challenge.id;
       $state.go('app.challenge-in-progress',{activeChallengeId:challenge.id,activeChallengeExpireTime:challenge.expire_at});
   }
+
+  $scope.getExpireTime = function(challenge){
+    return parseInt(challenge.expire_at);
+  };
 
 
 });
