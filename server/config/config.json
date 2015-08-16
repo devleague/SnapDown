@@ -1,10 +1,9 @@
   {
   "development": {
-    "username": "Coproductions",
-
-    "password": null,
+    "username": "judah",
+    "password": "null",
     "database": "grannygram_test",
-   "host": "127.0.0.1",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
