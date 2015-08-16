@@ -1,18 +1,35 @@
 angular.module('starter')
 
-.controller('OauthCtrl', function($scope, $cordovaOauth, $localStorage, $location) {
+.controller('OauthCtrl', function($scope,$state,$cordovaOauth, $localStorage, $location, FacebookService) {
+
 
     $scope.login = function() {
-        $cordovaOauth.facebook("394498294076827", ["email"]).then(function(result) {
-            alert(result.access_token);
+        $cordovaOauth.facebook(FB_SNAPDOWN_ID, ['email']).then(function(result) {
+            alert('hello login');
             $localStorage.accessToken = result.access_token;
-            alert('token set');
-            $location.path("/#/app/profile");
+            FacebookService.login();
+            $state.go('app.landing');
         }, function(error) {
-            alert("There was a problem signing in!  See the console for logs");
+            alert('There was a problem signing in!  See the console for logs');
             alert(error);
             console.log(error);
         });
     };
 
+    $scope.logout = FacebookService.logout;
 });
+
+
+
+// $scope.createUser = function (){
+
+//   //make sure the model on the form on the login page
+//   //matches the user_info
+//   FacebookService.createUser($scope.user_info)
+//     .success(function (res){
+//       console.log('Register sucess', res);
+//     })
+//     .error(function (err){
+//       console.log('Register err', err);
+//     })
+// }
