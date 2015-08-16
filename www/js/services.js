@@ -4,7 +4,7 @@ var DEFAULT_CHALLENGE_LENGTH = 500000;
 
 
 angular.module('starter')
-  .service('RegisterService', ['$http', RegisterService])
+  .service('FacebookService', ['$http', FacebookService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -17,7 +17,7 @@ angular.module('starter')
 
 
 
-function RegisterService($http) {
+function FacebookService($http) {
   this.createUser = function(new_user) {
 
     //Grab the necessary info from the register form and assign
@@ -69,14 +69,14 @@ function PictureService($http) {
       base64Image : image,
       challenger_id : challenger_id
     };
-    // return $http.post('http://localhost:3000/api/upload/', imageURI);
-    return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
+    return $http.post('http://localhost:3000/api/upload/', imageURI);
+    // return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
   }
 }
 
 function MessageServices($http) {
   this.sendChallengeInvites = function(invitationObj) {
-    // return $http.post('http://localhost:3000/api/message/', invitationObj);
+    // return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/message/', invitationObj);
     return $http.post('http://localhost:3000/api/message/', invitationObj);
   }
 };
