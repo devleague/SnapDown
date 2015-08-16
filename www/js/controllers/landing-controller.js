@@ -1,37 +1,39 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
+.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout,DataSharingService) {
 
   ionic.Platform.ready(function() {
-    // console.log('outsiide init');
-    $scope.init = function() {
-      // console.log('inside init')
-      var user_id = 2;
-      // var user_id =  $localStorage.activeUserId;
-      var challengerId;
 
-      $scope.openChallenges = [];
-      ChallengerService.getChallengerContext(user_id)
-        .success(function(res) {
-          var challengeContextArr = res;
-          console.log(res);
-          console.log('before length', challengeContextArr.length);
+    var user_id = 2;
+    // var user_id =  $localStorage.activeUserId;
+    var challengerId;
 
-          challengeContextArr.forEach(function(curr, index) {
-            // console.log('current image', curr);
+    $scope.openChallenges = [];
+    ChallengerService.getChallengerContext(user_id)
+      .success(function(res) {
+        var challengeContextArr = res;
+        console.log(res);
+        console.log('before length', challengeContextArr.length);
 
-            if (curr.Challenge && !curr.initiator_flag) {
-              if (curr.Image === null && curr.Challenge.expire_at !== null) {
-                $scope.openChallenges.push(curr)
-              }
+        challengeContextArr.forEach(function(curr, index) {
+          // console.log('current image', curr);
+
+          if (curr.Challenge && !curr.initiator_flag){
+
+            if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
+              $scope.openChallenges.push(curr)
             }
-          })
-          console.log('my challenges', $scope.openChallenges);
+          }
+        })
+        console.log('my challenges', $scope.openChallenges);
 
-        })
-        .error(function(err) {
-          console.log('err w/ showing challeges', err);
-        })
+      })
+      .error(function(err) {
+        console.log('err w/ showing challeges', err);
+      })
+
+    $scope.returnEndTime = function(challenge){
+      return parseInt(challenge.Challenge.expire_at);
     }
 
 

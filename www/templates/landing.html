@@ -20,7 +20,9 @@
 
           <span class="active_challenger_name">{{openchallenge.Challenge.name}}</span>
           <!-- Need to change to coutdown timer instead of elapsed -->
-          <span class="active_challenger_time">COUNTDOWNTIME</span>
+
+          <timer class="active_challenger_time" end-time="returnEndTime(openchallenge)">{{minutes}} minutes, {{seconds}} seconds </timer>
+
       </div>
     </div>
   </ion-content>

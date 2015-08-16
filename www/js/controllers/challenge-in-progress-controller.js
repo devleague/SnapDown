@@ -31,7 +31,7 @@ angular.module('starter')
   // };
 
   $scope.expireTime = function(){
-    return $stateParams.activeChallengeExpireTime;
+    return parseInt($stateParams.activeChallengeExpireTime);
   };
 
 
