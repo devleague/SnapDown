@@ -53,9 +53,9 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
         };
 
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
-          $localStorage.activeUserId = res.data.id;
-          alert('id set');
-          alert($localStorage.activeUserId);
+          // $localStorage.activeUserId = res.data.id;
+          //Displays true of false if user's first time logging in.
+          $localStorage.registered = res.data.registered;
         });
 
       }, function(error) {
@@ -76,8 +76,9 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
   }
 
   this.logout = function() {
-    alert('user logged out');
-    return delete($localStorage.accessToken);
+    delete($localStorage.activeUserId);
+    delete($localStorage.accessToken);
+    return alert('user deleted');
   }
 
 }

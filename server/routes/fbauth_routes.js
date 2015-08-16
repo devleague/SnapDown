@@ -24,12 +24,14 @@ router.post('/', function(req, res) {
 				email: req.body.email,
 			}).then(function(user) {
 				res.json({
-					id: user.id
+					id: user.id,
+					registered:true
 				});
 			})
 		} else {
 			res.json({
-				id: result.id
+				id: result.id,
+				registered:false
 			});
 			// res.json(id);
 		}
