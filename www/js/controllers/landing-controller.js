@@ -4,7 +4,7 @@ angular.module('starter')
 
   var challengerId;
 
-  //########## HARD CODE ID HERE #################//
+  //########## HARD CODE ID  HERE #################//
   //########## DEVELOPMENT ONLY ##################//
   $localStorage.activeUserId === true ? $localStorage.activeUserId : 2;
   //##############################################//

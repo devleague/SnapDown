@@ -48,7 +48,6 @@ angular.module('starter', ['ionic',
   $stateProvider
     .state('app', {
       url: '/app',
-      cache: false,
       abstract: true,
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
@@ -56,7 +55,7 @@ angular.module('starter', ['ionic',
 
   .state('app.get-user-phone-info', {
     url: '/get-user-phone-info',
-    cache: false,
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/get-user-phone-info.html',
@@ -66,8 +65,8 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.landing',{
-    cache: false,
     url: '/landing',
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/landing.html',
@@ -78,7 +77,7 @@ angular.module('starter', ['ionic',
 
   .state('app.oauth', {
     url: '/oauth',
-    cache: false,
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: 'templates/oauth.html',
