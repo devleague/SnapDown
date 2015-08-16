@@ -6,6 +6,7 @@ var db = require('../models').User;
 var challenger = require('../models').Challenger;
 var challenge = require('../models').Challenge;
 var image = require('../models').Image;
+var statistics = require('../models').UserStatistics;
 
 //Gets all the users
 router.get('/', function(req,res) {
@@ -63,6 +64,7 @@ router.get('/:id/challenges/images', function(req,res) {
 
 //creates a new user
 router.post('/', function(req,res) {
+
   db.create({
 
     user_name: req.body.user_name,
@@ -75,9 +77,19 @@ router.post('/', function(req,res) {
     device_token: req.body.device_token,
     service_provider: req.body.service_provider
 
-  }).then(function(result) {
+  }).then(function(user) {
 
-    res.status(200).json(result);
+    return statistics.create({
+
+      challenges_started: 0,
+      challenges_accepted: 0,
+      challenges_declined: 0,
+      user_id: user.id
+
+    }).then(function(stats) {
+
+      res.status(200).json(user);
+    });
   });
 });
 
