@@ -57,7 +57,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/get-user-phone-info.html',
-        controller: 'get-user-phone-info'
+        controller: 'get-user-phone-info-controller'
       }
     }
   })
