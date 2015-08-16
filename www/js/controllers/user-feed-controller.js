@@ -2,6 +2,8 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, ChallengerService, $state, $ionicModal, $localStorage, $timeout, validationService) {
 
+  console.log('current user id user feeed',$localStorage.activeUserId);
+
   var filteredChallenges = [];
 
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
@@ -18,34 +20,43 @@ angular.module('starter')
       })
       $scope.challenges = userFeedChallenges;
         console.log('new array with images:',res)
+
+      validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+
     })
     .error(function(err) {
         console.log('err w/ showing challeges', err);
     })
 
+      //##############################################//
+      //##############################################//
+      //##############################################//
+      //const the below code is breaking
+      //##############################################//
+      //##############################################//
+      //##############################################//
 
-
-  $scope.renderChallenge = function(challenge) {
-    console.log('logging challenge',challenge)
-    if(challenge.Challenge.state === 'active'){
-      if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
-        $state.go('app.challenge-in-progress',{
-          activeChallengeId : challenge.Challenge.id,
-          activeChallengeExpireTime : challenge.Challenge.expire_at
-        });
-      }
-      else{
-        $state.go('app.user-challenged',{
-          activeChallengeId : challenge.id,
-          activeChallengeExpireTime: challenge.expire_at
-        });
-      }
-    }else{
-      $state.go('app.challenge-complete',{
-        activeChallengeId : challenge.Challenge.id
-      });
-    }
-  }
+  // $scope.renderChallenge = function(challenge) {
+  //   console.log('logging challenge',challenge)
+  //   if(challenge.Challenge.state === 'active'){
+  //     if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
+  //       $state.go('app.challenge-in-progress',{
+  //         activeChallengeId : challenge.Challenge.id,
+  //         activeChallengeExpireTime : challenge.Challenge.expire_at
+  //       });
+  //     }
+  //     else{
+  //       $state.go('app.user-challenged',{
+  //         activeChallengeId : challenge.id,
+  //         activeChallengeExpireTime: challenge.expire_at
+  //       });
+  //     }
+  //   }else{
+  //     $state.go('app.challenge-complete',{
+  //       activeChallengeId : challenge.Challenge.id
+  //     });
+  //   }
+  // }
 
 
   $scope.onSwipeLeft = function() {
@@ -75,7 +86,6 @@ angular.module('starter')
     }
   };
 
-  validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
 
 

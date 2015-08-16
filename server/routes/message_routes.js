@@ -61,7 +61,7 @@ router.post('/',function(req,res) {
 
         var stringResult = JSON.stringify(result) + '\n';
 
-        fs.appendFile("./server/logs/message_logs.txt", stringResult, function(err) {
+        fs.appendFile("../server/logs/message_logs.txt", stringResult, function(error) {
 
           if(error) {
 
