@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout,DataSharingService) {
+.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
   console.log('challenge service', ChallengeService)
   ionic.Platform.ready(function() {
@@ -109,49 +109,8 @@ angular.module('starter')
       $state.go('app.user-feed');
     }
 
-    $ionicModal.fromTemplateUrl('edit-profile-modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
-
-    $scope.openModal = function() {
-      $scope.modal.show();
-    };
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-    };
-
 
   })
-
-
-  // $scope.createUser = function (){
-
-  //   //make sure the model on the form on the login page
-  //   //matches the user_info
-  //   FacebookService.createUser($scope.user_info)
-  //     .success(function (res){
-  //       console.log('Register sucess', res);
-  //     })
-  //     .error(function (err){
-  //       console.log('Register err', err);
-  //     })
-  // }
-
-  // $scope.loginUser = function (){
-
-
-  //   LoginService.loginUser($scope.user_info)
-  //     .success(function (res){
-  //       console.log('Login sucess', res);
-  //     })
-  //     .error(function (err){
-  //       console.log('Login err', err);
-  //     })
-  // }
-
 
 
 });
