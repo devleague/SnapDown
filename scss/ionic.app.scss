@@ -29,6 +29,19 @@ $logo: url('../img/logo.svg');
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
 
 body, html {
   font-family: 'Roboto Condensed', sans-serif;
@@ -600,19 +613,36 @@ div.tabs.tabs-icon.tabs-dark {
   }
 
   .quilt {
-    height: 60vh;
+    height: 59vh;
     width: 100%;
     background-color: $lightBackground;
     overflow: auto;
-    padding: 20px 2.6%;
+    padding: 20px 2.4%;
 
-    .imageHolder {
-      height: 30vh;
-      width: 31vw;
-      background-color: red;
-      display: inline-block;
+
+    ul {
+      li {
+        height: 28vh;
+        width: 31vw;
+        display: inline-block;
+        float: left;
+
+        .imageHolder {
+          height: 85%;
+          width: 100%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin: 5px;
+          margin-bottom: -20px;
+        }
+
+        h1 {
+          text-align: center;
+          color: $energized;
+          font-size: 1.3em;
+        }
+      }
     }
-
   }
 
   .challengers {
@@ -628,8 +658,13 @@ div.tabs.tabs-icon.tabs-dark {
       font-size: 1em;
     }
 
-    p {
-      font-size: 1.5em;
+    .challengerName {
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+      p {
+        font-size: 1.5em;
+      }
     }
   }
 

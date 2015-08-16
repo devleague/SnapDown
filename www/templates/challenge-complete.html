@@ -5,63 +5,26 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <ul class="quilt" ng-repeat="challenger in allChallengers">
-      <li>
-        <div class="imageHolder">
-          <img src="{{challenger.Image.s3_reference}}" alt="still waiting for the image">
-          <div>{{challenger.User.first_name}}</div>
-        </div>
-
-      </li>
-<!--       <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
-      <li class="imageHolder"></li>
-      <li class="imageHolder"></li> -->
-    </ul>
+    <div class="quilt">
+      <ul>
+        <li ng-repeat="challenger in allChallengers">
+          <div class="imageHolder" ng-style="{ 'background-image': 'url({{challenger.Image.s3_reference}})' }"></div>
+          <h1>{{challenger.User.first_name}}</h1>
+        </li>
+      </ul>
+    </div>
     <div class="challengers">
 <!-- needs moment version of complete date KAWIKA please -->
       <h3>Completed DATE</h3>
-      <p>CHALLENGERS</p>
+      <div class="challengerName" ng-repeat="challenger in allChallengers">
+        <p>{{challenger.User.first_name}},</p>
+      </div>
     </div>
     <div class="newChallenge">
       <div class="newChallengeButton">
         <p>New Challenge</p>
       </div>
     </div>
-
-
-
-
-
-<!--     <div class="row row-wrap" ng-repeat="challenger in allChallengers">
-      <div>
-        <div>
-          {{challenger.Image}}
-        </div>
-        <div>
-          {{challenger.User.first_name}}
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col col-33 imageHolder">
-      <div class="imageDiv"></div>
-    </div>
-    <div class="col col-33 imageHolder">
-      <div class="imageDiv"></div>
-    </div>
-
-    <div class="col col-50 col-offset-25 newChallenge" ui-sref="app.landing">New Challenge</div> -->
-
-
-
-
-
-
-
-
   </ion-content>
   <ion-footer-bar>
     <div class="tabs tabs-icon tabs-dark">
