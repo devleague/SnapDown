@@ -1,37 +1,39 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, DataSharingService) {
+.controller('landing-controller', function ($scope, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout,DataSharingService) {
 
+  console.log('challenge service', ChallengeService)
   ionic.Platform.ready(function() {
-    // console.log('outsiide init');
-    $scope.init = function() {
-      // console.log('inside init')
-      var user_id = 2;
-      // var user_id =  $localStorage.activeUserId;
-      var challengerId;
+    var user_id = 2;
+    // var user_id =  $localStorage.activeUserId;
+    var challengerId;
 
-      $scope.openChallenges = [];
-      ChallengerService.getChallengerContext(user_id)
-        .success(function(res) {
-          var challengeContextArr = res;
-          console.log(res);
-          console.log('before length', challengeContextArr.length);
+    $scope.openChallenges = [];
+    ChallengerService.getChallengerContext(user_id)
+      .success(function(res) {
+        var challengeContextArr = res;
+        console.log(res);
+        console.log('before length', challengeContextArr.length);
 
-          challengeContextArr.forEach(function(curr, index) {
-            // console.log('current image', curr);
+        challengeContextArr.forEach(function(curr, index) {
+          // console.log('current image', curr);
 
-            if (curr.Challenge && !curr.initiator_flag) {
-              if (curr.Image === null && curr.Challenge.expire_at !== null) {
-                $scope.openChallenges.push(curr)
-              }
+          if (curr.Challenge && !curr.initiator_flag){
+
+            if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
+              $scope.openChallenges.push(curr)
             }
-          })
-          console.log('my challenges', $scope.openChallenges);
+          }
+        })
+        console.log('my challenges', $scope.openChallenges);
 
-        })
-        .error(function(err) {
-          console.log('err w/ showing challeges', err);
-        })
+      })
+      .error(function(err) {
+        console.log('err w/ showing challeges', err);
+      })
+
+    $scope.returnEndTime = function(challenge){
+      return parseInt(challenge.Challenge.expire_at);
     }
 
 
@@ -63,7 +65,7 @@ angular.module('starter')
         })
     };
 
-    $scope.renderActiveChallenges = function(challenge) {
+    $scope.renderChallenge = function(challenge) {
       $state.go('app.user-challenged',{
         activeChallengeId : challenge.id,
         activeChallengeExpireTime: challenge.expire_at
@@ -129,7 +131,7 @@ angular.module('starter')
 
   //   //make sure the model on the form on the login page
   //   //matches the user_info
-  //   RegisterService.createUser($scope.user_info)
+  //   FacebookService.createUser($scope.user_info)
   //     .success(function (res){
   //       console.log('Register sucess', res);
   //     })

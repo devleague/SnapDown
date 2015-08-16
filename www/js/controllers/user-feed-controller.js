@@ -19,7 +19,7 @@ angular.module('starter')
       })
   }
 
-  $scope.renderAllChallenges = function(challenge) {
+  $scope.renderChallenge = function(challenge) {
     console.log('logging challenge',challenge)
     if(challenge.state === 'active'){
       $state.go('app.challenge-in-progress',{
@@ -37,4 +37,13 @@ angular.module('starter')
   $scope.onSwipeLeft = function() {
     $state.go('app.landing');
   }
+
+  $scope.isActive = function(challenge){
+    if(challenge.expire_at > Date.now()){
+      return 'activeChallenge';
+    }
+    else{
+      return 'inactiveChallenge';
+    }
+  };
 });

@@ -5,17 +5,22 @@
     </div>
   </ion-header-bar>
 
-  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
+  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="activeChallenge">
     <div class="bottomContainer" overflow-scroll="true">
-        <div ng-show="activeChallenges.length <= 0">
-          <h1>No active challenges. Start one today! YIPIEE</h1>
+      <div ng-show="activeChallenges.length <= 0">
+        <div class="noChallenges">
+          <h1>No active challenges...</h1>
+          <div class="newChallenge" ng-click="createNewChallenge()">
+            <h3>Click here to start one!</h3>
+          </div>
         </div>
       </div>
+    </div>
     <ul class="list">
         <li ng-show="activeChallenges.length > 0" class="user_feed_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="getActiveChallengeContext(challenge)">
           <span class="user_feed_challenger_name">{{challenge.name}}</span>
-          <div>{{challenge.expire_at}}</div>
-          <span class="user_feed_challenger_time" am-time-ago="challenge.expire_at"></span>
+      <!--     <span class="user_feed_challenger_time" am-time-ago="challenge.expire_at"></span> -->
+          <timer end-time="getExpireTime(challenge)" class="active_challenger_time">{{minutes}} minutes, {{seconds}} seconds</timer>
         </li>
     </ul>
     </div>
@@ -28,7 +33,7 @@
       <a class="tab-item" ui-sref="app.landing">
         <i class="icon ion-home"></i>
       </a>
-      <a class="tab-item" ui-sref="app.open-invitations">
+      <a class="tab-item" ui-sref="app.active-challenges">
         <i class="icon ion-android-wifi"></i>
       </a>
       <a class="tab-item" ui-sref="app.user-profile">

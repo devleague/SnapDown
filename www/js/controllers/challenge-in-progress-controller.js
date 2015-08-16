@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $stateParams, $ionicModal,$ionicPlatform,  DataSharingService) {
+.controller('challenge-in-progress-controller', function($scope,$timeout, ChallengeService, $state, $ionicGesture, $stateParams, $ionicModal,$ionicPlatform,$interval) {
 
   $scope.allChallengers = [];
   var challengeId = $stateParams.activeChallengeId;
@@ -31,8 +31,12 @@ angular.module('starter')
   // };
 
   $scope.expireTime = function(){
-    return $stateParams.activeChallengeExpireTime;
+    return parseInt($stateParams.activeChallengeExpireTime);
   };
+
+  $interval(function(){
+    $scope.getChallengeContext();
+  },8000);
 
 
 
