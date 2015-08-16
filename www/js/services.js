@@ -23,23 +23,23 @@ function UserStatsService($http){
     return $http.get(SERVER_IP + '/api/user_statistics/' + user_id)
   }
 
-  this.updateAcceptStat = function (){
+  this.updateAcceptStat = function (user_id){
     var userAccept = {
-      challenges_accepted : true;
+      challenges_accepted : true
     }
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userAccept)
   }
 
-  this.updateDeclineStat = function (){
+  this.updateDeclineStat = function (user_id){
     var userDecline = {
-      challenges_declined : true;
+      challenges_declined : true
     }
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userDecline)
   }
 
-  this.updateStartedStat = function (){
+  this.updateStartedStat = function (user_id){
     var userStarted = {
-      challenges_started : true;
+      challenges_started : true
     }
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userStarted)
   }
