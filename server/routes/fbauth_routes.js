@@ -6,6 +6,7 @@ var db = require('../models').Challenge;
 var images = require('../models').Image;
 var challengers = require('../models').Challenger;
 var users = require('../models').User;
+var user_stats = require('../models').UserStatistics;
 
 router.post('/', function(req, res) {
   console.log(req.body);
