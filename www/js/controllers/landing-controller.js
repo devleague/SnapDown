@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
+.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, UserStatsService) {
 
   var challengerId;
 
@@ -46,9 +46,7 @@ angular.module('starter')
     //     console.log('err w/ showing challeges', err);
     //   })
     $scope.isActive = function(challenge) {
-
       return challenge.Challenge.expire_at > Date.now();
-
     };
 
     $scope.returnEndTime = function(challenge) {
