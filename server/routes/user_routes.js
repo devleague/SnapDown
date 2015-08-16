@@ -3,6 +3,9 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').User;
+var challenger = require('../models').Challenger;
+var challenge = require('../models').Challenge;
+var image = require('../models').Image;
 
 //Gets all the users
 router.get('/', function(req,res) {
@@ -27,6 +30,30 @@ router.get('/:id', function(req,res) {
       res.status(404);
       res.send("Could not locate the requested resource.");
     }
+  });
+});
+
+router.get('/:id/challenges/images', function(req,res) {
+
+  challenger.findAll({
+
+    where: { user_id: req.params.id },
+    include :[
+      { model: challenge,
+        include :[
+          {model: challenger,
+            include :[
+              {model:image}
+            ]}
+        ]
+      }
+    ]
+  }).then(function(challengers) {
+
+  //   var
+  // }).then(function(challengers) {
+
+    res.json(challengers);
   });
 });
 
