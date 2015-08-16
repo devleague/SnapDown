@@ -147,6 +147,26 @@ angular.module('starter', ['ionic',
     }
   })
 
+  .state('app.individual-image', {
+    cache: false,
+    url: '/individual-image',
+    // resolve: {
+    //   factory: ensureAuthenticated
+    // },
+    params: {
+      imageUrl : null,
+      challengerName: null
+    },
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/individual-image.html',
+        controller: 'individual-image-controller'
+      }
+    }
+  })
+
+
+
   .state('app.user-challenged', {
     url: '/user-challenged',
     // resolve: {
