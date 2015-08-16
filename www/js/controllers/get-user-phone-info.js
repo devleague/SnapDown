@@ -16,7 +16,6 @@ angular.module('starter')
       })
   }
 
-
   $scope.providers = [];
   ProviderService.getAllProviders()
   .success(function (res){

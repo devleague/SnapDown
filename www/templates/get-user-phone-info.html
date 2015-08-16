@@ -4,14 +4,19 @@
   </ion-header-bar>
 
   <ion-content>
+    <form name="get-user-phone-info-form"></form>
 
-      <input type="text" name="phone" ng-model="user_info.phone">
+      <input required type="text" placeholder="(xxx)xxx-xxxx" name="phone" ng-model="user_info.phone">
 
-      <select name="providers" required ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+      <div ng-messages="get-user-phone-info-form.link.$error" ng-show="get-user-phone-info-form.link.$touched">
+        <p ng-message="pattern">Bad phone number</p>
+      </div>
+
+      <select required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
         <option value="">-- choose your provider--</option>
       </select>
 
-      <button type="button" ng-click="updateUserPhoneInfo(user_info)">Let's Go</button>
+      <button type="button" ng-disabled="get-user-phone-info-form.$invalid" ng-click="updateUserPhoneInfo(user_info)">Let's Go</button>
 
 
   </ion-content>

@@ -215,15 +215,14 @@ function UserService($http) {
   }
 
   this.updateUserPhoneInfo = function (user_id, user_info){
-    console.log('user id', user_id);
-    console.log('user info', user_info.service_provider.id);
+    console.log('phoneincoming', user_info);
 
     var user_phone_info = {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
-    console.log('updated info', user_phone_info);
     return $http.put('http://localhost:3000/api/users/' + user_id, user_phone_info)
+
   }
 
   // //not in any controller or funcitonality as now
