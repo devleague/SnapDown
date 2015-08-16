@@ -105,7 +105,7 @@ function PictureService($http) {
       challenger_id: challenger_id
     };
     // return $http.post('http://localhost:3000/api/upload/', imageURI);
-    return $http.post('http://grannygram.softcoreos.devleague.com:8030/api/upload/', imageData);
+    return $http.post(SERVER_IP + '/api/upload/', imageData);
   }
 }
 
@@ -258,7 +258,7 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
-    return $http.put('http://localhost:3000/api/users/' + user_id, user_phone_info)
+    return $http.put(SERVER_IP + user_id, user_phone_info)
 
   }
 
@@ -286,7 +286,7 @@ function UserService($http) {
   //not in any controller - need to grab userid somehow
   this.deleteUser = function(userId) {
     var user_id = userId;
-    return $http.delete('/api/users/' + user_id)
+    return $http.delete(SERVER_IP + '/api/users/' + user_id)
   }
 }
 
@@ -321,6 +321,6 @@ function DataSharingService() {
 
 function ProviderService($http){
   this.getAllProviders = function (){
-    return $http.get('http://localhost:3000/api/providers');
+    return $http.get(SERVER_IP+ '/api/providers');
   }
 }
