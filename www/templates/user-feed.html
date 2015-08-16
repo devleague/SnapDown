@@ -14,16 +14,24 @@
     <div class="userFeed">
       <ul class="list" ng-repeat="challenge in challenges">
         <li class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
-          <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers">
-            <div>
-              <img src="{{user.Image.s3_reference}}">
+
+          <div class="image_thumb_container">
+            <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers">
+              <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
             </div>
           </div>
-          <span class="user_feed_challenger_name">{{challenge.Challenge.created_at}}</span>
-          <timer ng-show="isActive(challenge)" end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
-            {{minutes}} minutes, {{seconds}} seconds
-          </timer>
-          <span ng-hide="isActive(challenge)" class="user_feed_challenger_time" am-time-ago="challenge.Challenge.time_elapsed"></span>
+
+          <div>
+            <timer ng-show="isActive(challenge)" end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
+              {{minutes}} minutes, {{seconds}} seconds
+            </timer>
+            <span ng-hide="isActive(challenge)" class="user_feed_challenger_time" am-time-ago="challenge.Challenge.time_elapsed"></span>
+
+          </div>
+
+
+
+
         </li>
       </ul>
     </div>
