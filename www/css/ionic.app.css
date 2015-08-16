@@ -8067,6 +8067,15 @@ div.tabs.tabs-icon.tabs-dark a:active {
       font-size: 1.4em;
       line-height: 50px; }
 
+.individual_page .individual_page_header {
+  width: 100%; }
+  .individual_page .individual_page_header h3 {
+    color: #C7F733;
+    text-align: center;
+    width: 100%; }
+.individual_page .individual_page_container {
+  background-color: #3D4B5B; }
+
 .challenge-complete .quiltHeader {
   width: 100%; }
   .challenge-complete .quiltHeader h3 {

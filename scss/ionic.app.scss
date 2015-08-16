@@ -629,6 +629,24 @@ div.tabs.tabs-icon.tabs-dark {
   }
 }
 
+.individual_page{
+
+  .individual_page_header{
+      width: 100%;
+      h3 {
+        color: $energized;
+        text-align: center;
+        width: 100%;
+      }
+  }
+
+  .individual_page_container{
+    background-color: $lightBackground;
+  }
+}
+
+
+
 .challenge-complete {
   .quiltHeader {
     width: 100%;
