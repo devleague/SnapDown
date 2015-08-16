@@ -7719,20 +7719,23 @@ div.tabs.tabs-icon.tabs-dark a:active {
     background-size: 65%; }
   .login_container .facebook_heading {
     font-size: 2em;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    color: #0194A6; }
   .login_container .facebook_login_button {
-    border: 1px solid grey;
-    color: #C7F733;
+    border: 1px solid #818E9D;
     width: 75%;
     height: 100px;
     line-height: 100px;
     margin: auto;
     background-color: #3D4B5B;
     margin-bottom: 5%;
-    font-size: 2em; }
+    font-size: 2em;
+    font-weight: 700;
+    color: #C7F733; }
   .login_container .facebook_subheading {
     width: 75%;
-    margin: auto; }
+    margin: auto;
+    color: #C7F733; }
 
 .selectChallenger {
   background-color: #3D4B5B; }
