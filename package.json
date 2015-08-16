@@ -16,6 +16,7 @@
     "node-uuid": "^1.4.3",
     "pg": "^4.4.1",
     "pg-hstore": "^2.3.2",
+    "querystring": "^0.2.0",
     "sequelize": "^3.5.1"
   },
   "devDependencies": {

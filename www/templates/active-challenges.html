@@ -19,8 +19,8 @@
     <ul class="list">
         <li ng-show="activeChallenges.length > 0" class="user_feed_challenges" data-ng-repeat="challenge in activeChallenges" ng-click="getActiveChallengeContext(challenge)">
           <span class="user_feed_challenger_name">{{challenge.name}}</span>
-          <div>{{challenge.expire_at}}</div>
-          <span class="user_feed_challenger_time" am-time-ago="challenge.expire_at"></span>
+      <!--     <span class="user_feed_challenger_time" am-time-ago="challenge.expire_at"></span> -->
+          <timer end-time="getExpireTime(challenge)" class="active_challenger_time">{{minutes}} minutes, {{seconds}} seconds</timer>
         </li>
     </ul>
     </div>
