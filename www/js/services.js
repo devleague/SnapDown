@@ -18,7 +18,7 @@ angular.module('starter')
 
 //oauth registration
 function FacebookService($http,$localStorage, $location, DataSharingService,$state) {
-  
+
   /**
    * Login flow is as follows:
    *
@@ -169,7 +169,7 @@ function ChallengeService($http) {
     return activeChallenges;
   }
 
-}
+
 
 //Can use the below for a global view at some point in the future
 // //will get all the open challenges in the system
@@ -210,35 +210,37 @@ function ChallengeService($http) {
 // }
 
 
-this.createNewChallenge = function(challenge) {
+  this.createNewChallenge = function(challenge) {
 
-  var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
-  var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
+    var challengeCats = ['Good Morning', 'Good Afternoon', 'Good Night', 'Hello There', 'Watcha Doing?', 'Check this out!', 'SMILE', 'Aloha'];
+    var randomIndex = Math.floor((Math.random() * challengeCats.length) + 0);
 
-  var challengeNameGenerator = challengeCats.slice(randomIndex, randomIndex + 1).toString();
-  var new_challenge = {
-    name: challengeNameGenerator,
-    privacy_status: 'public'
-  };
+    var challengeNameGenerator = challengeCats.slice(randomIndex, randomIndex + 1).toString();
+    var new_challenge = {
+      name: challengeNameGenerator,
+      privacy_status: 'public'
+    };
 
-  return $http.post(SERVER_IP + '/api/challenges', new_challenge);
-}
-
-this.updateChallengeTimes = function(challengeId) {
-  console.log('updating challenge time');
-  var updateData = {
-    start_at: Date.now(),
-    expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
+    return $http.post(SERVER_IP + '/api/challenges', new_challenge);
   }
 
-  return $http.put(SERVER_IP + '/api/challenges/' + challengeId, updateData);
-}
+  this.updateChallengeTimes = function(challengeId) {
+    console.log('updating challenge time');
+    var updateData = {
+      start_at: Date.now(),
+      expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
+    }
+
+    return $http.put(SERVER_IP + '/api/challenges/' + challengeId, updateData);
+  }
 
 
 
-this.getChallengeContext = function(challenge_id) {
+  this.getChallengeContext = function(challenge_id) {
 
-  return $http.get(SERVER_IP + '/api/challenges/' + challenge_id + '/context');
+    return $http.get(SERVER_IP + '/api/challenges/' + challenge_id + '/context');
+  }
+
 }
 
 
