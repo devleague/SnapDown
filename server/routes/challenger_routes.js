@@ -48,7 +48,7 @@ router.get('/:id/challenges', function(req,res) {
     where: { user_id: req.params.id },
     include :[
       { model:challenge},
-      {model:images}]
+      { model:images}]
 
   }).then(function(challengers) {
 
@@ -61,18 +61,6 @@ router.get('/:id/challenges', function(req,res) {
     res.json(challengeArray);
   });
 });
-
-// router.get('/:id/images', function(req,res) {
-
-//   db.findAll({
-
-//     where { user_id: req.params.id },
-//     include :[
-//       { model: challenge},
-//       {model.images}]
-//     }).then(function(challengers)
-//   }
-// })
 
 //Gets the Challenger context
 router.get('/:id/context', function(req,res) {
