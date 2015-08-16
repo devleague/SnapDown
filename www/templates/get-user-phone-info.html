@@ -5,14 +5,13 @@
 
   <ion-content>
 
-
       <input type="text" name="phone" ng-model="user_info.phone">
 
       <select name="providers" required ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
         <option value="">-- choose your provider--</option>
       </select>
 
-      <button ng-click="updateUserPhoneInfo(user_info)">Let's Go</button>
+      <button type="button" ng-click="updateUserPhoneInfo(user_info)">Let's Go</button>
 
 
   </ion-content>
