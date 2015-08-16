@@ -59,7 +59,7 @@ router.post('/info', function(req, res) {
 		var stat_accepted = 0;
 		var stat_rejected = 0;
 
-		console.log('facebookInfo', facebookInfo);
+		// console.log('facebookInfo', facebookInfo);
 
 		for (var i = 0; i < facebookInfo.Challengers.length; i++) {
 			if (facebookInfo.Challengers[i].initiator_flag) {
