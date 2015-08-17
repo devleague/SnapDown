@@ -1,10 +1,6 @@
 angular.module('starter')
 
-<<<<<<< HEAD
-.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, validationService) {
-=======
-.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
->>>>>>> d32cc23b4f374fda17a56f0038d8c1e097b45128
+.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, validationService, UserStatsService) {
 
   var challengerId;
 
@@ -17,16 +13,11 @@ angular.module('starter')
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res) {
       var filteredChallenges = ChallengeService.filterChallenges(res);
-<<<<<<< HEAD
-      var activeChallenges = filteredChallenges;
-      // var activeChallenges = filteredChallenges.filter(function(challenge){
-      //   return challenge.Challenge.expire_at > Date.now();
-      // });
-=======
+
       var activeChallenges = filteredChallenges.filter(function(challenge) {
         return challenge.Challenge.expire_at > Date.now();
       });
->>>>>>> d32cc23b4f374fda17a56f0038d8c1e097b45128
+
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
     })
@@ -57,9 +48,7 @@ angular.module('starter')
     //     console.log('err w/ showing challeges', err);
     //   })
     $scope.isActive = function(challenge) {
-
       return challenge.Challenge.expire_at > Date.now();
-
     };
 
     $scope.returnEndTime = function(challenge) {
@@ -87,6 +76,21 @@ angular.module('starter')
               console.log('challenger created', res);
               DataSharingService.activeUser.challengerId = res.id;
               challengerId = res.id;
+
+              UserStatsService.updateStartedStat($localStorage.activeUserId)
+                .success(function (res){
+                  console.log('Updated the user started at stat', res)
+
+                  //Add the go to camera logic here!!
+
+
+
+                })
+                .error(function (err){
+                  console.log('err with updating challenged at stat', err);
+                })
+
+
             })
             .error(function(error) {
               console.log(error);
@@ -156,7 +160,5 @@ angular.module('starter')
     $scope.onSwipeRight = function() {
       $state.go('app.user-feed');
     }
-  })
-
-
+  });
 });

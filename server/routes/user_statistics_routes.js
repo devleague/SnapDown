@@ -20,12 +20,13 @@ router.get('/:id', function(req,res) {
 });
 
 router.post('/', function(req,res) {
+
   db.create({
 
-    challenges_received: req.body.challenges_received,
-    challenges_started: req.body.challenges_received,
-    challenges_accepted: req.body.challenges_received,
-    challenges_declined: req.body.challenges_received
+    challenges_started: req.body.challenges_started,
+    challenges_accepted: req.body.challenges_accepted,
+    challenges_declined: req.body.challenges_declined,
+    user_id: req.body.user_id
 
   }).then(function(result) {
 
@@ -38,6 +39,7 @@ router.put('/:id', function (req, res){
   db.findOne({
 
     where: {
+
       user_id: req.params.id
     }
 
