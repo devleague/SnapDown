@@ -30,35 +30,46 @@ angular.module('starter')
   };
 
 
+//
+
+
   $scope.acceptChallenge = function(){
 
-   Camera.getPicture({
-      quality: 75,
-      targetWidth: 1024,
-      targetHeight: 1024,
-      destinationType: 0,
-      encodingType: 0,
-      saveToPhotoAlbum: false
-    })
-    .then(function(imageData) {
+    UserStatsService.updateAcceptStat($localStorage.activeUserId)
+      .success(function (res){
+        console.log('users accepted stat is updated', res);
 
-      if (imageData) {
-        PictureService.sendImageToServer(imageData, challengerId)
-          .success(function(res) {
-            DataSharingService.errorLog.sendImageToServer = 'no error';
-            $state.go('app.challenge-in-progress',{
-              activeChallengeId: challengeId,
-              activeChallengeExpireTime: expireTime
-            });
+         Camera.getPicture({
+            quality: 75,
+            targetWidth: 1024,
+            targetHeight: 1024,
+            destinationType: 0,
+            encodingType: 0,
+            saveToPhotoAlbum: false
           })
-          .error(function(error) {
-            DataSharingService.errorLog.sendImageToServer = 'error';
-          })
+          .then(function(imageData) {
 
-      } else {
-        DataSharingService.errorLog.sendImageToServer = 'no image data';
-      }
-    });
+            if (imageData) {
+              PictureService.sendImageToServer(imageData, challengerId)
+                .success(function(res) {
+                  DataSharingService.errorLog.sendImageToServer = 'no error';
+                  $state.go('app.challenge-in-progress',{
+                    activeChallengeId: challengeId,
+                    activeChallengeExpireTime: expireTime
+                  });
+                })
+                .error(function(error) {
+                  DataSharingService.errorLog.sendImageToServer = 'error';
+                })
+
+            } else {
+              DataSharingService.errorLog.sendImageToServer = 'no image data';
+            }
+          });
+      })
+      .error(function (err){
+        console.log('error with updating the user accept stat', err);
+      })
 
   };
 
