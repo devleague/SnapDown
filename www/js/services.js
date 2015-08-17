@@ -14,6 +14,37 @@ angular.module('starter')
   .service('ChallengerService', ['$http', ChallengerService])
   .service('DataSharingService', DataSharingService)
   .service('ProviderService', ProviderService)
+  .service('UserStatsService', UserStatsService)
+
+
+function UserStatsService($http){
+
+  this.getUserStats = function (user_id){
+    return $http.get(SERVER_IP + '/api/user_statistics/' + user_id)
+  }
+
+  this.updateAcceptStat = function (user_id){
+    var userAccept = {
+      challenges_accepted : true
+    }
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userAccept)
+  }
+
+  this.updateDeclineStat = function (user_id){
+    var userDecline = {
+      challenges_declined : true
+    }
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userDecline)
+  }
+
+  this.updateStartedStat = function (user_id){
+    var userStarted = {
+      challenges_started : true
+    }
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userStarted)
+  }
+
+}
 
 
 //oauth registration
