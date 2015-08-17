@@ -2,31 +2,55 @@ angular.module('starter')
 
 .controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
-  ionic.Platform.ready(function() {
-    var challengerId;
-    //########## HARD CODE ID HERE #################//
+   var challengerId;
+
+     //########## HARD CODE ID HERE #################//
     //########## DEVELOPMENT ONLY ##################//
-    /**/$localStorage.activeUserId = 2;/**/
+    /**//**/
     //##############################################//
     //##############################################//
-    $scope.openChallenges = [];
-    ChallengerService.getChallengerContext($localStorage.activeUserId)
-      .success(function(res) {
-        var challengeContextArr = res;
-        console.log('before length', challengeContextArr.length);
-        challengeContextArr.forEach(function(curr, index) {
-          if (curr.Challenge && !curr.initiator_flag){
+   $localStorage.activeUserId = 2;
 
-            if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
-              $scope.openChallenges.push(curr)
-            }
-          }
-        })
-
+   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
+    .success(function(res){
+      var filteredChallenges = ChallengeService.filterChallenges(res);
+      var activeChallenges = filteredChallenges.filter(function(challenge){
+        return challenge.Challenge.expire_at > Date.now();
       })
-      .error(function(err) {
+      $scope.activeChallenges = activeChallenges;
+        console.log('new array with images:',res)
+    })
+    .error(function(err) {
         console.log('err w/ showing challeges', err);
-      })
+    })
+
+
+  ionic.Platform.ready(function() {
+
+
+    // $scope.openChallenges = [];
+    // ChallengerService.getChallengerContext($localStorage.activeUserId)
+    //   .success(function(res) {
+    //     var challengeContextArr = res;
+    //     console.log('before length', challengeContextArr.length);
+    //     challengeContextArr.forEach(function(curr, index) {
+    //       if (curr.Challenge && !curr.initiator_flag){
+
+    //         if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
+    //           $scope.openChallenges.push(curr)
+    //         }
+    //       }
+    //     })
+
+    //   })
+    //   .error(function(err) {
+    //     console.log('err w/ showing challeges', err);
+    //   })
+    $scope.isActive = function(challenge){
+
+      return challenge.Challenge.expire_at > Date.now();
+
+    };
 
     $scope.returnEndTime = function(challenge){
       return parseInt(challenge.Challenge.expire_at);
@@ -60,6 +84,8 @@ angular.module('starter')
           console.log('Error with creating a challenge', err);
         })
     };
+
+
 
     $scope.renderChallenge = function(challenge) {
       $state.go('app.user-challenged',{
