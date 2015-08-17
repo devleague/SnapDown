@@ -145,7 +145,6 @@ router.delete('/:id', function(req,res) {
   db.findOne({
 
     where: {
-
       id: id
     }
 

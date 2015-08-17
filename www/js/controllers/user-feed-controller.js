@@ -53,10 +53,10 @@ angular.module('starter')
       }
     }else{
       $state.go('app.challenge-complete',{
-  //       activeChallengeId : challenge.Challenge.id
-  //     });
-  //   }
-  // }
+        activeChallengeId : challenge.Challenge.id
+      });
+    }
+  }
 
 
   $scope.onSwipeLeft = function() {
