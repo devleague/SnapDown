@@ -82,18 +82,18 @@ angular.module('starter')
               DataSharingService.activeUser.challengerId = res.id;
               challengerId = res.id;
 
-              UserStatsService.updateStartedStat($localStorage.activeUserId)
-                .success(function (res){
-                  console.log('Updated the user started at stat', res)
+              // UserStatsService.updateStartedStat($localStorage.activeUserId)
+              //   .success(function (res){
+              //     console.log('Updated the user started at stat', res)
 
-                  //Add the go to camera logic here!!
+              //     //Add the go to camera logic here!!
 
 
 
-                })
-                .error(function (err){
-                  console.log('err with updating challenged at stat', err);
-                })
+              //   })
+              //   .error(function (err){
+              //     console.log('err with updating challenged at stat', err);
+              //   })
 
 
             })
