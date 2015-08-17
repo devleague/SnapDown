@@ -125,11 +125,11 @@ angular.module('starter')
     };
 
     $scope.onSwipeLeft = function() {
-      $state.go('app.user-feed');
+      $state.go('app.user-profile');
     }
 
     $scope.onSwipeRight = function() {
-      $state.go('app.user-profile');
+      $state.go('app.user-feed');
     }
   })
 
