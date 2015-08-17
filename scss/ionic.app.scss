@@ -258,12 +258,22 @@ div.tabs.tabs-icon.tabs-dark {
     width: 90%;
     height: 100px;
     margin: 0px auto;
-    margin-top: 100px;
-    margin-bottom: 40px;
+    margin-top: 15%;
+    margin-bottom: 25%;
+    text-align: center;
+
+    h1{
+      color: $energized;
+      font-size: 2em;
+      font-weight: bolder;
+      margin-bottom: 2%;
+    }
+
     p {
       color: $energized;
       font-size: 1.4em;
       font-weight: bolder;
+      line-height: 25px;
     }
   }
 
@@ -286,6 +296,15 @@ div.tabs.tabs-icon.tabs-dark {
     width: 60vw;
     padding-left: 15px;
     font-size: 1.3em;
+  }
+
+  .showErrorMessage{
+    width: 50%;
+    margin-left: 40%;
+    margin-top: 2%;
+    text-align: center;
+    color: $energized;
+    font-size: 1.2em;
   }
 
   .phone_provider_select {
