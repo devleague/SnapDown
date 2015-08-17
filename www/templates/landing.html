@@ -15,7 +15,7 @@
           <h1 class="no_active_challenge">No active challenges</h1>
         </div>
 
-        <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
+        <div class="list_of_challenges" ng-repeat="challenge in activeChallenges | orderBy: '-Challenge.created_at'">
           <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)" ng-show="isActive(challenge)">
 
      <!--        <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em"> -->
