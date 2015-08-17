@@ -6,6 +6,10 @@ angular.module('starter')
   var challengeId = $stateParams.activeChallengeId;
   var timeRemaining = $stateParams.activeChallengeExpireTime - Date.now();
 
+  console.log('expire time')
+  console.log($stateParams.activeChallengeExpireTime);
+  console.log('Date.now');
+  console.log(Date.now())
   console.log('time remaining:');
   console.log(timeRemaining);
   console.log('stateParams');
