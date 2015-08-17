@@ -83,6 +83,10 @@ angular.module('starter')
 
     };
 
+    $scope.getExpireTime = function(){
+      return parseInt(expireTime);
+    };
+
 
   });
 

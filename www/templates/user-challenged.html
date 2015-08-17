@@ -36,7 +36,7 @@
 
     <div class="bottomHalf">
       <div class="timer">
-        <timer class="timer" ng-show="challengeActive()" end-time="expireTime">{{minutes}} minutes, {{seconds}} seconds</timer>
+        <timer class="timer" ng-show="challengeActive()" end-time="getExpireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
       </div>
       <div ng-hide="challengeActive()">
         This challenge has expired.
