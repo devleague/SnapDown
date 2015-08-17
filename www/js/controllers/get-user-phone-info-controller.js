@@ -17,7 +17,7 @@ angular.module('starter')
           $state.go('app.landing');
         })
         .error(function (error){
-          alert(error);
+          alert('error');
           console.log('error with updating a user phone info', error);
         })
     }

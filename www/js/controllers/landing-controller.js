@@ -1,27 +1,26 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
+.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
 
-   var challengerId;
+  var challengerId;
 
-     //########## HARD CODE ID HERE #################//
-    //########## DEVELOPMENT ONLY ##################//
-    /**//**/
-    //##############################################//
-    //##############################################//
-   $localStorage.activeUserId = 2;
+  //########## HARD CODE ID HERE #################//
+  //########## DEVELOPMENT ONLY ##################//
+  $localStorage.activeUserId === true ? $localStorage.activeUserId : 2;
+  //##############################################//
+  //##############################################//
 
-   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
-    .success(function(res){
+  ChallengerService.getChallengesWithImages($localStorage.activeUserId)
+    .success(function(res) {
       var filteredChallenges = ChallengeService.filterChallenges(res);
-      var activeChallenges = filteredChallenges.filter(function(challenge){
+      var activeChallenges = filteredChallenges.filter(function(challenge) {
         return challenge.Challenge.expire_at > Date.now();
       });
       $scope.activeChallenges = activeChallenges;
-        console.log('new array with images:',res)
+      console.log('new array with images:', res)
     })
     .error(function(err) {
-        console.log('err w/ showing challeges', err);
+      console.log('err w/ showing challeges', err);
     })
 
 
@@ -46,17 +45,17 @@ angular.module('starter')
     //   .error(function(err) {
     //     console.log('err w/ showing challeges', err);
     //   })
-    $scope.isActive = function(challenge){
+    $scope.isActive = function(challenge) {
 
       return challenge.Challenge.expire_at > Date.now();
 
     };
 
-    $scope.returnEndTime = function(challenge){
+    $scope.returnEndTime = function(challenge) {
       return parseInt(challenge.Challenge.expire_at);
     };
 
-    $scope.getExpireTime = function(challenge){
+    $scope.getExpireTime = function(challenge) {
       return parseInt(challenge.Challenge.expire_at);
     };
 
@@ -92,40 +91,41 @@ angular.module('starter')
 
 
     $scope.renderChallenge = function(challenge) {
-      $state.go('app.user-challenged',{
-        activeChallengeId : challenge.id,
+      $state.go('app.user-challenged', {
+        activeChallengeId: challenge.id,
         activeChallengeExpireTime: challenge.expire_at
       })
     }
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-        quality: 75,
-        targetWidth: 1024,
-        targetHeight: 1024,
-        destinationType: 0,
-        encodingType: 0,
-        saveToPhotoAlbum: false,
-        correctOrientation: true
-      })
-      .then(function(imageData) {
 
-        if (imageData) {
-          PictureService.sendImageToServer(imageData, challengerId)
-            .success(function(res) {
-              DataSharingService.errorLog.sendImageToServer = 'no error';
-              $state.go('app.select-challenger');
-            })
-            .error(function(error) {
-              DataSharingService.errorLog.sendImageToServer = 'error';
-              $state.go('app.select-challenger');
-            })
+          quality: 75,
+          targetWidth: 1024,
+          targetHeight: 1024,
+          destinationType: 0,
+          encodingType: 0,
+          saveToPhotoAlbum: false,
+          correctOrientation: true
+        })
+        .then(function(imageData) {
 
-        } else {
-          DataSharingService.errorLog.sendImageToServer = 'no image data';
-          $state.go('app.select-challenger');
-        }
-      });
+          if (imageData) {
+            PictureService.sendImageToServer(imageData, challengerId)
+              .success(function(res) {
+                DataSharingService.errorLog.sendImageToServer = 'no error';
+                $state.go('app.select-challenger');
+              })
+              .error(function(error) {
+                DataSharingService.errorLog.sendImageToServer = 'error';
+                $state.go('app.select-challenger');
+              })
+
+          } else {
+            DataSharingService.errorLog.sendImageToServer = 'no image data';
+            $state.go('app.select-challenger');
+          }
+        });
     };
 
     $scope.onSwipeLeft = function() {
