@@ -120,14 +120,15 @@ angular.module('starter')
       if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
         $state.go('app.challenge-in-progress',{
           activeChallengeId : challenge.Challenge.id,
-          activeChallengeExpireTime : challenge.Challenge.expire_at,
-          challengerId : acceptingChallengerId
+          activeChallengeExpireTime : challenge.Challenge.expire_at
         });
       }
       else{
         $state.go('app.user-challenged',{
           activeChallengeId : challenge.id,
-          activeChallengeExpireTime: challenge.expire_at
+          activeChallengeExpireTime: challenge.expire_at,
+          challengerId : acceptingChallengerId
+
         });
       }
     };
