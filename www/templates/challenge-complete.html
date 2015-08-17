@@ -8,7 +8,9 @@
     <div class="quilt">
       <ul ng-repeat="challenger in allChallengers" ng-click="showImage(challenger)">
         <li ng-show="challenger.Image">
-          <div  class="imageHolder" ng-style="{ 'background-image': 'url({{challenger.Image.s3_reference}})' }"></div>
+          <div class="imageHolder">
+            <img ng-src="{{challenger.Image.s3_reference}}">
+          </div>
           <h1>{{challenger.User.first_name}}</h1>
         </li>
       </ul>

@@ -890,6 +890,11 @@ div.tabs.tabs-icon.tabs-dark {
           background-repeat: no-repeat;
           background-size: contain;
           margin-bottom: -30px;
+          
+          img{
+            height:100%;
+            width:100%;
+          }
         }
 
         h1 {

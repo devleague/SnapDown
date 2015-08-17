@@ -8229,6 +8229,9 @@ div.tabs.tabs-icon.tabs-dark a:active {
       background-repeat: no-repeat;
       background-size: contain;
       margin-bottom: -30px; }
+      .challenge-complete .quilt ul li .imageHolder img {
+        height: 100%;
+        width: 100%; }
     .challenge-complete .quilt ul li h1 {
       text-align: center;
       color: #C7F733;
