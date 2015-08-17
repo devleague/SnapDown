@@ -8015,6 +8015,8 @@ div.tabs.tabs-icon.tabs-dark a:active {
         background-color: #828F9E;
         text-align: center;
         line-height: 35px; }
+      .profile .headerContainer .headerContent .usernameWrapper .emailInput {
+        width: 500px; }
 .profile .editProfileContainer .formColor {
   border-top: none;
   background-color: #3D4B5B;

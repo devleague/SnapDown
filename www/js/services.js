@@ -227,6 +227,7 @@ function ChallengeService($http) {
     }
     return $http.post(SERVER_IP + '/api/challenges', new_challenge);
   }
+  
   this.updateChallengeTimes = function(challengeId) {
     console.log('updating challenge time');
     var updateData = {
@@ -235,6 +236,7 @@ function ChallengeService($http) {
     }
     return $http.put(SERVER_IP + '/api/challenges/' + challengeId, updateData);
   }
+
   this.getChallengeContext = function(challenge_id) {
     return $http.get(SERVER_IP + '/api/challenges/' + challenge_id + '/context');
   }

@@ -27,24 +27,21 @@
           <span class="input-label" placeholder="Username">Username</span>
           <input type="text">
         </label> -->
-        <form name="updateForm">
+        <form name="updateForm" class="updateForm">
           <label class="item item-input formColor">
             <span class="input-label" placeholder="email">Email</span>
-            <input ng-model="update.email" type="email" name="email" value="{{fb_user.email}}">
-            <span class="error" ng-show="updateForm.email.$error.required">
-              Required!
-            </span>
-            <span class="error" ng-show="updateForm.email.$error.email">
-              Not valid email!
-            </span>
+            <input class="emailInput" ng-model="update.email" type="email" name="email" value="{{fb_user.email}}">
           </label>
+          <div class="error item item-input formColor" ng-show="updateForm.email.$error.email" style="color:red">
+            Not valid email!
+          </div>
           <label class="item item-input formColor">
             <span class="input-label" placeholder="phonenumber">Phone</span>
-            <input ng-model="update.phone" type="text" name="phone" value="(123.456.7890)" ng-pattern="/^[2-9]\d{2}-\d{3}-\d{4}$/">
-            <span class="error" ng-show="updateForm.phone.$error.pattern">
-              Not valid 10-digit phone number!
-            </span>
+            <input ng-model="update.phone" type="tel" name="phone" value="(123.456.7890)" ng-pattern="/^[2-9]\d{2}\d{3}\d{4}$/">
           </label>
+          <div class="error item item-input formColor" ng-show="updateForm.phone.$error.pattern" style="color:red">
+            Not valid 10-digit phone number!
+          </div>
           <label class="item item-input formColor">
             <span class="input-label" placeholder="Carrier">Phone-Carrier</span>
             <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
