@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location,$scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope, Camera, $timeout, UserStatsService) {
+.controller('user-challenged-controller', function($location, $localStorage, $scope, $ionicPlatform, ChallengeService, $stateParams,$rootScope, Camera, $timeout, UserStatsService) {
 	$scope.allChallengers = [];
 	var challengeId = $stateParams.activeChallengeId;
   var expireTime = $stateParams.activeChallengeExpireTime;
@@ -31,6 +31,7 @@ angular.module('starter')
 
 
   $scope.acceptChallenge = function(){
+
    Camera.getPicture({
       quality: 75,
       targetWidth: 1024,
