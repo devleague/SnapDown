@@ -29,7 +29,7 @@ angular.module('starter')
 
       //const the below code is breaking
 
-      // validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+      validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
       //##############################################//
       //##############################################//
