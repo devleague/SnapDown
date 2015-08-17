@@ -11,11 +11,15 @@
 
     <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div>
 
+
+
     <div class="userFeed">
-      <ul class="list" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
-        <li class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
+
+      <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
+        <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
 
           <div class="image_thumb_container">
+
             <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers">
               <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
             </div>
@@ -29,11 +33,9 @@
 
           </div>
 
+        </div>
 
-
-
-        </li>
-      </ul>
+      </div>
     </div>
 
   </ion-content>
