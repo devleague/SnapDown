@@ -29,13 +29,14 @@ angular.module('starter')
     }
   };
 
+  ionic.Platform.ready(function() {
 
   $scope.acceptChallenge = function(){
 
     // alert('')
     // UserStatsService.updateAcceptStat($localStorage.activeUserId)
     //   .success(function (res){
-        console.log('users accepted stat is updated', res);
+        // console.log('users accepted stat is updated', res);
 
          Camera.getPicture({
             quality: 75,
@@ -47,6 +48,8 @@ angular.module('starter')
             correctOrientation: true
           })
           .then(function(imageData) {
+
+            alert('imageData', imageData);
 
             if (imageData) {
               PictureService.sendImageToServer(imageData, challengerId)
@@ -72,38 +75,40 @@ angular.module('starter')
 
   };
 
-$scope.getPhoto = function() {
-    Camera.getPicture({
-        quality: 75,
-        targetWidth: 1024,
-        targetHeight: 1024,
-        destinationType: 0,
-        encodingType: 0,
-        saveToPhotoAlbum: false,
-        correctOrientation: true
-      })
-      .then(function(imageData) {
 
-        if (imageData) {
-          PictureService.sendImageToServer(imageData, challengerId)
-            .success(function(res) {
-              DataSharingService.errorLog.sendImageToServer = 'no error';
-              $state.go('app.select-challenger');
-            })
-            .error(function(error) {
-              DataSharingService.errorLog.sendImageToServer = 'error';
-              $state.go('app.select-challenger');
-            })
+  $scope.getChallengeContext();
 
-        } else {
-          DataSharingService.errorLog.sendImageToServer = 'no image data';
-          $state.go('app.select-challenger');
-        }
-      });
-  };
+}
+
+// $scope.getPhoto = function() {
+//     Camera.getPicture({
+//         quality: 75,
+//         targetWidth: 1024,
+//         targetHeight: 1024,
+//         destinationType: 0,
+//         encodingType: 0,
+//         saveToPhotoAlbum: false,
+//         correctOrientation: true
+//       })
+//       .then(function(imageData) {
+
+//         if (imageData) {
+//           PictureService.sendImageToServer(imageData, challengerId)
+//             .success(function(res) {
+//               DataSharingService.errorLog.sendImageToServer = 'no error';
+//               $state.go('app.select-challenger');
+//             })
+//             .error(function(error) {
+//               DataSharingService.errorLog.sendImageToServer = 'error';
+//               $state.go('app.select-challenger');
+//             })
+
+//         } else {
+//           DataSharingService.errorLog.sendImageToServer = 'no image data';
+//           $state.go('app.select-challenger');
+//         }
+//       });
+//   };
 
 
-	$ionicPlatform.ready(function() {
-		$scope.getChallengeContext();
-	});
 });
