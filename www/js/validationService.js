@@ -2,7 +2,7 @@
 
 angular.module('starter')
 
-  .service('validationService', ['ChallengerService',function(){
+  .service('validationService', ['ChallengeService',function(){
 
     this.phoneNumberVal = function(value){
       if(!value.match(/\d/g)){
@@ -31,6 +31,13 @@ angular.module('starter')
       declinedChallenges.forEach(function(challenge){
         //delete challenger
         var challengerId = challenge.challenge_id;
+        ChallengeService.removeChallenger(challengerId)
+          .success(function(res){
+            console.log('challenger removed from declined challenge', res)
+          })
+          .error(function(error){
+            console.log('error removing declined challenger',error)
+          })
       })
     };
 
