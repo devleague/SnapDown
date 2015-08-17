@@ -4,16 +4,17 @@ angular.module('starter')
 
   ionic.Platform.ready(function() {
     var challengerId;
-
+    //########## HARD CODE ID HERE #################//
+    //########## DEVELOPMENT ONLY ##################//
+    /**/$localStorage.activeUserId = 2;/**/
+    //##############################################//
+    //##############################################//
     $scope.openChallenges = [];
     ChallengerService.getChallengerContext($localStorage.activeUserId)
       .success(function(res) {
         var challengeContextArr = res;
         console.log('before length', challengeContextArr.length);
-
         challengeContextArr.forEach(function(curr, index) {
-          // console.log('current image', curr);
-
           if (curr.Challenge && !curr.initiator_flag){
 
             if (curr.Image === null && curr.Challenge.expire_at > Date.now()) {
@@ -43,7 +44,7 @@ angular.module('starter')
           // var userId = DataSharingService.activeUser.id;
           //add in userId to function
 
-          ChallengerService.createChallenger(2, res.id, true)
+          ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
             .success(function(res) {
               console.log('challenger created', res);
               DataSharingService.activeUser.challengerId = res.id;
