@@ -30,6 +30,7 @@ angular.module('starter')
 
       declinedChallenges.forEach(function(challenge){
         //delete challenger
+        var challengerId = challenge.challenge_id;
       })
     };
 
