@@ -6,6 +6,7 @@ angular.module('starter')
 
   function validationService(ChallengeService, UserStatsService){
 
+  console.log('in here');
 
 
     this.phoneNumberVal = function(value){
