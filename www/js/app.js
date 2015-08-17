@@ -19,12 +19,15 @@ angular.module('starter', ['ionic',
 ])
 
 .run(function($ionicPlatform, $localStorage, $state) {
+
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.preventDefault();
   }, 100);
 
   $ionicPlatform.ready(function() {
-    $localStorage.$state = $state;
+    if(!$localStorage.$state){
+      $localStorage.$state = $state;
+    }
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {

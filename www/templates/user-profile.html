@@ -13,7 +13,7 @@
             <div class="logout" ng-click="logout()">
               <p>Logout</p>
             </div>
-            <div class="logout" ng-click="update(update.email,update.password,update.phone,update.carrier)">
+            <div class="logout" ng-click="update(update.phone,update.carrier)">
               <p>Update</p>
             </div>
           </div>
@@ -28,10 +28,10 @@
           <input type="text">
         </label> -->
         <form name="updateForm" class="updateForm">
-          <label class="item item-input formColor">
+<!--           <label class="item item-input formColor">
             <span class="input-label" placeholder="email">Email</span>
             <input class="emailInput" ng-model="update.email" type="email" name="email" value="{{fb_user.email}}">
-          </label>
+          </label> -->
           <div class="error item item-input formColor" ng-show="updateForm.email.$error.email" style="color:red">
             Not valid email!
           </div>

@@ -26,11 +26,15 @@ angular.module('starter')
 		$state.go('app.oauth')
 	}
 
-	$scope.update = function(email, password, phone, carrier) {
-		console.log('email', email);
-		console.log('password', password);
+	$scope.update = function(phone, carrier) {
 		console.log('phone', phone);
 		console.log('carrier', carrier);
+		var updatedFields = {};
+		if(phone || carrier){
+			console.log('input in fields')
+		}
+
+
 	}
 
 	$scope.providers = [];
