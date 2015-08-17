@@ -11,12 +11,12 @@ INSERT INTO users VALUES (DEFAULT,'Jason', 'Jason', 'lawn', '456', '456', 'green
 INSERT INTO users VALUES (DEFAULT,'Daniel', 'Daniel', 'hot', '983', '983', 'yellow@yellow.com', '8086319522', '983', '2015-08-12 15:40:33.253-10', '2015-08-12 15:40:33.253-10', 4);
 INSERT INTO users VALUES (DEFAULT,'Kawika', 'Kawika', 'hot', '983', '983', 'yellow@yellow.com', '4354657298', '983', '2015-08-12 15:44:24.555-10', '2015-08-12 15:44:24.555-10', 5);
 INSERT INTO users VALUES (DEFAULT,'Angela', 'Angela', 'above', '789', '789', 'blue@blue.com', '6473233322', '789', '2015-08-12 16:06:53.426-10', '2015-08-12 16:06:53.426-10', 1);
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 1)
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 2)
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 3)
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 4)
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 5)
-INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 6)
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 1);
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 2);
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 3);
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 4);
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 5);
+INSERT INTO user_statistics VALUES (DEFAULT, 0, 0, 0, 6);
 INSERT INTO challenges VALUES (DEFAULT,'1439516244839', '1439516274839', 'Aloha', 'public', '2015-08-12 18:37:03.071-10', '2015-08-12 18:37:03.071-10');
 INSERT INTO challenges VALUES (DEFAULT,'1439516244839', '1439516274839', 'Aloha', 'public', '2015-08-12 18:37:03.071-10', '2015-08-12 18:37:03.071-10');
 INSERT INTO challenges VALUES (DEFAULT,'1439516244839', '1439516274839', 'Aloha', 'public', '2015-08-12 18:37:03.071-10', '2015-08-12 18:37:03.071-10');
