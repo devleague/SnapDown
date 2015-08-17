@@ -10,10 +10,10 @@ angular.module('starter')
 
 
   $scope.getChallengeContext = function() {
+    console.log('attempting to get challenge context',challengeId)
     ChallengeService.getChallengeContext(challengeId)
       .success(function(res) {
         $scope.challengeName = res.challenge.name;
-        console.log('challengeName', challengeName);
         console.log('challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
         console.log('all challengers', $scope.allChallengers)
@@ -21,7 +21,7 @@ angular.module('starter')
       .error(function(err) {
         console.log('err w/challenge context', err);
       })
-  }
+  };
 
   $scope.getChallengeContext();
 

@@ -6,14 +6,17 @@ angular.module('starter')
   var challengeId = $stateParams.activeChallengeId;
   var timeRemaining = $stateParams.activeChallengeExpireTime - Date.now();
 
-  console.log('expire time')
-  console.log($stateParams.activeChallengeExpireTime);
+  console.log('activeChallengeId')
+  console.log($stateParams.activeChallengeId);
   console.log('Date.now');
   console.log(Date.now())
   console.log('time remaining:');
   console.log(timeRemaining);
   console.log('stateParams');
   console.log($stateParams);
+
+
+
 
 //this function fires when the time expires
   $timeout(function(){
@@ -61,11 +64,10 @@ angular.module('starter')
       .error(function (err){
         console.log('err w/challenge context', err);
       })
-  }
+  };
 
-  $ionicPlatform.ready(function() {
-    $scope.getChallengeContext();
-  });
+  $scope.getChallengeContext();
+
 
 
   $scope.showImage = function(challenger){

@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 100000;
+var DEFAULT_CHALLENGE_LENGTH = 1000000;
 
 
 angular.module('starter')
@@ -155,7 +155,7 @@ function PictureService($http) {
       base64Image: image,
       challenger_id: challenger_id
     };
-    
+
     return $http.post(SERVER_IP + '/api/upload/', imageData);
   }
 }
@@ -231,7 +231,7 @@ function ChallengeService($http) {
     }
     return $http.post(SERVER_IP + '/api/challenges', new_challenge);
   }
-  
+
   this.updateChallengeTimes = function(challengeId) {
     console.log('updating challenge time');
     var updateData = {

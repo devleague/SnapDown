@@ -111,6 +111,7 @@ angular.module('starter')
 
 
     $scope.renderChallenge = function(challenge) {
+      console.log('challenge selected',challenge)
 
       var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger){
         return challenger.user_id == $localStorage.activeUserId;
@@ -125,7 +126,7 @@ angular.module('starter')
       }
       else{
         $state.go('app.user-challenged',{
-          activeChallengeId : challenge.id,
+          activeChallengeId : challenge.Challenge.id,
           activeChallengeExpireTime: challenge.Challenge.expire_at,
           challengerId : acceptingChallengerId
 
