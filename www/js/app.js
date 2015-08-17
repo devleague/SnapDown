@@ -11,14 +11,18 @@ SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
 // 'starter.controllers' is found in controllers.js
 
 angular.module('starter', ['ionic',
-                          'starter.controllers',
-                          'ngCordova',
-                          'ngStorage',
-                          'timer',
-                          'angularMoment'
-                          ])
+  'starter.controllers',
+  'ngCordova',
+  'ngStorage',
+  'timer',
+  'angularMoment'
+])
 
 .run(function($ionicPlatform, $localStorage, $state) {
+  $ionicPlatform.registerBackButtonAction(function(event) {
+    event.preventDefault();
+  }, 100);
+
   $ionicPlatform.ready(function() {
     $localStorage.$state = $state;
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -55,7 +59,7 @@ angular.module('starter', ['ionic',
 
   .state('app.get-user-phone-info', {
     url: '/get-user-phone-info',
-    cache:false,
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/get-user-phone-info.html',
@@ -64,9 +68,9 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.landing',{
+  .state('app.landing', {
     url: '/landing',
-    cache:false,
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/landing.html',
@@ -77,7 +81,7 @@ angular.module('starter', ['ionic',
 
   .state('app.oauth', {
     url: '/oauth',
-    cache:false,
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/oauth.html',
@@ -142,7 +146,7 @@ angular.module('starter', ['ionic',
     //   factory: ensureAuthenticated
     // },
     params: {
-      activeChallengeId : null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -160,10 +164,10 @@ angular.module('starter', ['ionic',
     //   factory: ensureAuthenticated
     // },
     params: {
-      imageUrl : null,
+      imageUrl: null,
       challengerName: null,
-      previousView : null,
-      activeChallengeId : null,
+      previousView: null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -183,7 +187,7 @@ angular.module('starter', ['ionic',
     // },
     cache: false,
     params: {
-      activeChallengeId : null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -229,7 +233,6 @@ angular.module('starter', ['ionic',
   //     }
   //   }
   // })
-
 
 
 
