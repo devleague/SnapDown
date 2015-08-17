@@ -15,8 +15,8 @@
 
     <div class="userFeed">
 
-      <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
-        <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
+      <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'" ng-click="renderChallenge(challenge)">
+        <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" >
 
    <!--        <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em"> -->
           <div class="image_thumb_container">
