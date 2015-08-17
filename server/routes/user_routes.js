@@ -40,8 +40,8 @@ router.get('/:id', function(req,res) {
 router.get('/:id/challenges/images', function(req,res) {
 
   challenger.findAll({
-    where: { id: req.params.id },
-    attributes: ["id","first_name","last_name","facebook_image_url"],
+    where: { user_id: req.params.id },
+    // attributes: ["id","first_name","last_name","facebook_image_url"],
     include :[
       { model: challenge,
         include :[
