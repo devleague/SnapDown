@@ -52,7 +52,6 @@ angular.module('starter')
             //STARTS THE CAMERA
             //
             //
-            alert('about to get the camera')
             $scope.getPhoto();
           })
           .error(function(error) {
