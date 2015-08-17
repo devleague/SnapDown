@@ -23,6 +23,6 @@ router.use('/fbauth_routes', fbauth_routes);
 router.use('/message', message_routes);
 router.use('/upload', image_s3_routes);
 router.use('/providers', provider_routes);
-router.use('/user_statistics', user_friend_routes);
+router.use('/user_statistics', user_statistics_routes);
 
 module.exports = router;

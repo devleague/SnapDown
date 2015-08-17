@@ -15,6 +15,13 @@ module.exports = function(sequelize, DataTypes) {
   },{
     underscored: true,
     tableName: "user_statistics",
+    classMethods: {
+
+      associate : function(models){
+
+        UserStatistics.belongsTo(models.User);
+      }
+    }
   });
 
   return UserStatistics;
