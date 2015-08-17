@@ -2,7 +2,11 @@
 
 angular.module('starter')
 
-  .service('validationService', ['ChallengeService',function(){
+  .service('validationService', ['ChallengeService', 'UserStatsService', validationService])
+
+  function validationService(ChallengeService, UserStatsService){
+
+
 
     this.phoneNumberVal = function(value){
       if(!value.match(/\d/g)){
@@ -34,12 +38,19 @@ angular.module('starter')
         ChallengeService.removeChallenger(challengerId)
           .success(function(res){
             console.log('challenger removed from declined challenge', res)
+            UserStatsService.updateDeclineStat(userId)
+              .success(function (res){
+                console.log('success with decline count', res)
+              })
+              .error(function (err){
+                console.log('err with decline count', err);
+              })
           })
           .error(function(error){
             console.log('error removing declined challenger',error)
           })
       })
     };
+  }
 
 
-  }]);

@@ -162,10 +162,6 @@ function MessageServices($http) {
 };
 
 function ChallengeService($http) {
-
-  this.removeChallenger = function (challenger_id){
-    return $http.delete(SERVER_IP + '/api/challengers/' + challenger_id)
-  }
   //will get the current users challenges (for their feed)
   /**
    * Filters challenges to show only those who have been started & completed;
@@ -288,6 +284,9 @@ function UserService($http) {
 
 function ChallengerService($http) {
 
+  this.removeChallenger = function (challenger_id){
+    return $http.delete(SERVER_IP + '/api/challengers/' + challenger_id)
+  }
 
   this.createChallenger = function(userId, challengeId, initiator) {
     console.log('creating challenger', userId, challengeId, initiator)
