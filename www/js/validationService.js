@@ -26,7 +26,7 @@ angular.module('starter')
     };
 
     this.removeUserFromDeclined = function(allUsersChallenges,userId){
-      declinedChallenges = allUsersChallenges.filter(function(challenge){
+      var declinedChallenges = allUsersChallenges.filter(function(challenge){
         return challenge.Challenge.Challengers.filter(function(challenge){
           return challenge.user_id == userId;
         })[0].Image === null;
