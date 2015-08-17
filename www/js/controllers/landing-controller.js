@@ -100,11 +100,11 @@ angular.module('starter')
     };
 
     $scope.onSwipeLeft = function() {
-      $state.go('app.challenge-in-progress');
+      $state.go('app.user-feed');
     }
 
     $scope.onSwipeRight = function() {
-      $state.go('app.user-feed');
+      $state.go('app.user-profile');
     }
   })
 
