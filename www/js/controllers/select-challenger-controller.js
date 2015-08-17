@@ -1,6 +1,7 @@
 angular.module('starter')
 
 .controller('select-challenger-controller', function ($localStorage, $scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
+  console.log('current user id user feeed',$localStorage.activeUserId);
 
   console.log('challenge name', DataSharingService.startedChallenge.name)
   $scope.challengeName = DataSharingService.startedChallenge.name;

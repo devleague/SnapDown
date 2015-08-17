@@ -48,19 +48,19 @@ angular.module('starter')
             DataSharingService.activeUser.challengerId = res.id;
             challengerId = res.id;
 
-            UserStatsService.updateStartedStat($localStorage.activeUserId)
-                .success(function (res){
-                  console.log('Updated the user started at stat', res)
-                  //
-                  //
-                  //STARTS THE CAMERA
-                  //
-                  //
-                  $scope.getPhoto();
-                })
-                .error(function (err){
-                  console.log('err with updating challenged at stat', err);
-                })
+            // UserStatsService.updateStartedStat($localStorage.activeUserId)
+            //     .success(function (res){
+            //       console.log('Updated the user started at stat', res)
+            //       //
+            //       //
+            //       //STARTS THE CAMERA
+            //       //
+            //       //
+            //       $scope.getPhoto();
+            //     })
+            //     .error(function (err){
+            //       console.log('err with updating challenged at stat', err);
+            //     })
           })
           .error(function(error) {
             console.log(error);

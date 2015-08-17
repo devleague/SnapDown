@@ -2,9 +2,13 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, ChallengerService, $state, $ionicModal, $localStorage, $timeout, validationService) {
 
+  console.log('current user id user feeed',$localStorage.activeUserId);
+
+  var filteredChallenges = [];
+
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res){
-      var filteredChallenges = ChallengeService.filterChallenges(res);
+      filteredChallenges = ChallengeService.filterChallenges(res);
 
       var userFeedChallenges = filteredChallenges.filter(function(challenge){
         if($scope.isActive(challenge)){
@@ -16,6 +20,9 @@ angular.module('starter')
       })
       $scope.challenges = userFeedChallenges;
         console.log('new array with images:',res)
+
+      validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+
     })
     .error(function(err) {
         console.log('err w/ showing challeges', err);
@@ -72,4 +79,9 @@ angular.module('starter')
       return false;
     }
   };
+
+
+
+
+
 });
