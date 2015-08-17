@@ -112,7 +112,7 @@ angular.module('starter')
 
     $scope.renderChallenge = function(challenge) {
 
-      var acceptingChallengerId = challenge.Challengers.filter(function(challenger){
+      var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger){
         return challenger.user_id == $localStorage.activeUserId;
       })[0].id;
       console.log('acceptingChallengerId',acceptingChallengerId);
