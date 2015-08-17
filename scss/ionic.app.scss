@@ -219,7 +219,7 @@ div.tabs.tabs-icon.tabs-dark {
         width: 100%;
         margin-right: 5%;
         font-weight: 700;
-        border: 1px solid white;
+        // border: 1px solid white;
       }
     }
     .inactiveChallenge{
@@ -769,6 +769,16 @@ div.tabs.tabs-icon.tabs-dark {
 
   .individual_page_container{
     background-color: $lightBackground;
+    background-size:100%;
+
+    .image_container{
+
+      .individual_image{
+        width: 100%;
+        height: 600px;
+      }
+    }
+
   }
 }
 

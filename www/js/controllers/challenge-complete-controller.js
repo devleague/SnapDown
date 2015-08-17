@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService, $stateParams, $ionicModal, $ionicPlatform, DataSharingService) {
+.controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService, $stateParams, $ionicModal, $ionicPlatform, DataSharingService, $localStorage) {
 
 
   $scope.getChallengeContext = function() {
@@ -52,6 +52,7 @@ angular.module('starter')
             //STARTS THE CAMERA
             //
             //
+            alert('about to get the camera')
             $scope.getPhoto();
           })
           .error(function(error) {
@@ -71,7 +72,8 @@ angular.module('starter')
         destinationType: 0,
         encodingType: 0,
         allowEdit : true,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: false,
+        correctOrientation: true
       })
       .then(function(imageData) {
 
