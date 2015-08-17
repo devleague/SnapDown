@@ -62,7 +62,7 @@ angular.module('starter')
       ChallengeService.createNewChallenge()
         .success(function(res) {
           console.log('challenge created', res)
-          UserStatsService.updateStartedStat()
+
           //forward to the in progress page
           DataSharingService.startedChallenge.id = res.id;
           DataSharingService.startedChallenge.name = res.name;
