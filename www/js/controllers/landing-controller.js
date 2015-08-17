@@ -10,9 +10,11 @@ angular.module('starter')
   //##############################################//
   //##############################################//
 
+  var filteredChallenges = [];
+
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res) {
-      var filteredChallenges = ChallengeService.filterChallenges(res);
+      filteredChallenges = ChallengeService.filterChallenges(res);
 
       var activeChallenges = filteredChallenges.filter(function(challenge) {
         return challenge.Challenge.expire_at > Date.now();
@@ -28,6 +30,8 @@ angular.module('starter')
 
   ionic.Platform.ready(function() {
 
+
+    validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     // $scope.openChallenges = [];
     // ChallengerService.getChallengerContext($localStorage.activeUserId)
