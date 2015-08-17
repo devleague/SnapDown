@@ -115,6 +115,7 @@ angular.module('starter')
       var acceptingChallengerId = challenge.Challengers.filter(function(challenger){
         return challenger.user_id == $localStorage.activeUserId;
       })[0].id;
+      console.log('acceptingChallengerId',acceptingChallengerId);
 
       if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
         $state.go('app.challenge-in-progress',{
