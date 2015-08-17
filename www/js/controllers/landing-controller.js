@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, validationService, UserStatsService) {
+.controller('landing-controller', function($scope, $localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, validationService, UserStatsService) {
 
   var challengerId;
 
@@ -14,7 +14,7 @@ angular.module('starter')
 
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res) {
-      console.log('res',res)
+      console.log('res', res)
       filteredChallenges = ChallengeService.filterChallenges(res);
 
       var activeChallenges = filteredChallenges.filter(function(challenge) {
@@ -23,7 +23,7 @@ angular.module('starter')
 
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
-      console.log('filtered challenges',filteredChallenges)
+      console.log('filtered challenges', filteredChallenges)
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     })
@@ -55,6 +55,44 @@ angular.module('starter')
     //   })
     $scope.isActive = function(challenge) {
       return challenge.Challenge.expire_at > Date.now();
+    };
+
+    $scope.isOpen = function(challenge) {
+      var challengerArr = challenge.Challenge.Challengers;
+      var isAccepted = challengerArr.filter(function(element) {
+        return element.user_id == $localStorage.activeUserId;
+      })[0].Image;
+      var classNames = "";
+
+      if (challenge.Challenge.expire_at > Date.now()) {
+        if (isAccepted) {
+          return false;
+        } else {
+          return true;
+        }
+        return false;
+      }
+    }
+
+    $scope.isActiveClass = function(challenge) {
+      var challengerArr = challenge.Challenge.Challengers;
+      var isAccepted = challengerArr.filter(function(element) {
+        return element.user_id == $localStorage.activeUserId;
+      })[0].Image;
+      var classNames = "";
+
+      if (challenge.Challenge.expire_at > Date.now()) {
+        if (isAccepted) {
+          classNames += "accepted ";
+        } else {
+          classNames += "unaccepted ";
+        }
+        classNames += "activeChallenge";
+      } else {
+        classNames += "inactiveChallenge";
+      }
+      console.log('classNames', classNames);
+      return classNames;
     };
 
     $scope.returnEndTime = function(challenge) {
@@ -112,24 +150,23 @@ angular.module('starter')
 
 
     $scope.renderChallenge = function(challenge) {
-      console.log('challenge selected',challenge)
+      console.log('challenge selected', challenge)
 
-      var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger){
+      var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger) {
         return challenger.user_id == $localStorage.activeUserId;
       })[0].id;
-      console.log('acceptingChallengerId',acceptingChallengerId);
+      console.log('acceptingChallengerId', acceptingChallengerId);
 
-      if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
-        $state.go('app.challenge-in-progress',{
-          activeChallengeId : challenge.Challenge.id,
-          activeChallengeExpireTime : challenge.Challenge.expire_at
+      if (validationService.userHasSubmitted(challenge, $localStorage.activeUserId)) {
+        $state.go('app.challenge-in-progress', {
+          activeChallengeId: challenge.Challenge.id,
+          activeChallengeExpireTime: challenge.Challenge.expire_at
         });
-      }
-      else{
-        $state.go('app.user-challenged',{
-          activeChallengeId : challenge.Challenge.id,
+      } else {
+        $state.go('app.user-challenged', {
+          activeChallengeId: challenge.Challenge.id,
           activeChallengeExpireTime: challenge.Challenge.expire_at,
-          challengerId : acceptingChallengerId
+          challengerId: acceptingChallengerId
 
         });
       }
