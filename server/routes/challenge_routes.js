@@ -88,50 +88,50 @@ router.post('/', function(req,res) {
   });
 });
 
-// router.put('/:id', function(req,res) {
-//   db.findOne({
-//     where: {
-//       id: req.params.id
-//     }
-//   }).then(function(result){
-//     if(!result) {
-//       res.status(404);
-//       res.send("Could not locate the requested resource.");
-//     }
-//     var updateData = {};
+router.put('/:id', function(req,res) {
+  db.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(result){
+    if(!result) {
+      res.status(404);
+      res.send("Could not locate the requested resource.");
+    }
+    var updateData = {};
 
-//     if(req.body.start_at !== undefined) {
+    if(req.body.start_at !== undefined) {
 
-//       updateData.start_at = req.body.start_at;
-//     }
+      updateData.start_at = req.body.start_at;
+    }
 
-//     if(req.body.expire_at !== undefined) {
+    if(req.body.expire_at !== undefined) {
 
-//       updateData.expire_at = req.body.expire_at;
-//     }
+      updateData.expire_at = req.body.expire_at;
+    }
 
-//     if(req.body.name !== undefined) {
+    if(req.body.name !== undefined) {
 
-//       updateData.name = req.body.name;
-//     }
+      updateData.name = req.body.name;
+    }
 
-//     if(req.body.privacy_status !== undefined) {
+    if(req.body.privacy_status !== undefined) {
 
-//       updateData.privacy_status = req.body.privacy_status;
-//     }
+      updateData.privacy_status = req.body.privacy_status;
+    }
 
-//     if(req.body.challenger_id !== undefined) {
+    if(req.body.challenger_id !== undefined) {
 
-//       updateData.challenger_id = req.body.challenger_id;
-//     }
+      updateData.challenger_id = req.body.challenger_id;
+    }
 
-//     result.updateAttributes(updateData).then(function(result) {
+    result.updateAttributes(updateData).then(function(result) {
 
-//       res.status(200);
-//       res.json(result);
-//     });
-//   });
-// });
+      res.status(200);
+      res.json(result);
+    });
+  });
+});
 
 // router.delete('/:id', function(req,res) {
 
