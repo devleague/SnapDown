@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('user-challenged-controller', function($location, $localStorage, $scope, $ionicPlatform, ChallengeService, $stateParams, $rootScope, Camera, $timeout, UserStatsService) {
+.controller('user-challenged-controller', function($location, $state, $localStorage, $scope, $ionicPlatform, ChallengeService, $stateParams, $rootScope, Camera, $timeout, UserStatsService, PictureService) {
   $scope.allChallengers = [];
   var challengeId = $stateParams.activeChallengeId;
   var expireTime = $stateParams.activeChallengeExpireTime;
@@ -56,23 +56,24 @@ angular.module('starter')
           alert('imageData', imageData);
           console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
           console.log(imageData);
+          console.log('challengerId');
+          console.log(challengerId);
+          console.log('challengerId typeof');
+          console.log(typeof(challengerId));
           console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
 
           if (imageData) {
             PictureService.sendImageToServer(imageData, challengerId)
               .success(function(res) {
-                DataSharingService.errorLog.sendImageToServer = 'no error';
                 $state.go('app.challenge-in-progress', {
                   activeChallengeId: challengeId,
                   activeChallengeExpireTime: expireTime
                 });
               })
               .error(function(error) {
-                DataSharingService.errorLog.sendImageToServer = 'error';
+                console.log('ERROR');
+                console.log(error);
               })
-
-          } else {
-            DataSharingService.errorLog.sendImageToServer = 'no image data';
           }
         });
       // })
