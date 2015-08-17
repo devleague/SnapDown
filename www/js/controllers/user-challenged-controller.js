@@ -32,8 +32,9 @@ angular.module('starter')
 
   $scope.acceptChallenge = function(){
 
-    UserStatsService.updateAcceptStat($localStorage.activeUserId)
-      .success(function (res){
+    // alert('')
+    // UserStatsService.updateAcceptStat($localStorage.activeUserId)
+    //   .success(function (res){
         console.log('users accepted stat is updated', res);
 
          Camera.getPicture({
@@ -64,10 +65,10 @@ angular.module('starter')
               DataSharingService.errorLog.sendImageToServer = 'no image data';
             }
           });
-      })
-      .error(function (err){
-        console.log('error with updating the user accept stat', err);
-      })
+      // })
+      // .error(function (err){
+      //   console.log('error with updating the user accept stat', err);
+      // })
 
   };
 
