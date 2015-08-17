@@ -57,7 +57,7 @@ angular.module('starter', ['ionic',
     views: {
       'menuContent': {
         templateUrl: 'templates/get-user-phone-info.html',
-        controller: 'get-user-phone-info'
+        controller: 'get-user-phone-info-controller'
       }
     }
   })
@@ -227,7 +227,7 @@ angular.module('starter', ['ionic',
 
   // if none of the above states are matched, use this as the fallback
 
-  $urlRouterProvider.otherwise('/app/oauth');
+  $urlRouterProvider.otherwise('/app/landing');
 
 });
 

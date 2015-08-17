@@ -43,7 +43,6 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
           format: 'json'
         }
       }).then(function(result) {
-        alert('in promise');
         var user = {
           first_name: result.data.first_name,
           last_name: result.data.last_name,
@@ -53,9 +52,14 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
         };
 
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
-          $localStorage.activeUserId = res.data.id;
-          alert('id set');
-          alert($localStorage.activeUserId);
+          //########## HARD CODE ID HERE #################//
+          //###############################################
+          /**/$localStorage.activeUserId = res.data.id;/**/
+          //###############################################
+          //Displays true of false if user's first time logging in.
+    
+          $localStorage.registered = res.data.registered;
+          alert($localStorage.registered);
         });
 
       }, function(error) {
@@ -76,8 +80,9 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
   }
 
   this.logout = function() {
-    alert('user logged out');
-    return delete($localStorage.accessToken);
+    delete($localStorage.activeUserId);
+    delete($localStorage.accessToken);
+    return alert('user deleted');
   }
 
 }
@@ -212,6 +217,7 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
+
     return $http.put(SERVER_IP + '/api/users/' + user_id, user_phone_info)
   }
 

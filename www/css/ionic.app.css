@@ -7846,12 +7846,19 @@ div.tabs.tabs-icon.tabs-dark a:active {
     width: 90%;
     height: 100px;
     margin: 0px auto;
-    margin-top: 100px;
-    margin-bottom: 40px; }
+    margin-top: 15%;
+    margin-bottom: 25%;
+    text-align: center; }
+    .contact-info .welcomeMessage h1 {
+      color: #C7F733;
+      font-size: 2em;
+      font-weight: bolder;
+      margin-bottom: 2%; }
     .contact-info .welcomeMessage p {
       color: #C7F733;
       font-size: 1.4em;
-      font-weight: bolder; }
+      font-weight: bolder;
+      line-height: 25px; }
   .contact-info .phNumberDiv {
     height: 5vh;
     width: 30vw;
@@ -7868,6 +7875,13 @@ div.tabs.tabs-icon.tabs-dark a:active {
     width: 60vw;
     padding-left: 15px;
     font-size: 1.3em; }
+  .contact-info .showErrorMessage {
+    width: 50%;
+    margin-left: 40%;
+    margin-top: 2%;
+    text-align: center;
+    color: #C7F733;
+    font-size: 1.2em; }
   .contact-info .phone_provider_select {
     height: 7vh;
     width: 60vw;
