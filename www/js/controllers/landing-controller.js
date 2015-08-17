@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout) {
+.controller('landing-controller', function ($scope,$localStorage, $state, LoginService, $ionicGesture, $ionicModal, Camera, ChallengeService, ChallengerService, DataSharingService, PictureService, $timeout, validationService) {
 
    var challengerId;
 
@@ -14,9 +14,10 @@ angular.module('starter')
    ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res){
       var filteredChallenges = ChallengeService.filterChallenges(res);
-      var activeChallenges = filteredChallenges.filter(function(challenge){
-        return challenge.Challenge.expire_at > Date.now();
-      });
+      var activeChallenges = filteredChallenges;
+      // var activeChallenges = filteredChallenges.filter(function(challenge){
+      //   return challenge.Challenge.expire_at > Date.now();
+      // });
       $scope.activeChallenges = activeChallenges;
         console.log('new array with images:',res)
     })
@@ -92,11 +93,20 @@ angular.module('starter')
 
 
     $scope.renderChallenge = function(challenge) {
-      $state.go('app.user-challenged',{
-        activeChallengeId : challenge.id,
-        activeChallengeExpireTime: challenge.expire_at
-      })
-    }
+
+      if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
+        $state.go('app.challenge-in-progress',{
+          activeChallengeId : challenge.Challenge.id,
+          activeChallengeExpireTime : challenge.Challenge.expire_at
+        });
+      }
+      else{
+        $state.go('app.user-challenged',{
+          activeChallengeId : challenge.id,
+          activeChallengeExpireTime: challenge.expire_at
+        });
+      }
+    };
 
     $scope.getPhoto = function() {
       Camera.getPicture({
