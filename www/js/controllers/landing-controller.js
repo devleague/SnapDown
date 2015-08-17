@@ -54,7 +54,11 @@ angular.module('starter')
 
     $scope.returnEndTime = function(challenge){
       return parseInt(challenge.Challenge.expire_at);
-    }
+    };
+
+    $scope.getExpireTime = function(challenge){
+      return parseInt(challenge.Challenge.expire_at);
+    };
 
 
     $scope.createNewChallenge = function() {
