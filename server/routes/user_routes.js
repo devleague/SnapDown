@@ -11,7 +11,10 @@ var image = require('../models').Image;
 router.get('/', function(req,res) {
 
 console.log('database gimme the users');
-  db.findAll()
+  db.findAll({
+
+    attributes: ["id","first_name","last_name","facebook_image_url"]
+  })
     .then(function(results) {
       res.json(results);
     });
@@ -21,7 +24,7 @@ console.log('database gimme the users');
 router.get('/:id', function(req,res) {
   db.findOne({
     where: {
-      user_id: req.params.id
+      id: req.params.id
     }
   }).then(function(result) {
     if(result) {
@@ -37,7 +40,8 @@ router.get('/:id/challenges/images', function(req,res) {
 
   challenger.findAll({
 
-    where: { user_id: req.params.id },
+    where: { id: req.params.id },
+    attributes: ["id","first_name","last_name","facebook_image_url"],
     include :[
       { model: challenge,
         include :[
@@ -79,13 +83,12 @@ router.post('/', function(req,res) {
 
 //updates the users phone number and phone provider
 router.put('/:id', function (req, res){
-   console.log('looking for user', req.params.id);
+
   db.findOne({
     where: {
       id: req.params.id
     }
   }).then(function(result){
-      console.log('user in the system', result);
 
       if(!result) {
         res.status(404);
@@ -97,7 +100,6 @@ router.put('/:id', function (req, res){
       if(req.body.phone !== undefined) {
         updateData.phone = req.body.phone;
       }
-      console.log('id of the provvider', req.body.service_provider);
 
       if(req.body.service_provider !== undefined) {
         updateData.provider_id = req.body.service_provider;
@@ -111,93 +113,93 @@ router.put('/:id', function (req, res){
 });
 
 //updates a user
-router.put('/:id', function(req,res) {
+// router.put('/:id', function(req,res) {
 
-  db.findOne({
+//   db.findOne({
 
-    where: {
+//     where: {
 
-      id: req.params.id
-    }
+//       id: req.params.id
+//     }
 
-  }).then(function(result){
+//   }).then(function(result){
 
-    if(!result) {
-      res.status(404);
-      res.send("Could not locate the requested resource.");
-    }
+//     if(!result) {
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
+//     }
 
-    var updateData = {};
+//     var updateData = {};
 
-    if(req.body.user_name !== undefined) {
-      updateData.user_name = req.body.user_name;
-    }
+//     if(req.body.user_name !== undefined) {
+//       updateData.user_name = req.body.user_name;
+//     }
 
-    if(req.body.first_name !== undefined) {
-      updateData.first_name = req.body.first_name;
-    }
+//     if(req.body.first_name !== undefined) {
+//       updateData.first_name = req.body.first_name;
+//     }
 
-    if(req.body.last_name !== undefined) {
-      updateData.last_name = req.body.last_name;
-    }
+//     if(req.body.last_name !== undefined) {
+//       updateData.last_name = req.body.last_name;
+//     }
 
-    if(req.body.facebook_id !== undefined) {
-      updateData.facebook_id = req.body.facebook_id;
-    }
+//     if(req.body.facebook_id !== undefined) {
+//       updateData.facebook_id = req.body.facebook_id;
+//     }
 
-    if(req.body.facebook_image_url !== undefined) {
-      updateData.facebook_image_url = req.body.facebook_image_url;
-    }
+//     if(req.body.facebook_image_url !== undefined) {
+//       updateData.facebook_image_url = req.body.facebook_image_url;
+//     }
 
-    if(req.body.email !== undefined) {
-      updateData.email = req.body.email;
-    }
+//     if(req.body.email !== undefined) {
+//       updateData.email = req.body.email;
+//     }
 
-    if(req.body.phone !== undefined) {
-      updateData.phone = req.body.phone;
-    }
+//     if(req.body.phone !== undefined) {
+//       updateData.phone = req.body.phone;
+//     }
 
-    if(req.body.device_token !== undefined) {
-      updateData.device_token = req.body.device_token;
-    }
+//     if(req.body.device_token !== undefined) {
+//       updateData.device_token = req.body.device_token;
+//     }
 
-    if(req.body.service_provider !== undefined) {
-      updateData.service_provider = req.body.service_provider;
-    }
+//     if(req.body.service_provider !== undefined) {
+//       updateData.service_provider = req.body.service_provider;
+//     }
 
-    result.updateAttributes(updateData).then(function(result) {
+//     result.updateAttributes(updateData).then(function(result) {
 
-      res.status(200);
-      res.json(result);
-    });
-  });
-});
+//       res.status(200);
+//       res.json(result);
+//     });
+//   });
+// });
 
 //deletes a user
-router.delete('/:id', function(req,res) {
+// router.delete('/:id', function(req,res) {
 
-  var id = req.params.id;
+//   var id = req.params.id;
 
-  db.findOne({
-    where: {
-      id: id
-    }
+//   db.findOne({
+//     where: {
+//       id: id
+//     }
 
-  }).then(function(result) {
+//   }).then(function(result) {
 
-    if(!result) {
+//     if(!result) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
 
-    } else {
+//     } else {
 
-      result.destroy().then(function() {
+//       result.destroy().then(function() {
 
-        res.status(200).send();
-      });
-    }
-  });
-});
+//         res.status(200).send();
+//       });
+//     }
+//   });
+// });
 
 module.exports = router;
