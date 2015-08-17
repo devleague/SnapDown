@@ -21,6 +21,9 @@ angular.module('starter')
     };
 
     this.userHasSubmitted = function(challenge,userId){
+      console.log('user has submitted',challenge.Challenge.Challengers.filter(function(challenge){
+        return challenge.user_id == userId;
+      })[0].Image);
       return challenge.Challenge.Challengers.filter(function(challenge){
         return challenge.user_id == userId;
       })[0].Image;
