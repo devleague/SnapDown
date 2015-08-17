@@ -7798,10 +7798,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
     border-bottom: 1px solid #818E9D; }
     .user_feed_container .userFeed .list_of_challenges .image_thumb_container {
       width: 100%;
-      height: 3em;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      white-space: nowrap; }
+      height: 3em; }
       .user_feed_container .userFeed .list_of_challenges .image_thumb_container .imageThumbnailWrapper {
         display: inline-block;
         margin: 0 1.5%; }
@@ -7819,9 +7816,12 @@ div.tabs.tabs-icon.tabs-dark a:active {
       font-weight: 700; }
     .user_feed_container .userFeed .activeChallenge .user_feed_challenger_time {
       color: #C7F733;
+      text-align: right;
       float: right;
+      width: 100%;
       margin-right: 5%;
-      font-weight: 700; }
+      font-weight: 700;
+      border: 1px solid white; }
   .user_feed_container .userFeed .inactiveChallenge {
     margin-bottom: 3%;
     padding-top: 2%;
@@ -7832,7 +7832,9 @@ div.tabs.tabs-icon.tabs-dark a:active {
       margin-left: 5%; }
     .user_feed_container .userFeed .inactiveChallenge .user_feed_challenger_time {
       color: #0093A1;
+      text-align: right;
       float: right;
+      width: 100%;
       margin-right: 5%; }
 
 .contact-info {

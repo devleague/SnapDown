@@ -18,12 +18,14 @@
       <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
         <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)">
 
+          <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em">
           <div class="image_thumb_container">
 
             <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers">
               <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
             </div>
           </div>
+          </ion-scroll>
 
           <div>
             <timer ng-show="isActive(challenge)" end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
