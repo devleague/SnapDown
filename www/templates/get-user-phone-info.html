@@ -16,7 +16,7 @@
 
       <span ng-show="showErrorMessage">please enter a valid phone number</span>
 
-      <select required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+      <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
         <option value="">-- choose your provider--</option>
       </select>
 
