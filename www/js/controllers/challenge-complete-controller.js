@@ -56,7 +56,7 @@ angular.module('starter')
             //       //STARTS THE CAMERA
             //       //
             //       //
-            //       $scope.getPhoto();
+                  $scope.getPhoto();
             //     })
             //     .error(function (err){
             //       console.log('err with updating challenged at stat', err);
