@@ -8271,3 +8271,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
     font-size: 1.4em;
     margin-bottom: 10px;
     line-height: 50px; }
+
+.unaccepted div {
+  color: red;
+  display: inline; }
