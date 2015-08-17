@@ -55,6 +55,7 @@ router.get('/:id/challenges', function(req,res) {
     var challengeArray = [];
 
     challengers.forEach(function(challenger) {
+
       challengeArray.push(challenger.Challenge);
     });
 
@@ -90,79 +91,79 @@ router.post('/', function(req,res) {
   });
 });
 
-router.put('/:id', function(req,res) {
+// router.put('/:id', function(req,res) {
 
-  db.findOne({
+//   db.findOne({
 
-    where: {
+//     where: {
 
-      id: req.params.id
-    }
+//       id: req.params.id
+//     }
 
-  }).then(function(result){
+//   }).then(function(result){
 
-    if(!result) {
+//     if(!result) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
-    }
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
+//     }
 
-    var updateData = {};
+//     var updateData = {};
 
-    if(req.body.challenge_id !== undefined) {
+//     if(req.body.challenge_id !== undefined) {
 
-      updateData.challenge_id = req.body.challenge_id;
-    }
+//       updateData.challenge_id = req.body.challenge_id;
+//     }
 
-    if(req.body.user_id !== undefined) {
+//     if(req.body.user_id !== undefined) {
 
-      updateData.user_id = req.body.user_id;
-    }
+//       updateData.user_id = req.body.user_id;
+//     }
 
-    if(req.body.image_id !== undefined) {
+//     if(req.body.image_id !== undefined) {
 
-      updateData.image_id = req.body.image_id;
-    }
+//       updateData.image_id = req.body.image_id;
+//     }
 
-    if(req.body.initiator_flag !== undefined) {
+//     if(req.body.initiator_flag !== undefined) {
 
-      updateData.initiator_flag = req.body.initiator_flag;
-    }
+//       updateData.initiator_flag = req.body.initiator_flag;
+//     }
 
-    result.updateAttributes(updateData).then(function(result) {
+//     result.updateAttributes(updateData).then(function(result) {
 
-      res.status(200);
-      res.json(result);
-    });
-  });
-});
+//       res.status(200);
+//       res.json(result);
+//     });
+//   });
+// });
 
-router.delete('/:id', function(req,res) {
+// router.delete('/:id', function(req,res) {
 
-  var id = req.params.id;
+//   var id = req.params.id;
 
-  db.findOne({
+//   db.findOne({
 
-    where: {
+//     where: {
 
-      id: id
-    }
+//       id: id
+//     }
 
-  }).then(function(result) {
+//   }).then(function(result) {
 
-    if(!result) {
+//     if(!result) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
 
-    } else {
+//     } else {
 
-      result.destroy().then(function() {
+//       result.destroy().then(function() {
 
-        res.status(200).send();
-      });
-    }
-  });
-});
+//         res.status(200).send();
+//       });
+//     }
+//   });
+// });
 
 module.exports = router;

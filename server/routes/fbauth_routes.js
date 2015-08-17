@@ -8,7 +8,7 @@ var challengers = require('../models').Challenger;
 var users = require('../models').User;
 
 router.post('/', function(req, res) {
-	console.log(req.body);
+  console.log(req.body);
 
 	users.findOne({
 		where: {
@@ -33,27 +33,25 @@ router.post('/', function(req, res) {
 				id: result.id,
 				registered: false
 			});
-			// res.json(id);
 		}
 	})
-
 });
 
 /**
- *	Not sure if GET request.  Need to figure out how to pass
- *	Objects in GET request.  Leaving POST for now. - Kawika
+ *  Not sure if GET request.  Need to figure out how to pass
+ *  Objects in GET request.  Leaving POST for now. - Kawika
  */
 router.post('/info', function(req, res) {
-	users.findOne({
-		where: {
-			id: req.body.id
-		},
-		include: [{
-			model: challengers,
-			include: [{
-				model: images
-			}]
-		}]
+  users.findOne({
+    where: {
+      id: req.body.id
+    },
+    include: [{
+      model: challengers,
+      include: [{
+        model: images
+      }]
+    }]
 
 	}).then(function(facebookInfo) {
 		if (facebookInfo) {

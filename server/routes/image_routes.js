@@ -40,88 +40,88 @@ router.get('/:id', function(req,res) {
   });
 });
 
-router.post('/', function(req,res) {
+// router.post('/', function(req,res) {
 
-  db.create({
+//   db.create({
 
-    s3_reference: req.body.s3_reference,
-    privacy_status: req.body.privacy_status,
-    challenger_id: req.body.challenger_id
+//     s3_reference: req.body.s3_reference,
+//     privacy_status: req.body.privacy_status,
+//     challenger_id: req.body.challenger_id
 
-  }).then(function(result) {
+//   }).then(function(result) {
 
-    res.status(200).json(result);
-  });
-});
+//     res.status(200).json(result);
+//   });
+// });
 
-router.put('/:id', function(req,res) {
+// router.put('/:id', function(req,res) {
 
-  db.findOne({
+//   db.findOne({
 
-    where: {
+//     where: {
 
-      id: req.params.id
-    }
+//       id: req.params.id
+//     }
 
-  }).then(function(result){
+//   }).then(function(result){
 
-    if(!result) {
+//     if(!result) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
-    }
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
+//     }
 
-    var updateData = {};
+//     var updateData = {};
 
-    if(req.body.s3_reference !== undefined) {
+//     if(req.body.s3_reference !== undefined) {
 
-      updateData.s3_reference = req.body.s3_reference;
-    }
+//       updateData.s3_reference = req.body.s3_reference;
+//     }
 
-    if(req.body.privacy_status !== undefined) {
+//     if(req.body.privacy_status !== undefined) {
 
-      updateData.privacy_status = req.body.privacy_status;
-    }
+//       updateData.privacy_status = req.body.privacy_status;
+//     }
 
-    if(req.body.challenger_id !== undefined) {
+//     if(req.body.challenger_id !== undefined) {
 
-      updateData.challenger_id = req.body.challenger_id;
-    }
+//       updateData.challenger_id = req.body.challenger_id;
+//     }
 
-    result.updateAttributes(updateData).then(function(result) {
+//     result.updateAttributes(updateData).then(function(result) {
 
-      res.status(200);
-      res.json(result);
-    });
-  });
-});
+//       res.status(200);
+//       res.json(result);
+//     });
+//   });
+// });
 
-router.delete('/:id', function(req,res) {
+// router.delete('/:id', function(req,res) {
 
-  var id = req.params.id;
+//   var id = req.params.id;
 
-  db.findOne({
+//   db.findOne({
 
-    where: {
+//     where: {
 
-      id: id
-    }
+//       id: id
+//     }
 
-  }).then(function(result) {
+//   }).then(function(result) {
 
-    if(!result) {
+//     if(!result) {
 
-      res.status(404);
-      res.send("Could not locate the requested resource.");
+//       res.status(404);
+//       res.send("Could not locate the requested resource.");
 
-    } else {
+//     } else {
 
-      result.destroy().then(function() {
+//       result.destroy().then(function() {
 
-        res.status(200).send();
-      });
-    }
-  });
-});
+//         res.status(200).send();
+//       });
+//     }
+//   });
+// });
 
 module.exports = router;
