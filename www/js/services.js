@@ -284,6 +284,10 @@ function UserService($http) {
 
 function ChallengerService($http) {
 
+  this.removeChallenger = function (challenger_id){
+    return $http.delete(SERVER_IP + '/api/challengers/' + challenger_id)
+  }
+
   this.createChallenger = function(userId, challengeId, initiator) {
     console.log('creating challenger', userId, challengeId, initiator)
     var challenger = {
