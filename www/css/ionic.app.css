@@ -8139,7 +8139,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
       color: #C7F733;
       text-align: center; }
   .challenge-in-progress .challengedPlayers {
-    height: 73vh;
+    height: 6em;
     padding-bottom: 20px;
     overflow: auto; }
     .challenge-in-progress .challengedPlayers li {
