@@ -2,7 +2,7 @@
 
 angular.module('starter')
 
-  .service('validationService', function(){
+  .service('validationService', ['ChallengerService',function(){
 
     this.phoneNumberVal = function(value){
       if(!value.match(/\d/g)){
@@ -21,5 +21,17 @@ angular.module('starter')
       })[0].Image;
     };
 
+    this.removeUserFromDeclined = function(allUsersChallenges,userId){
+      declinedChallenges = allUsersChallenges.filter(function(challenge){
+        return challenge.Challenge.Challengers.filter(function(challenge){
+          return challenge.user_id == userId;
+        })[0].Image === null;
+      });
 
-  });
+      declinedChallenges.forEach(function(challenge){
+        //delete challenger
+      })
+    };
+
+
+  }]);
