@@ -30,9 +30,6 @@ angular.module('starter')
   };
 
 
-//
-
-
   $scope.acceptChallenge = function(){
 
     UserStatsService.updateAcceptStat($localStorage.activeUserId)
