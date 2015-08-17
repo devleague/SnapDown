@@ -5,8 +5,11 @@ angular.module('starter')
   $scope.allChallengers = [];
   var challengeId = $stateParams.activeChallengeId;
   var timeRemaining = $stateParams.activeChallengeExpireTime - Date.now();
-  console.log('time remaining:',timeRemaining);
-  console.log('stateParams',$stateParams)
+
+  console.log('time remaining:');
+  console.log(timeRemaining);
+  console.log('stateParams');
+  console.log($stateParams);
 
 //this function fires when the time expires
   $timeout(function(){
