@@ -1,7 +1,7 @@
 FB_SNAPDOWN_ID = '394498294076827';
 // SERVER_IP = 'http://10.0.1.41:3000';
-// SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
-SERVER_IP = 'http://localhost:3000';
+SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
+// SERVER_IP = 'http://localhost:3000';
 
 // Ionic Starter App
 
