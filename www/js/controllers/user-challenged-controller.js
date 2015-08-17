@@ -5,7 +5,7 @@ angular.module('starter')
 	var challengeId = $stateParams.activeChallengeId;
   var expireTime = $stateParams.activeChallengeExpireTime;
   $scope.expireTime = expireTime;
-  var challengerId; //needs to be defined somehow
+  var challengerId = $stateParams.challengerId;
 
   $scope.getChallengeContext = function() {
 		ChallengeService.getChallengeContext(challengeId)

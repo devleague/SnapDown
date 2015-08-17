@@ -191,7 +191,8 @@ angular.module('starter', ['ionic',
     cache: false,
     params: {
       activeChallengeId: null,
-      activeChallengeExpireTime: null
+      activeChallengeExpireTime: null,
+      challengerId : null
     },
     views: {
       'menuContent': {
