@@ -1,8 +1,7 @@
 .controller('active-challenges-controller', function($scope, PictureService, $ionicModal, $ionicPlatform, DataSharingService, ChallengeService, ChallengerService,$state, $timeout, Camera) {
 
   $ionicPlatform.ready(function() {
-    var user_id = 2;
-    ChallengeService.getMyChallenges(user_id)
+    ChallengeService.getMyChallenges($localStorage.activeUserId)
       .success(function(res) {
         var filteredChallenges = ChallengeService.filterChallenges(res);
         var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);

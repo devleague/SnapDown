@@ -6,8 +6,6 @@ angular.module('starter')
   $scope.challengeName = DataSharingService.startedChallenge.name;
   $scope.UserService = UserService;
   $scope.users = [];
-  var user_id = 2;
-  // var user_id =  $localStorage.activeUserId;
 
 
 
@@ -15,7 +13,7 @@ angular.module('starter')
     .success(function (res){
       console.log('get all users',res);
       var filteredUser = res.filter(function(element,index,array){
-        if(element.id === user_id){
+        if(element.id === $localStorage.activeUserId){
           return false;
         }else{
           return true;
