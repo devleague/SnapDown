@@ -11,17 +11,23 @@ SERVER_IP = 'http://grannygram.softcoreos.devleague.com:8030';
 // 'starter.controllers' is found in controllers.js
 
 angular.module('starter', ['ionic',
-                          'starter.controllers',
-                          'ngCordova',
-                          'ngStorage',
-                          'timer',
-                          'angularMoment'
-                          ])
+  'starter.controllers',
+  'ngCordova',
+  'ngStorage',
+  'timer',
+  'angularMoment'
+])
 
 .run(function($ionicPlatform, $localStorage, $state) {
+
+  $ionicPlatform.registerBackButtonAction(function(event) {
+    event.preventDefault();
+  }, 100);
+
   $ionicPlatform.ready(function() {
-    $localStorage.$state = $state;
-    // alert('local storage state set');
+    if(!$localStorage.$state){
+      $localStorage.$state = $state;
+    }
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -65,9 +71,9 @@ angular.module('starter', ['ionic',
     }
   })
 
-  .state('app.landing',{
-    cache: false,
+  .state('app.landing', {
     url: '/landing',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/landing.html',
@@ -89,6 +95,7 @@ angular.module('starter', ['ionic',
 
   .state('app.profile', {
     url: '/profile',
+    cache: false,
     // resolve: {
     //   factory: ensureAuthenticated
     // },
@@ -102,6 +109,7 @@ angular.module('starter', ['ionic',
 
   .state('app.select-challenger', {
     url: '/select-challenger',
+    cache: false,
     params: {
       imageURI: null
     },
@@ -118,6 +126,7 @@ angular.module('starter', ['ionic',
 
   .state('app.challenge-in-progress', {
     url: '/challenge-in-progress',
+    cache: false,
     // resolve: {
     //   factory: ensureAuthenticated
     // },
@@ -140,7 +149,7 @@ angular.module('starter', ['ionic',
     //   factory: ensureAuthenticated
     // },
     params: {
-      activeChallengeId : null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -158,10 +167,10 @@ angular.module('starter', ['ionic',
     //   factory: ensureAuthenticated
     // },
     params: {
-      imageUrl : null,
+      imageUrl: null,
       challengerName: null,
-      previousView : null,
-      activeChallengeId : null,
+      previousView: null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -179,8 +188,9 @@ angular.module('starter', ['ionic',
     // resolve: {
     //   factory: ensureAuthenticated
     // },
+    cache: false,
     params: {
-      activeChallengeId : null,
+      activeChallengeId: null,
       activeChallengeExpireTime: null
     },
     views: {
@@ -206,6 +216,7 @@ angular.module('starter', ['ionic',
   })
 
   .state('app.user-profile', {
+    cache: false,
     url: '/user-profile',
     views: {
       'menuContent': {
@@ -225,7 +236,6 @@ angular.module('starter', ['ionic',
   //     }
   //   }
   // })
-
 
 
 
