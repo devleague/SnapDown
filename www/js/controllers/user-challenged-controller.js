@@ -7,7 +7,7 @@ angular.module('starter')
   $scope.expireTime = expireTime;
   var challengerId = $stateParams.challengerId;
 
-  $scope.getChallengeContext();
+
 
   $scope.getChallengeContext = function() {
     ChallengeService.getChallengeContext(challengeId)
@@ -22,6 +22,8 @@ angular.module('starter')
         console.log('err w/challenge context', err);
       })
   }
+
+  $scope.getChallengeContext();
 
   $scope.challengeActive = function() {
     if (Date.now() < expireTime) {
