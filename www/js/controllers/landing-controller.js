@@ -101,6 +101,7 @@ angular.module('starter')
         targetHeight: 1024,
         destinationType: 0,
         encodingType: 0,
+        allowEdit : true,
         saveToPhotoAlbum: false
       })
       .then(function(imageData) {
