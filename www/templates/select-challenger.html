@@ -17,7 +17,7 @@
       <ul ng-repeat="user in users | filter:searchUsers">
         <li>
           <div class="checkbox">
-            <h2 class="challenger_name">{{user.first_name}}</h2>
+            <h2 class="challenger_name">{{user.first_name}} {{user.last_name}}</h2>
              <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
           </div>
         </li>
