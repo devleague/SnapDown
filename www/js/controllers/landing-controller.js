@@ -4,7 +4,7 @@ angular.module('starter')
 
   var challengerId;
 
-  //########## HARD CODE ID HERE #################//
+  //########## HARD CODE ID  HERE #################//
   //########## DEVELOPMENT ONLY ##################//
   $localStorage.activeUserId === true ? $localStorage.activeUserId : 2;
   //##############################################//
@@ -23,18 +23,7 @@ angular.module('starter')
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
 
-      //##############################################//
-      //##############################################//
-      //##############################################//
-
-      //const the below code is breaking
-
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
-
-      //##############################################//
-      //##############################################//
-      //##############################################//
-
 
     })
     .error(function(err) {
