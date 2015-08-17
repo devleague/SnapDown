@@ -2,6 +2,8 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, ChallengerService, $state, $ionicModal, $localStorage, $timeout, validationService) {
 
+  console.log('current user id user feeed',$localStorage.activeUserId);
+
   var filteredChallenges = [];
 
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
