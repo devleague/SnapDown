@@ -28,7 +28,13 @@ angular.module('starter')
         console.log('err w/ showing challeges', err);
     })
 
-
+      //##############################################//
+      //##############################################//
+      //##############################################//
+      //const the below code is breaking
+      //##############################################//
+      //##############################################//
+      //##############################################//
 
   $scope.renderChallenge = function(challenge) {
     console.log('logging challenge',challenge)
