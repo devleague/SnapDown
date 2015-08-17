@@ -8,7 +8,6 @@ var challengers = require('../models').Challenger;
 var users = require('../models').User;
 
 router.post('/', function(req, res) {
-  console.log(req.body);
 
 	users.findOne({
 		where: {
