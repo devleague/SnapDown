@@ -23,18 +23,7 @@ angular.module('starter')
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
 
-      //##############################################//
-      //##############################################//
-      //##############################################//
-
-      //const the below code is breaking
-
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
-
-      //##############################################//
-      //##############################################//
-      //##############################################//
-
 
     })
     .error(function(err) {
