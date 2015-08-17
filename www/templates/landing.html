@@ -15,13 +15,26 @@
           <h1 class="no_active_challenge">No active challenges</h1>
         </div>
 
-      <div class="active_challenges" data-ng-repeat="openchallenge in openChallenges" ng-click="renderChallenge(openchallenge)">
+        <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'">
+          <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" ng-click="renderChallenge(challenge)" ng-show="isActive(challenge)">
 
+     <!--        <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em"> -->
+            <div class="image_thumb_container">
 
-          <span class="active_challenger_name">{{openchallenge.Challenge.name}}</span>
-          <!-- Need to change to coutdown timer instead of elapsed -->
+              <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers | limitTo:5" ng-show="user.Image">
+                <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
+              </div>
+            </div>
+          <!--   </ion-scroll>
+   -->
+            <div>
+              <timer end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
+                {{minutes}} minutes, {{seconds}} seconds
+              </timer>
 
-          <timer class="active_challenger_time" end-time="returnEndTime(openchallenge)">{{minutes}} minutes, {{seconds}} seconds </timer>
+            </div>
+
+          </div>
 
       </div>
     </div>
