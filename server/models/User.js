@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Challenger);
         User.hasMany(models.UserFriend);
         User.belongsTo(models.Provider);
-        User.belongsTo(models.UserStatistics);
+        User.hasOne(models.UserStatistics);
       }
     }
   });
