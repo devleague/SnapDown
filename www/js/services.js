@@ -4,7 +4,7 @@ var DEFAULT_CHALLENGE_LENGTH = 100000;
 
 
 angular.module('starter')
-  .service('FacebookService', ['$http', '$localStorage', '$location', FacebookService])
+  .service('FacebookService', ['$http', '$localStorage', '$location','$state', FacebookService])
   .service('LoginService', ['$http', LoginService])
   .service('LogOutService', ['$http', LogOutService])
   .service('PictureService', ['$http', PictureService])
@@ -14,11 +14,43 @@ angular.module('starter')
   .service('ChallengerService', ['$http', ChallengerService])
   .service('DataSharingService', DataSharingService)
   .service('ProviderService', ProviderService)
+  .service('UserStatsService', UserStatsService)
+
+
+function UserStatsService($http){
+
+  this.getUserStats = function (user_id){
+    return $http.get(SERVER_IP + '/api/user_statistics/' + user_id)
+  }
+
+  this.updateAcceptStat = function (user_id){
+    var userAccept = {
+      challenges_accepted : 'true'
+    }
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userAccept)
+  }
+
+  this.updateDeclineStat = function (user_id){
+    var userDecline = {
+      challenges_declined : 'true'
+    }
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userDecline)
+  }
+
+  this.updateStartedStat = function (user_id){
+    console.log('user_id before', user_id);
+    var userStarted = {
+      challenges_started : 'true'
+    }
+    console.log('user_id', user_id);
+    return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userStarted)
+  }
+
+}
 
 
 //oauth registration
-function FacebookService($http, $localStorage, $location, DataSharingService) {
-
+function FacebookService($http, $localStorage, $location, DataSharingService, $state) {
   /**
    * Login flow is as follows:
    *
@@ -35,7 +67,6 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
    */
   this.login = function() {
     if ($localStorage.hasOwnProperty('accessToken') === true) {
-      alert('in login');
       $http.get('https://graph.facebook.com/v2.2/me', {
         params: {
           access_token: $localStorage.accessToken,
@@ -43,7 +74,6 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
           format: 'json'
         }
       }).then(function(result) {
-        alert('in promise');
         var user = {
           first_name: result.data.first_name,
           last_name: result.data.last_name,
@@ -53,9 +83,18 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
         };
 
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
-          $localStorage.activeUserId = res.data.id;
-          alert('id set');
-          alert($localStorage.activeUserId);
+          //########## HARD CODE ID HERE #################//
+          //###############################################
+          /**/$localStorage.activeUserId = res.data.id;/**/
+          //###############################################
+          //Displays true of false if user's first time logging in.
+          $localStorage.registered = res.data.registered;
+          if($localStorage.registered){
+            $localStorage.$state.go('app.get-user-phone-info');
+          }else{
+            $localStorage.$state.go('app.landing')
+          }
+
         });
 
       }, function(error) {
@@ -76,8 +115,10 @@ function FacebookService($http, $localStorage, $location, DataSharingService) {
   }
 
   this.logout = function() {
-    alert('user logged out');
-    return delete($localStorage.accessToken);
+    delete($localStorage.activeUserId);
+    delete($localStorage.accessToken);
+    delete($localStorage.registered);
+    return alert('user deleted');
   }
 
 }
@@ -212,6 +253,7 @@ function UserService($http) {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
     }
+
     return $http.put(SERVER_IP + '/api/users/' + user_id, user_phone_info)
   }
 
@@ -243,6 +285,10 @@ function UserService($http) {
 }
 
 function ChallengerService($http) {
+
+  this.removeChallenger = function (challenger_id){
+    return $http.delete(SERVER_IP + '/api/challengers/' + challenger_id)
+  }
 
   this.createChallenger = function(userId, challengeId, initiator) {
     console.log('creating challenger', userId, challengeId, initiator)

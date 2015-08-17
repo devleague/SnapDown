@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService, $stateParams, $ionicModal, $ionicPlatform, DataSharingService) {
+.controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService, $stateParams, $ionicModal, $ionicPlatform, DataSharingService, $localStorage, UserStatsService) {
 
 
   $scope.getChallengeContext = function() {
@@ -42,17 +42,25 @@ angular.module('starter')
         // var userId = DataSharingService.activeUser.id;
         //add in userId to function
 
-        ChallengerService.createChallenger(2, res.id, true)
+        ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
           .success(function(res) {
             console.log('challenger created', res);
             DataSharingService.activeUser.challengerId = res.id;
             challengerId = res.id;
-            //
-            //
-            //STARTS THE CAMERA
-            //
-            //
-            $scope.getPhoto();
+
+            // UserStatsService.updateStartedStat($localStorage.activeUserId)
+            //     .success(function (res){
+            //       console.log('Updated the user started at stat', res)
+            //       //
+            //       //
+            //       //STARTS THE CAMERA
+            //       //
+            //       //
+            //       $scope.getPhoto();
+            //     })
+            //     .error(function (err){
+            //       console.log('err with updating challenged at stat', err);
+            //     })
           })
           .error(function(error) {
             console.log(error);
@@ -70,7 +78,8 @@ angular.module('starter')
         targetHeight: 1024,
         destinationType: 0,
         encodingType: 0,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: false,
+        correctOrientation: true
       })
       .then(function(imageData) {
 

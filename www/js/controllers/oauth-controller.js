@@ -1,13 +1,18 @@
 angular.module('starter')
 
-.controller('OauthCtrl', function($scope,$state,$cordovaOauth, $localStorage, $location, FacebookService) {
+.controller('OauthCtrl', function($scope, $state, $cordovaOauth, $localStorage, $location, FacebookService) {
+    
+    /**
+     * Hacky way to allow $state in services.js
+     * Leave for now 
+     */
+    $localStorage.$state = $state;
 
-
+    
     $scope.login = function() {
         $cordovaOauth.facebook(FB_SNAPDOWN_ID, ['email']).then(function(result) {
             $localStorage.accessToken = result.access_token;
             FacebookService.login();
-            $state.go('app.get-user-phone-info');
         }, function(error) {
             alert('There was a problem signing in!  See the console for logs');
             alert(error);
@@ -15,7 +20,11 @@ angular.module('starter')
         });
     };
 
-    $scope.logout = FacebookService.logout;
+    $scope.logout = function(){
+        FacebookService.logout();
+        $state.go('app.oauth');
+    };
+
 });
 
 

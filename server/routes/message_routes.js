@@ -13,39 +13,103 @@ var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var messageService = require('../services/message_service.js')
 
 
-router.post('/',function(req,res){
+router.post('/',function(req,res) {
 
-  req.body.users.forEach(function(user){
-    var messageBody = 'Hi '
-      + user.first_name
-      + '! '
-      + req.body.challengerName
-      + ' '
-      + messageService.messageBody;
+  var userIDs = [];
 
-    var messageData = {
-      from: messageService.from,
-      to: user.phone + messageService[user.provider_id],
-      subject: messageService.subject,
-      text: messageBody
-    }
-    console.log('messageData', messageData);
+  req.body.users.forEach(function(user) {
 
-    mailgun.messages().send(messageData, function (error, body) {
-      if(error){
-        console.log(error);
+    userIDs.push(user.id);
+  });
+
+  userDb.findAll({
+
+    where: {
+
+      id: {
+
+        in: userIDs
       }
-    }).then(function(result){
+    }
 
-      var stringResult = JSON.stringify(result) + '\n';
-      fs.appendFile("./server/logs/message_logs.txt", stringResult, function(err) {
-        if(err) {
-          return console.log(err);
+  }).then(function(users) {
+
+    users.forEach(function(user) {
+
+      var messageBody = 'Hi '
+        + user.first_name
+        + '! '
+        + req.body.challengerName
+        + ' '
+        + messageService.messageBody;
+
+      var messageData = {
+        from: messageService.from,
+        to: user.phone + messageService[user.provider_id],
+        subject: messageService.subject,
+        text: messageBody
+      };
+
+      mailgun.messages().send(messageData, function (error, body) {
+
+        if(error){
+
+          console.log(error);
         }
+
+      }).then(function(result){
+
+        var stringResult = JSON.stringify(result) + '\n';
+
+        fs.appendFile("../server/logs/message_logs.txt", stringResult, function(error) {
+
+          if(error) {
+
+            return console.log(error);
+          }
+        });
       });
     });
   });
 });
+
+  // req.body.users.forEach(function(user) {
+
+  //   var messageBody = 'Hi '
+  //     + user.first_name
+  //     + '! '
+  //     + req.body.challengerName
+  //     + ' '
+  //     + messageService.messageBody;
+
+  //   var messageData = {
+  //     from: messageService.from,
+  //     to: user.phone + messageService[user.provider_id],
+  //     subject: messageService.subject,
+  //     text: messageBody
+  //   }
+
+  //   mailgun.messages().send(messageData, function (error, body) {
+
+  //     if(error){
+
+  //       console.log(error);
+  //     }
+
+  //   }).then(function(result){
+
+  //     var stringResult = JSON.stringify(result) + '\n';
+
+  //     fs.appendFile("./server/logs/message_logs.txt", stringResult, function(err) {
+
+  //       if(error) {
+
+  //         return console.log(error);
+  //       }
+  //     });
+  //   });
+  // });
+// });
 
 module.exports = router;
 

@@ -5,20 +5,22 @@
 
   <ion-content>
     <div class="welcomeMessage">
-      <p>Welcome to SnapDown!  Please enter your 10-digit telephone number and service provider so we can notify you of new challenges!  Thanks!</p>
+      <h1>Welcome to SnapDown!</h1>
+      <br>
+      <br>
+      <p>Please enter your 10-digit telephone number and choose your service provider so we can notify you of new challenges!</p>
+      <br>
     </div>
 
     <form name="get-user-phone-info-form"></form>
       <div class="phNumberDiv">
         <h3>Telephone:</h3>
       </div>
-      <input class="numberField" required type="text" placeholder="(xxx)xxx-xxxx" ng-pattern="phoneNumbr" name="phone" ng-model="user_info.phone">
+      <input class="numberField" required type="text" placeholder="(xxx)xxx-xxxx"  name="phone" ng-model="user_info.phone">
 
-      <div ng-messages="get-user-phone-info-form.link.$error" ng-show="get-user-phone-info-form.link.$touched">
-        <p ng-message="pattern">Bad phone number</p>
-      </div>
+      <div class="showErrorMessage" ng-show="showErrorMessage">please enter a valid 10 digit phone number</div>
 
-      <select required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+      <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
         <option value="">-- choose your provider--</option>
       </select>
 

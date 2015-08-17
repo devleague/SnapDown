@@ -12,6 +12,7 @@ var fbauth_routes = require('./fbauth_routes');
 var message_routes = require('./message_routes');
 var image_s3_routes = require('./image_s3_routes');
 var provider_routes = require('./provider_routes');
+var user_statistics_routes = require('./user_statistics_routes');
 
 router.use('/challenges', challenge_routes);
 router.use('/challengers', challenger_routes);
@@ -22,5 +23,6 @@ router.use('/fbauth_routes', fbauth_routes);
 router.use('/message', message_routes);
 router.use('/upload', image_s3_routes);
 router.use('/providers', provider_routes);
+router.use('/user_statistics', user_statistics_routes);
 
 module.exports = router;
