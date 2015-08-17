@@ -36,27 +36,27 @@ angular.module('starter')
       //##############################################//
       //##############################################//
 
-  // $scope.renderChallenge = function(challenge) {
-  //   console.log('logging challenge',challenge)
-  //   if(challenge.Challenge.state === 'active'){
-  //     if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
-  //       $state.go('app.challenge-in-progress',{
-  //         activeChallengeId : challenge.Challenge.id,
-  //         activeChallengeExpireTime : challenge.Challenge.expire_at
-  //       });
-  //     }
-  //     else{
-  //       $state.go('app.user-challenged',{
-  //         activeChallengeId : challenge.id,
-  //         activeChallengeExpireTime: challenge.expire_at
-  //       });
-  //     }
-  //   }else{
-  //     $state.go('app.challenge-complete',{
-  //       activeChallengeId : challenge.Challenge.id
-  //     });
-  //   }
-  // }
+  $scope.renderChallenge = function(challenge) {
+    console.log('logging challenge',challenge)
+    if(challenge.Challenge.state === 'active'){
+      if(validationService.userHasSubmitted(challenge,$localStorage.activeUserId)){
+        $state.go('app.challenge-in-progress',{
+          activeChallengeId : challenge.Challenge.id,
+          activeChallengeExpireTime : challenge.Challenge.expire_at
+        });
+      }
+      else{
+        $state.go('app.user-challenged',{
+          activeChallengeId : challenge.id,
+          activeChallengeExpireTime: challenge.expire_at
+        });
+      }
+    }else{
+      $state.go('app.challenge-complete',{
+        activeChallengeId : challenge.Challenge.id
+      });
+    }
+  }
 
 
   $scope.onSwipeLeft = function() {

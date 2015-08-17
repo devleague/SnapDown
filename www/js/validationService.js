@@ -2,9 +2,9 @@
 
 angular.module('starter')
 
-  .service('validationService', ['ChallengeService', 'UserStatsService', validationService])
+  .service('validationService', ['ChallengerService', 'UserStatsService', validationService])
 
-  function validationService(ChallengeService, UserStatsService){
+  function validationService(ChallengerService, UserStatsService){
 
   console.log('in here');
 
@@ -36,7 +36,7 @@ angular.module('starter')
       declinedChallenges.forEach(function(challenge){
         //delete challenger
         var challengerId = challenge.challenge_id;
-        ChallengeService.removeChallenger(challengerId)
+        ChallengerService.removeChallenger(challengerId)
           .success(function(res){
             console.log('challenger removed from declined challenge', res)
             // UserStatsService.updateDeclineStat(userId)
