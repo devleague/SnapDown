@@ -18,6 +18,9 @@ angular.module('starter')
       })
       $scope.challenges = userFeedChallenges;
         console.log('new array with images:',res)
+
+      validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+
     })
     .error(function(err) {
         console.log('err w/ showing challeges', err);
@@ -75,7 +78,6 @@ angular.module('starter')
     }
   };
 
-  validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
 
 

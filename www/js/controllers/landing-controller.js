@@ -22,6 +22,9 @@ angular.module('starter')
 
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
+
+      validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
+
     })
     .error(function(err) {
       console.log('err w/ showing challeges', err);
@@ -30,8 +33,6 @@ angular.module('starter')
 
   ionic.Platform.ready(function() {
 
-
-    validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     // $scope.openChallenges = [];
     // ChallengerService.getChallengerContext($localStorage.activeUserId)
