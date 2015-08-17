@@ -43,9 +43,9 @@ angular.module('starter')
       // console.log('users accepted stat is updated', res);
 
       Camera.getPicture({
-          quality: 75,
-          targetWidth: 1024,
-          targetHeight: 1024,
+          quality: 25,
+          targetWidth: 500,
+          targetHeight: 500,
           destinationType: 0,
           encodingType: 0,
           saveToPhotoAlbum: false,
@@ -54,6 +54,9 @@ angular.module('starter')
         .then(function(imageData) {
 
           alert('imageData', imageData);
+          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+          console.log(imageData);
+          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
 
           if (imageData) {
             PictureService.sendImageToServer(imageData, challengerId)
