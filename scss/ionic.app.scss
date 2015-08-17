@@ -180,8 +180,9 @@ div.tabs.tabs-icon.tabs-dark {
       .image_thumb_container{
         width: 100%;
         height: 3em;
+        //below only works on browser
         // overflow-x: scroll;
-        // overflow-y: hidden;
+        overflow-y: hidden;
         // overflow-scrolling: touch;
         // white-space: nowrap;
 
