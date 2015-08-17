@@ -126,7 +126,7 @@ angular.module('starter')
       else{
         $state.go('app.user-challenged',{
           activeChallengeId : challenge.id,
-          activeChallengeExpireTime: challenge.expire_at,
+          activeChallengeExpireTime: challenge.Challenge.expire_at,
           challengerId : acceptingChallengerId
 
         });
