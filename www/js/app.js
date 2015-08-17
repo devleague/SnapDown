@@ -18,7 +18,7 @@ angular.module('starter', ['ionic',
                           'angularMoment'
                           ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localStorage, $state) {
   $ionicPlatform.ready(function() {
     $localStorage.$state = $state;
     alert('local storage state set');

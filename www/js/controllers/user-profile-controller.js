@@ -7,17 +7,9 @@ angular.module('starter')
 		$scope.fb_user = res.data;
 	});
 
-  ////
-  //
-  //
 
-  //need to set the user id and pass into the below function
-  //
-  //
-  //
-  // var user_id =
 
-  UserStatsService.getUserStats(user_id)
+  UserStatsService.getUserStats($localStorage.activeUserId)
     .success(function (res){
       console.log('user stats', res);
     })
