@@ -25,22 +25,24 @@ function UserStatsService($http){
 
   this.updateAcceptStat = function (user_id){
     var userAccept = {
-      challenges_accepted : true
+      challenges_accepted : 'true'
     }
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userAccept)
   }
 
   this.updateDeclineStat = function (user_id){
     var userDecline = {
-      challenges_declined : true
+      challenges_declined : 'true'
     }
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userDecline)
   }
 
   this.updateStartedStat = function (user_id){
+    console.log('user_id before', user_id);
     var userStarted = {
-      challenges_started : true
+      challenges_started : 'true'
     }
+    console.log('user_id', user_id);
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userStarted)
   }
 

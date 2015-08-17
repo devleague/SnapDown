@@ -40,7 +40,6 @@ router.get('/:id', function(req,res) {
 router.get('/:id/challenges/images', function(req,res) {
 
   challenger.findAll({
-
     where: { id: req.params.id },
     attributes: ["id","first_name","last_name","facebook_image_url"],
     include :[
@@ -54,11 +53,11 @@ router.get('/:id/challenges/images', function(req,res) {
       }
     ]
   }).then(function(challengers) {
-
   //   var
   // }).then(function(challengers) {
-
-    res.json(challengers);
+    if(challengers){
+      res.json(challengers);
+    }
   });
 });
 
