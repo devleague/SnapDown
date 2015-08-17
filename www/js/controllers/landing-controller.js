@@ -14,9 +14,10 @@ angular.module('starter')
    ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res){
       var filteredChallenges = ChallengeService.filterChallenges(res);
-      var activeChallenges = filteredChallenges.filter(function(challenge){
-        return challenge.Challenge.expire_at > Date.now();
-      })
+      var activeChallenges = filteredChallenges;
+      // var activeChallenges = filteredChallenges.filter(function(challenge){
+      //   return challenge.Challenge.expire_at > Date.now();
+      // });
       $scope.activeChallenges = activeChallenges;
         console.log('new array with images:',res)
     })
