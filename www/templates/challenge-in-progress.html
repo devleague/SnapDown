@@ -5,9 +5,10 @@ challenge-in-progress">
       <h3>Challenge in Progress</h3>
     </div>
   </ion-header-bar>
+
   <ion-content on-swipe-right="onSwipeRight()" can-swipe-back="false">
-    <div class="challengedPlayers">
-      <ul ng-repeat="challenger in allChallengers">
+    <div>
+      <ul class="challengedPlayers" ng-repeat="challenger in allChallengers">
         <li>
           <div class="acceptStatus" ng-class="getStatusClass(challenger)"></div>
           <div class="challengerName">
