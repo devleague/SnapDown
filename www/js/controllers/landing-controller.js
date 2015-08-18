@@ -14,6 +14,7 @@ angular.module('starter')
 
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
     .success(function(res) {
+      console.log('res',res)
       filteredChallenges = ChallengeService.filterChallenges(res);
 
       var activeChallenges = filteredChallenges.filter(function(challenge) {

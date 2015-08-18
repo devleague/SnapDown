@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 1000000;
+var DEFAULT_CHALLENGE_LENGTH = 120000;
 
 
 angular.module('starter')
@@ -177,19 +177,27 @@ function ChallengeService($http) {
   this.filterChallenges = function(challengeArr) {
 
       var filteredChallenges = challengeArr.filter(function(element, index, array) {
-          if (!element.Challenge.start_at || !element.Challenge.expire_at) {
-            return false;
-          } else {
-            var date = parseInt(element.Challenge.expire_at.toString());
-            var utc = new Date(date);
-            element.Challenge.time_elapsed = utc.toUTCString();
-            if (Date.now() < date) {
-              element.Challenge.state = 'active';
+
+          if(element.Challenge){
+
+            if (!element.Challenge.start_at || !element.Challenge.expire_at) {
+              return false;
             } else {
-              element.Challenge.state = 'inactive';
-            }
-            return true;
-          };
+              var date = parseInt(element.Challenge.expire_at.toString());
+              var utc = new Date(date);
+              element.Challenge.time_elapsed = utc.toUTCString();
+              if (Date.now() < date) {
+                element.Challenge.state = 'active';
+              } else {
+                element.Challenge.state = 'inactive';
+              }
+              return true;
+            };
+          }else{
+            return false;
+          }
+
+
         })
         /**
          * Sorts array by most recently added.
