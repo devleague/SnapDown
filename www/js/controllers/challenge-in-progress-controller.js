@@ -6,21 +6,8 @@ angular.module('starter')
   var challengeId = $stateParams.activeChallengeId;
   var timeRemaining = $stateParams.activeChallengeExpireTime - Date.now();
 
-  console.log('activeChallengeId')
-  console.log($stateParams.activeChallengeId);
-  console.log('Date.now');
-  console.log(Date.now())
-  console.log('time remaining:');
-  console.log(timeRemaining);
-  console.log('stateParams');
-  console.log($stateParams);
-
-
-
-
 //this function fires when the time expires
   $timeout(function(){
-    console.log('timeout triggered')
     // $scope.checkIfChallengeActive();
     $state.go('app.challenge-complete',{activeChallengeId: challengeId});
   },timeRemaining+50)
@@ -56,19 +43,15 @@ angular.module('starter')
   $scope.getChallengeContext = function (){
     ChallengeService.getChallengeContext(challengeId)
       .success(function (res){
-        console.log('challenge-in-progress challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
         $scope.challengeName = res.challenge.name;
-        console.log('challenge-in-progress all challengers',$scope.allChallengers)
       })
       .error(function (err){
-        console.log('err w/challenge context', err);
+
       })
   };
 
   $scope.getChallengeContext();
-
-
 
   $scope.showImage = function(challenger){
     $state.go('app.individual-image', {
@@ -88,8 +71,6 @@ angular.module('starter')
       return "notSubmitted";
     }
   };
-
-
 
   $scope.onSwipeRight = function() {
       $state.go('app.landing');

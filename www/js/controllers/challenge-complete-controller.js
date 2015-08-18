@@ -3,24 +3,22 @@ angular.module('starter')
 .controller('challenge-complete-controller', function($scope, $state, ChallengeService, ChallengerService, Camera, PictureService, $stateParams, $ionicModal, $ionicPlatform, DataSharingService, $localStorage, UserStatsService) {
 
 
-  $scope.getChallengeContext = function() {
+  $scope.getChallengeContext = function () {
 
     var challengeId = $stateParams.activeChallengeId;
 
     ChallengeService.getChallengeContext(challengeId)
       .success(function(res) {
-        console.log('challenge context', res);
         $scope.allChallengers = res.challenge.Challengers;
         $scope.challengeName = res.challenge.name;
         $scope.date = res.challenge.expire_at;
-        console.log('all challengers', $scope.allChallengers)
       })
-      .error(function(err) {
-        console.log('err w/challenge context', err);
+      .error(function (err) {
+
       })
   }
 
-  $scope.showImage = function(challenger) {
+  $scope.showImage = function (challenger) {
     $state.go('app.individual-image', {
       imageUrl: challenger.Image.s3_reference,
       challengerName: challenger.User.first_name,
@@ -33,24 +31,18 @@ angular.module('starter')
 
   $scope.createNewChallenge = function() {
     ChallengeService.createNewChallenge()
-      .success(function(res) {
-        console.log('challenge created', res)
+      .success(function (res) {
 
-        //forward to the in progress page
         DataSharingService.startedChallenge.id = res.id;
         DataSharingService.startedChallenge.name = res.name;
-        // var userId = DataSharingService.activeUser.id;
-        //add in userId to function
 
         ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
-          .success(function(res) {
-            console.log('challenger created', res);
+          .success(function (res) {
             DataSharingService.activeUser.challengerId = res.id;
             challengerId = res.id;
 
             // UserStatsService.updateStartedStat($localStorage.activeUserId)
             //     .success(function (res){
-            //       console.log('Updated the user started at stat', res)
             //       //
             //       //
             //       //STARTS THE CAMERA
@@ -59,16 +51,14 @@ angular.module('starter')
                   $scope.getPhoto();
             //     })
             //     .error(function (err){
-            //       console.log('err with updating challenged at stat', err);
+            //
             //     })
           })
-          .error(function(error) {
-            console.log(error);
+          .error(function (error) {
           })
 
       })
-      .error(function(err) {
-        console.log('Error with creating a challenge', err);
+      .error(function (err) {
       })
   };
   $scope.getPhoto = function() {
@@ -103,10 +93,7 @@ angular.module('starter')
 
 
   $ionicPlatform.ready(function() {
-    console.log('stateparams', $stateParams)
     $scope.getChallengeContext();
   });
-
-
 
 });

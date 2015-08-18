@@ -7,8 +7,7 @@
         var activeChallenges = ChallengeService.getActiveChallenges(filteredChallenges);
         $scope.activeChallenges = activeChallenges;
       })
-      .error(function(err) {
-        console.log('err w/ showing challeges', err);
+      .error(function (err) {
       })
   });
 
@@ -23,29 +22,24 @@
 
   $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
-        .success(function(res) {
-          console.log('challenge created', res)
+        .success(function (res) {
 
-          //forward to the in progress page
           DataSharingService.startedChallenge.id = res.id;
           DataSharingService.startedChallenge.name = res.name;
-          // var userId = DataSharingService.activeUser.id;
-          //add in userId to function
 
           ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
-            .success(function(res) {
-              console.log('challenger created', res);
+            .success(function (res) {
               DataSharingService.activeUser.challengerId = res.id;
               challengerId = res.id;
             })
-            .error(function(error) {
-              console.log(error);
+            .error(function (error) {
+
             })
 
 
         })
-        .error(function(err) {
-          console.log('Error with creating a challenge', err);
+        .error(function (err) {
+
         })
     };
 

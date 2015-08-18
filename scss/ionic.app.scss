@@ -26,6 +26,7 @@ $lightGray: #818E9D;
 $timer: #212A33;
 $logo: url('../img/logo.svg');
 
+
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
@@ -53,7 +54,6 @@ div.tabs.tabs-icon.tabs-dark {
   text-align: center;
 
   .login_logo{
-
     height: 150px;
     width: 330px;
     margin: 20% auto;
@@ -80,7 +80,6 @@ div.tabs.tabs-icon.tabs-dark {
     font-size: 2em;
     font-weight: 700;
     color: $energized;
-
   }
 
   .facebook_subheading{
@@ -88,7 +87,6 @@ div.tabs.tabs-icon.tabs-dark {
     margin: auto;
     color: $energized;
   }
-
 }
 
 //select a challenger page
@@ -157,7 +155,6 @@ div.tabs.tabs-icon.tabs-dark {
   }
 }
 
-
 //User Feed
 .user_feed_heading{
   background-color: $dark;
@@ -204,8 +201,6 @@ div.tabs.tabs-icon.tabs-dark {
         }
       }
     }
-
-
 
     .activeChallenge{
       margin-bottom: 3%;
@@ -298,6 +293,7 @@ div.tabs.tabs-icon.tabs-dark {
       font-weight: bolder;
     }
   }
+
   .numberField {
     height: 5vh;
     width: 60vw;
@@ -336,8 +332,6 @@ div.tabs.tabs-icon.tabs-dark {
     font-size: 1.3em;
     font-weight: 700;
   }
-
-
 }
 
 
@@ -472,7 +466,6 @@ div.tabs.tabs-icon.tabs-dark {
           display: inline-block;
           margin: 0 1.5%;
 
-
           .imageThumbnail{
             width: 55px;
             height: 55px;
@@ -489,7 +482,6 @@ div.tabs.tabs-icon.tabs-dark {
         padding-right: 3%;
 
         .unaccepted_heading{
-
         }
 
         .user_feed_challenger_time{
@@ -502,8 +494,6 @@ div.tabs.tabs-icon.tabs-dark {
           font-weight: 700;
           // border: 1px solid white;
         }
-
-
       }
 
       .user_feed_challenger_name{
@@ -511,7 +501,6 @@ div.tabs.tabs-icon.tabs-dark {
         margin-left: 5%;
         font-weight: 700;
       }
-
     }
 
 
@@ -537,7 +526,6 @@ div.tabs.tabs-icon.tabs-dark {
       }
     }
   }
-
 }
 
 // edit profile styling
@@ -560,13 +548,12 @@ div.tabs.tabs-icon.tabs-dark {
 
         .userAvatar {
           background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
           height: 75px;
           width: 75px;
           margin: 0 auto;
           border-radius: 15px;
-          border: 1px solid white;
-          background-position: center;
-          background-size: 100%;
         }
       }
 
@@ -595,7 +582,6 @@ div.tabs.tabs-icon.tabs-dark {
         .emailInput{
           width:500px;
         }
-
       }
     }
   }
@@ -612,12 +598,12 @@ div.tabs.tabs-icon.tabs-dark {
         font-weight: bold;
       }
     }
-
   }
 
   .statisticsContainer {
     background-color: $lightBackground;
-    height: 60vh;
+    border-top: 1px solid $lightGray;
+    height: 75vh;
 
     p {
       text-align: center;
@@ -629,7 +615,6 @@ div.tabs.tabs-icon.tabs-dark {
       text-align: center;
       color: $energized;
       font-size: 1.5em;
-
     }
   }
 
@@ -890,8 +875,6 @@ div.tabs.tabs-icon.tabs-dark {
   }
 }
 
-
-
 .challenge-complete {
   .quiltHeader {
     width: 100%;
@@ -965,7 +948,6 @@ div.tabs.tabs-icon.tabs-dark {
         &:after {
           content: ",";
         }
-
       }
     }
   }

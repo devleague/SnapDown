@@ -6,9 +6,6 @@ angular.module('starter')
 
   function validationService(ChallengerService, UserStatsService){
 
-  console.log('in here');
-
-
     this.phoneNumberVal = function(value){
       if(!value.match(/\d/g)){
         return false;
@@ -21,9 +18,6 @@ angular.module('starter')
     };
 
     this.userHasSubmitted = function(challenge,userId){
-      console.log('user has submitted',challenge.Challenge.Challengers.filter(function(challenge){
-        return challenge.user_id == userId;
-      })[0].Image);
       return challenge.Challenge.Challengers.filter(function(challenge){
         return challenge.user_id == userId;
       })[0].Image;
@@ -42,21 +36,15 @@ angular.module('starter')
         })[0].Image === null;
       });
 
-      console.log('declined challenges from validationService',declinedChallenges)
-
       declinedChallenges.forEach(function(challenge){
         //delete challenger
         var challengerId = challenge.Challenge.Challengers.filter(function(challenger){
           return challenger.user_id == userId;
         })[0].id;
 
-        console.log('challenger id from validationService',challengerId);
-
-
-
         ChallengerService.removeChallenger(challengerId)
-          .success(function(res){
-            console.log('challenger removed from declined challenge', res)
+          .success(function (res){
+
             // UserStatsService.updateDeclineStat(userId)
             //   .success(function (res){
             //     console.log('success with decline count', res)
@@ -65,8 +53,8 @@ angular.module('starter')
             //     console.log('err with decline count', err);
             //   })
           })
-          .error(function(error){
-            console.log('error removing declined challenger',error)
+          .error(function (error){
+
           })
       })
     };

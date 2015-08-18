@@ -38,11 +38,11 @@ function UserStatsService($http){
   }
 
   this.updateStartedStat = function (user_id){
-    console.log('user_id before', user_id);
+
     var userStarted = {
       challenges_started : 'true'
     }
-    console.log('user_id', user_id);
+
     return $http.put(SERVER_IP + '/api/user_statistics/' + user_id, userStarted)
   }
 
@@ -100,11 +100,10 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
 
         });
 
-      }, function(error) {
-        console.log(error);
+      }, function (error) {
       });
     } else {
-      alert('Not signed in');
+      // alert('Not signed in');
     }
   }
 
@@ -113,8 +112,6 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
       id: $localStorage.activeUserId
     };
     return $http.post(SERVER_IP + '/api/register/facebook_register_user/info', userId);
-
-
   }
 
   this.logout = function() {
@@ -122,48 +119,27 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
     delete($localStorage.accessToken);
     delete($localStorage.registered);
     delete($localStorage.activeUserName);
-
-    return alert('user deleted');
   }
-
 }
 
 
 function LoginService($http) {
-  this.loginUser = function(login_user) {
 
-    //Grab the necessary info from the register form and assign
-    //to a user object
-
-    // var user_login = {
-    //   username : login_user.username,
-    //   password : login_user.password
-    // };
-    // return $http.post('/api/users/login', user_login);
-  }
 }
 
 function LogOutService($http) {
-  this.logUserOut = function() {
-    // return $http.get('/api/users/logout');
-  }
+
 }
 
 function PictureService($http) {
   this.sendImageToServer = function(image, challenger_id) {
-    console.log('image');
-    console.log(image);
-    console.log('challenger_id');
-    console.log(challenger_id)
-
     var imageData = {
       base64Image: image,
       challenger_id: challenger_id
     };
-
     return $http.post(SERVER_IP + '/api/upload/', imageData);
   }
-}
+};
 
 function MessageServices($http) {
   this.sendChallengeInvites = function(invitationObj) {
@@ -218,7 +194,6 @@ function ChallengeService($http) {
      * @return {[Array]}              [Array of Active Challenges]
      */
   this.getActiveChallenges = function(challengeArr) {
-    console.log(challengeArr);
     var activeChallenges = challengeArr.filter(function(element, index, array) {
       if (element.state === 'active') {
         return true;
@@ -246,7 +221,6 @@ function ChallengeService($http) {
   }
 
   this.updateChallengeTimes = function(challengeId) {
-    console.log('updating challenge time');
     var updateData = {
       start_at: Date.now(),
       expire_at: Date.now() + DEFAULT_CHALLENGE_LENGTH
@@ -257,7 +231,7 @@ function ChallengeService($http) {
   this.getChallengeContext = function(challenge_id) {
     return $http.get(SERVER_IP + '/api/challenges/' + challenge_id + '/context');
   }
-}
+};
 
 function UserService($http) {
   // gets a list of all users in the system to populate the select user to challenge page
@@ -266,8 +240,6 @@ function UserService($http) {
   }
 
   this.updateUserPhoneInfo = function(user_id, user_info) {
-    console.log('phoneincoming', user_info);
-
     var user_phone_info = {
       phone: user_info.phone,
       service_provider: user_info.service_provider.id
@@ -301,7 +273,7 @@ function UserService($http) {
   this.deleteUser = function(userId) {
     return $http.delete(SERVER_IP + '/api/users/' + userId)
   }
-}
+};
 
 function ChallengerService($http) {
 
@@ -310,7 +282,6 @@ function ChallengerService($http) {
   }
 
   this.createChallenger = function(userId, challengeId, initiator) {
-    console.log('creating challenger', userId, challengeId, initiator)
     var challenger = {
       initiator_flag: initiator,
       challenge_id: challengeId,
@@ -327,12 +298,7 @@ function ChallengerService($http) {
   this.getChallengesWithImages = function(user_id) {
     return $http.get(SERVER_IP + '/api/users/' + user_id + '/challenges/images');
   };
-
-
-
 };
-
-
 
 function DataSharingService() {
 
@@ -345,4 +311,4 @@ function ProviderService($http) {
   this.getAllProviders = function() {
     return $http.get(SERVER_IP + '/api/providers');
   }
-}
+};

@@ -8,14 +8,12 @@ angular.module('starter')
   //########## DEVELOPMENT ONLY ##################//
   $localStorage.activeUserId === true ? $localStorage.activeUserId : 2;
   //##############################################//
-  // $localStorage.activeUserId = 8;
   //##############################################//
 
   var filteredChallenges = [];
 
   ChallengerService.getChallengesWithImages($localStorage.activeUserId)
-    .success(function(res) {
-      console.log('res', res)
+    .success(function (res) {
       filteredChallenges = ChallengeService.filterChallenges(res);
 
       var activeChallenges = filteredChallenges.filter(function(challenge) {
@@ -23,13 +21,11 @@ angular.module('starter')
       });
 
       $scope.activeChallenges = activeChallenges;
-      console.log('new array with images:', res)
-      console.log('filtered challenges', filteredChallenges)
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     })
-    .error(function(err) {
-      console.log('err w/ showing challeges', err);
+    .error(function (err) {
+
     })
 
 
@@ -92,7 +88,6 @@ angular.module('starter')
       } else {
         classNames += "inactiveChallenge";
       }
-      console.log('classNames', classNames);
       return classNames;
     };
 
@@ -107,8 +102,7 @@ angular.module('starter')
 
     $scope.createNewChallenge = function() {
       ChallengeService.createNewChallenge()
-        .success(function(res) {
-          console.log('challenge created', res)
+        .success(function (res) {
 
           //forward to the in progress page
           DataSharingService.startedChallenge.id = res.id;
@@ -117,8 +111,8 @@ angular.module('starter')
           //add in userId to function
 
           ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
-            .success(function(res) {
-              console.log('challenger created', res);
+            .success(function (res) {
+
               DataSharingService.activeUser.challengerId = res.id;
               challengerId = res.id;
 
@@ -134,29 +128,20 @@ angular.module('starter')
               //   .error(function (err){
               //     console.log('err with updating challenged at stat', err);
               //   })
-
-
             })
-            .error(function(error) {
-              console.log(error);
+            .error(function (error) {
             })
-
-
         })
-        .error(function(err) {
-          console.log('Error with creating a challenge', err);
+        .error(function (err) {
         })
     };
 
 
 
     $scope.renderChallenge = function(challenge) {
-      console.log('challenge selected', challenge)
-
       var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger) {
         return challenger.user_id == $localStorage.activeUserId;
       })[0].id;
-      console.log('acceptingChallengerId', acceptingChallengerId);
 
       if (validationService.userHasSubmitted(challenge, $localStorage.activeUserId)) {
         $state.go('app.challenge-in-progress', {
@@ -176,7 +161,6 @@ angular.module('starter')
 
     $scope.getPhoto = function() {
       Camera.getPicture({
-
           quality: 50,
           targetWidth: 1024,
           targetHeight: 1024,
@@ -186,7 +170,6 @@ angular.module('starter')
           correctOrientation: true
         })
         .then(function(imageData) {
-
           if (imageData) {
             PictureService.sendImageToServer(imageData, challengerId)
               .success(function(res) {

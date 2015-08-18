@@ -2,7 +2,7 @@ angular.module('starter')
 
 .controller('user-feed-controller', function($scope, ChallengeService, ChallengerService, $state, $ionicModal, $localStorage, $timeout, validationService) {
 
-  console.log('current user id user feeed', $localStorage.activeUserId);
+
 
   var filteredChallenges = [];
 
@@ -18,24 +18,22 @@ angular.module('starter')
         }
       })
       $scope.challenges = userFeedChallenges;
-      console.log('new array with images:', res)
 
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     })
-    .error(function(err) {
-      console.log('err w/ showing challeges', err);
+    .error(function (err) {
+
     })
 
 
 
   $scope.renderChallenge = function(challenge) {
-    console.log('challnge', challenge)
+
     var acceptingChallengerId = challenge.Challenge.Challengers.filter(function(challenger) {
       return challenger.user_id == $localStorage.activeUserId;
     })[0].id;
 
-    console.log('logging challenge', challenge)
     if (challenge.Challenge.state === 'active') {
       if (validationService.userHasSubmitted(challenge, $localStorage.activeUserId)) {
         $state.go('app.challenge-in-progress', {
@@ -83,8 +81,6 @@ angular.module('starter')
     } else {
       classNames += "inactiveChallenge";
     }
-    
-    console.log('classNames',classNames);
     return classNames;
   };
 
