@@ -10,8 +10,10 @@
         <li ng-show="challenger.Image">
           <div class="imageHolder">
             <img ng-src="{{challenger.Image.s3_reference}}">
+            <div class="image_author">
+              <h1>{{challenger.User.first_name}}</h1>
+            </div>
           </div>
-          <h1>{{challenger.User.first_name}}</h1>
         </li>
       </ul>
     </div>

@@ -655,7 +655,6 @@ div.tabs.tabs-icon.tabs-dark {
       color: $energized;
       text-align: center;
     }
-
   }
 
   .challengedPlayers {
@@ -675,10 +674,13 @@ div.tabs.tabs-icon.tabs-dark {
         background-image: url('../img/checked.svg');
         background-repeat: no-repeat;
         background-position: center center;
+        // border: 1px solid white;
+
       }
 
       .notSubmitted {
         height: 100%;
+        // border: 1px solid white;
         width: 15%;
         display: inline-block;
         float: left;
@@ -689,9 +691,10 @@ div.tabs.tabs-icon.tabs-dark {
 
       .challengerName {
         height: 100%;
-        width: 65%;
+        width: 60%;
         display: inline-block;
-        float: left;
+
+        // border: 1px solid white;
 
         h1 {
           color: $lightGray;
@@ -703,10 +706,10 @@ div.tabs.tabs-icon.tabs-dark {
       .challengerImage {
         height: 100%;
         width: 20%;
-        float: left;
+        float: right;
+        // border: 1px solid white;
 
         .image {
-
           margin: 0 auto;
           margin-top: 1.5vh;
 
@@ -863,12 +866,12 @@ div.tabs.tabs-icon.tabs-dark {
 .individual_page{
 
   .individual_page_header{
+    width: 100%;
+    h3 {
+      color: $energized;
+      text-align: center;
       width: 100%;
-      h3 {
-        color: $energized;
-        text-align: center;
-        width: 100%;
-      }
+    }
   }
 
   .individual_page_container{
@@ -879,10 +882,8 @@ div.tabs.tabs-icon.tabs-dark {
 
       .individual_image{
         width: 100%;
-        height: 600px;
       }
     }
-
   }
 }
 
@@ -919,8 +920,9 @@ div.tabs.tabs-icon.tabs-dark {
           margin-bottom: -30px;
 
           img{
-            height:100%;
+            height:80%;
             width:100%;
+            border-radius: 15px;
           }
         }
 
