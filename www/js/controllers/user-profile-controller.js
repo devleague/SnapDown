@@ -18,27 +18,27 @@ angular.module('starter')
 
 	// UserStatsService.getUserStats($localStorage.activeUserId)
 	// 	.success(function(res) {
-	// 		console.log('user stats', res);
+
 	// 	})
 	// 	.error(function(err) {
-	// 		console.log('err', err);
+
 	// 	});
 
 
 	// $scope.update = function(phone, carrier) {
 	// 	var updatedFields = {};
 	// 	if(phone || carrier){
-	// 		console.log('input in fields')
+
 	// 	}
 	// }
 
 	// $scope.providers = [];
 	// ProviderService.getAllProviders()
 	// 	.success(function(res) {
-	// 		console.log('providers', res)
+
 	// 		$scope.providers = res;
 	// 	})
 	// 	.error(function(err) {
-	// 		console.log('err', err);
+
 	// 	})
 });

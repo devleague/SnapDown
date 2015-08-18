@@ -10,16 +10,16 @@ angular.module('starter')
 
 
   $scope.getChallengeContext = function() {
-    console.log('attempting to get challenge context',challengeId)
+
     ChallengeService.getChallengeContext(challengeId)
-      .success(function(res) {
+      .success(function (res) {
         $scope.challengeName = res.challenge.name;
-        console.log('challenge context', res);
+
         $scope.allChallengers = res.challenge.Challengers;
-        console.log('all challengers', $scope.allChallengers)
+
       })
-      .error(function(err) {
-        console.log('err w/challenge context', err);
+      .error(function (err) {
+
       })
   };
 
@@ -40,7 +40,6 @@ angular.module('starter')
       // alert('')
       // UserStatsService.updateAcceptStat($localStorage.activeUserId)
       //   .success(function (res){
-      // console.log('users accepted stat is updated', res);
 
       Camera.getPicture({
           quality: 25,
@@ -52,16 +51,6 @@ angular.module('starter')
           correctOrientation: true
         })
         .then(function(imageData) {
-
-          alert('imageData', imageData);
-          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-          console.log(imageData);
-          console.log('challengerId');
-          console.log(challengerId);
-          console.log('challengerId typeof');
-          console.log(typeof(challengerId));
-          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-
           if (imageData) {
             PictureService.sendImageToServer(imageData, challengerId)
               .success(function(res) {
@@ -71,14 +60,13 @@ angular.module('starter')
                 });
               })
               .error(function(error) {
-                console.log('ERROR');
-                console.log(error);
+
               })
           }
         });
       // })
       // .error(function (err){
-      //   console.log('error with updating the user accept stat', err);
+
       // })
 
     };
@@ -96,7 +84,5 @@ angular.module('starter')
       }
     };
 
-
   });
-
 });

@@ -14,12 +14,12 @@ angular.module('starter')
 
   // $scope.checkIfChallengeActive = function(){
   //   if(DataSharingService.activeChallenge.expireAt > Date.now()){
-  //     console.log('challenge active')
+
   //     $scope.challengeActive = true;
   //     $scope.challengeExpired = false;
   //   }
   //   else{
-  //     console.log('challenge expired')
+
 
   //     $scope.challengeActive = false;
   //     $scope.challengeExpired = true;

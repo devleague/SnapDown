@@ -34,9 +34,9 @@ angular.module('starter')
 
     // $scope.openChallenges = [];
     // ChallengerService.getChallengerContext($localStorage.activeUserId)
-    //   .success(function(res) {
+    //   .success(function (res) {
     //     var challengeContextArr = res;
-    //     console.log('before length', challengeContextArr.length);
+
     //     challengeContextArr.forEach(function(curr, index) {
     //       if (curr.Challenge && !curr.initiator_flag){
 
@@ -47,8 +47,8 @@ angular.module('starter')
     //     })
 
     //   })
-    //   .error(function(err) {
-    //     console.log('err w/ showing challeges', err);
+    //   .error(function (err) {
+
     //   })
     $scope.isActive = function(challenge) {
       return challenge.Challenge.expire_at > Date.now();
@@ -118,7 +118,7 @@ angular.module('starter')
 
               // UserStatsService.updateStartedStat($localStorage.activeUserId)
               //   .success(function (res){
-              //     console.log('Updated the user started at stat', res)
+
 
               //     //Add the go to camera logic here!!
 
@@ -126,7 +126,7 @@ angular.module('starter')
 
               //   })
               //   .error(function (err){
-              //     console.log('err with updating challenged at stat', err);
+
               //   })
             })
             .error(function (error) {

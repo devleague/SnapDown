@@ -47,10 +47,10 @@ angular.module('starter')
 
             // UserStatsService.updateDeclineStat(userId)
             //   .success(function (res){
-            //     console.log('success with decline count', res)
+
             //   })
             //   .error(function (err){
-            //     console.log('err with decline count', err);
+
             //   })
           })
           .error(function (error){

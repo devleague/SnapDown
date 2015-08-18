@@ -13,7 +13,7 @@ angular.module('starter')
       user_info.phone = validationService.parseNumber(user_info.phone);
       UserService.updateUserPhoneInfo($localStorage.activeUserId, user_info)
         .success(function (res){
-          console.log('updated user info', res);
+
           $state.go('app.landing');
         })
         .error(function (error){
@@ -32,11 +32,11 @@ angular.module('starter')
   $scope.providers = [];
   ProviderService.getAllProviders()
     .success(function (res){
-      console.log('providers', res)
+
       $scope.providers = res;
     })
     .error(function (err){
-      console.log('err', err);
+
     })
 
 })

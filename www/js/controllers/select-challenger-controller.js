@@ -1,9 +1,7 @@
 angular.module('starter')
 
 .controller('select-challenger-controller', function ($localStorage, $scope, UserService, ChallengeService, $state, $stateParams, DataSharingService, MessageServices, ChallengerService, $q) {
-  console.log('current user id user feeed',$localStorage.activeUserId);
 
-  console.log('challenge name', DataSharingService.startedChallenge.name)
   $scope.challengeName = DataSharingService.startedChallenge.name;
   $scope.UserService = UserService;
   $scope.users = [];
@@ -12,19 +10,19 @@ angular.module('starter')
 
     UserService.getAllUsers()
     .success(function (res){
-      console.log('get all users',res);
+
       var filteredUser = res.filter(function(element,index,array){
         if(element.id === $localStorage.activeUserId){
           return false;
         }else{
           return true;
         }
-        console.log('filteredUser',filteredUser);
+
       });
       $scope.users = filteredUser;
     })
     .error(function (err){
-      console.log('Error with receiving users', err);
+
     })
 
 
@@ -41,7 +39,6 @@ angular.module('starter')
     $scope.combinedUpdate = function(){
       var challengeId = DataSharingService.startedChallenge.id;
       var selectedUsers = $scope.usersChecked;
-      // var promise1 = $scope.createChallenger();
 
       var promiseArray = [$scope.updateChallengeTimes()];
       var promise3 = selectedUsers.forEach(function (user){
@@ -50,7 +47,7 @@ angular.module('starter')
 
       $q.all(promiseArray)
         .then(function(resArr){
-          console.log('resArr', resArr);
+
           $state.go('app.challenge-in-progress',{
             activeChallengeId: resArr[0].data.id,
             activeChallengeExpireTime: resArr[0].data.expire_at
@@ -81,7 +78,7 @@ angular.module('starter')
     };
 
     // $scope.changeView = function(){
-    //   console.log('changing view')
+
     //   $state.go('app.challenge-in-progress');
     // };
 
@@ -91,20 +88,20 @@ angular.module('starter')
   // $scope.addUserToChallenge = function (){
   //   ChallengeService.addUserToChallenge()
   //   .success(function (res){
-  //     console.log('user added to challenge', res)
+
   //   })
   //   .error(function (err){
-  //     console.log('Error with adding user', err);
+
   //   })
   // };
 
   // $scope.removeUserFromChallenge = function (){
   //   ChallengeService.removeUserFromChallenge()
   //   .success(function (res){
-  //     console.log(res)
+
   //   })
   //   .error(function (err){
-  //     console.log('Error with removing user', err);
+
   //   })
   // };
 
