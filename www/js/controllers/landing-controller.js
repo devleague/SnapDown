@@ -112,7 +112,6 @@ angular.module('starter')
 
           ChallengerService.createChallenger($localStorage.activeUserId, res.id, true)
             .success(function (res) {
-
               DataSharingService.activeUser.challengerId = res.id;
               challengerId = res.id;
 
