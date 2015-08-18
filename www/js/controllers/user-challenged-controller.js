@@ -89,7 +89,7 @@ angular.module('starter')
 
     $scope.getStatusClass = function(challenger){
       if(challenger.Image){
-        return "imageSumbitted";
+        return "imageSubmitted";
       }
       else{
         return "notSubmitted";
