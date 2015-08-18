@@ -10,6 +10,6 @@ module.exports = {
   '6' : '@vtext.com',
   '7' : '@vmobl.com',
   subject: 'SnapDown Challenge Invitation',
-  messageBody: 'invited you to a challenge ..... message Body'
+  messageBody: 'invited you to a challenge'
 };
 

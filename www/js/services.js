@@ -85,7 +85,10 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
         $http.post(SERVER_IP + '/api/register/facebook_register_user', user).then(function(res) {
           //########## HARD CODE ID HERE #################//
           //###############################################
-          /**/$localStorage.activeUserId = res.data.id;/**/
+          /**/$localStorage.activeUserId = res.data.id;
+              $localStorage.activeUserName = res.data.first_name;
+          /**/
+
           //###############################################
           //Displays true of false if user's first time logging in.
           $localStorage.registered = res.data.registered;
@@ -118,6 +121,8 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
     delete($localStorage.activeUserId);
     delete($localStorage.accessToken);
     delete($localStorage.registered);
+    delete($localStorage.activeUserName);
+
     return alert('user deleted');
   }
 
