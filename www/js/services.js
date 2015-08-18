@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_CHALLENGE_LENGTH = 120000;
+var DEFAULT_CHALLENGE_LENGTH = 300000;
 
 
 angular.module('starter')
