@@ -96,8 +96,12 @@ div.tabs.tabs-icon.tabs-dark {
   background-color: $lightBackground;
 
   .select_user_header {
-    color: $energized;
-    margin: 0 auto;
+    width: 100%;
+
+    h3 {
+      text-align: center;
+      color: $energized;
+    }
   }
 
   .item-input {
