@@ -86,7 +86,7 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
           //########## HARD CODE ID HERE #################//
           //###############################################
           /**/$localStorage.activeUserId = res.data.id;
-              $localStorage.activeUserName = res.data.first_name;
+              $localStorage.activeFirstName = res.data.first_name;
           /**/
 
           //###############################################
@@ -118,7 +118,7 @@ function FacebookService($http, $localStorage, $location, DataSharingService, $s
     delete($localStorage.activeUserId);
     delete($localStorage.accessToken);
     delete($localStorage.registered);
-    delete($localStorage.activeUserName);
+    delete($localStorage.activeFirstName);
   }
 }
 
