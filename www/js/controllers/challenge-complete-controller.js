@@ -73,7 +73,7 @@ angular.module('starter')
   };
   $scope.getPhoto = function() {
     Camera.getPicture({
-        quality: 100,
+        quality: 50,
         targetWidth: 1024,
         targetHeight: 1024,
         destinationType: 0,

@@ -7739,7 +7739,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
 
 .selectChallenger {
   background-color: #3D4B5B; }
-  .selectChallenger h3 {
+  .selectChallenger .select_user_header {
     color: #C7F733;
     margin: 0 auto; }
   .selectChallenger .item-input {

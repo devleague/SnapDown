@@ -95,7 +95,7 @@ div.tabs.tabs-icon.tabs-dark {
 .selectChallenger {
   background-color: $lightBackground;
 
-  h3 {
+  .select_user_header {
     color: $energized;
     margin: 0 auto;
   }
@@ -617,7 +617,7 @@ div.tabs.tabs-icon.tabs-dark {
   // }
 }
 
-//user challenged styling
+//user challenged/Open invitations/challenges waiting to be accepted
 .userChallenged {
   background-color: $lightBackground;
   width: 100%;
@@ -955,7 +955,7 @@ div.tabs.tabs-icon.tabs-dark {
       margin-bottom: 10px;
       line-height: 50px;
     }
-  } 
+  }
 }
 
 .unaccepted{
