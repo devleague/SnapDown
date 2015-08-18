@@ -45,7 +45,7 @@ router.get('/:id/context', function(req,res) {
   db.findOne({
 
     where: { id: req.params.id },
-    limit: 20,
+    limit: 30,
     order: [['created_at', 'DESC']],
     include :[
       { model:challengers,
