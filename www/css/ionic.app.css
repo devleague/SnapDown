@@ -7806,6 +7806,9 @@ div.tabs.tabs-icon.tabs-dark a:active {
         display: inline-block;
         margin: 0 1.5%; }
         .user_feed_container .userFeed .list_of_challenges .image_thumb_container .imageThumbnailWrapper .imageThumbnail {
+          background-position: center;
+          background-size: 100%;
+          border-radius: 15px;
           width: 55px;
           height: 55px; }
   .user_feed_container .userFeed .activeChallenge {
@@ -7944,27 +7947,36 @@ div.tabs.tabs-icon.tabs-dark a:active {
       font-size: 2em; }
     .landing .bottomContainer .list_of_challenges {
       padding-top: 1%;
-      height: 6em;
+      height: 7em;
       border-bottom: 1px solid #818E9D; }
       .landing .bottomContainer .list_of_challenges .image_thumb_container {
         width: 100%;
+        display: inline-block;
+        height: 4em;
         overflow-y: hidden; }
         .landing .bottomContainer .list_of_challenges .image_thumb_container .imageThumbnailWrapper {
           display: inline-block;
           margin: 0 1.5%; }
           .landing .bottomContainer .list_of_challenges .image_thumb_container .imageThumbnailWrapper .imageThumbnail {
             width: 55px;
-            height: 55px; }
+            height: 55px;
+            background-position: center;
+            background-size: 100%;
+            border-radius: 15px; }
+      .landing .bottomContainer .list_of_challenges .timer_on_landing {
+        display: inline-block;
+        width: 100%;
+        padding-right: 3%; }
+        .landing .bottomContainer .list_of_challenges .timer_on_landing .user_feed_challenger_time {
+          color: #C7F733;
+          padding-bottom: 3%;
+          text-align: right;
+          float: right;
+          width: 60%;
+          font-weight: 700; }
       .landing .bottomContainer .list_of_challenges .user_feed_challenger_name {
         color: #C7F733;
         margin-left: 5%;
-        font-weight: 700; }
-      .landing .bottomContainer .list_of_challenges .user_feed_challenger_time {
-        color: #C7F733;
-        text-align: right;
-        float: right;
-        width: 100%;
-        margin-right: 5%;
         font-weight: 700; }
     .landing .bottomContainer .active_challenges {
       border-bottom: 1px solid #818E9D;
@@ -8180,7 +8192,9 @@ div.tabs.tabs-icon.tabs-dark a:active {
           height: 7vh;
           width: 50px;
           background-repeat: no-repeat;
-          border-radius: 5px;
+          background-position: center;
+          background-size: 100%;
+          border-radius: 15px;
           margin: 0 auto;
           margin-top: 1.5vh; }
   .challenge-in-progress .timerBox {
@@ -8276,4 +8290,6 @@ div.tabs.tabs-icon.tabs-dark a:active {
 
 .unaccepted div {
   color: red;
-  display: inline; }
+  display: inline;
+  font-size: 1.1em;
+  margin-left: 1%; }

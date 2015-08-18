@@ -20,16 +20,19 @@
      <!--        <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 3em"> -->
             <div class="image_thumb_container">
               <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers | limitTo:5" ng-show="user.Image">
-                <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
+                <img class="imageThumbnail" ng-src="{{user.Image.s3_reference}}">
               </div>
             </div>
           <!--   </ion-scroll>
    -->
-            <div>
-              <timer end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
-                {{minutes}} minutes, {{seconds}} seconds
-              </timer>
-              <div ng-show="isOpen(challenge)"> Respond to Challenge</div>
+            <div class="timer_on_landing">
+              <span id="unaccepted_heading" ng-show="isOpen(challenge)">Respond to Challenge
+              </span>
+              <div class="user_feed_challenger_time">
+                <timer end-time="getExpireTime(challenge)" >
+                  {{minutes}} minutes, {{seconds}} seconds
+                </timer>
+              </div>
             </div>
 
           </div>
