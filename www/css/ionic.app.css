@@ -8057,7 +8057,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
         width: 15%;
         display: inline-block;
         float: left;
-        background-image: url('../img/unchecked.svg');
+        background-image: url('../img/checked.svg');
         background-repeat: no-repeat;
         background-position: center center; }
       .userChallenged .challengedPlayers li .notSubmitted {
@@ -8065,7 +8065,7 @@ div.tabs.tabs-icon.tabs-dark a:active {
         width: 15%;
         display: inline-block;
         float: left;
-        background-image: url('../img/checked.svg');
+        background-image: url('../img/unchecked.svg');
         background-repeat: no-repeat;
         background-position: center center; }
       .userChallenged .challengedPlayers li .challengerName {
@@ -8145,7 +8145,15 @@ div.tabs.tabs-icon.tabs-dark a:active {
     .challenge-in-progress .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }
-      .challenge-in-progress .challengedPlayers li .acceptStatus {
+      .challenge-in-progress .challengedPlayers li .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .challenge-in-progress .challengedPlayers li .notSubmitted {
         height: 100%;
         width: 15%;
         display: inline-block;
