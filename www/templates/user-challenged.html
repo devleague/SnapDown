@@ -1,7 +1,7 @@
 <ion-view view-title="user-challenged" class="userChallenged">
   <ion-header-bar class="bar-dark">
     <div class="challengeHeader">
- <!--      <h3>{{challengeName}}</h3> -->
+      <h3>Accept Challenge</h3>
     </div>
   </ion-header-bar>
   <ion-content overflow-scroll="true">
@@ -15,8 +15,8 @@
           </div>
           <div class="challengerImage">
             <div class="image">
-              <img ng-show="challenger.Image" src="{{challenger.Image.s3_reference}}" alt="">
-              <img ng-hide="challenger.Image" src="http://placekitten.com/g/200/300" alt="">
+              <img ng-show="challenger.Image" ng-src="{{challenger.Image.s3_reference}}" alt="">
+              <img ng-hide="challenger.Image" ng-src="http://placekitten.com/g/200/300" alt="">
             </div>
           </div>
         </li>

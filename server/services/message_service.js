@@ -9,7 +9,7 @@ module.exports = {
   '5' : '@tmomail.net',
   '6' : '@vtext.com',
   '7' : '@vmobl.com',
-  subject: 'test subject',
+  subject: 'SnapDown Challenge Invitation',
   messageBody: 'invited you to a challenge ..... message Body'
 };
 
