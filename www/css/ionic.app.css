@@ -8080,6 +8080,9 @@ div.tabs.tabs-icon.tabs-dark a:active {
           border-radius: 5px;
           margin: 0 auto;
           margin-top: 1.5vh; }
+          .userChallenged .challengedPlayers li .challengerImage .image img {
+            max-height: 100%;
+            max-width: 100%; }
   .userChallenged .bottomHalf {
     height: 40vh;
     width: 100%;
