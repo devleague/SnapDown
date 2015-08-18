@@ -23,7 +23,7 @@ angular.module('starter')
 
       $scope.activeChallenges = activeChallenges;
       console.log('new array with images:', res)
-
+      console.log('filtered challenges',filteredChallenges)
       validationService.removeUserFromDeclined(filteredChallenges, $localStorage.activeUserId)
 
     })
