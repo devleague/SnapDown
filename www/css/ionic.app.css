@@ -8052,7 +8052,15 @@ div.tabs.tabs-icon.tabs-dark a:active {
     .userChallenged .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }
-      .userChallenged .challengedPlayers li .acceptStatus {
+      .userChallenged .challengedPlayers li .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .userChallenged .challengedPlayers li .notSubmitted {
         height: 100%;
         width: 15%;
         display: inline-block;
@@ -8137,7 +8145,15 @@ div.tabs.tabs-icon.tabs-dark a:active {
     .challenge-in-progress .challengedPlayers li {
       height: 10vh;
       border-bottom: 1px solid #818E9D; }
-      .challenge-in-progress .challengedPlayers li .acceptStatus {
+      .challenge-in-progress .challengedPlayers li .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center; }
+      .challenge-in-progress .challengedPlayers li .notSubmitted {
         height: 100%;
         width: 15%;
         display: inline-block;
