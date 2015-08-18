@@ -305,6 +305,7 @@ function DataSharingService() {
   this.startedChallenge = {};
   this.activeUser = {};
   this.errorLog = {};
+  this.challenger = {};
 };
 
 function ProviderService($http) {
