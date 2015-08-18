@@ -78,13 +78,22 @@ angular.module('starter')
       activeChallengeId : $stateParams.activeChallengeId,
       activeChallengeExpireTime: $stateParams.activeChallengeExpireTime
     });
-  }
+  };
+
+  $scope.getStatusClass = function(challenger){
+    if(challenger.Image){
+      return "imageSubmitted";
+    }
+    else{
+      return "notSubmitted";
+    }
+  };
 
 
 
   $scope.onSwipeRight = function() {
       $state.go('app.landing');
-  }
+  };
 
 
 

@@ -9,7 +9,7 @@ challenge-in-progress">
     <div class="challengedPlayers">
       <ul ng-repeat="challenger in allChallengers">
         <li>
-          <div class="acceptStatus"></div>
+          <div class="acceptStatus" ng-class="getStatusClass(challenger)"></div>
           <div class="challengerName">
             <h1>{{challenger.User.first_name}}</h1>
           </div>
