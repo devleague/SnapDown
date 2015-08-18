@@ -8,7 +8,7 @@ angular.module('starter')
   //########## DEVELOPMENT ONLY ##################//
   $localStorage.activeUserId === true ? $localStorage.activeUserId : 2;
   //##############################################//
-  $localStorage.activeUserId = 8;
+  // $localStorage.activeUserId = 8;
   //##############################################//
 
   var filteredChallenges = [];
