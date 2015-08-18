@@ -87,6 +87,15 @@ angular.module('starter')
       return parseInt(expireTime);
     };
 
+    $scope.getStatusClass = function(challenger){
+      if(challenger.Image){
+        return "imageSumbitted";
+      }
+      else{
+        return "notSubmitted";
+      }
+    };
+
 
   });
 
