@@ -641,7 +641,17 @@ div.tabs.tabs-icon.tabs-dark {
       height: 10vh;
       border-bottom: 1px solid $lightGray;
 
-      .acceptStatus {
+      .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .notSubmitted {
         height: 100%;
         width: 15%;
         display: inline-block;
@@ -756,7 +766,17 @@ div.tabs.tabs-icon.tabs-dark {
       height: 10vh;
       border-bottom: 1px solid $lightGray;
 
-      .acceptStatus {
+      .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .notSubmitted {
         height: 100%;
         width: 15%;
         display: inline-block;

@@ -30,15 +30,30 @@ angular.module('starter')
     };
 
     this.removeUserFromDeclined = function(allUsersChallenges,userId){
-      var declinedChallenges = allUsersChallenges.filter(function(challenge){
+
+      var expiredChallenges = allUsersChallenges.filter(function(challenge){
+        return challenge.Challenge.expire_at < Date.now();
+      });
+
+
+      var declinedChallenges = expiredChallenges.filter(function(challenge){
         return challenge.Challenge.Challengers.filter(function(challenge){
           return challenge.user_id == userId;
         })[0].Image === null;
       });
 
+      console.log('declined challenges from validationService',declinedChallenges)
+
       declinedChallenges.forEach(function(challenge){
         //delete challenger
-        var challengerId = challenge.challenge_id;
+        var challengerId = challenge.Challenge.Challengers.filter(function(challenger){
+          return challenger.user_id == userId;
+        })[0].id;
+
+        console.log('challenger id from validationService',challengerId);
+
+
+
         ChallengerService.removeChallenger(challengerId)
           .success(function(res){
             console.log('challenger removed from declined challenge', res)
