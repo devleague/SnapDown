@@ -128,7 +128,7 @@ angular.module('starter')
 
               //     //Add the go to camera logic here!!
 
-
+                  $scope.getPhoto();
 
               //   })
               //   .error(function (err){
