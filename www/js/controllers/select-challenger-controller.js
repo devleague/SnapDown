@@ -69,7 +69,7 @@ angular.module('starter')
       var invitationObj = {
         users: $scope.usersChecked,
         challengeId: DataSharingService.startedChallenge.id,
-        challengerName: 'testName',
+        challengerName: $localStorage.activeFirstName,
         startTime: Date.now()
       };
 
