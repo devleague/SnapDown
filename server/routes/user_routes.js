@@ -41,6 +41,8 @@ router.get('/:id/challenges/images', function(req,res) {
 
   challenger.findAll({
     where: { user_id: req.params.id },
+    limit: 20,
+    order: [['created_at', 'DESC']],
     // attributes: ["id","first_name","last_name","facebook_image_url"],
     include :[
       { model: challenge,

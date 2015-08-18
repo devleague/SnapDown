@@ -46,6 +46,8 @@ router.get('/:id/challenges', function(req,res) {
   db.findAll({
 
     where: { user_id: req.params.id },
+    limit: 20,
+    order: [['created_at', 'DESC']],
     include :[
       { model:challenge},
       { model:images}]
@@ -68,6 +70,8 @@ router.get('/:id/context', function(req,res) {
 
   db.findAll({
     where: { user_id: req.params.id },
+    limit: 20,
+    order: [['created_at', 'DESC']],
     include :[
       {model:challenge},
       {model:images}]
