@@ -1,0 +1,45 @@
+<ion-view view-title="challenge-complete" class="challenge-complete">
+  <ion-header-bar class="bar-dark">
+    <div class="quiltHeader">
+      <h3>Challenge Complete</h3>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="quilt">
+      <ul ng-repeat="challenger in allChallengers" ng-click="showImage(challenger)">
+        <li ng-show="challenger.Image">
+          <div class="imageHolder">
+            <img ng-src="{{challenger.Image.s3_reference}}">
+            <div class="image_author">
+              <h1>{{challenger.User.first_name}}</h1>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="challengers">
+      <h3>{{ date | date: 'MM/dd/yyyy' }}</h3>
+      <div class="challengerName" ng-repeat="challenger in allChallengers">
+        <p>{{challenger.User.first_name}}</p>
+      </div>
+    </div>
+    <div class="newChallenge">
+      <div class="newChallengeButton" ng-click="createNewChallenge()">
+        <p>New Challenge</p>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="tabs tabs-icon tabs-dark">
+      <a class="tab-item" ui-sref="app.user-feed">
+        <i class="icon ion-ios-paper-outline"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.landing">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.user-profile">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
+</ion-view>

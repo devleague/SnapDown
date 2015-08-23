@@ -1,6 +1,11 @@
 <ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+  <ion-nav-view name="menuContent">
+<!--     <ion-header-bar align-title="center" class="bar-positive">
+      <h1 class="title">SnapDown</h1>
+    </ion-header-bar> -->
+  </ion-nav-view>
+  <!-- <ion-side-menu-content> -->
+<!--     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -8,29 +13,51 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
+    </ion-nav-bar> -->
+  <!-- </ion-side-menu-content> -->
 
-  <ion-side-menu side="left">
+  <!-- <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Left</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-click="nativeLogin()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close ui-sref="app.landing">
+          Landing
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close ui-sref="app.select-challenger">
+          select-challenger
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <ion-item menu-close ui-sref="app.challenge-in-progress">
+          challenge-in-progress
+        </ion-item>
+        <ion-item menu-close ui-sref="app.challenge-complete">
+          challenge-complete
+        </ion-item>
+        <ion-item menu-close ui-sref="app.user-challenged">
+          user-challenged
+        </ion-item>
+        <ion-item menu-close ui-sref="app.user-feed">
+          user-feed
+        </ion-item>
+        <ion-item menu-close ui-sref="app.oauth">
+          auth
+        </ion-item>
+        <ion-item menu-close ui-sref="app.profile">
+          profile
+        </ion-item>
+        <ion-item menu-close ui-sref="app.push-notifications">
+          push-notifications
+        </ion-item>
+        <ion-item menu-close ng-click="logout()" ui-sref="app.oauth">
+          logout
         </ion-item>
       </ion-list>
     </ion-content>
+      </ion-list> -->
+    <!-- </ion-content> -->
   </ion-side-menu>
 </ion-side-menus>

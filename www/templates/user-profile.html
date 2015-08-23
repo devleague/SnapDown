@@ -1,0 +1,98 @@
+<ion-view view-title="user-profile">
+  <ion-content on-swipe-right="onSwipeRight()" class="profile">
+    <div class="headerContainer">
+      <div class="headerContent">
+        <div class="avatarContainer">
+          <div class="userAvatar" style="background-image:url('{{fb_user.picture}}')"></div>
+        </div>
+        <div class="usernameWrapper">
+          <div class="username">
+            <h1>{{fb_user.first_name}} {{fb_user.last_name}}</h1>
+          </div>
+          <div class="optionsWrapper">
+            <div class="logout" ng-click="logout()">
+              <p>Logout</p>
+            </div>
+<!--             <div class="logout" ng-click="update(update.phone,update.carrier)">
+              <p>Update</p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="editProfileContainer">
+      <div class="list">
+        <label class="item item-input formColor">
+          <span class="input-label" placeholder="Username">Username</span>
+          <input type="text">
+        </label>
+        <form name="updateForm" class="updateForm">
+          <label class="item item-input formColor">
+            <span class="input-label" placeholder="email">Email</span>
+            <input class="emailInput" ng-model="update.email" type="email" name="email" value="{{fb_user.email}}">
+          </label>
+          <div class="error item item-input formColor" ng-show="updateForm.email.$error.email" style="color:red">
+            Not valid email!
+          </div>
+          <label class="item item-input formColor">
+            <span class="input-label" placeholder="phonenumber">Phone</span>
+            <input ng-model="update.phone" type="tel" name="phone" value="(123.456.7890)" ng-pattern="/^[2-9]\d{2}\d{3}\d{4}$/">
+          </label>
+          <div class="error item item-input formColor" ng-show="updateForm.phone.$error.pattern" style="color:red">
+            Not valid 10-digit phone number!
+          </div>
+
+          <label class="item item-input formColor">
+            <span class="input-label" placeholder="Carrier">Phone-Carrier</span>
+            <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+              <option value="">-- choose your provider--</option>
+            </select>
+          </label>
+        </form>
+      </div>
+    </div> -->
+
+
+      <div class="statisticsContainer">
+        <div class="row">
+          <div class="col col-25 stats">
+            <p>Started</p>
+            <div class="requestsBox">{{fb_user.challenge_start_count}}</div>
+          </div>
+          <div class="col col-25 stats">
+            <p>Received</p>
+            <div class="requestsBox">{{fb_user.challenge_received_count}}</div>
+          </div>
+          <div class="col col-25 stats">
+            <p>Accepted</p>
+            <div class="requestsBox">{{fb_user.challenge_accepted_count}}</div>
+          </div>
+          <div class="col col-25 stats">
+            <p>Rejected</p>
+            <div class="requestsBox">{{fb_user.challenge_rejected_count}}</div>
+          </div>
+        </div>
+      </div>
+
+<!--       <div class="deleteAccount">
+        <h3>Delete Account</h3>
+      </div> -->
+  </ion-content>
+  <ion-footer-bar>
+     <div class="tabs-striped tabs-color-energized tabs-background-dark">
+      <div class="tabs">
+        <a class="tab-item" ui-sref=
+        "app.user-feed">
+          <i class="icon ion-ios-paper-outline"></i>
+        </a>
+        <a class="tab-item" ui-sref="app.landing">
+          <i class="icon ion-home"></i>
+        </a>
+        <a class="tab-item active">
+          <i class="icon ion-gear-a"></i>
+        </a>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

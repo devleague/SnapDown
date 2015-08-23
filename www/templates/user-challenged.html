@@ -1,0 +1,50 @@
+<ion-view view-title="user-challenged" class="userChallenged">
+  <ion-header-bar class="bar-dark">
+    <div class="challengeHeader">
+      <h3>Accept Challenge</h3>
+    </div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
+
+    <div class="challengedPlayers">
+      <ul ng-repeat="challenger in allChallengers">
+        <li>
+          <div class="acceptStatus" ng-class="getStatusClass(challenger)"></div>
+          <div class="challengerName">
+            <h1>{{challenger.User.first_name}}</h1>
+          </div>
+          <div class="challengerImage">
+            <div class="image">
+              <img ng-show="challenger.Image" ng-src="{{challenger.Image.s3_reference}}" alt="">
+              <img ng-hide="challenger.Image" ng-src="https://s3-us-west-2.amazonaws.com/snapdown-development/images/question_mark.png" alt="">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+<!--     <div class="row row-wrap players" ng-repeat="challenger in allChallengers">
+    <h1>hello</h1>
+      <div>
+        <div>
+          {{challenger.Image}}
+        </div>
+        <div>
+          {{challenger.User.first_name}}
+        </div>
+      </div>
+    </div> -->
+
+    <div class="bottomHalf">
+      <div class="timer">
+        <timer class="timer" ng-show="challengeActive()" end-time="getExpireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
+      </div>
+      <div ng-hide="challengeActive()">
+        This challenge has expired.
+      </div>
+      <div class="declineChallenge" ui-sref="app.landing">not right now</div>
+      <div class="acceptChallenge" ui-sref="app.user-feed" ng-click="acceptChallenge()">accept challenge</div>
+    </div>
+
+  </ion-content>
+</ion-view>

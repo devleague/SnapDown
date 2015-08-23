@@ -1,0 +1,51 @@
+<ion-view view-title="challenge-in-progress" class="
+challenge-in-progress">
+  <ion-header-bar class="bar-dark">
+    <div class="challengeName">
+      <h3>Challenge in Progress</h3>
+    </div>
+  </ion-header-bar>
+
+  <ion-content on-swipe-right="onSwipeRight()" can-swipe-back="false">
+    <div>
+      <ul class="challengedPlayers" ng-repeat="challenger in allChallengers">
+        <li>
+          <div class="acceptStatus" ng-class="getStatusClass(challenger)"></div>
+          <div class="challengerName">
+            <h1>{{challenger.User.first_name}}</h1>
+          </div>
+          <div ng-click="showImage(challenger)" class="challengerImage">
+            <div class="image" style="background-image: url('../img/question_mark.png');">
+            <div ng-show="challenger.Image" class="image" style="background-image: url({{challenger.Image.s3_reference}})"></div>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="timerBox">
+      <div class="timer">
+        <timer end-time="expireTime()">{{minutes}} minutes, {{seconds}} seconds</timer>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="tabs tabs-icon tabs-dark">
+      <a class="tab-item" ui-sref="app.user-feed">
+        <i class="icon ion-ios-paper-outline"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.landing">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item" ui-sref="app.user-profile">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
+</ion-view>
+
+
+
+

@@ -1,0 +1,50 @@
+<ion-view view-title="user-feed" ng-init="init()">
+  <ion-header-bar align-title="center" class="user_feed_heading" >
+    <div class="user_feed_heading_logo">
+
+    </div>
+  </ion-header-bar>
+
+  <ion-content on-swipe-left="onSwipeLeft()" can-swipe-back="false" class="user_feed_container">
+  <!-- FOR DEV
+     <div class="selectChallenger" ui-sref="app.select-challenger">Select Challenger (to be deleted just for testing)</div>
+    <div class="challengeComplete" ui-sref="app.challenge-complete">Challenge Complete (to be deleted just for testing)</div>
+
+    <div class="userChallenged" ui-sref="app.user-challenged">User Challenged (to be deleted just for testing)</div> -->
+
+
+    <div class="userFeed">
+      <div class="list_of_challenges" ng-repeat="challenge in challenges | orderBy: '-Challenge.created_at'" ng-click="renderChallenge(challenge)">
+        <div class="user_feed_challenges" ng-class="isActiveClass(challenge)" >
+          <div class="image_thumb_container">
+            <div class="imageThumbnailWrapper" ng-repeat="user in challenge.Challenge.Challengers | limitTo:5" ng-show="user.Image">
+              <img class="imageThumbnail" src="{{user.Image.s3_reference}}">
+            </div>
+          </div>
+          <div>
+            <timer ng-show="isActive(challenge)" end-time="getExpireTime(challenge)" class="user_feed_challenger_time">
+              {{minutes}} minutes, {{seconds}} seconds
+            </timer>
+            <span ng-hide="isActive(challenge)" class="user_feed_challenger_time" am-time-ago="challenge.Challenge.time_elapsed"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar>
+    <div class="tabs-striped tabs-color-energized tabs-background-dark">
+      <div class="tabs">
+        <a class="tab-item active">
+          <i class="icon ion-ios-paper-outline"></i>
+        </a>
+        <a class="tab-item" ui-sref="app.landing">
+          <i class="icon ion-home"></i>
+        </a>
+        <a class="tab-item" ui-sref="app.user-profile">
+          <i class="icon ion-gear-a"></i>
+        </a>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

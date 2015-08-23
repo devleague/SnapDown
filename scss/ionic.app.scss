@@ -16,8 +16,967 @@ $dark:                            #444 !default;
 */
 
 // The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+$energized: #C7F733 !default;
+$dark: #212A33 !default;
+$lightBackground: #3D4B5B;
+$background: #1C242C;
+$lightGray: #818E9D;
+$timer: #212A33;
+$logo: url('../img/logo.svg');
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import "www/lib/ionic/scss/ionic";
 
+body, html {
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 100%;
+}
+//positions sticky footer
+.tabs {
+  left: 0;
+}
+
+//footer-bar
+div.tabs.tabs-icon.tabs-dark {
+  a:active {
+    color: $energized;
+    border-top: 4px solid $energized;
+  }
+}
+
+//Login page
+.login_container{
+  background-color: $dark;
+  color: $lightGray;
+  text-align: center;
+
+  .login_logo{
+    height: 150px;
+    width: 330px;
+    margin: 20% auto;
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 65%;
+  }
+
+  .facebook_heading{
+    font-size: 2em;
+    margin-bottom: 5%;
+    color: #0194A6;
+  }
+
+  .facebook_login_button{
+    border: 1px solid $lightGray;
+    width: 75%;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    background-color: $lightBackground;
+    margin-bottom: 5%;
+    font-size: 2em;
+    font-weight: 700;
+    color: $energized;
+  }
+
+  .facebook_subheading{
+    width: 75%;
+    margin: auto;
+    color: $energized;
+  }
+}
+
+//select a challenger page
+.selectChallenger {
+  background-color: $lightBackground;
+
+  .select_user_header {
+    width: 100%;
+
+    h3 {
+      text-align: center;
+      color: $energized;
+    }
+  }
+
+  .item-input {
+    background-color: $lightBackground;
+    border-bottom: 2px solid $lightGray;
+    font-size: 1.3em;
+  }
+
+  .selectedChallengers {
+    overflow: auto;
+    height: 70vh;
+    background-color: $lightBackground;
+    color: $lightGray;
+      .checkbox {
+        width: 100%;
+        border-bottom: 1px solid $lightGray;
+
+        .challenger_name {
+          font-size: 1.5em;
+          display: inline-block;
+          margin-left: 3%;
+          margin-top: 2%;
+          color: $lightGray;
+          width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+      input[type=checkbox]{
+        float: right;
+        margin-right: 5%;
+        margin-top: 2%;
+      }
+    }
+  }
+
+  .startChallengeButton {
+    padding-top: 10px;
+
+    .start_challenge_button{
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+    }
+  }
+}
+
+//User Feed
+.user_feed_heading{
+  background-color: $dark;
+  padding-top: 2%;
+
+  .user_feed_heading_logo{
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    width: 100%;
+  }
+}
+
+.user_feed_container{
+  background-color: $lightBackground;
+
+  .userFeed {
+
+    .list_of_challenges{
+  // border: 1px solid white;
+      border-bottom: 1px solid $lightGray;
+
+      .image_thumb_container{
+        width: 100%;
+        height: 3em;
+        //below only works on browser
+        // overflow-x: scroll;
+        overflow-y: hidden;
+        // overflow-scrolling: touch;
+        // white-space: nowrap;
+
+        .imageThumbnailWrapper{
+          display: inline-block;
+          margin: 0 1.5%;
+
+          .imageThumbnail{
+            background-position: center;
+            background-size: 100%;
+            border-radius: 15px;
+            width: 55px;
+            height: 55px;
+          }
+        }
+      }
+    }
+
+    .activeChallenge{
+      margin-bottom: 3%;
+      padding-top: 2%;
+      padding-bottom: 4%;
+      font-size: 1.5em;
+
+      .user_feed_challenger_name{
+        color: $energized;
+        margin-left: 5%;
+        font-weight: 700;
+      }
+
+      .user_feed_challenger_time{
+        color: $energized;
+        text-align: right;
+        float: right;
+        width: 100%;
+        margin-right: 5%;
+        font-weight: 700;
+        // border: 1px solid white;
+      }
+    }
+    .inactiveChallenge{
+      // border-bottom: 1px solid $lightGray;
+      margin-bottom: 3%;
+      padding-top: 2%;
+      padding-bottom: 4%;
+      font-size: 1.5em;
+
+      .user_feed_challenger_name{
+        color: #0093A1;
+        margin-left: 5%;
+      }
+
+      .user_feed_challenger_time{
+        color: #0093A1;
+        text-align: right;
+        float: right;
+        width: 100%;
+        margin-right: 5%;
+      }
+    }
+  }
+}
+
+//contact info page
+.contact-info {
+  background-color: $lightBackground;
+  .header-bar {
+    .title {
+      color: $energized;
+    }
+  }
+
+  .welcomeMessage {
+    width: 90%;
+    height: 100px;
+    margin: 0px auto;
+    margin-top: 15%;
+    margin-bottom: 25%;
+    text-align: center;
+
+    h1{
+      color: $energized;
+      font-size: 2em;
+      font-weight: bolder;
+      margin-bottom: 2%;
+    }
+
+    p {
+      color: $energized;
+      font-size: 1.4em;
+      font-weight: bolder;
+      line-height: 25px;
+    }
+  }
+
+  .phNumberDiv {
+    height: 5vh;
+    width: 30vw;
+    display: inline-block;
+    float: left;
+    margin-left: 5vw;
+
+    h3 {
+      font-size: 1.4em;
+      color: $energized;
+      line-height: 5vh;
+      font-weight: bolder;
+    }
+  }
+
+  .numberField {
+    height: 5vh;
+    width: 60vw;
+    padding-left: 15px;
+    font-size: 1.3em;
+  }
+
+  .showErrorMessage{
+    width: 50%;
+    margin-left: 40%;
+    margin-top: 2%;
+    text-align: center;
+    color: $energized;
+    font-size: 1.2em;
+  }
+
+  .phone_provider_select {
+    height: 7vh;
+    width: 60vw;
+    margin-top: 4vh;
+    margin-left: 20vw;
+    margin-bottom: 4vh;
+    font-size: 1em;
+  }
+
+  .submitButton {
+    height: 5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    background-color: #0194A6;
+    border-radius: 3px;
+    box-shadow: 0 4px #017380;
+    color: white;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+}
+
+
+
+//active challenge page
+// .activeChallenge {
+//   background-color: $lightBackground;
+//   width: 100%;
+
+//   .noChallenges {
+//     height: 20vh;
+//     width: 95%;
+//     margin: 20vh auto;
+
+//     h1 {
+//       text-align: center;
+//       color: $energized;
+//     }
+
+//     .newChallenge {
+//       height: 75px;
+//       width: 95%;
+//       background-color: #0194A6;
+//       margin: 0 auto;
+//       border-radius: 3px;
+//       box-shadow: 0 6px #017380;
+//       margin-top: 5vh;
+
+//       h3 {
+//         text-align: center;
+//         color: white;
+//         font-size: 2em;
+//         line-height: 75px;
+//       }
+//     }
+//   }
+
+//   .list {
+//     overflow: auto;
+
+//     li {
+//       height: 15vh;
+//       width: 100%;
+//       background-color: red;
+//       border-bottom: 1px solid $lightGray;
+
+//       .user_feed_challenge_name {
+//         color: $energized;
+//         text-align: center;
+//         font-size: 1.5em;
+//         font-weight: 700;
+//       }
+
+//       .user_feed_challenge_time {
+//       }
+//     }
+//   }
+// }
+
+// landing page styling
+.landing {
+  background-color: $dark;
+
+  .logoImage {
+    height: 150px;
+    width: 330px;
+    margin: 0 auto;
+    background-image: $logo;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .topContainer {
+    height: 55vh;
+    .startChallenge {
+      height: 155px;
+      width: 90%;
+      background-color: #0194A6;
+      margin: 10px auto;
+      border-radius: 5px;
+      box-shadow: 0 5px #00606E;
+
+      .cameraImage {
+      height: 80px;
+      width: 100%;
+      text-align: center;
+
+        i {
+          font-size: 90px;
+          color: white;
+        }
+      }
+
+      h1 {
+        color: white;
+        text-align: center;
+        font-size: 1.8em;
+      }
+    }
+  }
+
+  .bottomContainer {
+    height: 45vh;
+    border-top: 1px solid $lightGray;
+    background-color: $lightBackground;
+    overflow: auto;
+
+    .no_active_challenge{
+      color: $energized;
+      text-align: center;
+      padding: 5% 5%;
+      font-size: 2em;
+    }
+
+    .list_of_challenges{
+      // border: 1px solid white;
+      padding-top: 1%;
+      height: 7em;
+      border-bottom: 1px solid $lightGray;
+
+      .image_thumb_container{
+        width: 100%;
+        display: inline-block;
+        height: 4em;
+        //below only works on browser
+        // overflow-x: scroll;
+        overflow-y: hidden;
+        // overflow-scrolling: touch;
+        // white-space: nowrap;
+
+        .imageThumbnailWrapper{
+          display: inline-block;
+          margin: 0 1.5%;
+
+          .imageThumbnail{
+            width: 55px;
+            height: 55px;
+            background-position: center;
+            background-size: 100%;
+            border-radius: 15px;
+          }
+        }
+      }
+
+      .timer_on_landing{
+        display: inline-block;
+        width: 100%;
+        padding-right: 3%;
+
+        .unaccepted_heading{
+        }
+
+        .user_feed_challenger_time{
+          color: $energized;
+          padding-bottom: 3%;
+          text-align: right;
+          float: right;
+          width: 60%;
+          // margin-right: 5%;
+          font-weight: 700;
+          // border: 1px solid white;
+        }
+      }
+
+      .user_feed_challenger_name{
+        color: $energized;
+        margin-left: 5%;
+        font-weight: 700;
+      }
+    }
+
+
+    .active_challenges {
+      border-bottom: 1px solid $lightGray;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      font-size: 1.5em;
+      height: 8vh;
+
+      .active_challenger_name{
+        margin-left: 5%;
+        color: $energized;
+        line-height: 6vh;
+
+      }
+      .active_challenger_time{
+        color: $energized;
+        margin-left: 5%;
+        float: right;
+        margin-right: 5%;
+        line-height: 6vh;
+      }
+    }
+  }
+}
+
+// edit profile styling
+.profile {
+  .headerContainer {
+    height: 18vh;
+    width: 100%;
+    background-color: $dark;
+    padding-top: 23px;
+
+    .headerContent {
+      width: 100%;
+      height: 90px;
+
+      .avatarContainer {
+        height: 100%;
+        width: 30%;
+        float: left;
+        display: inline-block;
+
+        .userAvatar {
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+          height: 75px;
+          width: 75px;
+          margin: 0 auto;
+          border-radius: 15px;
+        }
+      }
+
+      .usernameWrapper {
+        width: 70%;
+        height: 27vh;
+        margin-left: 30%;
+
+        h1 {
+          color: $energized;
+          font-size: 1.5em;
+        }
+
+        .optionsWrapper{
+          .logout {
+            display: inline-block;
+            height: 35px;
+            width: 80px;
+            border-radius: 5px;
+            background-color: #828F9E;
+            text-align: center;
+            line-height: 35px;
+          }
+        }
+
+        .emailInput{
+          width:500px;
+        }
+      }
+    }
+  }
+
+  .editProfileContainer {
+    .formColor {
+      border-top: none;
+      background-color: $lightBackground;
+      border-bottom: 2px solid $lightGray;
+      height: 60px;
+
+      .input-label {
+        color: $lightGray;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .statisticsContainer {
+    background-color: $lightBackground;
+    border-top: 1px solid $lightGray;
+    height: 75vh;
+
+    p {
+      text-align: center;
+      color: $lightGray;
+      font-size: 1em;
+    }
+
+    .requestsBox {
+      text-align: center;
+      color: $energized;
+      font-size: 1.5em;
+    }
+  }
+
+  // .deleteAccount {
+  //   background-color: $lightBackground;
+  //   height: 10vh;
+  //   border-top: 2px solid $lightGray;
+  //   padding-top: 10px;
+
+  //   h3 {
+  //     color: $lightGray;
+  //     font-size: 1.2em;
+  //   }
+  // }
+}
+
+//user challenged/Open invitations/challenges waiting to be accepted
+.userChallenged {
+  background-color: $lightBackground;
+  width: 100%;
+
+  .challengeHeader {
+    width: 100%;
+
+    h3 {
+      color: $energized;
+      text-align: center;
+    }
+  }
+
+  .challengedPlayers {
+    height: 53vh;
+    padding-bottom: 20px;
+    overflow: auto;
+
+    li {
+      height: 10vh;
+      border-bottom: 1px solid $lightGray;
+
+      .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        // border: 1px solid white;
+
+      }
+
+      .notSubmitted {
+        height: 100%;
+        // border: 1px solid white;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .challengerName {
+        height: 100%;
+        width: 60%;
+        display: inline-block;
+
+        // border: 1px solid white;
+
+        h1 {
+          color: $lightGray;
+          font-size: 1.6em;
+          line-height: 10vh;
+        }
+      }
+
+      .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: right;
+        // border: 1px solid white;
+
+        .image {
+          margin: 0 auto;
+          margin-top: 1.5vh;
+
+          img {
+            height: 45px;
+            width: 45px;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottomHalf {
+    height: 40vh;
+    width: 100%;
+    padding-top: 20px;
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+
+    .declineChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #83909F;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #636E7A;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+
+    .acceptChallenge {
+      height: 75px;
+      width: 95%;
+      background-color: #0194A6;
+      margin: 0 auto;
+      border-radius: 3px;
+      box-shadow: 0 6px #017380;
+      text-align: center;
+      color: white;
+      line-height: 75px;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+
+//challenge in progress page
+.challenge-in-progress {
+  background-color: $lightBackground;
+
+  .challengeName {
+    width: 100%;
+    h3 {
+      color: $energized;
+      text-align: center;
+    }
+  }
+
+
+  .challengedPlayers {
+    height: 6em;
+    padding-bottom: 20px;
+    overflow: auto;
+
+    li {
+      height: 10vh;
+      border-bottom: 1px solid $lightGray;
+
+      .imageSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/checked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .notSubmitted {
+        height: 100%;
+        width: 15%;
+        display: inline-block;
+        float: left;
+        background-image: url('../img/unchecked.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .challengerName {
+        height: 100%;
+        width: 65%;
+        display: inline-block;
+        float: left;
+
+        h1 {
+          color: $lightGray;
+          font-size: 1.6em;
+          line-height: 10vh;
+        }
+      }
+
+      .challengerImage {
+        height: 100%;
+        width: 20%;
+        float: left;
+
+        .image {
+          height: 7vh;
+          width: 50px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+          border-radius: 15px;
+          margin: 0 auto;
+          margin-top: 1.5vh;
+        }
+      }
+    }
+  }
+
+  .timerBox {
+    height: 10vh;
+
+    .timer {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      line-height: 50px;
+    }
+  }
+}
+
+.individual_page{
+
+  .individual_page_header{
+    width: 100%;
+    h3 {
+      color: $energized;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .individual_page_container{
+    background-color: $lightBackground;
+    background-size:100%;
+
+    .image_container{
+
+      .individual_image{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.challenge-complete {
+  .quiltHeader {
+    width: 100%;
+    h3 {
+      color: $energized;
+      text-align: center;
+    }
+  }
+
+  .quilt {
+    height: 59vh;
+    width: 100%;
+    background-color: $lightBackground;
+    overflow: auto;
+    padding: 20px 2vw;
+
+    ul {
+      li {
+        height: 28vh;
+        width: 32vw;
+        display: inline-block;
+        float: left;
+
+        .imageHolder {
+          height: 85%;
+          width: 95%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin-bottom: -30px;
+
+          img{
+            height:80%;
+            width:100%;
+            border-radius: 15px;
+          }
+        }
+
+        h1 {
+          text-align: center;
+          color: $energized;
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+
+  .challengers {
+    height: 18vh;
+    width: 100%;
+    background-color: #D4DBE3;
+    color: $lightGray;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    h3 {
+      color: $lightGray;
+      font-size: 1em;
+    }
+
+    .challengerName {
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+      &:last-child {
+        p:after {
+          content: "";
+        }
+      }
+      p {
+        font-size: 1.5em;
+        &:after {
+          content: ",";
+        }
+      }
+    }
+  }
+
+  .newChallenge {
+    height: 12vh;
+    width: 100%;
+    background-color: #D4DBE3;
+
+    .newChallengeButton {
+      height: 50px;
+      width: 95%;
+      background-color: $timer;
+      margin: 0 auto;
+      border-radius: 3px;
+      text-align: center;
+      color: #0093A1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      line-height: 50px;
+    }
+  }
+}
+
+.unaccepted{
+  div{
+    color:red;
+    display:inline;
+    font-size: 1.1em;
+    margin-left: 1%;
+  }
+}

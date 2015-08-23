@@ -1,0 +1,34 @@
+<ion-view view-title="select-challenger" class="selectChallenger">
+  <ion-header-bar class="bar-dark">
+    <div class="select_user_header">
+      <h3>Choose A User</h3>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+      <!-- <div>{{imageURI}}</div> -->
+    <div>
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="searchUsers" placeholder="Search" id="user_search">
+      </label>
+    </div>
+
+    <div class="selectedChallengers">
+      <ul ng-repeat="user in users | filter:searchUsers">
+        <li>
+          <div class="checkbox">
+            <h2 class="challenger_name">{{user.first_name}} {{user.last_name}}</h2>
+             <input type="checkbox" name="checkboxes" id="{{user.id}}" ng-change="isChecked(bool, user)" ng-model="bool">
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="startChallengeButton">
+      <div class="start_challenge_button" id="start_challenge" ng-click="sendInvites(); combinedUpdate()">Start Challenge</div>
+    </div>
+
+  </ion-content>
+</ion-view>

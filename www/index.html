@@ -5,22 +5,48 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+
+    <script src="http://pc035860.github.io/angular-easyfb/angular-easyfb.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script> -->
+    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers/oauth-controller.js"></script>
+    <script src="js/controllers/profile-controller.js"></script>
+    <script src="js/controllers/landing-controller.js"></script>
+    <script src="js/controllers/user-challenged-controller.js"></script>
+    <script src="js/controllers/select-challenger-controller.js"></script>
+    <script src="js/controllers/challenge-in-progress-controller.js"></script>
+    <script src="js/controllers/individual-image-controller.js"></script>
+
+    <!-- <script src="js/controllers/active-challenges-controller.js"></script> -->
+    <script src="js/controllers/get-user-phone-info-controller.js"></script>
+
+    <script src="js/controllers/challenge-complete-controller.js"></script>
+    <script src="js/controllers/user-feed-controller.js"></script>
+    <script src="js/controllers/user-profile-controller.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/validationService.js"></script>
+    <script src="lib/angular-timer/dist/angular-timer.min.js"></script>
+    <script src="lib/momentjs/min/locales.min.js"></script>
+    <script src="lib/momentjs/min/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.2/angular-moment.min.js"></script>
+    <script src="lib/humanize-duration/humanize-duration.js"></script>
   </head>
 
   <body ng-app="starter">

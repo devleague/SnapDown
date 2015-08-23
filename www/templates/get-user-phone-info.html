@@ -1,0 +1,31 @@
+<ion-view view-title="contact-info" class="contact-info">
+  <ion-header-bar align-title="center" class="bar-dark header-bar">
+    <h3 class="title">Contact Information</h3>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="welcomeMessage">
+      <h1>Welcome to SnapDown!</h1>
+      <br>
+      <br>
+      <p>Please enter your 10-digit telephone number and choose your service provider so we can notify you of new challenges!</p>
+      <br>
+    </div>
+
+    <form name="get-user-phone-info-form"></form>
+      <div class="phNumberDiv">
+        <h3>Telephone:</h3>
+      </div>
+      <input class="numberField" required type="text" placeholder="(xxx)xxx-xxxx"  name="phone" ng-model="user_info.phone">
+
+      <div class="showErrorMessage" ng-show="showErrorMessage">please enter a valid 10 digit phone number</div>
+
+      <select class="phone_provider_select" required name="providers"  ng-model="user_info.service_provider" ng-options="provider.name for provider in providers">
+        <option value="">-- choose your provider--</option>
+      </select>
+
+      <div type="submit" class="submitButton" ng-disabled="get-user-phone-info-form.$invalid" ng-click="updateUserPhoneInfo(user_info)">Ready to Play!</div>
+
+
+  </ion-content>
+</ion-view>

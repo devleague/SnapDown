@@ -3,4 +3,9 @@
 
 node_modules/
 platforms/
-plugins/
+ggtest/
+.env
+server/config
+playstore_instructions_judah.txt
+SnapDown.apk
+snapdown-release.keystore
