@@ -1,0 +1,9 @@
+keytool -genkey -v -keystore snapdown-release.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore snapdown-release.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk alias_name
+
+//path to the apk
+platforms/android/build/outputs/apk/android-release-unsigned.apk
+
+  ~/Development/android-sdk-macosx/build-tools/23.0.0/zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk SnapDown.apk
